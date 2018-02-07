@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: "Photos",
+    title: "Photos — Philipp Rappold, Information Designer",
     author: "Philipp Rappold",
     description:
-      "Photography by Philipp Rappold, an information designer living in Amsterdam, NL."
+      "A photography archive of personal favourites by Philipp Rappold, an information designer in Amsterdam."
   },
   plugins: [
     "gatsby-plugin-react-helmet",
