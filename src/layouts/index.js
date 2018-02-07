@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import "intersection-observer" // polyfill
 import Observer from "@researchgate/react-intersection-observer"
 import styled from "styled-components"
 import PropTypes from "prop-types"
