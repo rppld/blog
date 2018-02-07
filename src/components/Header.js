@@ -9,7 +9,7 @@ const Wrapper = styled.header`
 `
 
 const FixedElement = styled.div`
-  min-height: 65vh;
+  min-height: 100vh;
   max-width: 1180px;
   padding: ${c.space1};
 
@@ -30,7 +30,7 @@ const FixedElement = styled.div`
 
 const Spacer = styled.div`
   @media (min-width: ${c.bpL}) {
-    min-height: 65vh;
+    min-height: 100vh;
   }
 `
 

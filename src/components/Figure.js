@@ -52,7 +52,7 @@ class Figure extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      show: [0, 1].includes(this.props.index) ? true : false
+      show: false
     }
   }
 
@@ -64,7 +64,7 @@ class Figure extends Component {
 
   render() {
     return (
-      <Observer onChange={this.handleChange} rootMargin="25% 0% 0%">
+      <Observer onChange={this.handleChange} rootMargin="25% 0% 15%">
         <Wrapper show={this.state.show}>
           <Image sizes={this.props.sizes} />
           <Caption>{this.props.caption}</Caption>

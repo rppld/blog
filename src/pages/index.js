@@ -63,7 +63,7 @@ class IndexPage extends Component {
 
     return (
       <Grid>
-        {data.allPhotosJson.edges.map(({ node }, i) => {
+        {data.allPhotosJson.edges.map(({ node }) => {
           count < 6 ? count++ : (count = 1)
 
           return (
@@ -73,7 +73,6 @@ class IndexPage extends Component {
             >
               <Figure
                 caption={node.caption}
-                index={i}
                 sizes={node.image.childImageSharp.sizes}
               />
             </GridItem>

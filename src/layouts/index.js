@@ -41,7 +41,7 @@ class TemplateWrapper extends Component {
           ]}
         />
         <Header show={this.state.showHeader} />
-        <Observer onChange={this.handleChange} rootMargin="0% 0% -50%">
+        <Observer onChange={this.handleChange} rootMargin="0% 0% -25%">
           <div>{children()}</div>
         </Observer>
         <Footer author={data.site.siteMetadata.author} />
