@@ -10,49 +10,53 @@ const Wrapper = styled.header`
 
 const FixedElement = styled.div`
   min-height: 65vh;
-  max-width: 1280px;
+  max-width: 1180px;
   padding: ${c.space1};
 
-  @media (min-width: 30em) {
+  @media (min-width: ${c.bpNs}) {
     padding: ${c.space2};
   }
 
-  @media (min-width: 60em) {
+  @media (min-width: ${c.bpL}) {
     padding: ${c.space3};
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     transition: 400ms;
-    // transform: translate3d(0, ${props => (props.show ? "0" : "-100px")}, 0);
     opacity: ${props => (props.show ? "1" : "0")};
   }
 `
 
 const Spacer = styled.div`
-  @media (min-width: 60em) {
+  @media (min-width: ${c.bpL}) {
     min-height: 65vh;
   }
 `
 
 const Title = styled.h1`
-  margin-top: 0;
+  margin-top: -0.75rem;
   margin-bottom: 0.75rem;
-  font-size: ${c.f4};
+  font-size: ${c.f5};
   font-weight: 700;
   color: ${c.nearBlack};
   line-height: 1.25;
   transform: translateX(-1px);
 
-  @media (min-width: 30em) {
-    font-size: ${c.f5};
+  @media (min-width: ${c.bpNs}) {
+    font-size: ${c.f6};
     transform: translateX(-2px);
   }
 
-  @media (min-width: 60em) {
-    transform: translateX(-3px);
+  @media (min-width: ${c.bpL}) {
     margin-bottom: 1rem;
-    font-size: ${c.f6};
+    transform: translateX(-3px);
+    font-size: ${c.f7};
+  }
+
+  @media (min-width: ${c.bpXl}) {
+    transform: translateX(-3px);
+    font-size: ${c.f8};
   }
 `
 
@@ -63,12 +67,16 @@ const Lede = styled.h2`
   font-weight: 300;
   color: ${c.gray};
 
-  @media (min-width: 30em) {
+  @media (min-width: ${c.bpNs}) {
     font-size: ${c.f2};
   }
 
-  @media (min-width: 60em) {
+  @media (min-width: ${c.bpL}) {
     font-size: ${c.f3};
+  }
+
+  @media (min-width: ${c.bpXl}) {
+    font-size: ${c.f4};
   }
 `
 

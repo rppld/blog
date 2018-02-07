@@ -7,11 +7,11 @@ const Wrapper = styled.footer`
   max-width: 1280px;
   padding: ${c.space1};
 
-  @media (min-width: 30em) {
+  @media (min-width: ${c.bpNs}) {
     padding: ${c.space2};
   }
 
-  @media (min-width: 60em) {
+  @media (min-width: ${c.bpL}) {
     padding: ${c.space3};
   }
 `
@@ -23,12 +23,16 @@ const SmallPrint = styled.p`
   font-weight: 300;
   color: ${c.nearBlack};
 
-  @media (min-width: 30em) {
+  @media (min-width: ${c.bpNs}) {
     font-size: ${c.f2};
   }
 
-  @media (min-width: 60em) {
+  @media (min-width: ${c.bpL}) {
     font-size: ${c.f3};
+  }
+
+  @media (min-width: ${c.bpXl}) {
+    font-size: ${c.f4};
   }
 `
 

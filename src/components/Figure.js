@@ -31,16 +31,20 @@ const Caption = styled.figcaption`
   padding-right: ${c.space1};
   margin-top: 0.25rem;
 
-  @media (min-width: 30em) {
+  @media (min-width: ${c.bpNs}) {
     font-size: ${c.f2};
     padding-left: ${c.space2};
     padding-right: ${c.space2};
   }
 
-  @media (min-width: 60em) {
+  @media (min-width: ${c.bpL}) {
     font-size: ${c.f3};
     padding-left: ${c.space3};
     padding-right: ${c.space3};
+  }
+
+  @media (min-width: ${c.bpXl}) {
+    font-size: ${c.f4};
   }
 `
 
