@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: auto;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
+    "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial,
+    sans-serif;
+  -webkit-text-size-adjust: 100%;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
