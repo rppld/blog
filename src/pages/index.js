@@ -74,6 +74,7 @@ class IndexPage extends Component {
               <Figure
                 caption={node.caption}
                 sizes={node.image.childImageSharp.sizes}
+                size={this.getSize(count)}
               />
             </GridItem>
           )
@@ -96,8 +97,16 @@ export const query = graphql`
           }
           image {
             childImageSharp {
-              sizes(maxWidth: 1080, quality: 90) {
-                ...GatsbyImageSharpSizes
+              sizes(quality: 90) {
+                base64
+                aspectRatio
+                src
+                srcSet
+                srcWebp
+                srcSetWebp
+                sizes
+                originalImg
+                originalName
               }
             }
           }

@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import Plx from "react-plx"
-import Image from "gatsby-image"
+import Image from "./Image"
 import c from "../config"
 
 const Wrapper = styled.figure`
@@ -71,7 +71,7 @@ class Figure extends Component {
     return (
       <Plx parallaxData={parallaxData} style={{ width: "100%" }}>
         <Wrapper>
-          <Image sizes={this.props.sizes} />
+          <Image responsiveSizes={this.props.sizes} sizes="100vw" />
           <Caption>{this.props.caption}</Caption>
         </Wrapper>
       </Plx>
