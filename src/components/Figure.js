@@ -1,22 +1,20 @@
 import React, { Component } from "react"
-import Observer from "@researchgate/react-intersection-observer"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import Plx from "react-plx"
 import Image from "gatsby-image"
 import c from "../config"
 
 const Wrapper = styled.figure`
   position: relative;
-  margin: 0;
+  margin: 0 auto;
   width: 100%;
   max-width: 1080px;
-  transform: ${props =>
-    props.show === false ? "translateY(200px)" : "translateY(0)"};
-  opacity: ${props => (props.show === false ? "0" : "1")};
   transition: 400ms ease;
 
   img {
     vertical-align: middle;
+    width: 100%;
   }
 `
 
@@ -48,28 +46,35 @@ const Caption = styled.figcaption`
   }
 `
 
+const parallaxData = [
+  {
+    start: "self",
+    duration: 400,
+    easing: "easeOutCubic",
+    properties: [
+      {
+        startValue: 0,
+        endValue: 1,
+        property: "opacity"
+      },
+      {
+        startValue: 0.9,
+        endValue: 1,
+        property: "scale"
+      }
+    ]
+  }
+]
+
 class Figure extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      show: false
-    }
-  }
-
-  handleChange = event => {
-    this.setState(prevState => ({
-      show: event.isIntersecting ? true : false
-    }))
-  }
-
   render() {
     return (
-      <Observer onChange={this.handleChange} rootMargin="25% 0% 15%">
-        <Wrapper show={this.state.show}>
+      <Plx parallaxData={parallaxData} style={{ width: "100%" }}>
+        <Wrapper>
           <Image sizes={this.props.sizes} />
           <Caption>{this.props.caption}</Caption>
         </Wrapper>
-      </Observer>
+      </Plx>
     )
   }
 }

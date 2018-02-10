@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import Observer from "@researchgate/react-intersection-observer"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
@@ -13,13 +12,6 @@ const Wrapper = styled.div`
 `
 
 class TemplateWrapper extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      showHeader: true
-    }
-  }
-
   handleChange = event => {
     this.setState(prevState => ({
       showHeader: event.isIntersecting ? false : true
@@ -43,10 +35,8 @@ class TemplateWrapper extends Component {
         >
           <link rel="shortcut icon" type="image/png" href={favicon} />
         </Helmet>
-        <Header show={this.state.showHeader} />
-        <Observer onChange={this.handleChange} rootMargin="0% 0% -25%">
-          <div>{children()}</div>
-        </Observer>
+        <Header />
+        <div>{children()}</div>
         <Footer author={data.site.siteMetadata.author} />
       </Wrapper>
     )

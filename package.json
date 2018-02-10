@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "author": "Philipp Rappold <philipp@rppld.co>",
   "dependencies": {
-    "@researchgate/react-intersection-observer": "^0.6.0",
     "gatsby": "^1.9.158",
     "gatsby-image": "^1.0.35",
     "gatsby-link": "^1.6.34",
@@ -16,6 +15,7 @@
     "gatsby-transformer-sharp": "^1.6.16",
     "intersection-observer": "^0.5.0",
     "react-helmet": "^5.2.0",
+    "react-plx": "^1.0.5",
     "react-transition-group": "^2.2.1",
     "styled-components": "^3.1.4"
   },

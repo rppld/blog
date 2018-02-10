@@ -1,14 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import Plx from "react-plx"
 import c from "../config"
 
 const Wrapper = styled.header`
-  position: relative;
-  z-index: 0;
-`
-
-const FixedElement = styled.div`
   min-height: 100vh;
   max-width: 1180px;
   padding: ${c.space1};
@@ -19,18 +15,7 @@ const FixedElement = styled.div`
 
   @media (min-width: ${c.bpL}) {
     padding: ${c.space3};
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     transition: 400ms;
-    opacity: ${props => (props.show ? "1" : "0")};
-  }
-`
-
-const Spacer = styled.div`
-  @media (min-width: ${c.bpL}) {
-    min-height: 100vh;
   }
 `
 
@@ -95,26 +80,41 @@ const Link = styled.a`
   }
 `
 
+const parallaxData = [
+  {
+    start: 0,
+    end: "50vh",
+    properties: [
+      {
+        startValue: 1,
+        endValue: 0,
+        property: "opacity"
+      },
+      {
+        startValue: 0,
+        endValue: 200,
+        property: "translateY"
+      }
+    ]
+  }
+]
+
 const Header = props => (
   <Wrapper>
-    <Spacer />
+    <Plx parallaxData={parallaxData}>
+      <Title>Rppld.co — Photos</Title>
+    </Plx>
 
-    <FixedElement show={props.show}>
-      <div>
-        <Title>Rppld.co — Photos</Title>
-
-        <Lede>
-          I'm Philipp Rappold, an information designer from Vienna, living and
-          working in Amsterdam, and taking photos for fun. I've collected quite
-          a few of them over time, so I made this archive of personal favourites
-          to showcase the ones I'm most happy with. You can follow me on{" "}
-          <Link href="https://twitter.com/rppld">Twitter</Link> and{" "}
-          <Link href="https://www.instagram.com/philipprappold/">
-            Instagram
-          </Link>.
-        </Lede>
-      </div>
-    </FixedElement>
+    <Plx parallaxData={parallaxData}>
+      <Lede>
+        I'm Philipp Rappold, an information designer from Vienna, living and
+        working in Amsterdam, and taking photos for fun. I've collected quite a
+        few of them over time, so I made this archive of personal favourites to
+        showcase the ones I'm most happy with. You can follow me on{" "}
+        <Link href="https://twitter.com/rppld">Twitter</Link> and{" "}
+        <Link href="https://www.instagram.com/philipprappold/">Instagram</Link>.
+      </Lede>
+    </Plx>
   </Wrapper>
 )
 
