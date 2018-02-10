@@ -50,7 +50,7 @@ const parallaxData = [
   {
     start: "self",
     duration: 400,
-    easing: "easeOutCubic",
+    // easing: "easeOutCubic",
     properties: [
       {
         startValue: 0,
@@ -71,7 +71,10 @@ class Figure extends Component {
     return (
       <Plx parallaxData={parallaxData} style={{ width: "100%" }}>
         <Wrapper>
-          <Image responsiveSizes={this.props.sizes} sizes="100vw" />
+          <Image
+            sizes={this.props.sizes}
+            sizesString={this.props.sizesString}
+          />
           <Caption>{this.props.caption}</Caption>
         </Wrapper>
       </Plx>
@@ -80,7 +83,8 @@ class Figure extends Component {
 }
 
 Figure.propTypes = {
-  sizes: PropTypes.object
+  sizes: PropTypes.object,
+  sizesString: PropTypes.string
 }
 
 export default Figure

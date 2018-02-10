@@ -4,14 +4,14 @@ import PropTypes from "prop-types"
 // Handle legacy names for image queries.
 const convertProps = props => {
   let convertedProps = { ...props }
-  if (convertedProps.responsiveResolution) {
-    convertedProps.resolutions = convertedProps.responsiveResolution
-    delete convertedProps.responsiveResolution
-  }
+
   if (convertedProps.responsiveSizes) {
     convertedProps.sizes = convertedProps.responsiveSizes
     delete convertedProps.responsiveSizes
   }
+
+  // Use own string for sizes attribute
+  convertedProps.sizes.sizes = props.sizesString
 
   return convertedProps
 }
@@ -22,9 +22,7 @@ const imageCache = {}
 const inImageCache = props => {
   const convertedProps = convertProps(props)
   // Find src
-  const src = convertedProps.sizes
-    ? convertedProps.sizes.src
-    : convertedProps.resolutions.src
+  const src = convertedProps.sizes.src
 
   if (imageCache[src]) {
     return true
@@ -185,7 +183,6 @@ class Image extends React.Component {
       outerWrapperClassName,
       style = {},
       sizes,
-      resolutions,
       backgroundColor
     } = convertProps(this.props)
 
@@ -303,117 +300,6 @@ class Image extends React.Component {
       )
     }
 
-    if (resolutions) {
-      const image = resolutions
-      const divStyle = {
-        position: `relative`,
-        overflow: `hidden`,
-        display: `inline-block`,
-        zIndex: 1,
-        width: image.width,
-        height: image.height,
-        ...style
-      }
-
-      if (style.display === `inherit`) {
-        delete divStyle.display
-      }
-
-      // Use webp by default if browser supports it
-      if (image.srcWebp && image.srcSetWebp && isWebpSupported()) {
-        image.src = image.srcWebp
-        image.srcSet = image.srcSetWebp
-      }
-
-      // The outer div is necessary to reset the z-index to 0.
-      return (
-        <div
-          className={`${
-            outerWrapperClassName ? outerWrapperClassName : ``
-          } gatsby-image-outer-wrapper`}
-          style={{
-            zIndex: 0,
-            // Let users set component to be absolutely positioned.
-            position: style.position === `absolute` ? `initial` : `relative`
-          }}
-        >
-          <div
-            className={`${className ? className : ``} gatsby-image-wrapper`}
-            style={divStyle}
-            ref={this.handleRef}
-          >
-            {/* Show the blury base64 image. */}
-            {image.base64 && (
-              <Img
-                alt={alt}
-                title={title}
-                src={image.base64}
-                opacity={!this.state.imgLoaded ? 1 : 0}
-                transitionDelay={`0.35s`}
-              />
-            )}
-
-            {/* Show the traced SVG image. */}
-            {image.tracedSVG && (
-              <Img
-                alt={alt}
-                title={title}
-                src={image.tracedSVG}
-                opacity={!this.state.imgLoaded ? 1 : 0}
-                transitionDelay={`0.25s`}
-              />
-            )}
-
-            {/* Show a solid background color. */}
-            {bgColor && (
-              <div
-                title={title}
-                style={{
-                  backgroundColor: bgColor,
-                  width: image.width,
-                  opacity: !this.state.imgLoaded ? 1 : 0,
-                  transitionDelay: `0.25s`,
-                  height: image.height
-                }}
-              />
-            )}
-
-            {/* Once the image is visible, start downloading the image */}
-            {this.state.isVisible && (
-              <Img
-                alt={alt}
-                title={title}
-                width={image.width}
-                height={image.height}
-                srcSet={image.srcSet}
-                src={image.src}
-                opacity={
-                  this.state.imgLoaded || this.props.fadeIn === false ? 1 : 0
-                }
-                onLoad={() => {
-                  this.setState({ imgLoaded: true })
-                  this.props.onLoad && this.props.onLoad()
-                }}
-              />
-            )}
-
-            {/* Show the original image during server-side rendering if JavaScript is disabled */}
-            <noscript
-              dangerouslySetInnerHTML={{
-                __html: noscriptImg({
-                  alt,
-                  title,
-                  width: image.width,
-                  height: image.height,
-                  ...image
-                })
-              }}
-            />
-          </div>
-        </div>
-      )
-    }
-
     return null
   }
 }
@@ -424,10 +310,9 @@ Image.defaultProps = {
 }
 
 Image.propTypes = {
-  responsiveResolution: PropTypes.object,
   responsiveSizes: PropTypes.object,
-  resolutions: PropTypes.object,
   sizes: PropTypes.object,
+  sizesString: PropTypes.string,
   fadeIn: PropTypes.bool,
   title: PropTypes.string,
   alt: PropTypes.string,

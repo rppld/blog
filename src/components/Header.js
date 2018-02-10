@@ -20,7 +20,7 @@ const Wrapper = styled.header`
 `
 
 const Title = styled.h1`
-  margin-top: -0.75rem;
+  margin-top: 0;
   margin-bottom: 0.75rem;
   font-size: ${c.f5};
   font-weight: 700;
@@ -87,13 +87,8 @@ const parallaxData = [
     properties: [
       {
         startValue: 1,
-        endValue: 0,
+        endValue: 0.25,
         property: "opacity"
-      },
-      {
-        startValue: 0,
-        endValue: 200,
-        property: "translateY"
       }
     ]
   }
