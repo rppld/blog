@@ -5,6 +5,7 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import favicon from "../favicon.png"
 import "../style.css"
 
 const Wrapper = styled.div`
@@ -39,7 +40,9 @@ class TemplateWrapper extends Component {
             },
             { name: "author", content: data.site.siteMetadata.author }
           ]}
-        />
+        >
+          <link rel="shortcut icon" type="image/png" href={favicon} />
+        </Helmet>
         <Header show={this.state.showHeader} />
         <Observer onChange={this.handleChange} rootMargin="0% 0% -25%">
           <div>{children()}</div>
