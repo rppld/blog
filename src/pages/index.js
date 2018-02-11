@@ -53,10 +53,10 @@ class IndexPage extends Component {
     switch (index) {
       case 1:
       case 5:
-        return "(min-width: 30em) 40vw, 100vw"
+        return "(min-width: 30em) 60vw, 100vw"
       case 2:
       case 4:
-        return "(min-width: 30em) 60vw, 100vw"
+        return "(min-width: 30em) 40vw, 100vw"
       case 3:
       case 6:
       default:
