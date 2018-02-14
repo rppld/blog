@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "Photos — Philipp Rappold, Information Designer",
+    name: "Philipp Rappold",
+    title: "Philipp Rappold, Information Designer",
+    email: "hi@rppld.co",
     author: "Philipp Rappold",
     description:
       "A photography archive of personal favourites by Philipp Rappold, an information designer in Amsterdam."

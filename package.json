@@ -12,9 +12,8 @@
     "gatsby-source-filesystem": "^1.5.14",
     "gatsby-transformer-json": "^1.0.14",
     "gatsby-transformer-sharp": "^1.6.16",
-    "intersection-observer": "^0.5.0",
+    "lodash": "^4.17.5",
     "react-helmet": "^5.2.0",
-    "react-plx": "^1.0.5",
     "react-transition-group": "^2.2.1",
     "styled-components": "^3.1.4"
   },

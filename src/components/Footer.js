@@ -1,38 +1,39 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import c from "../config"
+import config from "../config"
+import { device } from "../media"
 
 const Wrapper = styled.footer`
   max-width: 1280px;
-  padding: ${c.space1};
+  padding: ${config.space1};
 
-  @media (min-width: ${c.bpNs}) {
-    padding: ${c.space2};
+  @media ${device.tablet} {
+    padding: ${config.space2};
   }
 
-  @media (min-width: ${c.bpL}) {
-    padding: ${c.space3};
+  @media ${device.laptop} {
+    padding: ${config.space3};
   }
 `
 
 const SmallPrint = styled.p`
   margin: 0;
-  font-size: ${c.f1};
-  letter-spacing: ${c.ls1};
+  font-size: ${config.f1};
+  letter-spacing: ${config.ls1};
   font-weight: 300;
-  color: ${c.nearBlack};
+  color: ${config.nearBlack};
 
-  @media (min-width: ${c.bpNs}) {
-    font-size: ${c.f2};
+  @media ${device.tablet} {
+    font-size: ${config.f2};
   }
 
-  @media (min-width: ${c.bpL}) {
-    font-size: ${c.f3};
+  @media ${device.laptop} {
+    font-size: ${config.f3};
   }
 
-  @media (min-width: ${c.bpXl}) {
-    font-size: ${c.f4};
+  @media ${device.laptopL} {
+    font-size: ${config.f4};
   }
 `
 

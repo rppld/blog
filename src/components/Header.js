@@ -1,120 +1,60 @@
 import React from "react"
-import PropTypes from "prop-types"
 import styled from "styled-components"
-import Plx from "react-plx"
-import c from "../config"
+import Link from "gatsby-link"
+import { device } from "../media"
+import config from "../config"
 
 const Wrapper = styled.header`
-  min-height: 100vh;
-  max-width: 1180px;
-  padding: ${c.space1};
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: ${config.space0};
+  padding-left: ${config.space1};
+  padding-right: ${config.space1};
 
-  @media (min-width: ${c.bpNs}) {
-    padding: ${c.space2};
+  @media ${device.tablet} {
+    padding-left: ${config.space2};
+    padding-right: ${config.space2};
   }
 
-  @media (min-width: ${c.bpL}) {
-    padding: ${c.space3};
-    transition: 400ms;
+  @media ${device.laptop} {
+    padding-left: ${config.space3};
+    padding-right: ${config.space3};
   }
 `
 
 const Title = styled.h1`
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-  font-size: ${c.f5};
-  font-weight: 700;
-  color: ${c.nearBlack};
-  line-height: 1.25;
-  transform: translateX(-1px);
-
-  @media (min-width: ${c.bpNs}) {
-    font-size: ${c.f6};
-    transform: translateX(-2px);
-  }
-
-  @media (min-width: ${c.bpL}) {
-    margin-bottom: 1rem;
-    transform: translateX(-3px);
-    font-size: ${c.f7};
-  }
-
-  @media (min-width: ${c.bpXl}) {
-    transform: translateX(-3px);
-    font-size: ${c.f8};
-  }
-`
-
-const Lede = styled.h2`
   margin: 0;
-  font-size: ${c.f1};
-  letter-spacing: ${c.ls1};
-  font-weight: 300;
-  color: ${c.gray};
-
-  @media (min-width: ${c.bpNs}) {
-    font-size: ${c.f2};
-  }
-
-  @media (min-width: ${c.bpL}) {
-    font-size: ${c.f3};
-  }
-
-  @media (min-width: ${c.bpXl}) {
-    font-size: ${c.f4};
-  }
+  font-size: ${config.f0};
+  font-weight: 700;
+  color: ${config.nearBlack};
 `
 
-const Link = styled.a`
-  transition-property: background-color, border-color;
-  transition-duration: 400ms;
-  text-decoration: none;
-  background-color: rgba(187, 239, 253, 0.3);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  color: #1a1a1a;
-
-  &:hover,
-  &:focus {
-    background-color: #bbeffd;
-    border-bottom-color: #1a1a1a;
-  }
+const Paragraph = styled.p`
+  font-size: ${config.f0};
+  margin: 0;
 `
 
-const parallaxData = [
-  {
-    start: 0,
-    end: "50vh",
-    properties: [
-      {
-        startValue: 1,
-        endValue: 0.25,
-        property: "opacity"
-      }
-    ]
-  }
-]
+const EmailLink = styled.a`
+  color: ${config.nearBlack};
+`
 
 const Header = props => (
   <Wrapper>
-    <Plx parallaxData={parallaxData}>
-      <Title>Rppld.co — Photos</Title>
-    </Plx>
+    <Link to="/" style={{ textDecoration: "none" }}>
+      <Title>{props.siteName}</Title>
+    </Link>
 
-    <Plx parallaxData={parallaxData}>
-      <Lede>
-        I'm Philipp Rappold, an information designer from Vienna, living and
-        working in Amsterdam, and taking photos for fun. I've collected quite a
-        few of them over time, so I made this archive of personal favourites to
-        showcase the ones I'm most happy with. You can follow me on{" "}
-        <Link href="https://twitter.com/rppld">Twitter</Link> and{" "}
-        <Link href="https://www.instagram.com/philipprappold/">Instagram</Link>.
-      </Lede>
-    </Plx>
+    <Paragraph>
+      Let's chat:{" "}
+      <EmailLink href={`mailto:${props.email}`}>{props.email}</EmailLink>
+    </Paragraph>
   </Wrapper>
 )
-
-Header.propTypes = {
-  show: PropTypes.bool
-}
 
 export default Header

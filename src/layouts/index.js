@@ -1,28 +1,17 @@
 import React, { Component } from "react"
-import styled from "styled-components"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import Header from "../components/Header"
-import Footer from "../components/Footer"
+// import Footer from "../components/Footer"
 import favicon from "../favicon.png"
 import "../style.css"
 
-const Wrapper = styled.div`
-  background-color: rgba(255, 255, 255, 1);
-`
-
 class TemplateWrapper extends Component {
-  handleChange = event => {
-    this.setState(prevState => ({
-      showHeader: event.isIntersecting ? false : true
-    }))
-  }
-
   render() {
     const { children, data } = this.props
 
     return (
-      <Wrapper>
+      <div>
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -35,10 +24,13 @@ class TemplateWrapper extends Component {
         >
           <link rel="shortcut icon" type="image/png" href={favicon} />
         </Helmet>
-        <Header />
+        <Header
+          siteName={data.site.siteMetadata.name}
+          email={data.site.siteMetadata.email}
+        />
         <div>{children()}</div>
-        <Footer author={data.site.siteMetadata.author} />
-      </Wrapper>
+        {/* <Footer author={data.site.siteMetadata.author} /> */}
+      </div>
     )
   }
 }
@@ -54,7 +46,9 @@ export const query = graphql`
   query IndexQuery {
     site {
       siteMetadata {
+        name
         title
+        email
         author
         description
       }

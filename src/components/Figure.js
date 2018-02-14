@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import Plx from "react-plx"
 import Image from "./Image"
-import c from "../config"
+import config from "../config"
+import { device } from "../media"
 
 const Wrapper = styled.figure`
   position: relative;
@@ -20,69 +20,45 @@ const Wrapper = styled.figure`
 
 const Caption = styled.figcaption`
   width: 100%;
-  font-size: ${c.f1};
-  font-weight: 300;
-  letter-spacing: ${c.ls1};
+  font-size: ${config.f1};
+  font-weight: 400;
+  letter-spacing: ${config.ls1};
   line-height: 1.25;
-  color: ${c.gray};
-  padding-left: ${c.space1};
-  padding-right: ${c.space1};
+  color: ${config.gray};
+  padding-left: ${config.space1};
+  padding-right: ${config.space1};
   margin-top: 0.25rem;
 
-  @media (min-width: ${c.bpNs}) {
-    font-size: ${c.f2};
-    padding-left: ${c.space2};
-    padding-right: ${c.space2};
+  @media ${device.tablet} {
+    font-size: ${config.f2};
+    padding-left: ${config.space2};
+    padding-right: ${config.space2};
   }
 
-  @media (min-width: ${c.bpL}) {
-    font-size: ${c.f3};
-    padding-left: ${c.space3};
-    padding-right: ${c.space3};
+  @media ${device.laptop} {
+    font-size: ${config.f3};
+    padding-left: ${config.space3};
+    padding-right: ${config.space3};
   }
 
-  @media (min-width: ${c.bpXl}) {
-    font-size: ${c.f4};
+  @media ${device.laptopL} {
+    font-size: ${config.f4};
   }
 `
-
-const parallaxData = [
-  {
-    start: "self",
-    duration: 400,
-    // easing: "easeOutCubic",
-    properties: [
-      {
-        startValue: 0,
-        endValue: 1,
-        property: "opacity"
-      },
-      {
-        startValue: 0.9,
-        endValue: 1,
-        property: "scale"
-      }
-    ]
-  }
-]
 
 class Figure extends Component {
   render() {
     return (
-      <Plx parallaxData={parallaxData} style={{ width: "100%" }}>
-        <Wrapper>
-          <Image
-            sizes={this.props.sizes}
-            sizesString={this.props.sizesString}
-          />
-          <Caption>{this.props.caption}</Caption>
-        </Wrapper>
-      </Plx>
+      <Wrapper>
+        <Image sizes={this.props.sizes} sizesString={this.props.sizesString} />
+        <Caption>{this.props.caption}</Caption>
+      </Wrapper>
     )
   }
 }
 
 Figure.propTypes = {
+  index: PropTypes.number,
   sizes: PropTypes.object,
   sizesString: PropTypes.string
 }
