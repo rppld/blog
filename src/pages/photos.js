@@ -4,10 +4,10 @@ import Figure from "../components/Figure"
 import { Paragraph } from "../components/Paragraph"
 import { Grid } from "../components/Grid"
 import { GridItem } from "../components/GridItem"
-import { mapRange, getYOffset } from "../helpers"
+import { remap, getYOffset } from "../helpers"
 import { debounce } from "lodash"
 
-class IndexPage extends Component {
+class PhotosPage extends Component {
   constructor(props) {
     super(props)
     this.scaleItems = this.scaleItems.bind(this)
@@ -44,6 +44,7 @@ class IndexPage extends Component {
   }
 
   scaleItems() {
+    if (!this.grid) return false
     const els = this.grid.childNodes
     let i = null
     const scrollTop = getYOffset()
@@ -58,12 +59,12 @@ class IndexPage extends Component {
         // determine scale value
         let scaleValue = 1
         if (yPos > windowHeight * 0.6) {
-          scaleValue = mapRange(yPos, windowHeight * 0.6, windowHeight, 1, 0.9)
+          scaleValue = remap(yPos, windowHeight * 0.6, windowHeight, 1, 0.9)
         } else {
-          scaleValue = mapRange(yPos, 0, windowHeight * 0.6, 1, 1)
+          scaleValue = remap(yPos, 0, windowHeight * 0.6, 1, 1)
         }
         // shift Y position on scroll
-        let yOffset = mapRange(yPos, windowHeight * 0.2, windowHeight, 0, 200)
+        let yOffset = remap(yPos, windowHeight * 0.2, windowHeight, 0, 200)
         // apply transformations & reset opacity (mobile override)
         els[i].style.transform = `scale(${scaleValue}) translateY(${yOffset}px)`
         els[i].style.opacity = 1
@@ -72,8 +73,8 @@ class IndexPage extends Component {
       // Mobile/default behavior
       for (i = 0; i < els.length; i++) {
         let yPos = els[i].offsetTop - scrollTop
-        let yOffset = mapRange(yPos, windowHeight * 0.4, windowHeight, 0, 75)
-        let opac = mapRange(yPos, windowHeight * 0.7, windowHeight, 1, 0)
+        let yOffset = remap(yPos, windowHeight * 0.4, windowHeight, 0, 75)
+        let opac = remap(yPos, windowHeight * 0.7, windowHeight, 1, 0)
         els[i].style.transform = `translateY(${yOffset}px)`
         els[i].style.opacity = opac
       }
@@ -97,7 +98,7 @@ class IndexPage extends Component {
 
     return (
       <div>
-        <Intro full>
+        <Intro full fade>
           <Paragraph>
             I've collected quite a few pictures over time, so I made this
             archive of personal favourites to showcase the ones I'm most proud
@@ -129,7 +130,7 @@ class IndexPage extends Component {
   }
 }
 
-export default IndexPage
+export default PhotosPage
 
 export const query = graphql`
   query PhotosQuery {

@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import styled from "styled-components"
 import config from "../config"
 import { device } from "../media"
-import { mapRange, getYOffset } from "../helpers"
+import { remap, getYOffset } from "../helpers"
 
 const Wrapper = styled.div`
   min-height: ${props => (props.full ? "100vh" : "50vh")};
@@ -10,7 +10,9 @@ const Wrapper = styled.div`
   padding: ${config.space1};
   display: flex;
   justify-content: center;
+  transition: opacity 400ms;
   align-items: center;
+  opacity: ${props => (props.show ? "1" : "0")};
 
   @media ${device.tablet} {
     padding: ${config.space2};
@@ -24,6 +26,8 @@ const Wrapper = styled.div`
 class Intro extends Component {
   constructor(props) {
     super(props)
+    this.state = { show: false }
+    this.unhide = this.unhide.bind(this)
     this.fadeText = this.fadeText.bind(this)
   }
 
@@ -32,24 +36,36 @@ class Intro extends Component {
     const scrollTop = getYOffset()
     const windowHeight = window.innerHeight
     let yPos = el.offsetTop - scrollTop
-    // let yOffset = mapRange(yPos, windowHeight * 0.4, windowHeight, 0, 10)
-    let opac = mapRange(yPos, windowHeight * 0.005, el.offsetTop, 0.2, 1)
+    // let yOffset = remap(yPos, windowHeight * 0.4, windowHeight, 0, 10)
+    let opac = remap(yPos, windowHeight * 0.005, el.offsetTop, 0.2, 1)
     // el.style.transform = `translateY(${yOffset}px)`
     el.style.opacity = opac
   }
 
+  unhide() {
+    this.setState((prevState, props) => ({
+      show: true
+    }))
+  }
+
   componentDidMount() {
-    this.fadeText()
-    window.addEventListener("scroll", this.fadeText)
+    requestAnimationFrame(this.unhide)
+
+    if (this.props.fade) {
+      this.fadeText()
+      window.addEventListener("scroll", this.fadeText)
+    }
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.fadeText)
+    if (this.props.fade) {
+      window.removeEventListener("scroll", this.fadeText)
+    }
   }
 
   render() {
     return (
-      <Wrapper full={this.props.full}>
+      <Wrapper full={this.props.full} show={this.state.show}>
         <div ref={comp => (this.parallaxContainer = comp)}>
           {this.props.children}
         </div>

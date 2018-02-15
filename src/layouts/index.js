@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
+import Loader from "../components/Loader"
 import Helmet from "react-helmet"
 import Header from "../components/Header"
 // import Footer from "../components/Footer"
@@ -7,6 +8,27 @@ import favicon from "../favicon.png"
 import "../style.css"
 
 class TemplateWrapper extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      loading: false
+    }
+  }
+
+  componentWillUpdate(prevProps, prevState) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      this.setState((prevState, props) => ({
+        loading: true
+      }))
+
+      setTimeout(() => {
+        this.setState((prevState, props) => ({
+          loading: false
+        }))
+      }, 1000)
+    }
+  }
+
   render() {
     const { children, data } = this.props
 
@@ -28,6 +50,7 @@ class TemplateWrapper extends Component {
           siteName={data.site.siteMetadata.name}
           email={data.site.siteMetadata.email}
         />
+        <Loader show={this.state.loading} />
         <div>{children()}</div>
         {/* <Footer author={data.site.siteMetadata.author} /> */}
       </div>

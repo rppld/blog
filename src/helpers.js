@@ -1,15 +1,16 @@
-// Translate a value [i] in range [iL, iH] to relative value in range [oL, oH]
-export const mapRange = (i, iL, iH, oL, oH, limit = true) => {
+// Translate a value [oldVal] in range [oldMin, oldMax] to relative value in range [newMin, newMax]
+export const remap = (oldVal, oldMin, oldMax, newMin, newMax, limit = true) => {
   let newVal
 
   if (limit) {
-    i < iL
-      ? (newVal = oL)
-      : i > iH
-        ? (newVal = oH)
-        : (newVal = oL + (oH - oL) * (i - iL) / (iH - iL))
+    oldVal < oldMin
+      ? (newVal = newMin)
+      : oldVal > oldMax
+        ? (newVal = newMax)
+        : (newVal =
+            newMin + (newMax - newMin) * (oldVal - oldMin) / (oldMax - oldMin))
   } else {
-    newVal = oL + (oH - oL) * (i - iL) / (iH - iL)
+    newVal = newMin + (newMax - newMin) * (oldVal - oldMin) / (oldMax - oldMin)
   }
 
   return newVal
