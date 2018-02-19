@@ -3,7 +3,7 @@ import GatsbyLink from "gatsby-link"
 import config from "../config"
 
 const linkStyles = css`
-  transition-property: background-color, border-color;
+  transition-property: background-color, border-color, opacity;
   transition-duration: 400ms;
   text-decoration: none;
   font-weight: 700;

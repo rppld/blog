@@ -51,14 +51,13 @@ class Figure extends Component {
     return (
       <Wrapper>
         <Image sizes={this.props.sizes} sizesString={this.props.sizesString} />
-        <Caption>{this.props.caption}</Caption>
+        {this.props.caption && <Caption>{this.props.caption}</Caption>}
       </Wrapper>
     )
   }
 }
 
 Figure.propTypes = {
-  index: PropTypes.number,
   sizes: PropTypes.object,
   sizesString: PropTypes.string
 }

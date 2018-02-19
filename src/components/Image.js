@@ -55,7 +55,7 @@ function getIO() {
           })
         })
       },
-      { rootMargin: `200px` }
+      { rootMargin: `10px` }
     )
   }
 
@@ -232,24 +232,14 @@ class Image extends React.Component {
               }}
             />
 
-            {/* Show the blury base64 image. */}
+            {/* Show the blurry base64 image. */}
             {image.base64 && (
               <Img
                 alt={alt}
                 title={title}
                 src={image.base64}
-                opacity={!this.state.imgLoaded ? 1 : 0}
-                transitionDelay={`0.25s`}
-              />
-            )}
-
-            {/* Show the traced SVG image. */}
-            {image.tracedSVG && (
-              <Img
-                alt={alt}
-                title={title}
-                src={image.tracedSVG}
-                opacity={!this.state.imgLoaded ? 1 : 0}
+                // opacity={!this.state.imgLoaded ? 1 : 0}
+                opacity={1}
                 transitionDelay={`0.25s`}
               />
             )}
@@ -283,8 +273,14 @@ class Image extends React.Component {
                   this.state.imgLoaded || this.props.fadeIn === false ? 1 : 0
                 }
                 onLoad={() => {
-                  this.state.IOSupported && this.setState({ imgLoaded: true })
-                  this.props.onLoad && this.props.onLoad()
+                  requestAnimationFrame(() => {
+                    // Make loading a little smoother
+                    setTimeout(() => {
+                      this.state.IOSupported &&
+                        this.setState({ imgLoaded: true })
+                      this.props.onLoad && this.props.onLoad()
+                    }, 100)
+                  })
                 }}
               />
             )}

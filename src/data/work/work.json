@@ -1,0 +1,17 @@
+[
+  {
+    "caption": "Filling Pieces Concepts",
+    "image": "filling-pieces.jpg",
+    "bgColor": "#222",
+    "size": 3,
+    "padTop": true,
+    "padLeft": true,
+    "padRight": true
+  },
+  {
+    "caption": "Craft CMS Project Boilerplate",
+    "image": "craftcms-project-boilerplate.svg",
+    "bgColor": "#EC4432",
+    "size": 1
+  }
+]

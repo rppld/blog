@@ -1,10 +1,11 @@
 import styled from "styled-components"
 import { device } from "../media"
 
-export const GridItem = styled.div`
+export const PhotoGridItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
   @media ${device.tablet} {
     grid-column: ${props =>
       props.size === "small"

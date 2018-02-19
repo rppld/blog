@@ -18,7 +18,7 @@ export const Paragraph = styled.p`
   }
 
   @media ${device.laptop} {
-    font-size: ${config.f5};
+    font-size: ${config.f6};
   }
 
   @media ${device.laptopL} {

@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import styled from "styled-components"
 import config from "../config"
+import { Paragraph } from "../components/Paragraph"
 import { device } from "../media"
 import { remap, getYOffset } from "../helpers"
 
@@ -23,7 +24,7 @@ const Wrapper = styled.div`
   }
 `
 
-class Intro extends Component {
+class Outro extends Component {
   constructor(props) {
     super(props)
     this.state = { show: true }
@@ -36,7 +37,7 @@ class Intro extends Component {
     const windowHeight = window.innerHeight
     let yPos = el.offsetTop - scrollTop
     // let yOffset = remap(yPos, windowHeight * 0.4, windowHeight, 0, 10)
-    let opac = remap(yPos, windowHeight * 0.005, el.offsetTop, 0.2, 1)
+    let opac = remap(yPos, windowHeight * 0.005, windowHeight, 1.5, 0.2)
     // el.style.transform = `translateY(${yOffset}px)`
     el.style.opacity = opac
   }
@@ -58,11 +59,13 @@ class Intro extends Component {
     return (
       <Wrapper show={this.state.show}>
         <div ref={comp => (this.parallaxContainer = comp)}>
-          {this.props.children}
+          <Paragraph>
+            Work<br />Photos
+          </Paragraph>
         </div>
       </Wrapper>
     )
   }
 }
 
-export default Intro
+export default Outro

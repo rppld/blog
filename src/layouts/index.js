@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
+import Outro from "../components/Outro"
 import Loader from "../components/Loader"
 import Helmet from "react-helmet"
-import Header from "../components/Header"
-// import Footer from "../components/Footer"
+import { Header, Footer } from "../components/Menubar"
 import favicon from "../favicon.png"
 import "../style.css"
 
@@ -47,12 +47,16 @@ class TemplateWrapper extends Component {
           <link rel="shortcut icon" type="image/png" href={favicon} />
         </Helmet>
         <Header
-          siteName={data.site.siteMetadata.name}
+          author={data.site.siteMetadata.author}
           email={data.site.siteMetadata.email}
         />
         <Loader show={this.state.loading} />
         <div>{children()}</div>
-        {/* <Footer author={data.site.siteMetadata.author} /> */}
+        <Outro />
+        <Footer
+          author={data.site.siteMetadata.author}
+          email={data.site.siteMetadata.email}
+        />
       </div>
     )
   }
@@ -69,7 +73,6 @@ export const query = graphql`
   query IndexQuery {
     site {
       siteMetadata {
-        name
         title
         email
         author
