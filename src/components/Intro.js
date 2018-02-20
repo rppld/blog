@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   justify-content: center;
   transition: opacity 400ms;
   align-items: center;
+  background-color: ${props => props.bgColor};
   opacity: ${props => (props.show ? "1" : "0")};
 
   @media ${device.tablet} {
@@ -56,7 +57,7 @@ class Intro extends Component {
 
   render() {
     return (
-      <Wrapper show={this.state.show}>
+      <Wrapper show={this.state.show} bgColor={this.props.bgColor}>
         <div ref={comp => (this.parallaxContainer = comp)}>
           {this.props.children}
         </div>

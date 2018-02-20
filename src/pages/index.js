@@ -2,10 +2,10 @@ import React, { Component } from "react"
 import Intro from "../components/Intro"
 import Figure from "../components/Figure"
 import { Paragraph } from "../components/Paragraph"
-import { ProjectGrid } from "../components/ProjectGrid"
-import { ProjectGridItem } from "../components/ProjectGridItem"
+import { Grid } from "../components/Grid"
+import { GridItem } from "../components/GridItem"
 import { Link, RouterLink } from "../components/Link"
-import { scaleItems } from "../helpers"
+import { getSize, getSizesString, scaleItems } from "../helpers"
 import { debounce } from "lodash"
 
 class IndexPage extends Component {
@@ -23,6 +23,7 @@ class IndexPage extends Component {
 
   render() {
     const { data } = this.props
+    let count = 0
 
     return (
       <div>
@@ -38,33 +39,27 @@ class IndexPage extends Component {
           </Paragraph>
         </Intro>
 
-        <ProjectGrid innerRef={comp => (this.grid = comp)}>
+        <Grid innerRef={comp => (this.grid = comp)}>
           {data.allWorkJson.edges.map(({ node }, i) => {
+            count < 6 ? count++ : (count = 1)
+
             return (
-              <ProjectGridItem
-                key={node.internal.contentDigest}
-                size={node.size}
-                bgColor={node.bgColor}
-                padTop={node.padTop}
-                padLeft={node.padLeft}
-                padRight={node.padRight}
-              >
-                {node.image.extension === "svg" ? (
-                  <img
-                    src={node.image.publicURL}
-                    alt={node.caption}
-                    style={{ verticalAlign: "middle", maxWidth: "100%" }}
-                  />
-                ) : (
-                  <Figure
-                    sizes={node.image.childImageSharp.sizes}
-                    sizesString="(min-width: 60em) 80vw, 100vw"
-                  />
-                )}
-              </ProjectGridItem>
+              <GridItem key={node.internal.contentDigest} size={getSize(count)}>
+                <Figure
+                  caption={node.caption}
+                  bgColor={node.bgColor}
+                  padTop={node.padTop}
+                  padRight={node.padRight}
+                  padBottom={node.padBottom}
+                  padLeft={node.padLeft}
+                  link={node.link}
+                  sizes={node.image.childImageSharp.sizes}
+                  sizesString={getSizesString(count)}
+                />
+              </GridItem>
             )
           })}
-        </ProjectGrid>
+        </Grid>
       </div>
     )
   }
@@ -78,17 +73,16 @@ export const query = graphql`
       edges {
         node {
           caption
-          size
+          link
           padTop
-          padLeft
           padRight
+          padBottom
+          padLeft
           bgColor
           internal {
             contentDigest
           }
           image {
-            extension
-            publicURL
             childImageSharp {
               sizes(quality: 90) {
                 base64

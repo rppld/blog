@@ -1,3 +1,33 @@
+export const getSize = index => {
+  switch (index) {
+    case 1:
+    case 5:
+      return "medium"
+    case 2:
+    case 4:
+      return "small"
+    case 3:
+    case 6:
+    default:
+      return "large"
+  }
+}
+
+export const getSizesString = index => {
+  switch (index) {
+    case 1:
+    case 5:
+      return "(min-width: 30em) 60vw, 100vw"
+    case 2:
+    case 4:
+      return "(min-width: 30em) 40vw, 100vw"
+    case 3:
+    case 6:
+    default:
+      return "(min-width: 60em) 80vw, 100vw"
+  }
+}
+
 // Translate a value [oldVal] in range [oldMin, oldMax] to relative value in range [newMin, newMax]
 export const remap = (oldVal, oldMin, oldMax, newMin, newMax, limit = true) => {
   let newVal

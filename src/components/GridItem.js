@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { device } from "../media"
 
-export const PhotoGridItem = styled.div`
+export const GridItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

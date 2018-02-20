@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { device } from "../media"
 
-export const PhotoGrid = styled.div`
+export const Grid = styled.div`
   list-style: none;
   margin: 0;
   padding: 0;

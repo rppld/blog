@@ -1,17 +1,37 @@
 [
   {
+    "caption": "Birdie",
+    "image": "birdie.png",
+    "bgColor": "#EEDD00"
+  },
+  {
+    "caption": "Craft CMS Project Boilerplate",
+    "image": "craftcms-project-boilerplate.png",
+    "link": "https://github.com/rppld/craftcms-project-boilerplate",
+    "bgColor": "#EC4432"
+  },
+  {
     "caption": "Filling Pieces Concepts",
     "image": "filling-pieces.jpg",
-    "bgColor": "#222",
-    "size": 3,
+    "link": "/fp",
+    "bgColor": "#111",
     "padTop": true,
     "padLeft": true,
     "padRight": true
   },
   {
-    "caption": "Craft CMS Project Boilerplate",
-    "image": "craftcms-project-boilerplate.svg",
-    "bgColor": "#EC4432",
-    "size": 1
+    "caption": "Vue AutoScroll",
+    "image": "vue-plugin-autoscroll.png",
+    "link": "https://github.com/rppld/vue-plugin-autoscroll",
+    "bgColor": "#003580"
+  },
+  {
+    "caption": "Mit voller Absicht nach Paris",
+    "image": "mvanp.jpg",
+    "bgColor": "#C80001",
+    "padTop": true,
+    "padLeft": true,
+    "padRight": true,
+    "padBottom": true
   }
 ]
