@@ -44,7 +44,8 @@ class TemplateWrapper extends Component {
             { name: "author", content: data.site.siteMetadata.author }
           ]}
         >
-          <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+          <html lang="en" />
+          <link rel="shortcut icon" type="image/png" href="/favicon-128.png" />
         </Helmet>
         <Loader show={this.state.loading} />
         {children()}

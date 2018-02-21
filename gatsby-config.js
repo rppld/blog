@@ -22,11 +22,11 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "GatsbyJS",
-        short_name: "GatsbyJS",
+        name: "Philipp Rappold",
+        short_name: "Rppld.co",
         start_url: "/",
-        background_color: "#f7f0eb",
-        theme_color: "#a2466c",
+        background_color: "#bbeffd",
+        theme_color: "#ffffff",
         display: "minimal-ui",
         icons: [
           {
@@ -34,15 +34,15 @@ module.exports = {
             // directory in /public during development and build, so
             // assuming your favicons are in /static/favicons,
             // you can reference them here
-            src: "/favicon.png",
+            src: "/favicon-192.png",
             sizes: "192x192",
             type: "image/png"
-          },
-          {
-            src: "/favicon.png",
-            sizes: "512x512",
-            type: "image/png"
           }
+          // {
+          //   src: "/favicon-512.png",
+          //   sizes: "512x512",
+          //   type: "image/png"
+          // }
         ]
       }
     },

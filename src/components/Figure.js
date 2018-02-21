@@ -5,6 +5,7 @@ import { Link, RouterLink } from "../components/Link"
 import Image from "./Image"
 import config from "../config"
 import { device } from "../media"
+import { paragraphStyles } from "./Paragraph"
 
 const OuterWrap = styled.figure`
   position: relative;
@@ -56,10 +57,8 @@ const InnerWrap = styled.div`
 `
 
 const Caption = styled.figcaption`
+  ${paragraphStyles};
   width: 100%;
-  font-size: ${config.f1};
-  font-weight: 400;
-  letter-spacing: ${config.ls1};
   line-height: 1.25;
   color: ${config.gray};
   padding-left: ${config.space1};
@@ -67,19 +66,13 @@ const Caption = styled.figcaption`
   margin-top: 0.25rem;
 
   @media ${device.tablet} {
-    font-size: ${config.f2};
     padding-left: ${config.space2};
     padding-right: ${config.space2};
   }
 
   @media ${device.laptop} {
-    font-size: ${config.f3};
     padding-left: ${config.space3};
     padding-right: ${config.space3};
-  }
-
-  @media ${device.laptopL} {
-    font-size: ${config.f4};
   }
 `
 

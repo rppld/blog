@@ -35,7 +35,7 @@ class Loader extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      emojis: ["👋", "🙌", "🤙", "🤘", "🙃", "🎉", "👌"],
+      emojis: ["👋", "🙌", "🤙", "🤘", "🙃", "🎉", "👌", "🗣", "🤔"],
       randomEmoji: null
     }
   }

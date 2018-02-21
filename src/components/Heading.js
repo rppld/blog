@@ -4,8 +4,10 @@ import { device } from "../media"
 
 const headingStyles = css`
   margin-top: 0;
+  font-family: "IBM Plex Serif", serif;
   margin-bottom: ${props => (props.inBody ? config.space0 : "0")};
   font-weight: 700;
+  text-align: center;
   max-width: ${props => (props.inBody ? "800px" : "none")};
   margin-left: ${props => (props.inBody ? "auto" : "0")};
   margin-right: ${props => (props.inBody ? "auto" : "0")};
@@ -24,7 +26,7 @@ const headingStyles = css`
 
   @media ${device.laptop} {
     font-size: ${config.f6};
-    margin-bottom: ${config.space2};
+    margin-bottom: ${props => (props.inBody ? config.space2 : "0")};
   }
 
   @media ${device.laptopL} {

@@ -39,8 +39,7 @@ class IndexPage extends Component {
             <span role="img" aria-label="Emoji">
               👋
             </span>{" "}
-            I'm Philipp, an information designer in Amsterdam, working at the
-            intersection of design and technology and taking{" "}
+            I'm Philipp, an information designer in Amsterdam taking{" "}
             <RouterLink to="/photos">photos</RouterLink> for fun. Scroll down
             <span role="img" aria-label="Emoji">
               👇
@@ -82,7 +81,7 @@ class IndexPage extends Component {
 
         <Outro>
           <FauxHeading>
-            This is it? Yeeeh…{" "}
+            This is it? Ew… <em>Shrug emoji</em>{" "}
             <span role="img" aria-label="Emoji">
               🤷‍
             </span>{" "}

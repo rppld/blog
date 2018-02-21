@@ -7,6 +7,7 @@ const linkStyles = css`
   transition-duration: 400ms;
   text-decoration: none;
   font-weight: 700;
+  font-family: "IBM Plex Sans", serif;
   background-color: rgba(187, 239, 253, 0.3);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   color: ${config.nearBlack};
