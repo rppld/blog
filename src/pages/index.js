@@ -39,7 +39,7 @@ class IndexPage extends Component {
             <span role="img" aria-label="Emoji">
               👋
             </span>{" "}
-            I'm Philipp, an information designer in Amsterdam taking{" "}
+            I&rsquo;m Philipp, an information designer in Amsterdam taking{" "}
             <RouterLink to="/photos">photos</RouterLink> for fun. Scroll down
             <span role="img" aria-label="Emoji">
               👇
@@ -85,8 +85,8 @@ class IndexPage extends Component {
             <span role="img" aria-label="Emoji">
               🤷‍
             </span>{" "}
-            I'll add more projects with time. Did you know I also like to take
-            photos though? So much, it even has its own{" "}
+            I&rsquo;ll add more projects with time. Did you know I also like to
+            take photos though? So much, it even has its own{" "}
             <RouterLink to="/photos">page</RouterLink> on this website!
           </FauxHeading>
         </Outro>

@@ -34,5 +34,13 @@
     "padLeft": true,
     "padRight": true,
     "padBottom": true
+  },
+  {
+    "caption": "Verlag für moderne Kunst",
+    "image": "vfmk.jpg",
+    "bgColor": "#00B0DF",
+    "padTop": true,
+    "padLeft": true,
+    "padRight": true
   }
 ]

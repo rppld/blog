@@ -18,7 +18,11 @@ class TemplateWrapper extends Component {
       this.setState((prevState, props) => ({
         loading: true
       }))
+    }
+  }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
       setTimeout(() => {
         this.setState((prevState, props) => ({
           loading: false
