@@ -82,13 +82,13 @@ class IndexPage extends Component {
 
         <Outro>
           <FauxHeading>
-            End of the page already? Yeh{" "}
+            This is it? Yeeeh…{" "}
             <span role="img" aria-label="Emoji">
               🤷‍
             </span>{" "}
-            gonna add more projects with time. Did you know I also take photos
-            though? I've created a <RouterLink to="/photos">page</RouterLink>{" "}
-            for that specifically – it's <em>that</em> important to me!
+            I'll add more projects with time. Did you know I also like to take
+            photos though? So much, it even has its own{" "}
+            <RouterLink to="/photos">page</RouterLink> on this website!
           </FauxHeading>
         </Outro>
       </div>

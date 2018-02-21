@@ -4,11 +4,11 @@ import { device } from "../media"
 
 const headingStyles = css`
   margin-top: 0;
-  margin-bottom: ${config.space0};
+  margin-bottom: ${props => (props.inBody ? config.space0 : "0")};
   font-weight: 700;
-  max-width: ${props => (props.constrained ? "800px" : "none")};
-  margin-left: ${props => (props.constrained ? "auto" : "0")};
-  margin-right: ${props => (props.constrained ? "auto" : "0")};
+  max-width: ${props => (props.inBody ? "800px" : "none")};
+  margin-left: ${props => (props.inBody ? "auto" : "0")};
+  margin-right: ${props => (props.inBody ? "auto" : "0")};
   color: ${config.nearBlack};
   line-height: 1.5;
   font-size: ${config.f2};
@@ -19,7 +19,7 @@ const headingStyles = css`
 
   @media ${device.tablet} {
     font-size: ${config.f4};
-    margin-bottom: ${config.space1};
+    margin-bottom: ${props => (props.inBody ? config.space1 : "0")};
   }
 
   @media ${device.laptop} {

@@ -30,7 +30,7 @@ const FpPage = props => (
     </Intro>
 
     <Body>
-      <Heading constrained>Filling Pieces Concepts</Heading>
+      <Heading inBody>Filling Pieces Concepts</Heading>
 
       <Paragraph>
         During my time at Bolden one of my main clients was Amsterdam based

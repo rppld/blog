@@ -30,7 +30,7 @@ const EarlyBirdPage = props => (
     </Intro>
 
     <Body>
-      <Heading constrained>EarlyBird</Heading>
+      <Heading inBody>EarlyBird</Heading>
     </Body>
 
     <Outro>

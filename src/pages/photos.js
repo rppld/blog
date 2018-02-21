@@ -71,9 +71,14 @@ class PhotosPage extends Component {
             <span role="img" aria-label="Emoji">
               😌
             </span>{" "}
-            What I also love is taking portraits:{" "}
-            <Link href="mailto:hi@rppld.co">Hit me up</Link> in case you're
-            around and want to get your photo taken!
+            What I also love is Instagram!{" "}
+            <Link href="https://www.instagram.com/philipprappold/">
+              Follow me
+            </Link>{" "}
+            if you like stories of delicious looking food{" "}
+            <Link href="https://www.instagram.com/explore/tags/influencer/">
+              #influencer
+            </Link>
           </FauxHeading>
         </Outro>
       </div>
