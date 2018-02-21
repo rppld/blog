@@ -1,29 +1,41 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import config from "../config"
 import { device } from "../media"
 
-export const Heading = styled.h2`
+const headingStyles = css`
   margin-top: 0;
-  margin-bottom: 0.75rem;
-  font-size: ${config.f5};
+  margin-bottom: ${config.space0};
   font-weight: 700;
+  max-width: ${props => (props.constrained ? "800px" : "none")};
+  margin-left: ${props => (props.constrained ? "auto" : "0")};
+  margin-right: ${props => (props.constrained ? "auto" : "0")};
   color: ${config.nearBlack};
-  line-height: 1.25;
-  transform: translateX(-1px);
+  line-height: 1.5;
+  font-size: ${config.f2};
+
+  @media ${device.mobileL} {
+    font-size: ${config.f3};
+  }
 
   @media ${device.tablet} {
-    font-size: ${config.f6};
-    transform: translateX(-2px);
+    font-size: ${config.f4};
+    margin-bottom: ${config.space1};
   }
 
   @media ${device.laptop} {
-    margin-bottom: 1rem;
-    transform: translateX(-3px);
-    font-size: ${config.f7};
+    font-size: ${config.f6};
+    margin-bottom: ${config.space2};
   }
 
   @media ${device.laptopL} {
-    transform: translateX(-3px);
-    font-size: ${config.f8};
+    font-size: ${config.f9};
   }
+`
+
+export const Heading = styled.h1`
+  ${headingStyles};
+`
+
+export const FauxHeading = styled.p`
+  ${headingStyles};
 `

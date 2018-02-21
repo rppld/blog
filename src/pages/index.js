@@ -1,7 +1,9 @@
 import React, { Component } from "react"
 import Intro from "../components/Intro"
+import Outro from "../components/Outro"
 import Figure from "../components/Figure"
-import { Paragraph } from "../components/Paragraph"
+import { Header } from "../components/Menubar"
+import { Heading, FauxHeading } from "../components/Heading"
 import { Grid } from "../components/Grid"
 import { GridItem } from "../components/GridItem"
 import { Link, RouterLink } from "../components/Link"
@@ -27,20 +29,32 @@ class IndexPage extends Component {
 
     return (
       <div>
+        <Header
+          author={data.site.siteMetadata.author}
+          title={data.site.siteMetadata.title}
+        />
         <Intro>
-          <Paragraph>
-            Hi, I'm Philipp, an information designer in Amsterdam, working at
-            the intersection of design and technology and taking{" "}
-            <RouterLink to="/photos">photos</RouterLink> for fun. You can follow
-            me on <Link href="https://twitter.com/rppld">Twitter</Link> and{" "}
+          <Heading>
+            Hi{" "}
+            <span role="img" aria-label="Emoji">
+              👋
+            </span>{" "}
+            I'm Philipp, an information designer in Amsterdam, working at the
+            intersection of design and technology and taking{" "}
+            <RouterLink to="/photos">photos</RouterLink> for fun. Scroll down
+            <span role="img" aria-label="Emoji">
+              👇
+            </span>{" "}
+            to see some of my work. You can follow me on{" "}
+            <Link href="https://twitter.com/rppld">Twitter</Link> and{" "}
             <Link href="https://www.instagram.com/philipprappold/">
               Instagram
             </Link>.
-          </Paragraph>
+          </Heading>
         </Intro>
 
         <Grid innerRef={comp => (this.grid = comp)}>
-          {data.allWorkJson.edges.map(({ node }, i) => {
+          {data.allProjectsJson.edges.map(({ node }, i) => {
             count < 6 ? count++ : (count = 1)
 
             return (
@@ -53,13 +67,30 @@ class IndexPage extends Component {
                   padBottom={node.padBottom}
                   padLeft={node.padLeft}
                   link={node.link}
-                  sizes={node.image.childImageSharp.sizes}
+                  publicURL={node.image.publicURL}
+                  sizes={
+                    node.image.childImageSharp
+                      ? node.image.childImageSharp.sizes
+                      : null
+                  }
                   sizesString={getSizesString(count)}
                 />
               </GridItem>
             )
           })}
         </Grid>
+
+        <Outro>
+          <FauxHeading>
+            End of the page already? Yeh{" "}
+            <span role="img" aria-label="Emoji">
+              🤷‍
+            </span>{" "}
+            gonna add more projects with time. Did you know I also take photos
+            though? I've created a <RouterLink to="/photos">page</RouterLink>{" "}
+            for that specifically – it's <em>that</em> important to me!
+          </FauxHeading>
+        </Outro>
       </div>
     )
   }
@@ -68,8 +99,14 @@ class IndexPage extends Component {
 export default IndexPage
 
 export const query = graphql`
-  query WorkQuery {
-    allWorkJson {
+  query IndexPageQuery {
+    site {
+      siteMetadata {
+        author
+        title
+      }
+    }
+    allProjectsJson {
       edges {
         node {
           caption
@@ -83,6 +120,7 @@ export const query = graphql`
             contentDigest
           }
           image {
+            publicURL
             childImageSharp {
               sizes(quality: 90) {
                 base64

@@ -1,19 +1,73 @@
 import React from "react"
+import Helmet from "react-helmet"
+import { Body } from "../components/Body"
+import { Header } from "../components/Menubar"
 import Intro from "../components/Intro"
+import Outro from "../components/Outro"
+import { RouterLink } from "../components/Link"
 import { Paragraph } from "../components/Paragraph"
+import { Heading, FauxHeading } from "../components/Heading"
 
-const FillingPiecesPage = props => (
+const FpPage = props => (
   <div>
-    <Intro bgColor="#111">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 252 276"
-        style={{ verticalAlign: "middle", fill: "#fff", width: "100%" }}
-      >
-        <path d="M0 72V60h108v24H24v48h72v24H24v60H0V72zm168 84v60h-24V60h60c26.508 0 48 21.488 48 48 0 26.508-21.492 48-48 48h-36zm0-72v48h36c13.254 0 24-10.746 24-24s-10.746-24-24-24h-36zM0 24V0h108v24H0zm144 252v-24h108v24H144z" />
-      </svg>
+    <Helmet
+      title={`${props.data.site.siteMetadata.author}, ${
+        props.data.fpPageJson.title
+      }`}
+    />
+
+    <Header
+      author={props.data.site.siteMetadata.author}
+      title={props.data.fpPageJson.title}
+    />
+
+    <Intro bgColor={props.data.fpPageJson.coverBgColor}>
+      <img
+        src={props.data.fpPageJson.coverImage.publicURL}
+        alt="Filling Pieces Logo"
+        style={{ verticalAlign: "middle", width: "100%" }}
+      />
     </Intro>
+
+    <Body>
+      <Heading constrained>Filling Pieces Concepts</Heading>
+
+      <Paragraph>
+        During my time at Bolden one of my main clients was Amsterdam based
+        footwear label <em>Filling Pieces</em>.
+      </Paragraph>
+
+      <Paragraph>
+        Aside from porting their existing site which was based on OpenCart, over
+        to Shopify, I have worked on some higher level concepts for a new
+        e-commerce site.
+      </Paragraph>
+    </Body>
+
+    <Outro>
+      <FauxHeading>
+        Thanks for your interest in my work! Feeling some more? Check out this{" "}
+        <RouterLink to="/earlybird">app</RouterLink> I'm working on.
+      </FauxHeading>
+    </Outro>
   </div>
 )
 
-export default FillingPiecesPage
+export default FpPage
+
+export const query = graphql`
+  query FpPageQuery {
+    fpPageJson {
+      title
+      coverImage {
+        publicURL
+      }
+      coverBgColor
+    }
+    site {
+      siteMetadata {
+        author
+      }
+    }
+  }
+`

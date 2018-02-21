@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Heading } from "../components/Heading"
-import { Subheading } from "../components/Subheading"
 import { Paragraph } from "../components/Paragraph"
 import { Link } from "../components/Link"
 
@@ -15,7 +14,7 @@ const AboutPage = props => (
       photos for fun.
     </Paragraph>
 
-    <Subheading>Work</Subheading>
+    <Heading>Work</Heading>
 
     <Paragraph>
       While I'm not freelancing full-time, I still take on projects
@@ -23,7 +22,7 @@ const AboutPage = props => (
       <Link href="mailto:hi@rppld.co">email me</Link>.
     </Paragraph>
 
-    <Subheading>Elsewhere</Subheading>
+    <Heading>Elsewhere</Heading>
 
     <Paragraph>
       You can follow me on <Link href="https://twitter.com/rppld">Twitter</Link>{" "}

@@ -43,21 +43,6 @@ const FooterWrapper = styled.footer`
   ${wrapperStyles};
 `
 
-const Title = styled.h1`
-  margin: 0;
-  font-weight: 400;
-  color: inherit;
-  font-size: ${config.f0};
-
-  @media ${device.tablet} {
-    font-size: ${config.f1};
-  }
-
-  @media ${device.laptop} {
-    font-size: ${config.f2};
-  }
-`
-
 const Paragraph = styled.p`
   margin: 0;
   font-size: ${config.f0};
@@ -73,11 +58,11 @@ const Paragraph = styled.p`
 
 export const Header = props => (
   <HeaderWrapper>
-    <Link to="/">
-      <Title>{props.author}</Title>
-    </Link>
+    <Paragraph>
+      <Link to="/">{props.author}</Link>
+    </Paragraph>
 
-    <Paragraph>Information Designer</Paragraph>
+    <Paragraph>{props.title}</Paragraph>
   </HeaderWrapper>
 )
 

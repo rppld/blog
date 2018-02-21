@@ -1,10 +1,8 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import Outro from "../components/Outro"
 import Loader from "../components/Loader"
 import Helmet from "react-helmet"
-import { Header, Footer } from "../components/Menubar"
-import favicon from "../favicon.png"
+import { Footer } from "../components/Menubar"
 import "../style.css"
 
 class TemplateWrapper extends Component {
@@ -35,7 +33,9 @@ class TemplateWrapper extends Component {
     return (
       <div>
         <Helmet
-          title={data.site.siteMetadata.title}
+          title={`${data.site.siteMetadata.author}, ${
+            data.site.siteMetadata.title
+          }`}
           meta={[
             {
               name: "description",
@@ -44,19 +44,11 @@ class TemplateWrapper extends Component {
             { name: "author", content: data.site.siteMetadata.author }
           ]}
         >
-          <link rel="shortcut icon" type="image/png" href={favicon} />
+          <link rel="shortcut icon" type="image/png" href="/favicon.png" />
         </Helmet>
-        <Header
-          author={data.site.siteMetadata.author}
-          email={data.site.siteMetadata.email}
-        />
         <Loader show={this.state.loading} />
-        <div>{children()}</div>
-        <Outro />
-        <Footer
-          author={data.site.siteMetadata.author}
-          email={data.site.siteMetadata.email}
-        />
+        {children()}
+        <Footer email={data.site.siteMetadata.email} />
       </div>
     )
   }
@@ -70,12 +62,12 @@ TemplateWrapper.propTypes = {
 export default TemplateWrapper
 
 export const query = graphql`
-  query IndexQuery {
+  query LayoutQuery {
     site {
       siteMetadata {
+        author
         title
         email
-        author
         description
       }
     }

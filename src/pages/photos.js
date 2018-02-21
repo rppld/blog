@@ -1,7 +1,11 @@
 import React, { Component } from "react"
+import Helmet from "react-helmet"
+import { Header } from "../components/Menubar"
 import Intro from "../components/Intro"
+import Outro from "../components/Outro"
 import Figure from "../components/Figure"
-import { Paragraph } from "../components/Paragraph"
+import { Link } from "../components/Link"
+import { Heading, FauxHeading } from "../components/Heading"
 import { Grid } from "../components/Grid"
 import { GridItem } from "../components/GridItem"
 import { getSize, getSizesString, scaleItems } from "../helpers"
@@ -26,12 +30,23 @@ class PhotosPage extends Component {
 
     return (
       <div>
+        <Helmet
+          title={`${data.site.siteMetadata.author}, ${
+            data.photosPageJson.title
+          }`}
+        />
+
+        <Header
+          author={data.site.siteMetadata.author}
+          title={data.photosPageJson.title}
+        />
+
         <Intro>
-          <Paragraph>
+          <Heading>
             I've collected quite a few pictures over time, so I made this
             archive of personal favourites to showcase the ones I'm most happy
             with.
-          </Paragraph>
+          </Heading>
         </Intro>
 
         <Grid innerRef={comp => (this.grid = comp)}>
@@ -49,6 +64,18 @@ class PhotosPage extends Component {
             )
           })}
         </Grid>
+
+        <Outro>
+          <FauxHeading>
+            Love that you made it all the way down{" "}
+            <span role="img" aria-label="Emoji">
+              😌
+            </span>{" "}
+            What I also love is taking portraits:{" "}
+            <Link href="mailto:hi@rppld.co">Hit me up</Link> in case you're
+            around and want to get your photo taken!
+          </FauxHeading>
+        </Outro>
       </div>
     )
   }
@@ -58,6 +85,14 @@ export default PhotosPage
 
 export const query = graphql`
   query PhotosQuery {
+    site {
+      siteMetadata {
+        author
+      }
+    }
+    photosPageJson {
+      title
+    }
     allPhotosJson {
       edges {
         node {

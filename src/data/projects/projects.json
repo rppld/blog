@@ -1,12 +1,13 @@
 [
   {
-    "caption": "Birdie",
-    "image": "birdie.png",
+    "caption": "EarlyBird",
+    "image": "earlybird.svg",
+    "link": "/earlybird",
     "bgColor": "#EEDD00"
   },
   {
     "caption": "Craft CMS Project Boilerplate",
-    "image": "craftcms-project-boilerplate.png",
+    "image": "craftcms-project-boilerplate.svg",
     "link": "https://github.com/rppld/craftcms-project-boilerplate",
     "bgColor": "#EC4432"
   },
@@ -21,7 +22,7 @@
   },
   {
     "caption": "Vue AutoScroll",
-    "image": "vue-plugin-autoscroll.png",
+    "image": "vue-plugin-autoscroll.svg",
     "link": "https://github.com/rppld/vue-plugin-autoscroll",
     "bgColor": "#003580"
   },

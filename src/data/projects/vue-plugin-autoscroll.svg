@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="540" viewBox="0 0 640 540">
+  <g fill="none" fill-rule="evenodd">
+    <rect width="640" height="540" fill="#001DCC"/>
+    <g fill="#18F0E9" transform="translate(229 115)">
+      <rect width="64" height="185" x="59" y="58"/>
+      <polygon points="90.51 0 181.019 90.51 0 90.51"/>
+      <polygon points="26.51 154.51 154.51 154.51 26.51 282.51" transform="scale(1 -1) rotate(45 618.039 0)"/>
+    </g>
+  </g>
+</svg>

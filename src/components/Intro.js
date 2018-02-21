@@ -34,10 +34,10 @@ class Intro extends Component {
   fadeText() {
     const el = this.parallaxContainer
     const scrollTop = getYOffset()
-    const windowHeight = window.innerHeight
+    // const windowHeight = window.innerHeight
     let yPos = el.offsetTop - scrollTop
     // let yOffset = remap(yPos, windowHeight * 0.4, windowHeight, 0, 10)
-    let opac = remap(yPos, windowHeight * 0.005, el.offsetTop, 0.2, 1)
+    let opac = remap(yPos, 0, el.offsetTop, 0.2, 1)
     // el.style.transform = `translateY(${yOffset}px)`
     el.style.opacity = opac
   }

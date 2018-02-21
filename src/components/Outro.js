@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import styled from "styled-components"
 import config from "../config"
-import { Paragraph } from "../components/Paragraph"
 import { device } from "../media"
 import { remap, getYOffset } from "../helpers"
 
@@ -59,9 +58,7 @@ class Outro extends Component {
     return (
       <Wrapper show={this.state.show}>
         <div ref={comp => (this.parallaxContainer = comp)}>
-          <Paragraph>
-            Work<br />Photos
-          </Paragraph>
+          {this.props.children}
         </div>
       </Wrapper>
     )

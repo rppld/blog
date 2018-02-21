@@ -94,10 +94,14 @@ class Figure extends Component {
           padBottom={this.props.padBottom}
           padLeft={this.props.padLeft}
         >
-          <Image
-            sizes={this.props.sizes}
-            sizesString={this.props.sizesString}
-          />
+          {this.props.sizes ? (
+            <Image
+              sizes={this.props.sizes}
+              sizesString={this.props.sizesString}
+            />
+          ) : (
+            <img src={this.props.publicURL} alt="" />
+          )}
         </InnerWrap>
         {this.props.caption && <Caption>{this.props.caption}</Caption>}
       </Wrapper>
