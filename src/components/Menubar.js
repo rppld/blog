@@ -14,6 +14,7 @@ const wrapperStyles = css`
   justify-content: space-between;
   padding-left: ${config.space1};
   padding-right: ${config.space1};
+  pointer-events: none;
 
   @media ${device.tablet} {
     padding-left: ${config.space2};
@@ -23,6 +24,10 @@ const wrapperStyles = css`
   @media ${device.laptopL} {
     padding-left: ${config.space3};
     padding-right: ${config.space3};
+  }
+
+  * {
+    pointer-events: auto;
   }
 
   a {

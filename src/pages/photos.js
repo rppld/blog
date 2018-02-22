@@ -43,7 +43,7 @@ class PhotosPage extends Component {
 
         <Intro>
           <Heading>
-            I&rsquo;ve collected quite a few pictures over time, so I made this
+            I&rsquo;ve collected plenty of pictures over time, so I made this
             archive of personal favourites to showcase the ones I&rsquo;m most
             happy with.
           </Heading>

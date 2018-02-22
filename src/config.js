@@ -16,5 +16,6 @@ export default {
   space3: "4rem",
   ls1: "0.01em",
   nearBlack: "#1a1a1a",
-  gray: "#6d6d6d"
+  gray: "#6d6d6d",
+  lightGray: "#ccc"
 }

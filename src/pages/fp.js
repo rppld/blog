@@ -2,6 +2,7 @@ import React from "react"
 import Helmet from "react-helmet"
 import { Body } from "../components/Body"
 import { Header } from "../components/Menubar"
+import { Divider } from "../components/Divider"
 import Intro from "../components/Intro"
 import Outro from "../components/Outro"
 import { RouterLink } from "../components/Link"
@@ -42,6 +43,8 @@ const FpPage = props => (
         to Shopify, I have worked on some higher level concepts for a new
         e-commerce site.
       </Paragraph>
+
+      <Divider />
     </Body>
 
     <Outro>
