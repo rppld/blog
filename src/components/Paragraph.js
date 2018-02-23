@@ -3,6 +3,7 @@ import config from "../config"
 import { device } from "../media"
 
 export const paragraphStyles = css`
+  hyphens: auto;
   letter-spacing: ${config.ls1};
   font-weight: 400;
   font-size: ${config.f1};
@@ -17,6 +18,10 @@ export const paragraphStyles = css`
 
   @media ${device.laptopL} {
     font-size: ${config.f4};
+  }
+
+  em {
+    white-space: nowrap;
   }
 `
 

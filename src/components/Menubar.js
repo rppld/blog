@@ -26,6 +26,10 @@ const wrapperStyles = css`
     padding-right: ${config.space3};
   }
 
+  p {
+    opacity: 0.25;
+  }
+
   * {
     pointer-events: auto;
   }

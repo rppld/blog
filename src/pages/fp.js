@@ -5,7 +5,7 @@ import { Header } from "../components/Menubar"
 import { Divider } from "../components/Divider"
 import Intro from "../components/Intro"
 import Outro from "../components/Outro"
-import { RouterLink } from "../components/Link"
+import { Link, RouterLink } from "../components/Link"
 import { Paragraph } from "../components/Paragraph"
 import { Heading, FauxHeading } from "../components/Heading"
 
@@ -31,17 +31,22 @@ const FpPage = props => (
     </Intro>
 
     <Body>
-      <Heading inBody>Filling Pieces Concepts</Heading>
+      <Heading inBody>Filling Pieces</Heading>
 
       <Paragraph>
-        During my time at Bolden one of my main clients was Amsterdam based
-        footwear label <em>Filling Pieces</em>.
+        During my tenure at <Link href="https://www.bolden.nl/">Bolden</Link>{" "}
+        one of my bigger projects was the site of Amsterdam-based footwear label{" "}
+        <em>Filling Pieces</em>. They started out selling their products online
+        using <em>OpenCart</em> as a platform, and even though OpenCart is a
+        very capable tool, it kinda couldn't keep up with the pace the company
+        was growing, which was especially true during the peak of an ongoing
+        sale.
       </Paragraph>
 
       <Paragraph>
-        Aside from porting their existing site which was based on OpenCart, over
-        to Shopify, I have worked on some higher level concepts for a new
-        e-commerce site.
+        In order to ensure smoother sale-ing (Get it? SALE-ing!), we went
+        through the process of porting everything over to <em>Shopify</em>.
+        Shopify is amazingly stable and easy to manage.
       </Paragraph>
 
       <Divider />

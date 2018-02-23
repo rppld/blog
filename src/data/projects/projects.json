@@ -12,7 +12,7 @@
     "bgColor": "#EC4432"
   },
   {
-    "caption": "Filling Pieces Concepts",
+    "caption": "Filling Pieces",
     "image": "filling-pieces.jpg",
     "link": "/fp",
     "bgColor": "#111",
@@ -21,7 +21,7 @@
     "padRight": true
   },
   {
-    "caption": "Vue AutoScroll",
+    "caption": "vue-plugin-autoscroll",
     "image": "vue-plugin-autoscroll.svg",
     "link": "https://github.com/rppld/vue-plugin-autoscroll",
     "bgColor": "#003580"
@@ -29,6 +29,7 @@
   {
     "caption": "Mit voller Absicht nach Paris",
     "image": "mvanp.jpg",
+    "link": "http://staging.mitvollerabsichtnachparis.com/",
     "bgColor": "#C80001",
     "padTop": true,
     "padLeft": true,
@@ -38,6 +39,7 @@
   {
     "caption": "Verlag für moderne Kunst",
     "image": "vfmk.jpg",
+    "link": "https://vfmk.org/",
     "bgColor": "#00B0DF",
     "padTop": true,
     "padLeft": true,
