@@ -14,18 +14,18 @@ const FpPage = props => (
   <div>
     <Helmet
       title={`${props.data.site.siteMetadata.author}, ${
-        props.data.fpPageJson.title
+        props.data.fillingPiecesPageJson.title
       }`}
     />
 
     <Header
       author={props.data.site.siteMetadata.author}
-      title={props.data.fpPageJson.title}
+      title={props.data.fillingPiecesPageJson.title}
     />
 
-    <Intro bgColor={props.data.fpPageJson.coverBgColor}>
+    <Intro bgColor={props.data.fillingPiecesPageJson.coverBgColor}>
       <img
-        src={props.data.fpPageJson.coverImage.publicURL}
+        src={props.data.fillingPiecesPageJson.coverImage.publicURL}
         alt="Filling Pieces Logo"
         style={{ verticalAlign: "middle", width: "100%" }}
       />
@@ -45,8 +45,8 @@ const FpPage = props => (
 
       <Paragraph>
         In order to ensure smoother sale-ing (Get it? SALE-ing!), we went
-        through the process of porting everything over to <em>Shopify</em>.
-        Shopify comes with its own limitations, but once you learn how to
+        through the process of porting everything to <em>Shopify</em>. Shopify
+        itself comes with its own set of limitations, but once you learn how to
         embrace them instead of finding workarounds you&rsquo;ll end up a happy
         camper. The huge plus of Shopify imho is that it&rsquo;s amazingly
         stable and really easy to manage.
@@ -72,7 +72,7 @@ const FpPage = props => (
         release comes in a new theme it would usually require a few small
         updates in various places (&ldquo;Guys, for the drop of spring-summer
         2017, is it possible we add an extra section that contains a product
-        image with clickable hot-spots and have the menu-drawer in
+        image with clickable hot-spots and have the menu-drawer
         dark-blue?&rdquo;). With the current site not really designed to be
         themeable, this involved lots of fiddling and patchwork.
       </Paragraph>
@@ -82,26 +82,28 @@ const FpPage = props => (
         one interchangeable accent colour for the whole website. This way, the
         first impression of a visitor can be completely different with every
         release in whatever design the new theme requires, with the rest of the
-        site basically remaining unaffected. This could convey the sense of
+        site basically remaining unaffected. This would convey the sense of
         something <em>new</em> twice a year, while keeping the same familiar
         shopping experience from the product overview to the checkout. View the
         prototype in your browser:
       </Paragraph>
 
       <Paragraph>
-        <Link href="https://cranky-mayer-597cff.netlify.com" target="_blank">
-          https://cranky-mayer-597cff.netlify.com
+        <Link href="https://fp-597cff.netlify.com" target="_blank">
+          https://fp-597cff.netlify.com
         </Link>
       </Paragraph>
 
       <Figure
         inBody
-        caption="The frontpage in a generic theme for the purpose of this demo. The idea is that this page can be themed differently with every new product release."
+        caption="The frontpage with a generic theme for the purpose of this demo. The idea is that this page can be themed differently with every new product release."
         bgColor="#111"
         padTop
         padRight
         padLeft
-        sizes={props.data.fpPageJson.images.home.childImageSharp.sizes}
+        sizes={
+          props.data.fillingPiecesPageJson.images.home.childImageSharp.sizes
+        }
         sizesString="(min-width: 60em) 80vw, 100vw"
       />
 
@@ -112,7 +114,10 @@ const FpPage = props => (
         padTop
         padRight
         padLeft
-        sizes={props.data.fpPageJson.images.collection.childImageSharp.sizes}
+        sizes={
+          props.data.fillingPiecesPageJson.images.collection.childImageSharp
+            .sizes
+        }
         sizesString="(min-width: 60em) 80vw, 100vw"
       />
 
@@ -123,7 +128,9 @@ const FpPage = props => (
         padTop
         padRight
         padLeft
-        sizes={props.data.fpPageJson.images.product.childImageSharp.sizes}
+        sizes={
+          props.data.fillingPiecesPageJson.images.product.childImageSharp.sizes
+        }
         sizesString="(min-width: 60em) 80vw, 100vw"
       />
 
@@ -134,7 +141,9 @@ const FpPage = props => (
         padTop
         padRight
         padLeft
-        sizes={props.data.fpPageJson.images.cart.childImageSharp.sizes}
+        sizes={
+          props.data.fillingPiecesPageJson.images.cart.childImageSharp.sizes
+        }
         sizesString="(min-width: 60em) 80vw, 100vw"
       />
 
@@ -169,7 +178,8 @@ const FpPage = props => (
     <Outro>
       <FauxHeading>
         Thanks for your interest in my work! Feeling some more? Check out this{" "}
-        <RouterLink to="/earlybird">app</RouterLink> I'm working on.
+        <RouterLink to="/vfmk">Craft Commerce site</RouterLink> I&rsquo;ve
+        built.
       </FauxHeading>
     </Outro>
   </div>
@@ -178,8 +188,8 @@ const FpPage = props => (
 export default FpPage
 
 export const query = graphql`
-  query FpPageQuery {
-    fpPageJson {
+  query FillingPiecesPageQuery {
+    fillingPiecesPageJson {
       title
       coverImage {
         publicURL

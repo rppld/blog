@@ -123,7 +123,8 @@ const EarlyBirdPage = props => (
     <Outro>
       <FauxHeading>
         Thanks for your interest in my work! Feeling some more? Check out the
-        work I did for <RouterLink to="/fp">Filling Pieces</RouterLink>.
+        work I did for{" "}
+        <RouterLink to="/filling-pieces">Filling Pieces</RouterLink>.
       </FauxHeading>
     </Outro>
   </div>

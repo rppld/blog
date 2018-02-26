@@ -37,17 +37,9 @@ export const paragraphStyles = css`
 export const Paragraph = styled.p`
   ${paragraphStyles};
   margin-top: 0;
-  margin-bottom: ${config.space0};
+  margin-bottom: ${config.space2};
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
   color: ${config.nearBlack};
-
-  @media ${device.tablet} {
-    margin-bottom: ${config.space1};
-  }
-
-  @media ${device.laptop} {
-    margin-bottom: ${config.space2};
-  }
 `

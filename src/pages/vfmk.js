@@ -49,17 +49,12 @@ const vfmkPage = props => (
 
       <Paragraph>
         The store-section of the site should be able to handle three different
-        types of products: Artbooks, limited art prints, as well as random
+        types of products: Artbooks, limited art prints, as well as various
         physical goods such as bags, coffee mugs, or calendars. We started this
-        project using <em>WordPress</em> as a CMS{" "}
-        <span role="img" aria-label="Neutral face emoji">
-          😐
-        </span>, which was a client preference at the time. The{" "}
-        <em>WooCommerce</em> extension should handle all e-commerce
-        functionality{" "}
-        <span role="img" aria-label="Neutral face emoji">
-          😩
-        </span>. The site also needed to be multi-language, so we went ahead and
+        project using <em>WordPress</em> as a CMS, which was a client preference
+        at the time. The <em>WooCommerce</em> extension should handle all
+        e-commerce functionality of the site. And because the content also
+        needed to be translated into multiple languages, we went ahead and
         installed the <em>WPML</em> plugin, which ultimately turned the site
         into <strong>one. Slow. Mess!</strong>{" "}
         <span role="img" aria-label="Crying face emoji">
@@ -68,8 +63,8 @@ const vfmkPage = props => (
       </Paragraph>
 
       <Paragraph>
-        On the bright side: This moment should mark the last time I&rsquo;ve
-        been touching any WordPress code.
+        On the bright side: This moment should be the last time I ever needed to
+        touch WordPress code.
       </Paragraph>
 
       <Heading inBody secondary>
@@ -77,14 +72,14 @@ const vfmkPage = props => (
       </Heading>
 
       <Paragraph>
-        At this point I had already some experience with this relatively new
-        system called <em>Craft CMS</em> and they had just launched their own,
-        first-party e-commerce plugin called <em>Craft Commerce</em>. I could
-        convince the client to scrape together some more money and basically
-        re-wrote the whole website for the new ecosystem, which turned out to be
-        the right decision for both, my brain to not turn into jelly, and also
-        for the client and content editors, because they immediately fell in
-        love with Craft.
+        At this point I had already some experience with a relatively new
+        content management system called <em>Craft CMS</em> and they had also
+        just launched their own, first-party e-commerce plugin called{" "}
+        <em>Craft Commerce</em>. I could convince the client to scrape together
+        some more money and basically re-wrote the whole website for the new
+        ecosystem, which turned out to be the right decision for both, my brain
+        to not turn into jelly, and also for the client and content editors,
+        because they immediately fell in love with Craft CMS.
       </Paragraph>
 
       <Paragraph>
@@ -146,7 +141,7 @@ const vfmkPage = props => (
     <Outro>
       <FauxHeading>
         Thanks for your interest in my work! Feeling some more? Check out this{" "}
-        <RouterLink to="/earlybird">app</RouterLink> I'm working on.
+        <RouterLink to="/earlybird">app</RouterLink> I&rsquo;m working on.
       </FauxHeading>
     </Outro>
   </div>
