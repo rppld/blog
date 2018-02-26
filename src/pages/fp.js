@@ -84,16 +84,23 @@ const FpPage = props => (
         release in whatever design the new theme requires, with the rest of the
         site basically remaining unaffected. This could convey the sense of
         something <em>new</em> twice a year, while keeping the same familiar
-        shopping experience from the product overview to the checkout.
+        shopping experience from the product overview to the checkout. View the
+        prototype in your browser:
+      </Paragraph>
+
+      <Paragraph>
+        <Link href="https://cranky-mayer-597cff.netlify.com" target="_blank">
+          https://cranky-mayer-597cff.netlify.com
+        </Link>
       </Paragraph>
 
       <Figure
         inBody
         caption="The frontpage in a generic theme for the purpose of this demo. The idea is that this page can be themed differently with every new product release."
         bgColor="#111"
-        padTop={true}
-        padRight={true}
-        padLeft={true}
+        padTop
+        padRight
+        padLeft
         sizes={props.data.fpPageJson.images.home.childImageSharp.sizes}
         sizesString="(min-width: 60em) 80vw, 100vw"
       />
@@ -102,9 +109,9 @@ const FpPage = props => (
         inBody
         caption="The product overview page with the apparent underlying three-column-grid, which allows for plenty of interesting compositions."
         bgColor="#111"
-        padTop={true}
-        padRight={true}
-        padLeft={true}
+        padTop
+        padRight
+        padLeft
         sizes={props.data.fpPageJson.images.collection.childImageSharp.sizes}
         sizesString="(min-width: 60em) 80vw, 100vw"
       />
@@ -113,9 +120,9 @@ const FpPage = props => (
         inBody
         caption="The product page with detail imagery and a purchaser component that sticks to the right third of the page."
         bgColor="#111"
-        padTop={true}
-        padRight={true}
-        padLeft={true}
+        padTop
+        padRight
+        padLeft
         sizes={props.data.fpPageJson.images.product.childImageSharp.sizes}
         sizesString="(min-width: 60em) 80vw, 100vw"
       />
@@ -124,37 +131,17 @@ const FpPage = props => (
         inBody
         caption="Slide-out cart component"
         bgColor="#111"
-        padTop={true}
-        padRight={true}
-        padLeft={true}
+        padTop
+        padRight
+        padLeft
         sizes={props.data.fpPageJson.images.cart.childImageSharp.sizes}
         sizesString="(min-width: 60em) 80vw, 100vw"
       />
 
       <Paragraph>
-        Follow this{" "}
-        <Link href="https://cranky-mayer-597cff.netlify.com/" target="_blank">
-          link
-        </Link>{" "}
-        to view the actual working prototype in your browser. I demoed it to
-        Filling Pieces but unfortunately they thought it was &ldquo;too big of a
-        change&rdquo;. A few weeks later, <em>Acne Studios</em> launched a
-        re-designed version of their website{" "}
-        <span role="img" aria-label="Celebration emoji">
-          🙌
-        </span>
+        I demoed this prototype to Filling Pieces but unfortunately they thought
+        it was &ldquo;too big of a change&rdquo;.
       </Paragraph>
-
-      <Figure
-        inBody
-        caption="Acne Studios&rsquo; all-around awesome new site"
-        bgColor="#EEA7C4"
-        padTop={true}
-        padRight={true}
-        padLeft={true}
-        sizes={props.data.fpPageJson.images.acne.childImageSharp.sizes}
-        sizesString="(min-width: 60em) 80vw, 100vw"
-      />
 
       <Heading inBody secondary>
         Closing thoughts
@@ -245,21 +232,6 @@ export const query = graphql`
           }
         }
         cart {
-          childImageSharp {
-            sizes(quality: 90) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-              originalImg
-              originalName
-            }
-          }
-        }
-        acne {
           childImageSharp {
             sizes(quality: 90) {
               base64

@@ -238,8 +238,7 @@ class Image extends React.Component {
                 alt={alt}
                 title={title}
                 src={image.base64}
-                // opacity={!this.state.imgLoaded ? 1 : 0}
-                opacity={1}
+                opacity={!this.state.imgLoaded ? 1 : 0}
                 transitionDelay={`0.25s`}
               />
             )}

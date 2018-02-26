@@ -1,0 +1,10 @@
+{
+  "title": "Web Developer",
+  "coverImage": "vfmk-logomark.svg",
+  "coverBgColor": "#00B0DF",
+  "images": {
+    "home": "../projects/vfmk-home.jpg",
+    "mobile": "vfmk-mobile.png",
+    "shop": "vfmk-shop.jpg"
+  }
+}

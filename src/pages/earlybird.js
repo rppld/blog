@@ -35,8 +35,9 @@ const EarlyBirdPage = props => (
 
       <Paragraph>
         EarlyBird is a side-project I&rsquo;m working on together with{" "}
-        <Link href="http://floriskoch.com/">Floris Koch</Link>, a friend and
-        former colleague of mine.
+        <Link href="http://floriskoch.com/" target="_blank">
+          Floris Koch
+        </Link>, a friend and former colleague of mine.
       </Paragraph>
 
       <Paragraph>

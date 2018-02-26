@@ -28,7 +28,7 @@
   },
   {
     "caption": "Mit voller Absicht nach Paris",
-    "image": "mvanp.jpg",
+    "image": "mvanp-home.jpg",
     "link": "http://staging.mitvollerabsichtnachparis.com/",
     "bgColor": "#C80001",
     "padTop": true,
@@ -38,8 +38,8 @@
   },
   {
     "caption": "Verlag für moderne Kunst",
-    "image": "vfmk.jpg",
-    "link": "https://vfmk.org/",
+    "image": "vfmk-home.jpg",
+    "link": "/vfmk",
     "bgColor": "#00B0DF",
     "padTop": true,
     "padLeft": true,
