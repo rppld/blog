@@ -68,13 +68,13 @@ const FpPage = props => (
       </Heading>
 
       <Paragraph>
-        Filling Pieces releases new products twice a year with every release
-        having a new theme requiring a few small adjustments in various places
-        (&ldquo;Guys, for the drop of spring-summer 2017, is it possible we add
-        an extra section that contains a product image with clickable hot-spots
-        and have the menu-drawer in dark-blue?&rdquo;). With the current site
-        not really designed to be themeable, this usually meant a lot of
-        fiddling and patchwork.
+        Filling Pieces releases new products twice a year and because every
+        release comes in a new theme it would usually require a few small
+        updates in various places (&ldquo;Guys, for the drop of spring-summer
+        2017, is it possible we add an extra section that contains a product
+        image with clickable hot-spots and have the menu-drawer in
+        dark-blue?&rdquo;). With the current site not really designed to be
+        themeable, this involved lots of fiddling and patchwork.
       </Paragraph>
 
       <Paragraph>
