@@ -9,10 +9,18 @@ import { paragraphStyles } from "./Paragraph"
 
 const OuterWrap = styled.figure`
   position: relative;
-  margin: 0 auto;
-  width: 100%;
   max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
   transition: 400ms ease;
+  margin-top: ${props => (props.inBody ? config.space2 : "0")};
+  margin-bottom: ${props => (props.inBody ? config.space2 : "0")};
+
+  @media ${device.tablet} {
+    margin-top: ${props => (props.inBody ? config.space3 : "0")};
+    margin-bottom: ${props => (props.inBody ? config.space3 : "0")};
+  }
 
   img {
     vertical-align: middle;
@@ -22,7 +30,7 @@ const OuterWrap = styled.figure`
 
 const Wrapper = props => {
   return props.link ? (
-    <OuterWrap>
+    <OuterWrap inBody={props.inBody}>
       {props.link.startsWith("http") ? (
         <Link href={props.link}>{props.children}</Link>
       ) : (
@@ -30,7 +38,7 @@ const Wrapper = props => {
       )}
     </OuterWrap>
   ) : (
-    <OuterWrap>{props.children}</OuterWrap>
+    <OuterWrap inBody={props.inBody}>{props.children}</OuterWrap>
   )
 }
 
@@ -59,11 +67,13 @@ const InnerWrap = styled.div`
 const Caption = styled.figcaption`
   ${paragraphStyles};
   width: 100%;
-  line-height: 1.25;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
   color: ${config.gray};
   padding-left: ${config.space1};
   padding-right: ${config.space1};
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
 
   @media ${device.tablet} {
     padding-left: ${config.space2};
@@ -79,7 +89,7 @@ const Caption = styled.figcaption`
 class Figure extends Component {
   render() {
     return (
-      <Wrapper link={this.props.link}>
+      <Wrapper link={this.props.link} inBody={this.props.inBody}>
         <InnerWrap
           bgColor={this.props.bgColor}
           padTop={this.props.padTop}

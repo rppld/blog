@@ -28,16 +28,16 @@ class Intro extends Component {
   constructor(props) {
     super(props)
     this.state = { show: true }
-    this.fadeText = this.fadeText.bind(this)
+    this.fadeElement = this.fadeElement.bind(this)
   }
 
-  fadeText() {
+  fadeElement() {
     const el = this.parallaxContainer
     const scrollTop = getYOffset()
     // const windowHeight = window.innerHeight
     let yPos = el.offsetTop - scrollTop
     // let yOffset = remap(yPos, windowHeight * 0.4, windowHeight, 0, 10)
-    let opac = remap(yPos, 0, el.offsetTop, 0.2, 1)
+    let opac = remap(0, yPos, el.offsetTop, 1, -0.5)
     // el.style.transform = `translateY(${yOffset}px)`
     el.style.opacity = opac
   }
@@ -47,12 +47,12 @@ class Intro extends Component {
       show: true
     }))
 
-    this.fadeText()
-    window.addEventListener("scroll", this.fadeText)
+    this.fadeElement()
+    window.addEventListener("scroll", this.fadeElement)
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.fadeText)
+    window.removeEventListener("scroll", this.fadeElement)
   }
 
   render() {

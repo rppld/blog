@@ -36,7 +36,7 @@ class Outro extends Component {
     const windowHeight = window.innerHeight
     let yPos = el.offsetTop - scrollTop
     // let yOffset = remap(yPos, windowHeight * 0.4, windowHeight, 0, 10)
-    let opac = remap(yPos, windowHeight * 0.005, windowHeight, 1.5, 0.2)
+    let opac = remap(yPos, 0, windowHeight, 2, 0)
     // el.style.transform = `translateY(${yOffset}px)`
     el.style.opacity = opac
   }

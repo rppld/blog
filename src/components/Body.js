@@ -3,13 +3,16 @@ import config from "../config"
 import { device } from "../media"
 
 export const Body = styled.div`
-  padding: ${config.space1};
+  padding-top: ${config.space1};
+  padding-bottom: ${config.space1};
 
   @media ${device.tablet} {
-    padding: ${config.space2};
+    padding-top: ${config.space2};
+    padding-bottom: ${config.space2};
   }
 
   @media ${device.laptop} {
-    padding: ${config.space3};
+    padding-top: ${config.space3};
+    padding-bottom: ${config.space3};
   }
 `

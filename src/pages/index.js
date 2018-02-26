@@ -81,7 +81,7 @@ class IndexPage extends Component {
 
         <Outro>
           <FauxHeading>
-            This is it? Ew… <em>Shrug emoji</em>{" "}
+            This is it? Eh… <em>Shrug emoji</em>{" "}
             <span role="img" aria-label="Emoji">
               🤷‍
             </span>{" "}

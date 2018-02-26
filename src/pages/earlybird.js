@@ -79,8 +79,8 @@ const EarlyBirdPage = props => (
 
       <Paragraph>
         There&rsquo;s a working prototype with a small set of features, but
-        nothing like an ETA. We&rsquo;ve bought a badass domain though and put
-        up a site where you can sign up to get updates on our progress:{" "}
+        nothing like an ETA. We&rsquo;ve bought a bomb domain though and put up
+        a site where you can sign up to get updates on our progress:{" "}
         <span role="img" aria-label="Party emoji">
           🎉
         </span>{" "}
