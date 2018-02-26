@@ -140,8 +140,8 @@ const FpPage = props => (
         Filling Pieces but unfortunately they thought it was &ldquo;too big of a
         change&rdquo;. A few weeks later, <em>Acne Studios</em> launched a
         re-designed version of their website{" "}
-        <span role="img" aria-label="Clapping hands emoji">
-          👏
+        <span role="img" aria-label="Celebration emoji">
+          🙌
         </span>
       </Paragraph>
 
