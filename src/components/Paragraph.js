@@ -5,6 +5,7 @@ import { device } from "../media"
 export const paragraphStyles = css`
   hyphens: auto;
   letter-spacing: ${config.ls1};
+  text-align: ${props => (props.textCenter ? "center" : "left")};
   font-weight: 400;
   font-size: ${config.f1};
   padding-left: ${config.space1};
@@ -31,6 +32,10 @@ export const paragraphStyles = css`
 
   em {
     white-space: nowrap;
+  }
+
+  img {
+    vertical-align: middle;
   }
 `
 

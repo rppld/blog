@@ -56,10 +56,14 @@ const vfmkPage = props => (
         e-commerce functionality of the site. And because the content also
         needed to be translated into multiple languages, we went ahead and
         installed the <em>WPML</em> plugin, which ultimately turned the site
-        into <strong>one. Slow. Mess!</strong>{" "}
-        <span role="img" aria-label="Crying face emoji">
-          😭
-        </span>
+        into <strong>one. Slow. Mess!</strong>
+      </Paragraph>
+
+      <Paragraph textCenter>
+        <img
+          src="https://media.giphy.com/media/wvQIqJyNBOCjK/giphy.gif"
+          alt="Computer rage gif"
+        />
       </Paragraph>
 
       <Paragraph>
