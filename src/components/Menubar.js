@@ -33,6 +33,12 @@ const wrapperStyles = css`
   a {
     text-decoration: none;
     color: inherit;
+    transition: opacity 400ms;
+  }
+
+  a:hover,
+  a:focus {
+    opacity: 0.5;
   }
 `
 
@@ -67,13 +73,15 @@ export const Header = props => (
       <Link to="/">{props.author}</Link>
     </Paragraph>
 
-    <Paragraph>{props.title}</Paragraph>
+    <Paragraph>
+      <Link to="/about">{props.title}</Link>
+    </Paragraph>
   </HeaderWrapper>
 )
 
 export const Footer = props => (
   <FooterWrapper>
-    <Paragraph>&copy; 2018</Paragraph>
+    <Paragraph style={{ opacity: 0.5 }}>&copy; 2018</Paragraph>
 
     <Paragraph>
       <a href={`mailto:${props.email}`}>{props.email}</a>
