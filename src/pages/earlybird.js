@@ -82,7 +82,9 @@ const EarlyBirdPage = props => (
         There&rsquo;s a working prototype with a small set of features, but
         nothing like an ETA. We&rsquo;ve bought a bomb domain though and put up
         a site where you can sign up to get updates on our progress:{" "}
-        <Link href="https://earlybird.lol">https://earlybird.lol</Link>{" "}
+        <Link href="https://earlybird.lol" target="_blank">
+          https://earlybird.lol
+        </Link>{" "}
         <span role="img" aria-label="Party emoji">
           👯‍
         </span>
@@ -94,10 +96,14 @@ const EarlyBirdPage = props => (
 
       <Paragraph>
         Okay, so when in 2016 the talented David DeSandro of{" "}
-        <Link href="https://metafizzy.co/">Metafizzy</Link> ran his first
-        installation of <Link href="http://logo.pizza/">Logo Pizza</Link>, I
-        managed to snatch the first logo being sold for $40, with the idea in
-        mind that I&rsquo;d someday use it for a side-project.
+        <Link href="https://metafizzy.co/" target="_blank">
+          Metafizzy
+        </Link>{" "}
+        ran his first installation of{" "}
+        <Link href="http://logo.pizza/" target="_blank">
+          Logo Pizza
+        </Link>, I managed to snatch the first logo being sold for $40, with the
+        idea in mind that I&rsquo;d someday use it for a side-project.
       </Paragraph>
 
       <Paragraph>
