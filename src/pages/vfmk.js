@@ -72,7 +72,7 @@ const vfmkPage = props => (
       </Heading>
 
       <Paragraph>
-        At this point I had already some experience with a relatively new
+        At this point I already had some experience with a relatively new
         content management system called <em>Craft CMS</em> and they had also
         just launched their own, first-party e-commerce plugin called{" "}
         <em>Craft Commerce</em>. I could convince the client to scrape together
