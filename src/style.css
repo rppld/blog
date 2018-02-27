@@ -1,47 +1,47 @@
 @font-face {
   font-family: "IBM Plex Sans";
-  src: url("./IBMPlexSans-Regular-Latin1.woff2") format("woff2"),
-       url("./IBMPlexSans-Regular-Latin1.woff") format("woff");
+  src: url("/IBMPlexSans-Regular-Latin1.woff2") format("woff2"),
+       url("/IBMPlexSans-Regular-Latin1.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "IBM Plex Sans";
-  src: url("./IBMPlexSans-Italic-Latin1.woff2") format("woff2"),
-       url("./IBMPlexSans-Italic-Latin1.woff") format("woff");
+  src: url("/IBMPlexSans-Italic-Latin1.woff2") format("woff2"),
+       url("/IBMPlexSans-Italic-Latin1.woff") format("woff");
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
   font-family: "IBM Plex Sans";
-  src: url("./IBMPlexSans-Bold-Latin1.woff2") format("woff2"),
-       url("./IBMPlexSans-Bold-Latin1.woff") format("woff");
+  src: url("/IBMPlexSans-Bold-Latin1.woff2") format("woff2"),
+       url("/IBMPlexSans-Bold-Latin1.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "IBM Plex Sans";
-  src: url("./IBMPlexSans-BoldItalic-Latin1.woff2") format("woff2"),
-       url("./IBMPlexSans-BoldItalic-Latin1.woff") format("woff");
+  src: url("/IBMPlexSans-BoldItalic-Latin1.woff2") format("woff2"),
+       url("/IBMPlexSans-BoldItalic-Latin1.woff") format("woff");
   font-weight: 700;
   font-style: italic;
 }
 
 @font-face {
   font-family: "IBM Plex Serif";
-  src: url("./IBMPlexSerif-Bold-Latin1.woff2") format("woff2"),
-       url("./IBMPlexSerif-Bold-Latin1.woff") format("woff");
+  src: url("/IBMPlexSerif-Bold-Latin1.woff2") format("woff2"),
+       url("/IBMPlexSerif-Bold-Latin1.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "IBM Plex Serif";
-  src: url("./IBMPlexSerif-BoldItalic-Latin1.woff2") format("woff2"),
-       url("./IBMPlexSerif-BoldItalic-Latin1.woff") format("woff");
+  src: url("/IBMPlexSerif-BoldItalic-Latin1.woff2") format("woff2"),
+       url("/IBMPlexSerif-BoldItalic-Latin1.woff") format("woff");
   font-weight: 700;
   font-style: italic;
 }
