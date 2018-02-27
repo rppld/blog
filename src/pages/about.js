@@ -72,7 +72,7 @@ const AboutPage = props => (
       </Paragraph>
 
       <Paragraph>
-        Send me an <Link href="mailto:hi@rppld.co">email</Link> or hit me up on{" "}
+        Send me an <Link href="mailto:hi@rppld.co">email</Link> or DM me on{" "}
         <Link href="https://twitter.com/rppld" target="_blank">
           Twitter
         </Link>{" "}
