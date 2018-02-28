@@ -3,6 +3,7 @@ import Helmet from "react-helmet"
 import { Header } from "../components/Menubar"
 import Intro from "../components/Intro"
 import Outro from "../components/Outro"
+import Image from "../components/Image"
 import { Divider } from "../components/Divider"
 import { Paragraph } from "../components/Paragraph"
 import { Link } from "../components/Link"
@@ -23,15 +24,16 @@ const AboutPage = props => (
     />
 
     <Intro bgColor={props.data.aboutPageJson.coverBgColor}>
-      <img
-        src={props.data.aboutPageJson.coverImage.publicURL}
+      <Image
+        sizes={props.data.aboutPageJson.coverImage.childImageSharp.sizes}
         alt="Avatar"
         style={{
           verticalAlign: "middle",
-          maxWidth: "65vw",
-          maxHeight: "65vh",
+          width: "65vmin",
+          height: "65vmin",
           borderRadius: "100%"
         }}
+        sizesString="(min-width: 60em) 40vw, 60vw"
       />
     </Intro>
 
@@ -137,6 +139,19 @@ export const query = graphql`
       title
       coverImage {
         publicURL
+        childImageSharp {
+          sizes(quality: 90) {
+            base64
+            aspectRatio
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
+            originalImg
+            originalName
+          }
+        }
       }
       coverBgColor
     }
