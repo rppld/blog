@@ -47,9 +47,8 @@ const AboutPage = props => (
 
       <Paragraph>
         Though the homepage of this site says that I&rsquo;m a{" "}
-        <em>designer in Amsterdam</em>, I&rsquo;m not Dutch, but I grew up in
-        rural Austria surrounded by mountains… And cows. It was only a few
-        coincidences later, by way of{" "}
+        <em>designer in Amsterdam</em>, I&rsquo;m not Dutch, but grew up in
+        rural Austria. It was only a few coincidences later, by way of{" "}
         <Link href="https://goo.gl/maps/iRq5h9F1xuR2" target="_blank">
           Victoria
         </Link>{" "}
@@ -63,14 +62,14 @@ const AboutPage = props => (
         <Link href="https://www.bolden.nl/" target="_blank">
           Bolden
         </Link>, after I had convinced them I&rsquo;d be sort of both, designer{" "}
-        <em>and</em> developer. Which is really what I like to do: Working at
+        <em>and</em> developer. Which is actually what I like to do: Working at
         the intersection of design and technology.
       </Paragraph>
 
       <Paragraph>
-        Doesn&rsquo;t really matter to me whether it&rsquo;s a Sketch file or a
-        React component, OCD&rsquo;ing over reusability and consistency in
-        either of them makes me equally happy.
+        Doesn&rsquo;t matter if it&rsquo;s a Sketch file or a React component,
+        OCD&rsquo;ing over reusability and consistency in either of them makes
+        me equally happy.
       </Paragraph>
 
       <Paragraph>
