@@ -91,7 +91,7 @@ const EarlyBirdPage = props => (
       </Paragraph>
 
       <Heading inBody secondary>
-        Why &ldquo;EarlyBird&rdquo; doe?
+        Why &ldquo;EarlyBird&rdquo; though?
       </Heading>
 
       <Paragraph>
