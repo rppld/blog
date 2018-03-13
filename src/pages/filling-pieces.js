@@ -148,8 +148,8 @@ const FpPage = props => (
       />
 
       <Paragraph>
-        I demoed this prototype to Filling Pieces but unfortunately they thought
-        it was &ldquo;too big of a change&rdquo;.
+        The images and logo used in these screenshots aren't mine, but property
+        of Filling Pieces #disclaimer
       </Paragraph>
 
       <Heading inBody secondary>
