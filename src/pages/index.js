@@ -1,96 +1,91 @@
-import React, { Component } from "react"
-import Intro from "../components/Intro"
-import Outro from "../components/Outro"
-import Figure from "../components/Figure"
-import { Header } from "../components/Menubar"
-import { Heading, FauxHeading } from "../components/Heading"
-import { Grid } from "../components/Grid"
-import { GridItem } from "../components/GridItem"
-import { Link, RouterLink } from "../components/Link"
-import { getSize, getSizesString, scaleItems } from "../helpers"
-import { debounce } from "lodash"
+import React, { Component } from 'react'
+import { Link, graphql } from 'gatsby'
+import Helmet from 'react-helmet'
+import Figure from '../components/Figure'
+import Intro from '../components/Intro'
+import Outro from '../components/Outro'
+import { Header } from '../components/Menubar'
+import { Heading } from '../components/Heading'
+import { Grid } from '../components/Grid'
+import { GridItem } from '../components/GridItem'
+import { getSize, scaleItems, createMarkup, getPaddingProps } from '../utils'
+import { debounce } from 'lodash'
 
 class IndexPage extends Component {
   componentDidMount() {
     const els = this.grid.childNodes
     scaleItems(els)
-    window.addEventListener("scroll", () => scaleItems(els))
-    window.addEventListener("resize", debounce(() => scaleItems(els), 200))
+    window.addEventListener('scroll', () => scaleItems(els))
+    window.addEventListener('resize', debounce(() => scaleItems(els), 200))
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", scaleItems)
-    window.removeEventListener("resize", scaleItems)
+    window.removeEventListener('scroll', scaleItems)
+    window.removeEventListener('resize', scaleItems)
   }
 
   render() {
     const { data } = this.props
+    const { intro, outro, tagline, projects } = data.contentfulHomepage
     let count = 0
 
     return (
-      <div>
-        <Header
-          author={data.site.siteMetadata.author}
-          title={data.site.siteMetadata.title}
-        />
+      <>
+        <Helmet title={`${data.site.siteMetadata.author}, ${tagline}`} />
+        <Header author={data.site.siteMetadata.author} title={tagline} />
         <Intro>
-          <Heading>
-            Hi{" "}
-            <span role="img" aria-label="Emoji">
-              👋
-            </span>{" "}
-            I&rsquo;m Philipp, an information designer in Amsterdam taking{" "}
-            <RouterLink to="/photos">photos</RouterLink> for fun. Scroll down
-            <span role="img" aria-label="Emoji">
-              👇
-            </span>{" "}
-            to see some of my work. You can follow me on{" "}
-            <Link href="https://twitter.com/rppld">Twitter</Link> and{" "}
-            <Link href="https://www.instagram.com/philipprappold/">
-              Instagram
-            </Link>.
-          </Heading>
+          <Heading
+            dangerouslySetInnerHTML={createMarkup(
+              intro.childMarkdownRemark.html
+            )}
+          />
         </Intro>
 
-        <Grid innerRef={comp => (this.grid = comp)}>
-          {data.allProjectsJson.edges.map(({ node }, i) => {
+        <Grid ref={comp => (this.grid = comp)}>
+          {projects.map((project, i) => {
             count < 6 ? count++ : (count = 1)
+            const {
+              id,
+              slug,
+              title,
+              featuredImage,
+              featuredImagePadding: padding,
+              featuredImageBackgroundColor: bgColor,
+            } = project
 
             return (
-              <GridItem key={node.internal.contentDigest} size={getSize(count)}>
-                <Figure
-                  caption={node.caption}
-                  bgColor={node.bgColor}
-                  padTop={node.padTop}
-                  padRight={node.padRight}
-                  padBottom={node.padBottom}
-                  padLeft={node.padLeft}
-                  link={node.link}
-                  publicURL={node.image.publicURL}
-                  sizes={
-                    node.image.childImageSharp
-                      ? node.image.childImageSharp.sizes
-                      : null
-                  }
-                  sizesString={getSizesString(count)}
-                />
+              <GridItem key={id} size={getSize(count)}>
+                <Link style={{ width: '100%' }} to={`/${slug}/`}>
+                  {featuredImage.fluid.sizes ? (
+                    <Figure
+                      {...getPaddingProps(padding)}
+                      bgColor={bgColor}
+                      fluid={featuredImage.fluid}
+                      caption={title}
+                    />
+                  ) : (
+                    <Figure
+                      {...getPaddingProps(padding)}
+                      bgColor={bgColor}
+                      src={featuredImage.file.url}
+                      caption={title}
+                    />
+                  )}
+                </Link>
               </GridItem>
             )
           })}
         </Grid>
 
         <Outro>
-          <FauxHeading>
-            This is it? Eh… <em>Shrug emoji</em>{" "}
-            <span role="img" aria-label="Emoji">
-              🤷‍
-            </span>{" "}
-            I&rsquo;ll add more projects with time. Did you know I also like to
-            take photos though? So much, it even has its own{" "}
-            <RouterLink to="/photos">page</RouterLink> on this website!
-          </FauxHeading>
+          <Heading
+            as="p"
+            dangerouslySetInnerHTML={createMarkup(
+              outro.childMarkdownRemark.html
+            )}
+          />
         </Outro>
-      </div>
+      </>
     )
   }
 }
@@ -102,36 +97,35 @@ export const query = graphql`
     site {
       siteMetadata {
         author
-        title
       }
     }
-    allProjectsJson {
-      edges {
-        node {
-          caption
-          link
-          padTop
-          padRight
-          padBottom
-          padLeft
-          bgColor
-          internal {
-            contentDigest
-          }
-          image {
-            publicURL
-            childImageSharp {
-              sizes(quality: 90) {
-                base64
-                aspectRatio
-                src
-                srcSet
-                srcWebp
-                srcSetWebp
-                sizes
-                originalImg
-                originalName
-              }
+    contentfulHomepage {
+      tagline
+      intro {
+        childMarkdownRemark {
+          html
+        }
+      }
+      outro {
+        childMarkdownRemark {
+          html
+        }
+      }
+      projects {
+        __typename
+        ... on ContentfulArticle {
+          id
+          title
+          slug
+          featuredImagePadding
+          featuredImageBackgroundColor
+          featuredImage {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+            file {
+              url
+              fileName
             }
           }
         }

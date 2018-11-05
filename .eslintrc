@@ -1,40 +1,9 @@
 {
-  "extends": [
-    "react-app",
-    "prettier",
-    "prettier/react"
-  ],
-  "plugins": [
-    "react",
-    "prettier"
-  ],
   "parserOptions": {
-    "parser": "babel-eslint",
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "impliedStrict": true,
-      "classes": true
-    },
-    "sourceType": "module"
+    "ecmaVersion": 2018
   },
-  "globals": {
-    "graphql": false
-  },
+  "extends": ["react-app", "eslint-config-prettier"],
   "env": {
-    "browser": true,
-    "es6": true
-  },
-  "rules": {
-    "prettier/prettier": "error",
-    "import/no-extraneous-dependencies": "off",
-    "jsx-a11y/href-no-hash": "off",
-    "jsx-a11y/anchor-is-valid": [
-      "warn",
-      {
-        "aspects": [
-          "invalidHref"
-        ]
-      }
-    ]
+    "browser": true
   }
 }

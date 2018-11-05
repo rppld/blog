@@ -1,33 +1,33 @@
 import styled, { css } from "styled-components"
-import config from "../config"
+import { letterSpacing, fontSize, space, color } from "../constants"
 import { device } from "../media"
 
 export const paragraphStyles = css`
   hyphens: auto;
-  letter-spacing: ${config.ls1};
+  letter-spacing: ${letterSpacing.ls1};
   text-align: ${props => (props.textCenter ? "center" : "left")};
   font-weight: 400;
-  font-size: ${config.f1};
-  padding-left: ${config.space1};
-  padding-right: ${config.space1};
+  font-size: ${fontSize.f1};
+  padding-left: ${space.s1};
+  padding-right: ${space.s1};
 
   @media ${device.mobileL} {
-    font-size: ${config.f2};
+    font-size: ${fontSize.f2};
   }
 
   @media ${device.tablet} {
-    font-size: ${config.f3};
-    padding-left: ${config.space2};
-    padding-right: ${config.space2};
+    font-size: ${fontSize.f3};
+    padding-left: ${space.s2};
+    padding-right: ${space.s2};
   }
 
   @media ${device.laptop} {
-    padding-left: ${config.space3};
-    padding-right: ${config.space3};
+    padding-left: ${space.s3};
+    padding-right: ${space.s3};
   }
 
   @media ${device.laptopL} {
-    font-size: ${config.f4};
+    font-size: ${fontSize.f4};
   }
 
   em {
@@ -42,9 +42,9 @@ export const paragraphStyles = css`
 export const Paragraph = styled.p`
   ${paragraphStyles};
   margin-top: 0;
-  margin-bottom: ${config.space2};
+  margin-bottom: ${space.s2};
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
-  color: ${config.nearBlack};
+  color: ${color.nearBlack};
 `

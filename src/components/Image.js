@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 
 // Handle legacy names for image queries.
 const convertProps = props => {
@@ -11,7 +11,7 @@ const convertProps = props => {
   }
 
   // Use own string for sizes attribute
-  convertedProps.sizes.sizes = props.sizesString
+  convertedProps.sizes = props.sizes
 
   return convertedProps
 }
@@ -95,7 +95,7 @@ const noscriptImg = props => {
     alt = ``,
     width = ``,
     height = ``,
-    transitionDelay = ``
+    transitionDelay = ``,
   } = props
   return `<img width=${width} height=${height} src="${src}" srcset="${srcSet}" alt="${alt}" title="${title}" sizes="${sizes}" style="position:absolute;top:0;left:0;transition:opacity 0.5s;transition-delay:${transitionDelay};opacity:${opacity};width:100%;height:100%;object-fit:cover;objectPosition:center"/>`
 }
@@ -116,7 +116,7 @@ const Img = props => {
         width: `100%`,
         height: `100%`,
         objectFit: `cover`,
-        objectPosition: `center`
+        objectPosition: `center`,
       }}
     />
   )
@@ -125,7 +125,7 @@ const Img = props => {
 Img.propTypes = {
   opacity: PropTypes.number,
   transitionDelay: PropTypes.string,
-  onLoad: PropTypes.func
+  onLoad: PropTypes.func,
 }
 
 class Image extends React.Component {
@@ -161,7 +161,7 @@ class Image extends React.Component {
     this.state = {
       isVisible,
       imgLoaded,
-      IOSupported
+      IOSupported,
     }
 
     this.handleRef = this.handleRef.bind(this)
@@ -183,7 +183,7 @@ class Image extends React.Component {
       outerWrapperClassName,
       style = {},
       sizes,
-      backgroundColor
+      backgroundColor,
     } = convertProps(this.props)
 
     let bgColor
@@ -211,7 +211,7 @@ class Image extends React.Component {
           style={{
             zIndex: 0,
             // Let users set component to be absolutely positioned.
-            position: style.position === `absolute` ? `initial` : `relative`
+            position: style.position === `absolute` ? `initial` : `relative`,
           }}
         >
           <div
@@ -220,7 +220,7 @@ class Image extends React.Component {
               position: `relative`,
               overflow: `hidden`,
               zIndex: 1,
-              ...style
+              ...style,
             }}
             ref={this.handleRef}
           >
@@ -228,7 +228,7 @@ class Image extends React.Component {
             <div
               style={{
                 width: `100%`,
-                paddingBottom: `${100 / image.aspectRatio}%`
+                paddingBottom: `${100 / image.aspectRatio}%`,
               }}
             />
 
@@ -255,7 +255,7 @@ class Image extends React.Component {
                   opacity: !this.state.imgLoaded ? 1 : 0,
                   transitionDelay: `0.35s`,
                   right: 0,
-                  left: 0
+                  left: 0,
                 }}
               />
             )}
@@ -287,7 +287,7 @@ class Image extends React.Component {
             {/* Show the original image during server-side rendering if JavaScript is disabled */}
             <noscript
               dangerouslySetInnerHTML={{
-                __html: noscriptImg({ alt, title, ...image })
+                __html: noscriptImg({ alt, title, ...image }),
               }}
             />
           </div>
@@ -301,25 +301,25 @@ class Image extends React.Component {
 
 Image.defaultProps = {
   fadeIn: true,
-  alt: ``
+  alt: ``,
 }
 
 Image.propTypes = {
   responsiveSizes: PropTypes.object,
-  sizes: PropTypes.object,
-  sizesString: PropTypes.string,
+  srcSet: PropTypes.string,
+  sizes: PropTypes.string,
   fadeIn: PropTypes.bool,
   title: PropTypes.string,
   alt: PropTypes.string,
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]), // Support Glamor's css prop.
   outerWrapperClassName: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.object
+    PropTypes.object,
   ]),
   style: PropTypes.object,
   position: PropTypes.string,
   backgroundColor: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  onLoad: PropTypes.func
+  onLoad: PropTypes.func,
 }
 
 export default Image

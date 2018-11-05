@@ -1,7 +1,7 @@
 import React from "react"
 import styled, { css } from "styled-components"
-import Link from "gatsby-link"
-import config from "../config"
+import { Link } from "gatsby"
+import { space, fontSize } from "../constants"
 import { device } from "../media"
 
 const wrapperStyles = css`
@@ -12,63 +12,52 @@ const wrapperStyles = css`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-left: ${config.space1};
-  padding-right: ${config.space1};
+  padding-left: ${space.s1};
+  padding-right: ${space.s1};
   pointer-events: none;
 
   @media ${device.tablet} {
-    padding-left: ${config.space2};
-    padding-right: ${config.space2};
+    padding-left: ${space.s2};
+    padding-right: ${space.s2};
   }
 
   @media ${device.laptopL} {
-    padding-left: ${config.space3};
-    padding-right: ${config.space3};
+    padding-left: ${space.s3};
+    padding-right: ${space.s3};
   }
 
   * {
     pointer-events: auto;
   }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-    transition: opacity 400ms;
-  }
-
-  a:hover,
-  a:focus {
-    opacity: 0.5;
-  }
 `
 
 const HeaderWrapper = styled.header`
   top: 0;
-  padding-top: ${config.space0};
+  padding-top: ${space.s0};
   ${wrapperStyles};
 `
 
 const FooterWrapper = styled.footer`
   bottom: 0;
-  padding-bottom: ${config.space0};
+  padding-bottom: ${space.s0};
   ${wrapperStyles};
 `
 
 const Paragraph = styled.p`
   margin: 0;
-  font-size: ${config.f0};
+  font-size: ${fontSize.f0};
 
   @media ${device.tablet} {
-    font-size: ${config.f1};
+    font-size: ${fontSize.f1};
   }
 
   @media ${device.laptop} {
-    font-size: ${config.f2};
+    font-size: ${fontSize.f2};
   }
 `
 
 export const Header = props => (
-  <HeaderWrapper>
+  <HeaderWrapper className="menubar">
     <Paragraph>
       <Link to="/">{props.author}</Link>
     </Paragraph>
@@ -80,11 +69,11 @@ export const Header = props => (
 )
 
 export const Footer = props => (
-  <FooterWrapper>
+  <FooterWrapper className="menubar">
     <Paragraph style={{ opacity: 0.5 }}>&copy; 2018</Paragraph>
 
     <Paragraph>
-      <a href={`mailto:${props.email}`}>{props.email}</a>
+      <a href={`mailto:${props.email}`}>Say Hi</a>
     </Paragraph>
   </FooterWrapper>
 )

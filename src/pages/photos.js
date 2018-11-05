@@ -1,14 +1,14 @@
 import React, { Component } from "react"
 import Helmet from "react-helmet"
+import { graphql } from "gatsby"
 import { Header } from "../components/Menubar"
 import Intro from "../components/Intro"
 import Outro from "../components/Outro"
 import Figure from "../components/Figure"
-import { Link } from "../components/Link"
 import { Heading, FauxHeading } from "../components/Heading"
 import { Grid } from "../components/Grid"
 import { GridItem } from "../components/GridItem"
-import { getSize, getSizesString, scaleItems } from "../helpers"
+import { getSize, scaleItems, createMarkup } from "../utils"
 import { debounce } from "lodash"
 
 class PhotosPage extends Component {
@@ -26,60 +26,44 @@ class PhotosPage extends Component {
 
   render() {
     const { data } = this.props
+    const { author } = data.site.siteMetadata
+    const { intro, outro, tagline, contentBlocks } = data.contentfulPhotos
     let count = 0
 
     return (
       <div>
-        <Helmet
-          title={`${data.site.siteMetadata.author}, ${
-            data.photosPageJson.title
-          }`}
-        />
+        <Helmet title={`${author}, ${tagline}`} />
 
-        <Header
-          author={data.site.siteMetadata.author}
-          title={data.photosPageJson.title}
-        />
+        <Header author={author} title={tagline} />
 
         <Intro>
-          <Heading>
-            I&rsquo;ve collected plenty of pictures over time, so I made this
-            archive of personal favourites to showcase the ones I&rsquo;m most
-            happy with.
-          </Heading>
+          <Heading
+            dangerouslySetInnerHTML={createMarkup(
+              intro.childMarkdownRemark.html
+            )}
+          />
         </Intro>
 
-        <Grid innerRef={comp => (this.grid = comp)}>
-          {data.allPhotosJson.edges.map(({ node }, i) => {
+        <Grid ref={comp => (this.grid = comp)}>
+          {contentBlocks.reverse().map((block, i) => {
             count < 6 ? count++ : (count = 1)
+            const { id, title, image } = block
 
             return (
-              <GridItem key={node.internal.contentDigest} size={getSize(count)}>
-                <Figure
-                  caption={node.caption}
-                  sizes={node.image.childImageSharp.sizes}
-                  sizesString={getSizesString(count)}
-                />
+              <GridItem key={id} size={getSize(count)}>
+                {image && <Figure fluid={image.fluid} caption={title} />}
               </GridItem>
             )
           })}
         </Grid>
 
         <Outro>
-          <FauxHeading>
-            Love that you made it all the way down{" "}
-            <span role="img" aria-label="Emoji">
-              😌
-            </span>{" "}
-            What I also love is Instagram!{" "}
-            <Link href="https://www.instagram.com/philipprappold/">
-              Follow me
-            </Link>{" "}
-            if you like stories of delicious looking food{" "}
-            <Link href="https://www.instagram.com/explore/tags/influencer/">
-              #influencer
-            </Link>
-          </FauxHeading>
+          <Heading
+            as="p"
+            dangerouslySetInnerHTML={createMarkup(
+              outro.childMarkdownRemark.html
+            )}
+          />
         </Outro>
       </div>
     )
@@ -95,29 +79,26 @@ export const query = graphql`
         author
       }
     }
-    photosPageJson {
-      title
-    }
-    allPhotosJson {
-      edges {
-        node {
-          caption
-          internal {
-            contentDigest
-          }
+    contentfulPhotos {
+      tagline
+      intro {
+        childMarkdownRemark {
+          html
+        }
+      }
+      outro {
+        childMarkdownRemark {
+          html
+        }
+      }
+      contentBlocks {
+        __typename
+        ... on ContentfulBlockImage {
+          id
+          title
           image {
-            childImageSharp {
-              sizes(quality: 90) {
-                base64
-                aspectRatio
-                src
-                srcSet
-                srcWebp
-                srcSetWebp
-                sizes
-                originalImg
-                originalName
-              }
+            fluid {
+              ...GatsbyContentfulFluid
             }
           }
         }

@@ -2,29 +2,44 @@ export const getSize = index => {
   switch (index) {
     case 1:
     case 5:
-      return "medium"
+      return 'medium'
     case 2:
     case 4:
-      return "small"
+      return 'small'
     case 3:
     case 6:
     default:
-      return "large"
+      return 'large'
   }
+}
+
+export const getPaddingProps = str => {
+  const arr = str ? str.split(',') : []
+
+  return {
+    padLeft: arr[0] === '1' ? true : false,
+    padTop: arr[1] === '1' ? true : false,
+    padRight: arr[2] === '1' ? true : false,
+    padBottom: arr[3] === '1' ? true : false,
+  }
+}
+
+export const createMarkup = string => {
+  return { __html: string }
 }
 
 export const getSizesString = index => {
   switch (index) {
     case 1:
     case 5:
-      return "(min-width: 30em) 60vw, 100vw"
+      return '(min-width: 30em) 60vw, 100vw'
     case 2:
     case 4:
-      return "(min-width: 30em) 40vw, 100vw"
+      return '(min-width: 30em) 40vw, 100vw'
     case 3:
     case 6:
     default:
-      return "(min-width: 60em) 80vw, 100vw"
+      return '(min-width: 60em) 80vw, 100vw'
   }
 }
 
@@ -38,9 +53,11 @@ export const remap = (oldVal, oldMin, oldMax, newMin, newMax, limit = true) => {
       : oldVal > oldMax
         ? (newVal = newMax)
         : (newVal =
-            newMin + (newMax - newMin) * (oldVal - oldMin) / (oldMax - oldMin))
+            newMin +
+            ((newMax - newMin) * (oldVal - oldMin)) / (oldMax - oldMin))
   } else {
-    newVal = newMin + (newMax - newMin) * (oldVal - oldMin) / (oldMax - oldMin)
+    newVal =
+      newMin + ((newMax - newMin) * (oldVal - oldMin)) / (oldMax - oldMin)
   }
 
   return newVal

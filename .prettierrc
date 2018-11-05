@@ -3,6 +3,6 @@
   "jsxBracketSameLine": false,
   "semi": false,
   "printWidth": 80,
-  "singleQuote": false,
-  "trailingComma": "none"
+  "singleQuote": true,
+  "trailingComma": "es5"
 }

@@ -1,13 +1,13 @@
 import React, { Component } from "react"
 import styled from "styled-components"
-import config from "../config"
+import { space } from "../constants"
 import { device } from "../media"
-import { remap, getYOffset } from "../helpers"
+import { remap, getYOffset } from "../utils"
 
 const Wrapper = styled.div`
   min-height: 100vh;
   text-align: center;
-  padding: ${config.space1};
+  padding: ${space.s1};
   display: flex;
   justify-content: center;
   transition: opacity 400ms;
@@ -15,11 +15,11 @@ const Wrapper = styled.div`
   opacity: ${props => (props.show ? "1" : "0")};
 
   @media ${device.tablet} {
-    padding: ${config.space2};
+    padding: ${space.s2};
   }
 
   @media ${device.laptop} {
-    padding: ${config.space3};
+    padding: ${space.s3};
   }
 `
 

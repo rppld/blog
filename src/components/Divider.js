@@ -1,16 +1,10 @@
 import styled from "styled-components"
-import config from "../config"
-import { device } from "../media"
+import { color } from "../constants"
 
 export const Divider = styled.div`
-  color: ${config.lightGray};
-  margin-top: ${config.space2};
+  color: ${color.lightGray};
   font-size: 2rem;
   text-align: center;
-
-  @media ${device.tablet} {
-    margin-top: ${config.space3};
-  }
 
   &:before {
     content: "* * *";

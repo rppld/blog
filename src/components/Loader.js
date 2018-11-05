@@ -1,8 +1,6 @@
-import React, { Component } from "react"
-import { Transition } from "react-transition-group"
-import styled from "styled-components"
-
-const duration = 200
+import React, { Component } from 'react'
+import { Transition } from 'react-transition-group'
+import styled from 'styled-components'
 
 const Wrapper = styled.div`
   position: fixed;
@@ -20,32 +18,43 @@ const Wrapper = styled.div`
   font-weight: 700;
 `
 
-const defaultStyle = {
-  transition: `opacity ${duration}ms ease-in-out`,
-  opacity: 0
+const Image = styled.span`
+  display: block;
+`
+
+const duration = 200
+
+const defaultStyles = {
+  transitionProperty: 'opacity, transform',
+  transitionDuration: `${duration}ms`,
+  transitionTimingFunction: `cubic-bezier(.215, .61, .355, 1)`,
+  opacity: 0,
 }
 
-const transitionStyles = {
+const wrapperTransitionStyles = {
   entering: { opacity: 1 },
   entered: { opacity: 1 },
-  exiting: { opacity: 0 }
+  exiting: { opacity: 0 },
+}
+
+const imageTransitionStyles = {
+  entering: { opacity: 0, transform: 'scale(0.75)' },
+  entered: { opacity: 1, transform: 'scale(1)' },
+  exiting: { opacity: 0 },
 }
 
 class Loader extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      emojis: ["👋", "🙌", "🤙", "🤘", "🙃", "🎉", "👌", "🗣", "🤔"],
-      randomEmoji: null
-    }
+  state = {
+    emojis: ['👋', '🙌', '🤙', '🤘', '🙃', '🎉', '👌', '🗣', '🤔'],
+    randomEmoji: null,
   }
 
-  componentWillReceiveProps() {
-    if (!this.props.show) {
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.show === false && prevProps.show !== this.props.show) {
       this.setState((prevState, props) => ({
         randomEmoji: this.state.emojis[
           Math.floor(Math.random() * this.state.emojis.length)
-        ]
+        ],
       }))
     }
   }
@@ -55,22 +64,27 @@ class Loader extends Component {
       <Transition
         in={this.props.show}
         timeout={duration}
-        mountOnEnter={true}
-        unmountOnExit={true}
+        mountOnEnter
+        unmountOnExit
       >
         {state => (
-          <div
+          <Wrapper
             style={{
-              ...defaultStyle,
-              ...transitionStyles[state]
+              ...defaultStyles,
+              ...wrapperTransitionStyles[state],
             }}
           >
-            <Wrapper>
-              <span role="img" aria-label="Emoji">
-                {this.state.randomEmoji}
-              </span>
-            </Wrapper>
-          </div>
+            <Image
+              style={{
+                ...defaultStyles,
+                ...imageTransitionStyles[state],
+              }}
+              role="img"
+              aria-label="Emoji"
+            >
+              {this.state.randomEmoji}
+            </Image>
+          </Wrapper>
         )}
       </Transition>
     )
