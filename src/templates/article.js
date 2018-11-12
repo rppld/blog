@@ -21,6 +21,7 @@ class ArticleTemplate extends React.Component {
     const { author } = data.site.siteMetadata
     const page = data.contentfulArticle
     const {
+      title,
       tagline,
       coverImage,
       coverImageBackgroundColor,
@@ -52,7 +53,7 @@ class ArticleTemplate extends React.Component {
           )}
         </Intro>
 
-        <Body blocks={contentBlocks} />
+        <Body title={title} blocks={contentBlocks} />
 
         <Divider />
 
@@ -79,6 +80,7 @@ export const pageQuery = graphql`
       }
     }
     contentfulArticle(id: { eq: $id }) {
+      title
       tagline
       coverImage {
         fluid(quality: 90) {
@@ -97,11 +99,7 @@ export const pageQuery = graphql`
       coverImageBackgroundColor
       contentBlocks {
         __typename
-        ... on ContentfulBlockHeadingAlpha {
-          id
-          heading
-        }
-        ... on ContentfulBlockHeadingBeta {
+        ... on ContentfulBlockHeading {
           id
           heading
         }

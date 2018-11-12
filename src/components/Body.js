@@ -77,8 +77,10 @@ const Wrapper = styled.div`
   }
 `
 
-export const Body = ({ blocks }) => (
+export const Body = ({ title, blocks }) => (
   <Wrapper>
+    <Heading inBody>{title}</Heading>
+
     {blocks.map(
       block =>
         block.__typename === 'ContentfulBlockText' ? (
@@ -97,11 +99,7 @@ export const Body = ({ blocks }) => (
             bgColor={block.backgroundColor}
             fluid={block.image.fluid}
           />
-        ) : block.__typename === 'ContentfulBlockHeadingAlpha' ? (
-          <Heading inBody key={block.id}>
-            {block.heading}
-          </Heading>
-        ) : block.__typename === 'ContentfulBlockHeadingBeta' ? (
+        ) : block.__typename === 'ContentfulBlockHeading' ? (
           <Heading inBody secondary key={block.id} as="h2">
             {block.heading}
           </Heading>
