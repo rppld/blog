@@ -1,27 +1,27 @@
-import React, { Component } from "react"
-import Helmet from "react-helmet"
-import { graphql } from "gatsby"
-import { Header } from "../components/Menubar"
-import Intro from "../components/Intro"
-import Outro from "../components/Outro"
-import Figure from "../components/Figure"
-import { Heading, FauxHeading } from "../components/Heading"
-import { Grid } from "../components/Grid"
-import { GridItem } from "../components/GridItem"
-import { getSize, scaleItems, createMarkup } from "../utils"
-import { debounce } from "lodash"
+import React, { Component } from 'react'
+import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
+import { Header } from '../components/Menubar'
+import Intro from '../components/Intro'
+import Outro from '../components/Outro'
+import Figure from '../components/Figure'
+import { Heading } from '../components/Heading'
+import { Grid } from '../components/Grid'
+import { GridItem } from '../components/GridItem'
+import { getSize, scaleItems, createMarkup, stripParagraphTags } from '../utils'
+import { debounce } from 'lodash'
 
 class PhotosPage extends Component {
   componentDidMount() {
     const els = this.grid.childNodes
     scaleItems(els)
-    window.addEventListener("scroll", () => scaleItems(els))
-    window.addEventListener("resize", debounce(() => scaleItems(els), 200))
+    window.addEventListener('scroll', () => scaleItems(els))
+    window.addEventListener('resize', debounce(() => scaleItems(els), 200))
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", scaleItems)
-    window.removeEventListener("resize", scaleItems)
+    window.removeEventListener('scroll', scaleItems)
+    window.removeEventListener('resize', scaleItems)
   }
 
   render() {
@@ -39,7 +39,7 @@ class PhotosPage extends Component {
         <Intro>
           <Heading
             dangerouslySetInnerHTML={createMarkup(
-              intro.childMarkdownRemark.html
+              stripParagraphTags(intro.childMarkdownRemark.html)
             )}
           />
         </Intro>
@@ -61,7 +61,7 @@ class PhotosPage extends Component {
           <Heading
             as="p"
             dangerouslySetInnerHTML={createMarkup(
-              outro.childMarkdownRemark.html
+              stripParagraphTags(outro.childMarkdownRemark.html)
             )}
           />
         </Outro>

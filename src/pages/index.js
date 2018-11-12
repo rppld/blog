@@ -8,7 +8,13 @@ import { Header } from '../components/Menubar'
 import { Heading } from '../components/Heading'
 import { Grid } from '../components/Grid'
 import { GridItem } from '../components/GridItem'
-import { getSize, scaleItems, createMarkup, getPaddingProps } from '../utils'
+import {
+  getSize,
+  scaleItems,
+  createMarkup,
+  getPaddingProps,
+  stripParagraphTags,
+} from '../utils'
 import { debounce } from 'lodash'
 
 class IndexPage extends Component {
@@ -36,7 +42,7 @@ class IndexPage extends Component {
         <Intro>
           <Heading
             dangerouslySetInnerHTML={createMarkup(
-              intro.childMarkdownRemark.html
+              stripParagraphTags(intro.childMarkdownRemark.html)
             )}
           />
         </Intro>
@@ -81,7 +87,7 @@ class IndexPage extends Component {
           <Heading
             as="p"
             dangerouslySetInnerHTML={createMarkup(
-              outro.childMarkdownRemark.html
+              stripParagraphTags(outro.childMarkdownRemark.html)
             )}
           />
         </Outro>

@@ -9,7 +9,7 @@ import { Divider } from '../components/Divider'
 import Intro from '../components/Intro'
 import Outro from '../components/Outro'
 import { Heading } from '../components/Heading'
-import { createMarkup } from '../utils'
+import { createMarkup, stripParagraphTags } from '../utils'
 
 class ArticleTemplate extends React.Component {
   static propTypes = {
@@ -60,7 +60,7 @@ class ArticleTemplate extends React.Component {
           <Heading
             as="p"
             dangerouslySetInnerHTML={createMarkup(
-              outro.childMarkdownRemark.html
+              stripParagraphTags(outro.childMarkdownRemark.html)
             )}
           />
         </Outro>
