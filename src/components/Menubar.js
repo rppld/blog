@@ -1,8 +1,8 @@
-import React from "react"
-import styled, { css } from "styled-components"
-import { Link } from "gatsby"
-import { space, fontSize } from "../constants"
-import { device } from "../media"
+import React from 'react'
+import styled, { css } from 'styled-components'
+import { Link } from 'gatsby'
+import { space, fontSize } from '../constants'
+import { device } from '../media'
 
 const wrapperStyles = css`
   position: fixed;
@@ -70,7 +70,7 @@ export const Header = props => (
 
 export const Footer = props => (
   <FooterWrapper className="menubar">
-    <Paragraph style={{ opacity: 0.5 }}>&copy; 2018</Paragraph>
+    <Paragraph style={{ opacity: 0.5 }}>&copy; 2019</Paragraph>
 
     <Paragraph>
       <a href={`mailto:${props.email}`}>Say Hi</a>
