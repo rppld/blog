@@ -22,6 +22,7 @@ const Paragraph = styled.p`
   display: block;
   margin: 0;
   font-size: ${fontSize.f0};
+  font-style: italic;
 
   @media ${device.tablet} {
     font-size: ${fontSize.f1};
