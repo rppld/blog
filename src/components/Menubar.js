@@ -47,7 +47,8 @@ const FooterWrapper = styled.footer`
 const Paragraph = styled.p`
   margin: 0;
   font-size: ${fontSize.f0};
-  text-align: ${props => props.textAlign} @media ${device.tablet} {
+
+  @media ${device.tablet} {
     font-size: ${fontSize.f1};
   }
 
