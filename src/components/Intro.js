@@ -1,8 +1,6 @@
-import React, { Component } from "react"
-import styled from "styled-components"
-import { space } from "../constants"
-import { device } from "../media"
-import { remap, getYOffset } from "../utils"
+import React from 'react'
+import styled from '@emotion/styled'
+import { space, device } from '../theme'
 
 const Wrapper = styled.div`
   min-height: 100vh;
@@ -13,7 +11,10 @@ const Wrapper = styled.div`
   transition: opacity 400ms;
   align-items: center;
   background-color: ${props => props.bgColor};
-  opacity: ${props => (props.show ? "1" : "0")};
+
+  img {
+    max-width: 50vmin;
+  }
 
   @media ${device.tablet} {
     padding: ${space.s2};
@@ -24,46 +25,8 @@ const Wrapper = styled.div`
   }
 `
 
-class Intro extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { show: true }
-    this.fadeElement = this.fadeElement.bind(this)
-  }
-
-  fadeElement() {
-    const el = this.parallaxContainer
-    const scrollTop = getYOffset()
-    // const windowHeight = window.innerHeight
-    let yPos = el.offsetTop - scrollTop
-    // let yOffset = remap(yPos, windowHeight * 0.4, windowHeight, 0, 10)
-    let opac = remap(0, yPos, el.offsetTop, 1, -0.5)
-    // el.style.transform = `translateY(${yOffset}px)`
-    el.style.opacity = opac
-  }
-
-  componentDidMount() {
-    this.setState((prevState, props) => ({
-      show: true
-    }))
-
-    this.fadeElement()
-    window.addEventListener("scroll", this.fadeElement)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.fadeElement)
-  }
-
-  render() {
-    return (
-      <Wrapper show={this.state.show} bgColor={this.props.bgColor}>
-        <div ref={comp => (this.parallaxContainer = comp)}>
-          {this.props.children}
-        </div>
-      </Wrapper>
-    )
-  }
+function Intro(props) {
+  return <Wrapper bgColor={props.bgColor}>{props.children}</Wrapper>
 }
 
 export default Intro

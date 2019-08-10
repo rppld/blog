@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { color } from "../constants"
+import styled from '@emotion/styled'
+import { color } from '../theme'
 
 export const Divider = styled.div`
   color: ${color.lightGray};
@@ -7,6 +7,6 @@ export const Divider = styled.div`
   text-align: center;
 
   &:before {
-    content: "* * *";
+    content: '* * *';
   }
 `

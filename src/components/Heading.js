@@ -1,6 +1,5 @@
-import styled from 'styled-components'
-import { space, color, fontSize } from '../constants'
-import { device } from '../media'
+import styled from '@emotion/styled'
+import { space, color, fontSize, device } from '../theme'
 
 export const Heading = styled.h1`
   margin-top: ${props => (props.secondary ? space.s2 : '0')};

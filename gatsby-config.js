@@ -16,7 +16,7 @@ module.exports = {
       },
     },
     'gatsby-transformer-remark',
-    'gatsby-plugin-styled-components',
+    'gatsby-plugin-emotion',
     'gatsby-plugin-offline',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-netlify',

@@ -1,11 +1,11 @@
-import styled, { css } from "styled-components"
-import { letterSpacing, fontSize, space, color } from "../constants"
-import { device } from "../media"
+import styled from '@emotion/styled'
+import { css } from '@emotion/core'
+import { letterSpacing, fontSize, space, color, device } from '../theme'
 
 export const paragraphStyles = css`
   hyphens: auto;
   letter-spacing: ${letterSpacing.ls1};
-  text-align: ${props => (props.textCenter ? "center" : "left")};
+  text-align: ${props => (props.textCenter ? 'center' : 'left')};
   font-weight: 400;
   font-size: ${fontSize.f1};
   padding-left: ${space.s1};

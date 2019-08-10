@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { device } from "../media"
+import styled from '@emotion/styled'
+import { device } from '../theme'
 
 export const Grid = styled.div`
   list-style: none;

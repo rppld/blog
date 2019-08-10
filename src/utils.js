@@ -51,10 +51,9 @@ export const remap = (oldVal, oldMin, oldMax, newMin, newMax, limit = true) => {
     oldVal < oldMin
       ? (newVal = newMin)
       : oldVal > oldMax
-        ? (newVal = newMax)
-        : (newVal =
-            newMin +
-            ((newMax - newMin) * (oldVal - oldMin)) / (oldMax - oldMin))
+      ? (newVal = newMax)
+      : (newVal =
+          newMin + ((newMax - newMin) * (oldVal - oldMin)) / (oldMax - oldMin))
   } else {
     newVal =
       newMin + ((newMax - newMin) * (oldVal - oldMin)) / (oldMax - oldMin)

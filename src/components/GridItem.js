@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { device } from "../media"
+import styled from '@emotion/styled'
+import { device } from '../theme'
 
 export const GridItem = styled.div`
   display: flex;
@@ -10,11 +10,11 @@ export const GridItem = styled.div`
 
   @media ${device.tablet} {
     grid-column: ${props =>
-      props.size === "small"
-        ? "span 2"
-        : props.size === "medium"
-          ? "span 3"
-          : "span 5"};
+      props.size === 'small'
+        ? 'span 2'
+        : props.size === 'medium'
+        ? 'span 3'
+        : 'span 5'};
   }
 
   a {

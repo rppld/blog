@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import { Header } from '../components/Menubar'
 import Figure from '../components/Figure'
 import Intro from '../components/Intro'
 import Outro from '../components/Outro'
-import { Header } from '../components/Menubar'
 import { Heading } from '../components/Heading'
 import { Grid } from '../components/Grid'
 import { GridItem } from '../components/GridItem'
@@ -38,7 +38,7 @@ class IndexPage extends Component {
     return (
       <>
         <Helmet title={`${data.site.siteMetadata.author}, ${tagline}`} />
-        <Header author={data.site.siteMetadata.author} title={tagline} />
+        <Header title={tagline} />
         <Intro>
           <Heading
             dangerouslySetInnerHTML={createMarkup(
@@ -48,7 +48,7 @@ class IndexPage extends Component {
         </Intro>
 
         <Grid ref={comp => (this.grid = comp)}>
-          {projects.map((project, i) => {
+          {projects.map(project => {
             count < 6 ? count++ : (count = 1)
             const {
               id,
