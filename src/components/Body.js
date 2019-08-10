@@ -6,10 +6,10 @@ import { Heading } from '../components/Heading'
 import { space, letterSpacing, fontSize, color, device } from '../theme'
 import { createMarkup, getPaddingProps } from '../utils'
 
-const paragraphStyles = css`
+const paragraphStyles = props => css`
   hyphens: auto;
   letter-spacing: ${letterSpacing.ls1};
-  text-align: ${props => (props.textCenter ? 'center' : 'left')};
+  text-align: ${props.textCenter ? 'center' : 'left'};
   font-weight: 400;
   font-size: ${fontSize.f1};
   padding-left: ${space.s1};

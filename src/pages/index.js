@@ -10,90 +10,78 @@ import { Grid } from '../components/Grid'
 import { GridItem } from '../components/GridItem'
 import {
   getSize,
-  scaleItems,
   createMarkup,
   getPaddingProps,
   stripParagraphTags,
 } from '../utils'
-import { debounce } from 'lodash'
+import useItemScaling from '../hooks/use-item-scaling'
 
-class IndexPage extends Component {
-  componentDidMount() {
-    const els = this.grid.childNodes
-    scaleItems(els)
-    window.addEventListener('scroll', () => scaleItems(els))
-    window.addEventListener('resize', debounce(() => scaleItems(els), 200))
-  }
+function IndexPage(props) {
+  const { data } = props
+  const { intro, outro, tagline, projects } = data.contentfulHomepage
+  let count = 0
+  const gridContainer = React.useRef()
+  useItemScaling(gridContainer)
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', scaleItems)
-    window.removeEventListener('resize', scaleItems)
-  }
+  return (
+    <>
+      <Helmet title={`${data.site.siteMetadata.author}, ${tagline}`} />
+      <Tagline text={tagline} />
 
-  render() {
-    const { data } = this.props
-    const { intro, outro, tagline, projects } = data.contentfulHomepage
-    let count = 0
+      <Intro>
+        <Heading
+          dangerouslySetInnerHTML={createMarkup(
+            stripParagraphTags(intro.childMarkdownRemark.html)
+          )}
+        />
+      </Intro>
 
-    return (
-      <>
-        <Helmet title={`${data.site.siteMetadata.author}, ${tagline}`} />
-        <Tagline text={tagline} />
-        <Intro>
-          <Heading
-            dangerouslySetInnerHTML={createMarkup(
-              stripParagraphTags(intro.childMarkdownRemark.html)
-            )}
-          />
-        </Intro>
+      <Grid ref={gridContainer}>
+        {projects.map(project => {
+          count < 6 ? count++ : (count = 1)
+          const {
+            id,
+            slug,
+            title,
+            featuredImage,
+            featuredImagePadding: padding,
+            featuredImageBackgroundColor: bgColor,
+          } = project
 
-        <Grid ref={comp => (this.grid = comp)}>
-          {projects.map(project => {
-            count < 6 ? count++ : (count = 1)
-            const {
-              id,
-              slug,
-              title,
-              featuredImage,
-              featuredImagePadding: padding,
-              featuredImageBackgroundColor: bgColor,
-            } = project
+          return (
+            <GridItem key={id} size={getSize(count)}>
+              <Link style={{ width: '100%' }} to={`/${slug}/`}>
+                {featuredImage.fluid.sizes ? (
+                  <Figure
+                    {...getPaddingProps(padding)}
+                    bgColor={bgColor}
+                    fluid={featuredImage.fluid}
+                    caption={title}
+                  />
+                ) : (
+                  <Figure
+                    {...getPaddingProps(padding)}
+                    bgColor={bgColor}
+                    src={featuredImage.file.url}
+                    caption={title}
+                  />
+                )}
+              </Link>
+            </GridItem>
+          )
+        })}
+      </Grid>
 
-            return (
-              <GridItem key={id} size={getSize(count)}>
-                <Link style={{ width: '100%' }} to={`/${slug}/`}>
-                  {featuredImage.fluid.sizes ? (
-                    <Figure
-                      {...getPaddingProps(padding)}
-                      bgColor={bgColor}
-                      fluid={featuredImage.fluid}
-                      caption={title}
-                    />
-                  ) : (
-                    <Figure
-                      {...getPaddingProps(padding)}
-                      bgColor={bgColor}
-                      src={featuredImage.file.url}
-                      caption={title}
-                    />
-                  )}
-                </Link>
-              </GridItem>
-            )
-          })}
-        </Grid>
-
-        <Outro>
-          <Heading
-            as="p"
-            dangerouslySetInnerHTML={createMarkup(
-              stripParagraphTags(outro.childMarkdownRemark.html)
-            )}
-          />
-        </Outro>
-      </>
-    )
-  }
+      <Outro>
+        <Heading
+          as="p"
+          dangerouslySetInnerHTML={createMarkup(
+            stripParagraphTags(outro.childMarkdownRemark.html)
+          )}
+        />
+      </Outro>
+    </>
+  )
 }
 
 export default IndexPage

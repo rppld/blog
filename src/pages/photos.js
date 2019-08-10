@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Tagline from '../components/Tagline'
@@ -8,66 +8,53 @@ import Figure from '../components/Figure'
 import { Heading } from '../components/Heading'
 import { Grid } from '../components/Grid'
 import { GridItem } from '../components/GridItem'
-import { getSize, scaleItems, createMarkup, stripParagraphTags } from '../utils'
-import { debounce } from 'lodash'
+import { getSize, createMarkup, stripParagraphTags } from '../utils'
+import useItemScaling from '../hooks/use-item-scaling'
 
-class PhotosPage extends Component {
-  componentDidMount() {
-    const els = this.grid.childNodes
-    scaleItems(els)
-    window.addEventListener('scroll', () => scaleItems(els))
-    window.addEventListener('resize', debounce(() => scaleItems(els), 200))
-  }
+function PhotosPage(props) {
+  const { data } = props
+  const { author } = data.site.siteMetadata
+  const { intro, outro, tagline, contentBlocks } = data.contentfulPhotos
+  let count = 0
+  const gridContainer = React.useRef()
+  useItemScaling(gridContainer)
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', scaleItems)
-    window.removeEventListener('resize', scaleItems)
-  }
+  return (
+    <div>
+      <Helmet title={`${author}, ${tagline}`} />
+      <Tagline text={tagline} />
 
-  render() {
-    const { data } = this.props
-    const { author } = data.site.siteMetadata
-    const { intro, outro, tagline, contentBlocks } = data.contentfulPhotos
-    let count = 0
+      <Intro>
+        <Heading
+          dangerouslySetInnerHTML={createMarkup(
+            stripParagraphTags(intro.childMarkdownRemark.html)
+          )}
+        />
+      </Intro>
 
-    return (
-      <div>
-        <Helmet title={`${author}, ${tagline}`} />
+      <Grid ref={gridContainer}>
+        {contentBlocks.reverse().map((block, i) => {
+          count < 6 ? count++ : (count = 1)
+          const { id, title, image } = block
 
-        <Tagline text={tagline} />
+          return (
+            <GridItem key={id} size={getSize(count)}>
+              {image && <Figure fluid={image.fluid} caption={title} />}
+            </GridItem>
+          )
+        })}
+      </Grid>
 
-        <Intro>
-          <Heading
-            dangerouslySetInnerHTML={createMarkup(
-              stripParagraphTags(intro.childMarkdownRemark.html)
-            )}
-          />
-        </Intro>
-
-        <Grid ref={comp => (this.grid = comp)}>
-          {contentBlocks.reverse().map((block, i) => {
-            count < 6 ? count++ : (count = 1)
-            const { id, title, image } = block
-
-            return (
-              <GridItem key={id} size={getSize(count)}>
-                {image && <Figure fluid={image.fluid} caption={title} />}
-              </GridItem>
-            )
-          })}
-        </Grid>
-
-        <Outro>
-          <Heading
-            as="p"
-            dangerouslySetInnerHTML={createMarkup(
-              stripParagraphTags(outro.childMarkdownRemark.html)
-            )}
-          />
-        </Outro>
-      </div>
-    )
-  }
+      <Outro>
+        <Heading
+          as="p"
+          dangerouslySetInnerHTML={createMarkup(
+            stripParagraphTags(outro.childMarkdownRemark.html)
+          )}
+        />
+      </Outro>
+    </div>
+  )
 }
 
 export default PhotosPage

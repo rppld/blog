@@ -27,6 +27,7 @@ function ArticleTemplate(props) {
     <>
       <Helmet title={`${author}, ${tagline}`} />
       <Tagline text={tagline} />
+
       <Intro bgColor={coverImageBackgroundColor}>
         {coverImage.fluid.sizes ? (
           <Img
@@ -48,7 +49,6 @@ function ArticleTemplate(props) {
       </Intro>
 
       <Body title={title} blocks={contentBlocks} />
-
       <Divider />
 
       <Outro>

@@ -2,10 +2,10 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import { letterSpacing, fontSize, space, color, device } from '../theme'
 
-export const paragraphStyles = css`
+export const paragraphStyles = props => css`
   hyphens: auto;
   letter-spacing: ${letterSpacing.ls1};
-  text-align: ${props => (props.textCenter ? 'center' : 'left')};
+  text-align: ${props.textCenter ? 'center' : 'left'};
   font-weight: 400;
   font-size: ${fontSize.f1};
   padding-left: ${space.s1};

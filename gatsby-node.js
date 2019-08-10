@@ -1,7 +1,7 @@
-const _ = require("lodash")
-const Promise = require("bluebird")
-const path = require("path")
-const slash = require("slash")
+const _ = require('lodash')
+const Promise = require('bluebird')
+const path = require('path')
+const slash = require('slash')
 
 // Implement the Gatsby API “createPages”. This is
 // called after the Gatsby bootstrap is finished so you have
@@ -33,7 +33,7 @@ exports.createPages = ({ graphql, actions }) => {
       }
 
       // Create article pages
-      const articleTemplate = path.resolve("./src/templates/article.js")
+      const articleTemplate = path.resolve('./src/templates/article.js')
       // We want to create a detailed page for each
       // product node. We'll just use the Contentful id for the slug.
       _.each(result.data.allContentfulArticle.edges, edge => {
@@ -48,8 +48,8 @@ exports.createPages = ({ graphql, actions }) => {
           path: `/${edge.node.slug}/`,
           component: slash(articleTemplate),
           context: {
-            id: edge.node.id
-          }
+            id: edge.node.id,
+          },
         })
       })
 
