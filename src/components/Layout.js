@@ -1,7 +1,8 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import { Header, Footer } from './Menubar'
+import Header from './Header'
+import Footer from './Footer'
 import { BaseStyles } from '../theme'
 import PageTransition from './PageTransition'
 
@@ -20,7 +21,7 @@ function Layout(props) {
         }
       `}
       render={data => (
-        <>
+        <div style={{ position: 'relative' }}>
           <Helmet
             meta={[
               {
@@ -43,7 +44,7 @@ function Layout(props) {
             <div className="siteRoot">{props.children}</div>
           </PageTransition>
           <Footer email={data.site.siteMetadata.email} />
-        </>
+        </div>
       )}
     />
   )

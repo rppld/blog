@@ -16,7 +16,7 @@ export const fontSize = {
 }
 
 export const space = {
-  s0: '0.75rem',
+  s0: '0.5rem',
   s1: '1rem',
   s2: '2rem',
   s3: '4rem',
@@ -105,12 +105,33 @@ const baseStyles = css`
     font-style: italic;
   }
 
-  * {
+  @font-face {
+    font-family: 'IBM Plex Mono';
+    src: url('/IBMPlexMono-Regular-Latin1.woff2') format('woff2'),
+      url('/IBMPlexMono-Regular-Latin1.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'IBM Plex Mono';
+    src: url('/IBMPlexMono-Italic-Latin1.woff2') format('woff2'),
+      url('/IBMPlexMono-Italic-Latin1.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  *,
+  *:before,
+  *:after {
     box-sizing: border-box;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-kerning: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
   }
 
   html {
@@ -146,6 +167,7 @@ const baseStyles = css`
   }
 
   .menubar a {
+    font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
     text-decoration: none;
     color: inherit;
     transition: opacity 400ms;

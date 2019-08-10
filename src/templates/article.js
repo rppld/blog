@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
-import { Header } from '../components/Menubar'
+import Tagline from '../components/Tagline'
 import Body from '../components/Body'
 import { Divider } from '../components/Divider'
 import Intro from '../components/Intro'
@@ -26,7 +26,7 @@ function ArticleTemplate(props) {
   return (
     <>
       <Helmet title={`${author}, ${tagline}`} />
-      <Header author={author} title={tagline} />
+      <Tagline text={tagline} />
       <Intro bgColor={coverImageBackgroundColor}>
         {coverImage.fluid.sizes ? (
           <Img

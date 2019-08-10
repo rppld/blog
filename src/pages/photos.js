@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import { Header } from '../components/Menubar'
+import Tagline from '../components/Tagline'
 import Intro from '../components/Intro'
 import Outro from '../components/Outro'
 import Figure from '../components/Figure'
@@ -34,7 +34,7 @@ class PhotosPage extends Component {
       <div>
         <Helmet title={`${author}, ${tagline}`} />
 
-        <Header author={author} title={tagline} />
+        <Tagline text={tagline} />
 
         <Intro>
           <Heading

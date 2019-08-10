@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import { Header } from '../components/Menubar'
+import Tagline from '../components/Tagline'
 import Figure from '../components/Figure'
 import Intro from '../components/Intro'
 import Outro from '../components/Outro'
@@ -38,7 +38,7 @@ class IndexPage extends Component {
     return (
       <>
         <Helmet title={`${data.site.siteMetadata.author}, ${tagline}`} />
-        <Header title={tagline} />
+        <Tagline text={tagline} />
         <Intro>
           <Heading
             dangerouslySetInnerHTML={createMarkup(
