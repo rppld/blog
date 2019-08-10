@@ -1,13 +1,9 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
-import Figure, {
-  Caption,
-  OuterWrap as FigureWrapper,
-} from '../components/Figure'
-import { Box } from '../components/Box'
+import styled from '@emotion/styled'
+import { css } from '@emotion/core'
+import Figure from '../components/Figure'
 import { Heading } from '../components/Heading'
-import { space, letterSpacing, fontSize, color } from '../constants'
-import { device } from '../media'
+import { space, letterSpacing, fontSize, color, device } from '../theme'
 import { createMarkup, getPaddingProps } from '../utils'
 
 const paragraphStyles = css`
@@ -77,12 +73,12 @@ const Wrapper = styled.div`
   }
 `
 
-export const Body = ({ title, blocks }) => (
-  <Wrapper>
-    <Heading inBody>{title}</Heading>
+function Body({ title, blocks }) {
+  return (
+    <Wrapper>
+      <Heading inBody>{title}</Heading>
 
-    {blocks.map(
-      block =>
+      {blocks.map(block =>
         block.__typename === 'ContentfulBlockText' ? (
           <div
             key={block.id}
@@ -104,6 +100,9 @@ export const Body = ({ title, blocks }) => (
             {block.heading}
           </Heading>
         ) : null
-    )}
-  </Wrapper>
-)
+      )}
+    </Wrapper>
+  )
+}
+
+export default Body

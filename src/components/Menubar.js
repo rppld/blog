@@ -1,8 +1,8 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 import { Link } from 'gatsby'
-import { space, fontSize } from '../constants'
-import { device } from '../media'
+import { space, fontSize, device } from '../theme'
 
 const wrapperStyles = css`
   position: fixed;
@@ -11,7 +11,6 @@ const wrapperStyles = css`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   padding-left: ${space.s1};
   padding-right: ${space.s1};
   pointer-events: none;
@@ -34,20 +33,21 @@ const wrapperStyles = css`
 const HeaderWrapper = styled.header`
   top: 0;
   padding-top: ${space.s0};
+  justify-content: ${props => props.justifyContent};
   ${wrapperStyles};
 `
 
 const FooterWrapper = styled.footer`
   bottom: 0;
   padding-bottom: ${space.s0};
+  justify-content: space-between;
   ${wrapperStyles};
 `
 
 const Paragraph = styled.p`
   margin: 0;
   font-size: ${fontSize.f0};
-
-  @media ${device.tablet} {
+  text-align: ${props => props.textAlign} @media ${device.tablet} {
     font-size: ${fontSize.f1};
   }
 
@@ -56,24 +56,42 @@ const Paragraph = styled.p`
   }
 `
 
-export const Header = props => (
-  <HeaderWrapper className="menubar">
-    <Paragraph>
-      <Link to="/">{props.author}</Link>
-    </Paragraph>
+export const Header = ({ author, title }) => (
+  <HeaderWrapper
+    className="menubar"
+    justifyContent={
+      author && title
+        ? 'space-between'
+        : author && !title
+        ? 'flex-start'
+        : 'flex-end'
+    }
+  >
+    {author && (
+      <Paragraph>
+        <Link to="/">{author}</Link>
+      </Paragraph>
+    )}
 
-    <Paragraph>
-      <Link to="/about">{props.title}</Link>
-    </Paragraph>
+    {title && (
+      <Paragraph>
+        <Link to="/about">{title}</Link>
+      </Paragraph>
+    )}
   </HeaderWrapper>
 )
 
-export const Footer = props => (
-  <FooterWrapper className="menubar">
-    <Paragraph style={{ opacity: 0.5 }}>&copy; 2019</Paragraph>
+export function Footer(props) {
+  const now = new Date()
+  const year = now.getFullYear()
 
-    <Paragraph>
-      <a href={`mailto:${props.email}`}>Say Hi</a>
-    </Paragraph>
-  </FooterWrapper>
-)
+  return (
+    <FooterWrapper className="menubar">
+      <Paragraph style={{ opacity: 0.5 }}>&copy; {year}</Paragraph>
+
+      <Paragraph>
+        <a href={`mailto:${props.email}`}>Say Hi</a>
+      </Paragraph>
+    </FooterWrapper>
+  )
+}

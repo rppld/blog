@@ -1,5 +1,6 @@
-import styled, { css } from 'styled-components'
-import { device } from '../media'
+import styled from '@emotion/styled'
+import { css } from '@emotion/core'
+import { device } from '../theme'
 
 export const Box = styled.div`
   position: relative;

@@ -1,73 +1,66 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
 import { Header } from '../components/Menubar'
-import { Body } from '../components/Body'
+import Body from '../components/Body'
 import { Divider } from '../components/Divider'
 import Intro from '../components/Intro'
 import Outro from '../components/Outro'
 import { Heading } from '../components/Heading'
 import { createMarkup, stripParagraphTags } from '../utils'
 
-class ArticleTemplate extends React.Component {
-  static propTypes = {
-    data: PropTypes.object.isRequired,
-  }
+function ArticleTemplate(props) {
+  const { data } = props
+  const { author } = data.site.siteMetadata
+  const page = data.contentfulArticle
+  const {
+    title,
+    tagline,
+    coverImage,
+    coverImageBackgroundColor,
+    contentBlocks,
+    outro,
+  } = page
 
-  render() {
-    const { data } = this.props
-    const { author } = data.site.siteMetadata
-    const page = data.contentfulArticle
-    const {
-      title,
-      tagline,
-      coverImage,
-      coverImageBackgroundColor,
-      contentBlocks,
-      outro,
-    } = page
-
-    return (
-      <>
-        <Helmet title={`${author}, ${tagline}`} />
-        <Header author={author} title={tagline} />
-        <Intro bgColor={coverImageBackgroundColor}>
-          {coverImage.fluid.sizes ? (
-            <Img
-              fluid={coverImage.fluid}
-              style={{
-                verticalAlign: 'middle',
-                width: '65vmin',
-                height: '65vmin',
-                borderRadius: '100%',
-              }}
-            />
-          ) : (
-            <img
-              src={coverImage.file.url}
-              alt={coverImage.file.fileName}
-              style={{ verticalAlign: 'middle', width: '100%' }}
-            />
-          )}
-        </Intro>
-
-        <Body title={title} blocks={contentBlocks} />
-
-        <Divider />
-
-        <Outro>
-          <Heading
-            as="p"
-            dangerouslySetInnerHTML={createMarkup(
-              stripParagraphTags(outro.childMarkdownRemark.html)
-            )}
+  return (
+    <>
+      <Helmet title={`${author}, ${tagline}`} />
+      <Header author={author} title={tagline} />
+      <Intro bgColor={coverImageBackgroundColor}>
+        {coverImage.fluid.sizes ? (
+          <Img
+            fluid={coverImage.fluid}
+            style={{
+              verticalAlign: 'middle',
+              width: '50vmin',
+              height: '50vmin',
+              borderRadius: '100%',
+            }}
           />
-        </Outro>
-      </>
-    )
-  }
+        ) : (
+          <img
+            src={coverImage.file.url}
+            alt={coverImage.file.fileName}
+            style={{ verticalAlign: 'middle', width: '100%' }}
+          />
+        )}
+      </Intro>
+
+      <Body title={title} blocks={contentBlocks} />
+
+      <Divider />
+
+      <Outro>
+        <Heading
+          as="p"
+          dangerouslySetInnerHTML={createMarkup(
+            stripParagraphTags(outro.childMarkdownRemark.html)
+          )}
+        />
+      </Outro>
+    </>
+  )
 }
 
 export default ArticleTemplate

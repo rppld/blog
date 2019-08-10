@@ -1,7 +1,7 @@
 {
   "name": "rppld.co",
   "description": "Personal website of Philipp Rappold",
-  "version": "2.0.0",
+  "version": "2.5.0",
   "author": "Philipp Rappold <philipprappold@me.com>",
   "keywords": [
     "gatsby"
@@ -13,40 +13,42 @@
   },
   "main": "n/a",
   "scripts": {
-    "dev": "npm run reset && gatsby develop",
+    "dev": "gatsby develop",
     "build": "gatsby build",
-    "start": "gatsby serve",
-    "reset": "rimraf ./.cache"
+    "start": "gatsby serve"
   },
   "dependencies": {
-    "babel-plugin-styled-components": "^1.8.0",
-    "gatsby": "^2.0.31",
-    "gatsby-image": "^2.0.17",
-    "gatsby-plugin-catch-links": "^2.0.6",
-    "gatsby-plugin-netlify": "^2.0.2",
-    "gatsby-plugin-offline": "^2.0.9",
-    "gatsby-plugin-react-helmet": "^3.0.0",
-    "gatsby-plugin-styled-components": "^3.0.0",
-    "gatsby-source-contentful": "^2.0.6",
-    "gatsby-transformer-remark": "^2.1.9",
-    "lodash": "^4.17.11",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
-    "react-helmet": "^5.2.0",
-    "react-transition-group": "^2.5.0",
-    "slash": "^2.0.0",
-    "styled-components": "^4.0.2"
+    "@emotion/core": "^10.0.15",
+    "@emotion/styled": "^10.0.15",
+    "babel-plugin-emotion": "^10.0.15",
+    "framer-motion": "^1.5.0",
+    "gatsby": "^2.13.57",
+    "gatsby-image": "^2.2.8",
+    "gatsby-plugin-catch-links": "^2.1.2",
+    "gatsby-plugin-emotion": "^4.1.2",
+    "gatsby-plugin-netlify": "^2.1.4",
+    "gatsby-plugin-offline": "^2.2.5",
+    "gatsby-plugin-react-helmet": "^3.1.3",
+    "gatsby-source-contentful": "^2.1.19",
+    "gatsby-transformer-remark": "^2.6.12",
+    "lodash": "^4.17.15",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
+    "slash": "^3.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.8.0",
-    "eslint-config-prettier": "^3.1.0",
-    "eslint-config-react-app": "^3.0.4",
-    "eslint-plugin-flowtype": "^2.42.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
-    "prettier": "^1.14.3",
-    "rimraf": "^2.6.2"
+    "@typescript-eslint/eslint-plugin": "1.x",
+    "@typescript-eslint/parser": "1.x",
+    "babel-eslint": "10.x",
+    "eslint": "6.x",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-react-app": "^5.0.0",
+    "eslint-plugin-flowtype": "3.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "1.x",
+    "prettier": "latest"
   }
 }

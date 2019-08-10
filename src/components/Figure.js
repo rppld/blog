@@ -1,13 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
-import styled from 'styled-components'
-import { space, color } from '../constants'
-import { device } from '../media'
+import styled from '@emotion/styled'
+import { space, color, device } from '../theme'
 import { paragraphStyles } from './Paragraph'
 
-export const OuterWrap = styled.figure`
+const OuterWrap = styled.figure`
   position: relative;
   max-width: 1080px;
   margin-left: auto;
@@ -82,27 +81,25 @@ export const Caption = styled.figcaption`
   }
 `
 
-class Figure extends Component {
-  render() {
-    return (
-      <Wrapper link={this.props.link} inBody={this.props.inBody}>
-        <InnerWrap
-          bgColor={this.props.bgColor}
-          padTop={this.props.padTop}
-          padRight={this.props.padRight}
-          padBottom={this.props.padBottom}
-          padLeft={this.props.padLeft}
-        >
-          {this.props.fluid ? (
-            <Img fluid={this.props.fluid} />
-          ) : (
-            <img src={this.props.src} alt="" />
-          )}
-        </InnerWrap>
-        {this.props.caption && <Caption>{this.props.caption}</Caption>}
-      </Wrapper>
-    )
-  }
+function Figure(props) {
+  return (
+    <Wrapper link={props.link} inBody={props.inBody}>
+      <InnerWrap
+        bgColor={props.bgColor}
+        padTop={props.padTop}
+        padRight={props.padRight}
+        padBottom={props.padBottom}
+        padLeft={props.padLeft}
+      >
+        {props.fluid ? (
+          <Img fluid={props.fluid} />
+        ) : (
+          <img src={props.src} alt="" />
+        )}
+      </InnerWrap>
+      {props.caption && <Caption>{props.caption}</Caption>}
+    </Wrapper>
+  )
 }
 
 Figure.propTypes = {
