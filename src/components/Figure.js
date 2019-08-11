@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
-import { space, color, device } from '../theme'
-import { paragraphStyles } from './Paragraph'
+import { device } from '../theme'
+import { textStyles } from './Text'
 
 const OuterWrap = styled.figure`
   position: relative;
@@ -13,12 +13,12 @@ const OuterWrap = styled.figure`
   margin-right: auto;
   width: 100%;
   transition: 400ms ease;
-  margin-top: ${props => (props.inBody ? space.s2 : '0')};
-  margin-bottom: ${props => (props.inBody ? space.s2 : '0')};
+  margin-top: ${props => (props.inBody ? 'var(--space-32)' : '0')};
+  margin-bottom: ${props => (props.inBody ? 'var(--space-32)' : '0')};
 
   @media ${device.tablet} {
-    margin-top: ${props => (props.inBody ? space.s3 : '0')};
-    margin-bottom: ${props => (props.inBody ? space.s3 : '0')};
+    margin-top: ${props => (props.inBody ? 'var(--space-64)' : '0')};
+    margin-bottom: ${props => (props.inBody ? 'var(--space-64)' : '0')};
   }
 
   img {
@@ -26,16 +26,6 @@ const OuterWrap = styled.figure`
     width: 100%;
   }
 `
-
-const Wrapper = props => {
-  return props.link ? (
-    <OuterWrap inBody={props.inBody}>
-      <Link to={props.link}>{props.children}</Link>
-    </OuterWrap>
-  ) : (
-    <OuterWrap inBody={props.inBody}>{props.children}</OuterWrap>
-  )
-}
 
 const InnerWrap = styled.div`
   background-color: ${props => (props.bgColor ? props.bgColor : 'transparent')};
@@ -59,31 +49,25 @@ const InnerWrap = styled.div`
   }
 `
 
-export const Caption = styled.figcaption`
-  ${paragraphStyles};
-  width: 100%;
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-  color: ${color.gray};
-  padding-left: ${space.s1};
-  padding-right: ${space.s1};
+const Caption = styled.figcaption`
+  ${textStyles};
+  color: var(--color-gray);
   margin-top: 0.5rem;
-
-  @media ${device.tablet} {
-    padding-left: ${space.s2};
-    padding-right: ${space.s2};
-  }
-
-  @media ${device.laptop} {
-    padding-left: ${space.s3};
-    padding-right: ${space.s3};
-  }
 `
+
+function Container(props) {
+  return props.link ? (
+    <OuterWrap inBody={props.inBody}>
+      <Link to={props.link}>{props.children}</Link>
+    </OuterWrap>
+  ) : (
+    <OuterWrap inBody={props.inBody}>{props.children}</OuterWrap>
+  )
+}
 
 function Figure(props) {
   return (
-    <Wrapper link={props.link} inBody={props.inBody}>
+    <Container link={props.link} inBody={props.inBody}>
       <InnerWrap
         bgColor={props.bgColor}
         padTop={props.padTop}
@@ -98,7 +82,7 @@ function Figure(props) {
         )}
       </InnerWrap>
       {props.caption && <Caption>{props.caption}</Caption>}
-    </Wrapper>
+    </Container>
   )
 }
 

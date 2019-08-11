@@ -24,9 +24,15 @@ export const getPaddingProps = str => {
   }
 }
 
-export const createMarkup = str => ({ __html: str })
-export const stripParagraphTags = str =>
-  str.replace(/(<p[^>]+?>|<p>|<\/p>)/gim, '')
+export function createMarkup(str, options = {}) {
+  const { renderInline = true } = options
+
+  if (renderInline) {
+    str.replace(/(<p[^>]+?>|<p>|<\/p>)/gim, '')
+  }
+
+  return { __html: str }
+}
 
 export const getSizesString = index => {
   switch (index) {

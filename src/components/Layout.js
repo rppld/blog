@@ -7,6 +7,13 @@ import { BaseStyles } from '../theme'
 import PageTransition from './PageTransition'
 
 function Layout(props) {
+  function getRootProps() {
+    return {
+      className: 'siteRoot',
+      id: 'main',
+    }
+  }
+
   return (
     <StaticQuery
       query={graphql`
@@ -21,7 +28,7 @@ function Layout(props) {
         }
       `}
       render={data => (
-        <div style={{ position: 'relative' }}>
+        <>
           <Helmet
             meta={[
               {
@@ -40,11 +47,17 @@ function Layout(props) {
           </Helmet>
           <BaseStyles />
           <Header author={data.site.siteMetadata.author} />
-          <PageTransition {...props}>
-            <div className="siteRoot">{props.children}</div>
-          </PageTransition>
+
+          {props.pageTransitions ? (
+            <PageTransition {...props} {...getRootProps()}>
+              {props.children}
+            </PageTransition>
+          ) : (
+            <main {...getRootProps()}>{props.children}</main>
+          )}
+
           <Footer email={data.site.siteMetadata.email} />
-        </div>
+        </>
       )}
     />
   )

@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { space, fontSize, device } from '../theme'
+import { Text } from './Header'
+import { device } from '../theme'
 import { containerStyles } from './Header'
 
 const Container = styled.footer`
   ${containerStyles};
-  bottom: ${space.s0};
+  bottom: var(--space-8);
   justify-content: space-between;
 `
 
@@ -13,19 +14,11 @@ const ListItem = styled.li`
   display: inline;
 
   & + ${() => ListItem} {
-    margin-left: ${space.s0};
+    margin-left: var(--space-8);
 
     @media ${device.tablet} {
-      margin-left: ${space.s1};
+      margin-left: var(--space-16);
     }
-  }
-`
-
-const Text = styled.p`
-  font-size: ${fontSize.f0};
-
-  @media ${device.tablet} {
-    font-size: ${fontSize.f1};
   }
 `
 

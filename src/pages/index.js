@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Tagline from '../components/Tagline'
@@ -8,12 +8,7 @@ import Outro from '../components/Outro'
 import { Heading } from '../components/Heading'
 import { Grid } from '../components/Grid'
 import { GridItem } from '../components/GridItem'
-import {
-  getSize,
-  createMarkup,
-  getPaddingProps,
-  stripParagraphTags,
-} from '../utils'
+import { getSize, createMarkup, getPaddingProps } from '../utils'
 import useItemScaling from '../hooks/use-item-scaling'
 
 function IndexPage(props) {
@@ -30,9 +25,7 @@ function IndexPage(props) {
 
       <Intro>
         <Heading
-          dangerouslySetInnerHTML={createMarkup(
-            stripParagraphTags(intro.childMarkdownRemark.html)
-          )}
+          dangerouslySetInnerHTML={createMarkup(intro.childMarkdownRemark.html)}
         />
       </Intro>
 
@@ -75,9 +68,7 @@ function IndexPage(props) {
       <Outro>
         <Heading
           as="p"
-          dangerouslySetInnerHTML={createMarkup(
-            stripParagraphTags(outro.childMarkdownRemark.html)
-          )}
+          dangerouslySetInnerHTML={createMarkup(outro.childMarkdownRemark.html)}
         />
       </Outro>
     </>

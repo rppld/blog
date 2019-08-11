@@ -1,8 +1,14 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-function PageTransition({ children, location }) {
-  const duration = 0.35
+function PageTransition({
+  children,
+  location,
+  pageTransitionDuration,
+  id,
+  className,
+}) {
+  const duration = pageTransitionDuration / 1000
 
   const variants = {
     initial: {
@@ -30,7 +36,8 @@ function PageTransition({ children, location }) {
         initial="initial"
         animate="enter"
         exit="exit"
-        id="main"
+        id={id}
+        className={className}
       >
         {children}
       </motion.main>

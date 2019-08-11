@@ -8,7 +8,7 @@ import Figure from '../components/Figure'
 import { Heading } from '../components/Heading'
 import { Grid } from '../components/Grid'
 import { GridItem } from '../components/GridItem'
-import { getSize, createMarkup, stripParagraphTags } from '../utils'
+import { getSize, createMarkup } from '../utils'
 import useItemScaling from '../hooks/use-item-scaling'
 
 function PhotosPage(props) {
@@ -26,9 +26,7 @@ function PhotosPage(props) {
 
       <Intro>
         <Heading
-          dangerouslySetInnerHTML={createMarkup(
-            stripParagraphTags(intro.childMarkdownRemark.html)
-          )}
+          dangerouslySetInnerHTML={createMarkup(intro.childMarkdownRemark.html)}
         />
       </Intro>
 
@@ -48,9 +46,7 @@ function PhotosPage(props) {
       <Outro>
         <Heading
           as="p"
-          dangerouslySetInnerHTML={createMarkup(
-            stripParagraphTags(outro.childMarkdownRemark.html)
-          )}
+          dangerouslySetInnerHTML={createMarkup(outro.childMarkdownRemark.html)}
         />
       </Outro>
     </div>

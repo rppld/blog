@@ -1,41 +1,41 @@
 import styled from '@emotion/styled'
-import { space, color, fontSize, device } from '../theme'
+import { device } from '../theme'
 
 export const Heading = styled.h1`
-  margin-top: ${props => (props.secondary ? space.s2 : '0')};
-  font-family: 'IBM Plex Serif', serif;
-  margin-bottom: ${props => (props.inBody ? space.s0 : '0')};
+  margin-top: ${props => (props.secondary ? 'var(--space-32)' : '0')};
+  font-family: var(--ff-serif);
+  margin-bottom: ${props => (props.inBody ? 'var(--space-8)' : '0')};
   font-weight: 700;
   text-align: center;
   max-width: ${props => (props.inBody ? '800px' : 'none')};
   margin-left: ${props => (props.inBody ? 'auto' : '0')};
   margin-right: ${props => (props.inBody ? 'auto' : '0')};
-  color: ${color.nearBlack};
+  color: var(--color-near-black);
   line-height: 1.5;
-  font-size: ${props => (props.secondary ? fontSize.f1 : fontSize.f2)};
-  padding-left: ${props => (props.inBody ? space.s1 : '0')};
-  padding-right: ${props => (props.inBody ? space.s1 : '0')};
+  font-size: ${props => (props.secondary ? 'var(--fs-16)' : 'var(--fs-20)')};
+  padding-left: ${props => (props.inBody ? 'var(--space-16)' : '0')};
+  padding-right: ${props => (props.inBody ? 'var(--space-16)' : '0')};
 
-  @media ${device.mobileL} {
-    font-size: ${props => (props.secondary ? fontSize.f2 : fontSize.f3)};
+  @media ${device.mobileLg} {
+    font-size: ${props => (props.secondary ? 'var(--fs-20)' : 'var(--fs-24)')};
   }
 
   @media ${device.tablet} {
-    font-size: ${props => (props.secondary ? fontSize.f3 : fontSize.f4)};
-    margin-top: ${props => (props.secondary ? space.s3 : '0')};
-    margin-bottom: ${props => (props.inBody ? space.s1 : '0')};
-    padding-left: ${props => (props.inBody ? space.s2 : '0')};
-    padding-right: ${props => (props.inBody ? space.s2 : '0')};
+    font-size: ${props => (props.secondary ? 'var(--fs-24)' : 'var(--fs-28)')};
+    margin-top: ${props => (props.secondary ? 'var(--space-64)' : '0')};
+    margin-bottom: ${props => (props.inBody ? 'var(--space-16)' : '0')};
+    padding-left: ${props => (props.inBody ? 'var(--space-32)' : '0')};
+    padding-right: ${props => (props.inBody ? 'var(--space-32)' : '0')};
   }
 
   @media ${device.laptop} {
-    padding-left: ${props => (props.inBody ? space.s3 : '0')};
-    padding-right: ${props => (props.inBody ? space.s3 : '0')};
-    font-size: ${props => (props.secondary ? fontSize.f5 : fontSize.f6)};
-    margin-bottom: ${props => (props.inBody ? space.s2 : '0')};
+    padding-left: ${props => (props.inBody ? 'var(--space-64)' : '0')};
+    padding-right: ${props => (props.inBody ? 'var(--space-64)' : '0')};
+    font-size: ${props => (props.secondary ? 'var(--fs-32)' : 'var(--fs-36)')};
+    margin-bottom: ${props => (props.inBody ? 'var(--space-32)' : '0')};
   }
 
-  @media ${device.laptopL} {
-    font-size: ${props => (props.secondary ? fontSize.f8 : fontSize.f9)};
+  @media ${device.laptopLg} {
+    font-size: ${props => (props.secondary ? 'var(--fs-44)' : 'var(--fs-48)')};
   }
 `

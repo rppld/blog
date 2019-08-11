@@ -2,40 +2,58 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import { Link } from 'gatsby'
-import { space, fontSize, device } from '../theme'
+import { device } from '../theme'
 
 export const containerStyles = css`
   position: absolute;
   z-index: 999;
-  left: ${space.s0};
-  right: ${space.s0};
+  left: var(--space-8);
+  right: var(--space-8);
   display: flex;
   border-radius: 0.5rem;
   flex-direction: row;
   pointer-events: none;
-  padding: ${space.s0};
+  padding: var(--space-8);
 
   @media ${device.tablet} {
-    padding-left: ${space.s1};
-    padding-right: ${space.s1};
+    padding-left: var(--space-16);
+    padding-right: var(--space-16);
   }
 
   * {
     pointer-events: auto;
   }
+
+  a {
+    font-family: var(--ff-mono);
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 400ms;
+    background-color: transparent;
+    border: 0;
+  }
+
+  a:hover,
+  a:focus {
+    opacity: 0.5;
+    background-color: transparent;
+  }
 `
 
 const Container = styled.header`
   ${containerStyles};
-  top: ${space.s0};
+  top: var(--space-8);
 `
 
-const Paragraph = styled.p`
-  margin: 0;
-  font-size: ${fontSize.f0};
+export const Text = styled.span`
+  font-size: var(--fs-12);
 
   @media ${device.tablet} {
-    font-size: ${fontSize.f1};
+    font-size: var(--fs-16);
+  }
+
+  @media ${device.laptop} {
+    font-size: var(--fs-18);
   }
 `
 
@@ -43,9 +61,9 @@ function Header({ author }) {
   return (
     <Container className="menubar">
       {author && (
-        <Paragraph>
+        <Text>
           <Link to="/">{author}</Link>
-        </Paragraph>
+        </Text>
       )}
     </Container>
   )

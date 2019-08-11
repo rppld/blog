@@ -3,12 +3,12 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
 import Tagline from '../components/Tagline'
-import Body from '../components/Body'
+import ArticleBody from '../components/ArticleBody'
 import { Divider } from '../components/Divider'
 import Intro from '../components/Intro'
 import Outro from '../components/Outro'
 import { Heading } from '../components/Heading'
-import { createMarkup, stripParagraphTags } from '../utils'
+import { createMarkup } from '../utils'
 
 function ArticleTemplate(props) {
   const { data } = props
@@ -48,15 +48,13 @@ function ArticleTemplate(props) {
         )}
       </Intro>
 
-      <Body title={title} blocks={contentBlocks} />
+      <ArticleBody title={title} blocks={contentBlocks} />
       <Divider />
 
       <Outro>
         <Heading
           as="p"
-          dangerouslySetInnerHTML={createMarkup(
-            stripParagraphTags(outro.childMarkdownRemark.html)
-          )}
+          dangerouslySetInnerHTML={createMarkup(outro.childMarkdownRemark.html)}
         />
       </Outro>
     </>

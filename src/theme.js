@@ -1,56 +1,110 @@
 import React from 'react'
 import { Global, css } from '@emotion/core'
 
-export const fontSize = {
-  f0: '0.75em',
-  f1: '1em',
-  f2: '1.25em',
-  f3: '1.5em',
-  f4: '1.75em',
-  f5: '2em',
-  f6: '2.25em',
-  f7: '2.5em',
-  f8: '2.75em',
-  f9: '3em',
-  f10: '3.25em',
-}
+export const letterSpacing = css`
+  --ls-1: 0.01em;
+`
 
-export const space = {
-  s0: '0.5rem',
-  s1: '1rem',
-  s2: '2rem',
-  s3: '4rem',
-  s4: '8rem',
-}
+export const space = css`
+  --space-0: ${0 / 16}rem;
+  --space-4: ${4 / 16}rem;
+  --space-8: ${8 / 16}rem;
+  --space-16: ${16 / 16}rem;
+  --space-32: ${32 / 16}rem;
+  --space-64: ${64 / 16}rem;
+  --space-128: ${128 / 16}rem;
+  --space-256: ${256 / 16}rem;
+`
 
-export const letterSpacing = {
-  ls1: '0.01em',
-}
+export const fontSizes = css`
+  --fs-12: ${12 / 16}rem;
+  --fs-14: ${14 / 16}rem;
+  --fs-16: ${16 / 16}rem;
+  --fs-18: ${18 / 16}rem;
+  --fs-20: ${20 / 16}rem;
+  --fs-24: ${24 / 16}rem;
+  --fs-28: ${28 / 16}rem;
+  --fs-32: ${32 / 16}rem;
+  --fs-36: ${36 / 16}rem;
+  --fs-44: ${44 / 16}rem;
+  --fs-48: ${48 / 16}rem;
+  --fs-64: ${64 / 16}rem;
+  --fs-96: ${96 / 16}rem;
+  --fs-128: ${128 / 16}rem;
+`
 
-export const color = {
-  nearBlack: '#1a1a1a',
-  gray: '#6d6d6d',
-  lightGray: '#ccc',
-}
-const size = {
-  mobile: '20em', // 320px
-  mobileM: '23.438em', // 375px
-  mobileL: '26.563em', // 425px
-  tablet: '48em', // 768px
-  laptop: '64em', // 1024px
-  laptopL: '90em', // 1440px
-  desktop: '160em', // 2560px
-}
+export const colors = css`
+  --color-google: rgb(219, 68, 55);
+  --color-google-focus: rgb(219, 68, 55, 0.2);
+  --color-facebook: rgb(23, 119, 242);
+  --color-facebook-focus: rgba(23, 119, 242, 0.2);
+  --color-github: rgb(10, 10, 10);
+  --color-github-focus: rgba(10, 10, 10, 0.2);
+  --color-brand: #7d4cdb;
+  --color-accent-1: #6fffb0;
+  --color-accent-2: #fd6fff;
+  --color-accent-3: #81fced;
+  --color-accent-4: #ffca58;
+  --color-neutral-1: #00873d;
+  --color-neutral-2: rgb(61, 19, 141);
+  --color-neutral-2-focus: rgb(61, 19, 141, 0.2);
+  --color-neutral-3: #00739d;
+  --color-neutral-4: #a2423d;
+  --color-status-critical: #ff4040;
+  --color-status-error: rgb(255, 64, 64);
+  --color-status-error-focus: rgba(255, 64, 64, 0.2);
+  --color-status-warning: #ffaa15;
+  --color-status-ok: rgb(0, 199, 129);
+  --color-status-ok-focus: rgba(0, 199, 129, 0.2);
+  --color-status-unknown: #cccccc;
+  --color-status-disabled: #cccccc;
+  --color-light-1: #f8f8f8;
+  --color-light-2: #f2f2f2;
+  --color-light-3: #ededed;
+  --color-light-4: #dadada;
+  --color-light-5: #dadada;
+  --color-light-6: #dadada;
+  --color-dark-1: #333333;
+  --color-dark-2: #555555;
+  --color-dark-3: #777777;
+  --color-dark-4: #999999;
+  --color-dark-5: #999999;
+  --color-dark-6: #999999;
+  --color-near-black: #1a1a1a;
+  --color-gray: #6d6d6d;
+  --color-light-gray: #ccc;
+`
 
 export const device = {
-  mobile: `(min-width: ${size.mobile})`,
-  mobileM: `(min-width: ${size.mobileM})`,
-  mobileL: `(min-width: ${size.mobileL})`,
-  tablet: `(min-width: ${size.tablet})`,
-  laptop: `(min-width: ${size.laptop})`,
-  laptopL: `(min-width: ${size.laptopL})`,
-  desktop: `(min-width: ${size.desktop})`,
+  mobile: `(min-width: ${320 / 16}em)`,
+  mobileMd: `(min-width: ${375 / 16}em)`,
+  mobileLg: `(min-width: ${425 / 16}em)`,
+  tablet: `(min-width: ${768 / 16}em)`,
+  laptop: `(min-width: ${1024 / 16}em)`,
+  laptopMd: `(min-width: ${1280 / 16}em)`,
+  laptopLg: `(min-width: ${1440 / 16}em)`,
+  desktop: `(min-width: ${2560 / 16}em)`,
 }
+
+export const lineHeight = css`
+  --lh-solid: 1;
+  --lh-title: 1.25;
+  --lh-copy: 1.5;
+`
+
+export const fontFamilies = css`
+  --ff-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'avenir next',
+    avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial,
+    sans-serif;
+  --ff-serif: 'IBM Plex Serif', georgia, times, serif;
+  --ff-mono: 'IBM Plex Mono', Consolas, monaco, monospace;
+`
+
+export const fontWeights = css`
+  --fw-regular: 400;
+  --fw-bold: 700;
+  --fw-black: 900;
+`
 
 export function BaseStyles() {
   return <Global styles={baseStyles} />
@@ -121,32 +175,131 @@ const baseStyles = css`
     font-style: italic;
   }
 
+  :root {
+    ${space};
+    ${colors};
+    ${fontSizes};
+    ${lineHeight};
+    ${fontWeights};
+    ${fontFamilies};
+    ${letterSpacing};
+  }
+
   *,
   *:before,
   *:after {
-    box-sizing: border-box;
-    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-kerning: auto;
-    margin: 0;
+    box-sizing: border-box;
     padding: 0;
+    margin: 0;
     border: 0;
   }
 
-  html {
-    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont,
-      'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto,
-      'segoe ui', arial, sans-serif;
-    -webkit-text-size-adjust: 100%;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 1.5;
+  body {
+    font-family: var(--ff-sans);
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-copy);
+    font-size: var(--fs-20);
+    color: var(--dark-1);
+    hyphens: auto;
+
+    @media ${device.tablet} {
+      font-size: var(--fs-24);
+    }
+
+    /* Hyphenation */
+    /* http://clagnut.com/blog/2395 */
+
+    -webkit-hyphens: auto;
+    -webkit-hyphenate-limit-before: 3;
+    -webkit-hyphenate-limit-after: 3;
+    -webkit-hyphenate-limit-chars: 6 3 3;
+    -webkit-hyphenate-limit-lines: 2;
+    -webkit-hyphenate-limit-last: always;
+    -webkit-hyphenate-limit-zone: 8%;
+
+    -moz-hyphens: auto;
+    -moz-hyphenate-limit-chars: 6 3 3;
+    -moz-hyphenate-limit-lines: 2;
+    -moz-hyphenate-limit-last: always;
+    -moz-hyphenate-limit-zone: 8%;
+
+    -ms-hyphens: auto;
+    -ms-hyphenate-limit-chars: 6 3 3;
+    -ms-hyphenate-limit-lines: 2;
+    -ms-hyphenate-limit-last: always;
+    -ms-hyphenate-limit-zone: 8%;
+
+    hyphens: auto;
+    hyphenate-limit-chars: 6 3 3;
+    hyphenate-limit-lines: 2;
+    hyphenate-limit-last: always;
+    hyphenate-limit-zone: 8%;
   }
 
-  body {
+  code,
+  var,
+  kbd,
+  samp,
+  tt,
+  dir,
+  listing,
+  plaintext,
+  xmp,
+  abbr,
+  acronym,
+  blockquote,
+  input,
+  textarea,
+  q {
+    hyphens: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  button {
     margin: 0;
     padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+  }
+
+  img {
+    border-style: none;
+  }
+
+  blockquote,
+  q {
+    quotes: none;
+  }
+
+  blockquote:after,
+  blockquote:before,
+  q:after,
+  q:before {
+    content: '';
+    content: none;
   }
 
   a {
@@ -164,20 +317,5 @@ const baseStyles = css`
   a:focus {
     background-color: #bbeffd;
     border-bottom-color: #1a1a1a;
-  }
-
-  .menubar a {
-    font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
-    text-decoration: none;
-    color: inherit;
-    transition: opacity 400ms;
-    background-color: transparent;
-    border: 0;
-  }
-
-  .menubar a:hover,
-  .menubar a:focus {
-    opacity: 0.5;
-    background-color: transparent;
   }
 `

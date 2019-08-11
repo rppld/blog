@@ -1,32 +1,36 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { space, device } from '../theme'
+import { css } from '@emotion/core'
+import { device } from '../theme'
 
-const Wrapper = styled.div`
+export const containerStyles = css`
   min-height: 100vh;
   text-align: center;
-  padding: ${space.s1};
+  padding: var(--space-16);
   display: flex;
   justify-content: center;
-  transition: opacity 400ms;
   align-items: center;
+
+  @media ${device.tablet} {
+    padding: var(--space-32);
+  }
+
+  @media ${device.laptop} {
+    padding: var(--space-64);
+  }
+`
+
+const Container = styled.div`
+  ${containerStyles};
   background-color: ${props => props.bgColor};
 
   img {
     max-width: 50vmin;
   }
-
-  @media ${device.tablet} {
-    padding: ${space.s2};
-  }
-
-  @media ${device.laptop} {
-    padding: ${space.s3};
-  }
 `
 
 function Intro(props) {
-  return <Wrapper bgColor={props.bgColor}>{props.children}</Wrapper>
+  return <Container bgColor={props.bgColor}>{props.children}</Container>
 }
 
 export default Intro

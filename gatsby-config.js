@@ -4,6 +4,8 @@ module.exports = {
     email: 'philipprappold@me.com',
     description:
       'Philipp Rappold is an information designer and front-end developer in Amsterdam, working at the intersection of design and technology. He takes photos for fun.',
+    pageTransitions: true,
+    pageTransitionDuration: 250,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
