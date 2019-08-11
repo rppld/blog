@@ -1,9 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import Tagline from '../components/Tagline'
 import Intro from '../components/Intro'
-import Outro from '../components/Outro'
 import Figure from '../components/Figure'
 import { Heading } from '../components/Heading'
 import { Grid } from '../components/Grid'
@@ -14,7 +12,7 @@ import useItemScaling from '../hooks/use-item-scaling'
 function PhotosPage(props) {
   const { data } = props
   const { author } = data.site.siteMetadata
-  const { intro, outro, tagline, contentBlocks } = data.contentfulPhotos
+  const { intro, tagline, contentBlocks } = data.contentfulPhotos
   let count = 0
   const gridContainer = React.useRef()
   useItemScaling(gridContainer)
@@ -22,7 +20,6 @@ function PhotosPage(props) {
   return (
     <div>
       <Helmet title={`${author}, ${tagline}`} />
-      <Tagline text={tagline} />
 
       <Intro>
         <Heading
@@ -42,13 +39,6 @@ function PhotosPage(props) {
           )
         })}
       </Grid>
-
-      <Outro>
-        <Heading
-          as="p"
-          dangerouslySetInnerHTML={createMarkup(outro.childMarkdownRemark.html)}
-        />
-      </Outro>
     </div>
   )
 }
@@ -65,11 +55,6 @@ export const query = graphql`
     contentfulPhotos {
       tagline
       intro {
-        childMarkdownRemark {
-          html
-        }
-      }
-      outro {
         childMarkdownRemark {
           html
         }

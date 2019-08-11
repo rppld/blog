@@ -2,13 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
-import Tagline from '../components/Tagline'
 import ArticleBody from '../components/ArticleBody'
-import { Divider } from '../components/Divider'
 import Intro from '../components/Intro'
-import Outro from '../components/Outro'
-import { Heading } from '../components/Heading'
-import { createMarkup } from '../utils'
 
 function ArticleTemplate(props) {
   const { data } = props
@@ -20,13 +15,11 @@ function ArticleTemplate(props) {
     coverImage,
     coverImageBackgroundColor,
     contentBlocks,
-    outro,
   } = page
 
   return (
     <>
       <Helmet title={`${author}, ${tagline}`} />
-      <Tagline text={tagline} />
 
       <Intro bgColor={coverImageBackgroundColor}>
         {coverImage.fluid.sizes ? (
@@ -49,14 +42,6 @@ function ArticleTemplate(props) {
       </Intro>
 
       <ArticleBody title={title} blocks={contentBlocks} />
-      <Divider />
-
-      <Outro>
-        <Heading
-          as="p"
-          dangerouslySetInnerHTML={createMarkup(outro.childMarkdownRemark.html)}
-        />
-      </Outro>
     </>
   )
 }
@@ -80,11 +65,6 @@ export const pageQuery = graphql`
         file {
           url
           fileName
-        }
-      }
-      outro {
-        childMarkdownRemark {
-          html
         }
       }
       coverImageBackgroundColor

@@ -6,12 +6,18 @@ import { containerStyles } from './Header'
 
 const Container = styled.footer`
   ${containerStyles};
-  bottom: var(--space-8);
-  padding-bottom: calc(env(safe-area-inset-bottom) - var(--space-8));
-  justify-content: space-between;
+  margin-top: var(--space-64);
+  padding-bottom: var(--space-8);
+`
+
+const InnerContainer = styled.div`
+  border-top: 1px solid #ccc;
+  padding-top: var(--space-8);
+  padding-bottom: env(safe-area-inset-bottom);
 
   @media ${device.tablet} {
-    bottom: var(--space-16);
+    display: flex;
+    justify-content: space-between;
   }
 `
 
@@ -33,18 +39,20 @@ function Footer({ email }) {
 
   return (
     <Container className="menubar">
-      <Text style={{ opacity: 0.5 }}>&copy; {year}</Text>
-      <Text as="ul">
-        <ListItem>
-          <a href="https://www.instagram.com/philipprappold/">Instagram</a>
-        </ListItem>
-        <ListItem>
-          <a href="https://twitter.com/rppld">Twitter</a>
-        </ListItem>
-        <ListItem>
-          <a href={`mailto:${email}`}>Email</a>
-        </ListItem>
-      </Text>
+      <InnerContainer>
+        <Text style={{ opacity: 0.5 }}>&copy; {year} Philipp Rappold</Text>
+        <Text as="ul">
+          <ListItem>
+            <a href="https://www.instagram.com/philipprappold/">Instagram</a>
+          </ListItem>
+          <ListItem>
+            <a href="https://twitter.com/rppld">Twitter</a>
+          </ListItem>
+          <ListItem>
+            <a href={`mailto:${email}`}>Email</a>
+          </ListItem>
+        </Text>
+      </InnerContainer>
     </Container>
   )
 }

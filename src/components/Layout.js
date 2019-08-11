@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { device } from '../theme'
 import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Header from './Header'
@@ -27,6 +26,7 @@ function Layout(props) {
           site {
             siteMetadata {
               author
+              tagline
               email
               description
             }
@@ -52,7 +52,10 @@ function Layout(props) {
             />
           </Helmet>
           <BaseStyles />
-          <Header author={data.site.siteMetadata.author} />
+          <Header
+            author={data.site.siteMetadata.author}
+            tagline={data.site.siteMetadata.tagline}
+          />
 
           {props.pageTransitions ? (
             <PageTransition {...props} {...getRootProps()}>

@@ -1,10 +1,8 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import Tagline from '../components/Tagline'
 import Figure from '../components/Figure'
 import Intro from '../components/Intro'
-import Outro from '../components/Outro'
 import { Heading } from '../components/Heading'
 import { Grid } from '../components/Grid'
 import { GridItem } from '../components/GridItem'
@@ -13,7 +11,7 @@ import useItemScaling from '../hooks/use-item-scaling'
 
 function IndexPage(props) {
   const { data } = props
-  const { intro, outro, tagline, projects } = data.contentfulHomepage
+  const { intro, tagline, projects } = data.contentfulHomepage
   let count = 0
   const gridContainer = React.useRef()
   useItemScaling(gridContainer)
@@ -21,7 +19,6 @@ function IndexPage(props) {
   return (
     <>
       <Helmet title={`${data.site.siteMetadata.author}, ${tagline}`} />
-      <Tagline text={tagline} />
 
       <Intro>
         <Heading
@@ -64,13 +61,6 @@ function IndexPage(props) {
           )
         })}
       </Grid>
-
-      <Outro>
-        <Heading
-          as="p"
-          dangerouslySetInnerHTML={createMarkup(outro.childMarkdownRemark.html)}
-        />
-      </Outro>
     </>
   )
 }
@@ -87,11 +77,6 @@ export const query = graphql`
     contentfulHomepage {
       tagline
       intro {
-        childMarkdownRemark {
-          html
-        }
-      }
-      outro {
         childMarkdownRemark {
           html
         }

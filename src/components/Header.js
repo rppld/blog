@@ -5,19 +5,15 @@ import { Link } from 'gatsby'
 import { device } from '../theme'
 
 export const containerStyles = css`
-  position: absolute;
   font-family: var(--ff-mono);
-  z-index: 999;
-  left: var(--space-16);
-  right: var(--space-16);
-  display: flex;
-  border-radius: 0.5rem;
-  flex-direction: row;
+  width: 100%;
   pointer-events: none;
+  padding-left: var(--space-16);
+  padding-right: var(--space-16);
 
   @media ${device.tablet} {
-    left: var(--space-24);
-    right: var(--space-24);
+    padding-left: var(--space-24);
+    padding-right: var(--space-24);
   }
 
   * {
@@ -42,11 +38,12 @@ export const containerStyles = css`
 
 const Container = styled.header`
   ${containerStyles};
-  top: var(--space-8);
-
-  @media ${device.tablet} {
-    top: var(--space-16);
-  }
+  padding-top: var(--space-8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
 `
 
 export const Text = styled.span`
@@ -61,12 +58,12 @@ export const Text = styled.span`
   }
 `
 
-function Header({ author }) {
+function Header({ author, tagline }) {
   return (
     <Container className="menubar">
       {author && (
         <Text>
-          <Link to="/">{author}</Link>
+          <Link to="/">{author}</Link>, {tagline}
         </Text>
       )}
     </Container>

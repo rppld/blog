@@ -118,6 +118,7 @@ const baseStyles = css`
       url('/IBMPlexSans-Regular-Latin1.woff') format('woff');
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
@@ -126,6 +127,7 @@ const baseStyles = css`
       url('/IBMPlexSans-Italic-Latin1.woff') format('woff');
     font-weight: 400;
     font-style: italic;
+    font-display: swap;
   }
 
   @font-face {
@@ -134,6 +136,7 @@ const baseStyles = css`
       url('/IBMPlexSans-Bold-Latin1.woff') format('woff');
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
@@ -142,6 +145,7 @@ const baseStyles = css`
       url('/IBMPlexSans-BoldItalic-Latin1.woff') format('woff');
     font-weight: 700;
     font-style: italic;
+    font-display: swap;
   }
 
   @font-face {
@@ -150,6 +154,7 @@ const baseStyles = css`
       url('/IBMPlexSerif-Bold-Latin1.woff') format('woff');
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
@@ -158,6 +163,7 @@ const baseStyles = css`
       url('/IBMPlexSerif-BoldItalic-Latin1.woff') format('woff');
     font-weight: 700;
     font-style: italic;
+    font-display: swap;
   }
 
   @font-face {
@@ -166,6 +172,7 @@ const baseStyles = css`
       url('/IBMPlexMono-Regular-Latin1.woff') format('woff');
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
@@ -174,6 +181,7 @@ const baseStyles = css`
       url('/IBMPlexMono-Italic-Latin1.woff') format('woff');
     font-weight: 400;
     font-style: italic;
+    font-display: swap;
   }
 
   :root {
@@ -308,7 +316,7 @@ const baseStyles = css`
     transition-duration: 400ms;
     text-decoration: none;
     white-space: nowrap;
-    font-family: 'IBM Plex Sans', serif;
+    font-family: var(--ff-sans);
     background-color: rgba(187, 239, 253, 0.3);
     border-bottom: 1px solid rgba(43, 1, 1, 0.2);
     color: #1a1a1a;
