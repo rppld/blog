@@ -13,13 +13,6 @@ const OuterWrap = styled.figure`
   margin-right: auto;
   width: 100%;
   transition: 400ms ease;
-  margin-top: ${props => (props.inBody ? 'var(--space-32)' : '0')};
-  margin-bottom: ${props => (props.inBody ? 'var(--space-32)' : '0')};
-
-  @media ${device.tablet} {
-    margin-top: ${props => (props.inBody ? 'var(--space-64)' : '0')};
-    margin-bottom: ${props => (props.inBody ? 'var(--space-64)' : '0')};
-  }
 
   img {
     vertical-align: middle;
@@ -57,7 +50,7 @@ const Caption = styled.figcaption`
 
 function Container(props) {
   return props.link ? (
-    <OuterWrap inBody={props.inBody}>
+    <OuterWrap>
       <Link to={props.link}>{props.children}</Link>
     </OuterWrap>
   ) : (
@@ -67,7 +60,7 @@ function Container(props) {
 
 function Figure(props) {
   return (
-    <Container link={props.link} inBody={props.inBody}>
+    <Container link={props.link}>
       <InnerWrap
         bgColor={props.bgColor}
         padTop={props.padTop}

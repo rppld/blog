@@ -10,10 +10,6 @@ import PageTransition from './PageTransition'
 
 const Container = styled.div`
   position: relative;
-
-  @media ${device.laptop} {
-    position: initial;
-  }
 `
 
 function Layout(props) {

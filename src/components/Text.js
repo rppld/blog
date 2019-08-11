@@ -6,7 +6,7 @@ export const textStyles = css`
   hyphens: auto;
   letter-spacing: var(--ls-1);
   font-weight: 400;
-  font-size: var(--fs-16);
+  font-size: var(--fs-18);
   padding-left: var(--space-16);
   padding-right: var(--space-16);
   margin-bottom: var(--space-32);

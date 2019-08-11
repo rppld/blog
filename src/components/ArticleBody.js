@@ -36,6 +36,16 @@ const Container = styled.div`
       vertical-align: middle;
     }
   }
+
+  figure {
+    margin-top: var(--space-32);
+    margin-bottom: var(--space-32);
+
+    @media ${device.tablet} {
+      margin-top: var(--space-64);
+      margin-bottom: var(--space-64);
+    }
+  }
 `
 
 function ArticleBody({ title, blocks }) {
@@ -56,13 +66,12 @@ function ArticleBody({ title, blocks }) {
           <Figure
             key={block.id}
             {...getPaddingProps(block.padding)}
-            inBody
             caption={block.caption}
             bgColor={block.backgroundColor}
             fluid={block.image.fluid}
           />
         ) : block.__typename === 'ContentfulBlockHeading' ? (
-          <Heading inBody secondary key={block.id} as="h2">
+          <Heading key={block.id} as="h2">
             {block.heading}
           </Heading>
         ) : null
