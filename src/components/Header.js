@@ -6,6 +6,7 @@ import { device } from '../theme'
 
 export const containerStyles = css`
   position: absolute;
+  font-family: var(--ff-mono);
   z-index: 999;
   left: var(--space-16);
   right: var(--space-16);
