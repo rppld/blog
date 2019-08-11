@@ -7,8 +7,12 @@ import { containerStyles } from './Header'
 const Container = styled.footer`
   ${containerStyles};
   bottom: var(--space-8);
-  padding-bottom: calc(var(--space-8) + env(safe-area-inset-bottom));
+  padding-bottom: calc(env(safe-area-inset-bottom) - var(--space-8));
   justify-content: space-between;
+
+  @media ${device.tablet} {
+    bottom: var(--space-16);
+  }
 `
 
 const ListItem = styled.li`

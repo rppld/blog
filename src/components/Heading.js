@@ -12,7 +12,7 @@ export const Heading = styled.h1`
   margin-right: ${props => (props.inBody ? 'auto' : '0')};
   color: var(--color-near-black);
   line-height: 1.5;
-  font-size: ${props => (props.secondary ? 'var(--fs-16)' : 'var(--fs-20)')};
+  font-size: ${props => (props.secondary ? 'var(--fs-16)' : 'var(--fs-28)')};
   padding-left: ${props => (props.inBody ? 'var(--space-16)' : '0')};
   padding-right: ${props => (props.inBody ? 'var(--space-16)' : '0')};
 

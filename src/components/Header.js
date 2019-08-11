@@ -7,17 +7,16 @@ import { device } from '../theme'
 export const containerStyles = css`
   position: absolute;
   z-index: 999;
-  left: var(--space-8);
-  right: var(--space-8);
+  left: var(--space-16);
+  right: var(--space-16);
   display: flex;
   border-radius: 0.5rem;
   flex-direction: row;
   pointer-events: none;
-  padding-top: var(--space-8);
 
   @media ${device.tablet} {
-    padding-left: var(--space-16);
-    padding-right: var(--space-16);
+    left: var(--space-24);
+    right: var(--space-24);
   }
 
   * {
@@ -43,6 +42,10 @@ export const containerStyles = css`
 const Container = styled.header`
   ${containerStyles};
   top: var(--space-8);
+
+  @media ${device.tablet} {
+    top: var(--space-16);
+  }
 `
 
 export const Text = styled.span`

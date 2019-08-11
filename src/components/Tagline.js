@@ -1,14 +1,19 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
+import { device } from '../theme'
 import { containerStyles, Text } from './Header'
 
 const Container = styled.span`
   ${containerStyles};
   left: auto;
   top: var(--space-8);
-  right: var(--space-8);
   text-align: right;
+
+  @media ${device.tablet} {
+    left: auto;
+    top: var(--space-16);
+  }
 `
 
 const StyledText = styled(Text)`
