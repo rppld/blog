@@ -13,7 +13,7 @@ export const containerStyles = css`
   border-radius: 0.5rem;
   flex-direction: row;
   pointer-events: none;
-  padding: var(--space-8);
+  padding-top: var(--space-8);
 
   @media ${device.tablet} {
     padding-left: var(--space-16);
@@ -46,7 +46,7 @@ const Container = styled.header`
 `
 
 export const Text = styled.span`
-  font-size: var(--fs-12);
+  font-size: var(--fs-14);
 
   @media ${device.tablet} {
     font-size: var(--fs-16);

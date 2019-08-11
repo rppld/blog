@@ -7,6 +7,7 @@ import { containerStyles } from './Header'
 const Container = styled.footer`
   ${containerStyles};
   bottom: var(--space-8);
+  padding-bottom: calc(var(--space-8) + env(safe-area-inset-bottom));
   justify-content: space-between;
 `
 
@@ -14,10 +15,10 @@ const ListItem = styled.li`
   display: inline;
 
   & + ${() => ListItem} {
-    margin-left: var(--space-8);
+    margin-left: var(--space-16);
 
     @media ${device.tablet} {
-      margin-left: var(--space-16);
+      margin-left: var(--space-32);
     }
   }
 `

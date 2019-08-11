@@ -1,10 +1,20 @@
 import React from 'react'
+import styled from '@emotion/styled'
+import { device } from '../theme'
 import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Header from './Header'
 import Footer from './Footer'
 import { BaseStyles } from '../theme'
 import PageTransition from './PageTransition'
+
+const Container = styled.div`
+  position: relative;
+
+  @media ${device.laptop} {
+    position: initial;
+  }
+`
 
 function Layout(props) {
   function getRootProps() {
@@ -28,7 +38,7 @@ function Layout(props) {
         }
       `}
       render={data => (
-        <>
+        <Container>
           <Helmet
             meta={[
               {
@@ -57,7 +67,7 @@ function Layout(props) {
           )}
 
           <Footer email={data.site.siteMetadata.email} />
-        </>
+        </Container>
       )}
     />
   )
