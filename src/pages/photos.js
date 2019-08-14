@@ -4,18 +4,14 @@ import { graphql } from 'gatsby'
 import Intro from '../components/Intro'
 import Figure from '../components/Figure'
 import { Heading } from '../components/Heading'
-import { Grid } from '../components/Grid'
-import { GridItem } from '../components/GridItem'
+import { Grid, GridItem } from '../components/Grid'
 import { getSize, createMarkup } from '../utils'
-import useItemScaling from '../hooks/use-item-scaling'
 
 function PhotosPage(props) {
   const { data } = props
   const { author } = data.site.siteMetadata
   const { intro, tagline, contentBlocks } = data.contentfulPhotos
   let count = 0
-  const gridContainer = React.useRef()
-  useItemScaling(gridContainer)
 
   return (
     <div>
@@ -27,7 +23,7 @@ function PhotosPage(props) {
         />
       </Intro>
 
-      <Grid ref={gridContainer}>
+      <Grid>
         {contentBlocks.reverse().map((block, i) => {
           count < 6 ? count++ : (count = 1)
           const { id, title, image } = block

@@ -4,17 +4,13 @@ import Helmet from 'react-helmet'
 import Figure from '../components/Figure'
 import Intro from '../components/Intro'
 import { Heading } from '../components/Heading'
-import { Grid } from '../components/Grid'
-import { GridItem } from '../components/GridItem'
+import { Grid, GridItem } from '../components/Grid'
 import { getSize, createMarkup, getPaddingProps } from '../utils'
-import useItemScaling from '../hooks/use-item-scaling'
 
 function IndexPage(props) {
   const { data } = props
   const { intro, tagline, projects } = data.contentfulHomepage
   let count = 0
-  const gridContainer = React.useRef()
-  useItemScaling(gridContainer)
 
   return (
     <>
@@ -26,7 +22,7 @@ function IndexPage(props) {
         />
       </Intro>
 
-      <Grid ref={gridContainer}>
+      <Grid>
         {projects.map(project => {
           count < 6 ? count++ : (count = 1)
           const {
@@ -40,7 +36,7 @@ function IndexPage(props) {
 
           return (
             <GridItem key={id} size={getSize(count)}>
-              <Link style={{ width: '100%' }} to={`/${slug}/`}>
+              <Link to={`/${slug}/`}>
                 {featuredImage.fluid.sizes ? (
                   <Figure
                     {...getPaddingProps(padding)}
