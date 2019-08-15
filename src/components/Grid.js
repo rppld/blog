@@ -12,7 +12,7 @@ export function GridItem({ children, ...props }) {
 
   const scale = useTransform(
     scrollY,
-    [elementTop - viewportHeight, elementTop],
+    [elementTop / 2 - viewportHeight, elementTop],
     [0.9, 1],
     {
       ease: easeInOutCubic,
