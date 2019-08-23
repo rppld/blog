@@ -6,7 +6,7 @@ import { containerStyles } from './Header'
 
 const Container = styled.footer`
   ${containerStyles};
-  margin-top: var(--space-64);
+  padding-top: var(--space-96);
   padding-bottom: var(--space-8);
 `
 

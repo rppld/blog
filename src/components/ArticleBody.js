@@ -7,13 +7,7 @@ import { createMarkup, getPaddingProps } from '../utils'
 import { textStyles } from './Text'
 
 const Container = styled.div`
-  padding-top: var(--space-32);
-  padding-bottom: var(--space-32);
-
-  @media ${device.laptop} {
-    padding-top: var(--space-64);
-    padding-bottom: var(--space-64);
-  }
+  padding-top: var(--space-64);
 
   ul,
   ol {
