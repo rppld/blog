@@ -11,7 +11,7 @@ const Container = styled.div`
   position: relative;
 `
 
-function Layout(props) {
+function Layout({ pageTransitions, children, ...props }) {
   function getRootProps() {
     return {
       className: 'siteRoot',
@@ -57,12 +57,12 @@ function Layout(props) {
             tagline={data.site.siteMetadata.tagline}
           />
 
-          {props.pageTransitions ? (
-            <PageTransition {...props} {...getRootProps()}>
-              {props.children}
-            </PageTransition>
+          {!pageTransitions ? (
+            <main {...getRootProps()}>{children}</main>
           ) : (
-            <main {...getRootProps()}>{props.children}</main>
+            <PageTransition {...props} {...getRootProps()}>
+              {children}
+            </PageTransition>
           )}
 
           <Footer email={data.site.siteMetadata.email} />

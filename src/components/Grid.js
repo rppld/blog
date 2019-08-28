@@ -19,7 +19,7 @@ export function GridItem({ children, ...props }) {
     }
   )
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     const element = ref.current
     setViewportHeight(element.offsetHeight)
     setElementTop(element.offsetTop)
