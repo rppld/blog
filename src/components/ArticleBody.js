@@ -45,7 +45,7 @@ const Container = styled.div`
 function ArticleBody({ title, blocks }) {
   return (
     <Container>
-      <Heading inBody>{title}</Heading>
+      <Heading>{title}</Heading>
 
       {blocks.map(block =>
         block.__typename === 'ContentfulBlockText' ? (

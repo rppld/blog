@@ -7,8 +7,8 @@ import Footer from './Footer'
 import { BaseStyles } from '../theme'
 import PageTransition from './PageTransition'
 
-const Container = styled.div`
-  position: relative;
+const Content = styled.div`
+  min-height: 100vh;
 `
 
 function Layout({ pageTransitions, children, ...props }) {
@@ -34,7 +34,7 @@ function Layout({ pageTransitions, children, ...props }) {
         }
       `}
       render={data => (
-        <Container>
+        <>
           <Helmet
             meta={[
               {
@@ -57,16 +57,18 @@ function Layout({ pageTransitions, children, ...props }) {
             tagline={data.site.siteMetadata.tagline}
           />
 
-          {!pageTransitions ? (
-            <main {...getRootProps()}>{children}</main>
-          ) : (
-            <PageTransition {...props} {...getRootProps()}>
-              {children}
-            </PageTransition>
-          )}
+          <Content>
+            {pageTransitions ? (
+              <PageTransition {...props} {...getRootProps()}>
+                {children}
+              </PageTransition>
+            ) : (
+              <main {...getRootProps()}>{children}</main>
+            )}
+          </Content>
 
           <Footer email={data.site.siteMetadata.email} />
-        </Container>
+        </>
       )}
     />
   )

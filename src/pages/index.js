@@ -7,8 +7,7 @@ import { Heading } from '../components/Heading'
 import { Grid, GridItem } from '../components/Grid'
 import { getSize, createMarkup, getPaddingProps } from '../utils'
 
-function IndexPage(props) {
-  const { data } = props
+function IndexPage({ data }) {
   const { intro, tagline, projects } = data.contentfulHomepage
   let count = 0
 

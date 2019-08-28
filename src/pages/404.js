@@ -4,9 +4,9 @@ import Layout from '../components/Layout'
 import Intro from '../components/Intro'
 import { Heading } from '../components/Heading'
 
-function NotFoundPage(props) {
+function NotFoundPage({ location }) {
   return (
-    <Layout location={props.location}>
+    <Layout location={location}>
       <Intro>
         <Heading>
           Eww, you just hit a route that doesn&#39;t exist{' '}

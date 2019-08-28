@@ -54,7 +54,7 @@ function Container(props) {
       <Link to={props.link}>{props.children}</Link>
     </OuterWrap>
   ) : (
-    <OuterWrap inBody={props.inBody}>{props.children}</OuterWrap>
+    <OuterWrap>{props.children}</OuterWrap>
   )
 }
 

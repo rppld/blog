@@ -5,17 +5,15 @@ import Helmet from 'react-helmet'
 import ArticleBody from '../components/ArticleBody'
 import Intro from '../components/Intro'
 
-function ArticleTemplate(props) {
-  const { data } = props
+function ArticleTemplate({ data }) {
   const { author } = data.site.siteMetadata
-  const page = data.contentfulArticle
   const {
     title,
     tagline,
     coverImage,
     coverImageBackgroundColor,
     contentBlocks,
-  } = page
+  } = data.contentfulArticle
 
   return (
     <>
@@ -49,7 +47,7 @@ function ArticleTemplate(props) {
 export default ArticleTemplate
 
 export const pageQuery = graphql`
-  query projectQuery($id: String!) {
+  query articleQuery($id: String!) {
     site {
       siteMetadata {
         author

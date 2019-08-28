@@ -7,14 +7,13 @@ import { Heading } from '../components/Heading'
 import { Grid, GridItem } from '../components/Grid'
 import { getSize, createMarkup } from '../utils'
 
-function PhotosPage(props) {
-  const { data } = props
+function PhotosPage({ data }) {
   const { author } = data.site.siteMetadata
   const { intro, tagline, contentBlocks } = data.contentfulPhotos
   let count = 0
 
   return (
-    <div>
+    <>
       <Helmet title={`${author}, ${tagline}`} />
 
       <Intro>
@@ -35,14 +34,14 @@ function PhotosPage(props) {
           )
         })}
       </Grid>
-    </div>
+    </>
   )
 }
 
 export default PhotosPage
 
 export const query = graphql`
-  query PhotosQuery {
+  query PhotosPageQuery {
     site {
       siteMetadata {
         author
