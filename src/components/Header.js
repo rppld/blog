@@ -1,6 +1,6 @@
 import React from 'react'
-import styled from '@emotion/styled'
-import { css } from '@emotion/core'
+import styled from 'styled-components'
+import { css } from 'styled-components'
 import { Link } from 'gatsby'
 import { device } from '../theme'
 

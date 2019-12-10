@@ -1,5 +1,4 @@
-import React from 'react'
-import { Global, css } from '@emotion/core'
+import { createGlobalStyle, css } from 'styled-components'
 
 export const letterSpacing = css`
   --ls-1: 0.01em;
@@ -107,10 +106,6 @@ export const fontWeights = css`
   --fw-bold: 700;
   --fw-black: 900;
 `
-
-export function BaseStyles() {
-  return <Global styles={baseStyles} />
-}
 
 const baseStyles = css`
   @font-face {
@@ -328,4 +323,8 @@ const baseStyles = css`
     background-color: #bbeffd;
     border-bottom-color: #1a1a1a;
   }
+`
+
+export const BaseStyles = createGlobalStyle`
+  ${baseStyles};
 `

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import styled from 'styled-components'
 import Figure from '../components/Figure'
 import { Heading } from '../components/Heading'
 import { device } from '../theme'
