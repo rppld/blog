@@ -19,7 +19,7 @@ module.exports = {
       },
     },
     'gatsby-transformer-remark',
-    'gatsby-plugin-emotion',
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-offline',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-netlify',

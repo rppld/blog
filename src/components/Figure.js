@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
-import styled from '@emotion/styled'
+import styled from 'styled-components'
 import { device } from '../theme'
 import { textStyles } from './Text'
 
