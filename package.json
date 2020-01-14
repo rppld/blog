@@ -1,54 +1,30 @@
 {
-  "name": "rppld.co",
-  "description": "Personal website of Philipp Rappold",
-  "version": "2.5.0",
-  "author": "Philipp Rappold <philipprappold@me.com>",
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rppld/photos.rppld.co.git"
-  },
-  "main": "n/a",
+  "name": "rppld.com",
   "scripts": {
-    "dev": "gatsby develop",
-    "build": "gatsby build",
-    "start": "gatsby serve"
+    "dev": "next",
+    "build": "next build"
   },
   "dependencies": {
-    "babel-plugin-styled-components": "^1.10.6",
-    "framer-motion": "^1.6.18",
-    "gatsby": "^2.18.10",
-    "gatsby-image": "^2.2.36",
-    "gatsby-plugin-catch-links": "^2.1.21",
-    "gatsby-plugin-emotion": "^4.1.18",
-    "gatsby-plugin-netlify": "^2.1.30",
-    "gatsby-plugin-offline": "^3.0.29",
-    "gatsby-plugin-react-helmet": "^3.1.18",
-    "gatsby-plugin-styled-components": "^3.1.16",
-    "gatsby-source-contentful": "^2.1.69",
-    "gatsby-transformer-remark": "^2.6.42",
-    "lodash": "^4.17.15",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^9.1.8-canary.13",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1",
-    "slash": "^3.0.0",
-    "styled-components": "^4.4.1"
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "@types/node": "^13.1.4",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
     "@typescript-eslint/eslint-plugin": "2.x",
     "@typescript-eslint/parser": "2.x",
     "babel-eslint": "10.x",
     "eslint": "6.x",
-    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-prettier": "^6.9.0",
     "eslint-config-react-app": "^5.1.0",
     "eslint-plugin-flowtype": "3.x",
     "eslint-plugin-import": "2.x",
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-react": "7.x",
-    "eslint-plugin-react-hooks": "1.x",
-    "prettier": "latest"
+    "eslint-plugin-react-hooks": "2.x",
+    "typescript": "^3.7.4"
   }
 }

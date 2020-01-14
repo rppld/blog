@@ -1,0 +1,8 @@
+{
+  "name": "blog",
+  "build": {
+    "env": {
+      "STORYBLOK_API_KEY": "@my-storyblok-api-key"
+    }
+  }
+}
