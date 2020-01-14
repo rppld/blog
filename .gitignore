@@ -1,5 +1,5 @@
-node_modules
-.cache/
-public/
 .DS_Store
+node_modules
+.next
 yarn-error.log
+.env.build

@@ -2,8 +2,15 @@
   "parserOptions": {
     "ecmaVersion": 2018
   },
+  "plugins": ["jsx-a11y", "react-hooks"],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "jsx-a11y/anchor-is-valid": 0
+  },
   "extends": ["react-app", "eslint-config-prettier"],
   "env": {
-    "browser": true
+    "browser": true,
+    "node": true
   }
 }
