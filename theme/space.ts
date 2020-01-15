@@ -8,6 +8,7 @@ const style = css.global`
     --space-16: ${16 / 16}rem;
     --space-24: ${24 / 16}rem;
     --space-32: ${32 / 16}rem;
+    --space-48: ${48 / 16}rem;
     --space-64: ${64 / 16}rem;
     --space-96: ${96 / 16}rem;
     --space-128: ${128 / 16}rem;

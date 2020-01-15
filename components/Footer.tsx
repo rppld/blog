@@ -1,5 +1,7 @@
 import * as React from 'react'
 import device from '../theme/device'
+import NavBar from './NavBar'
+import NavLink from './NavLink'
 
 const links = [
   { name: 'Instagram', href: 'https://www.instagram.com/philipprappold/' },
@@ -9,37 +11,31 @@ const links = [
 
 const Footer: React.FunctionComponent = () => (
   <footer>
-    <div className="footer-inner">
-      <p>&copy; {new Date().getFullYear()} Philipp Rappold</p>
+    <NavBar>
+      <div>
+        <p>&copy; {new Date().getFullYear()} Philipp Rappold</p>
 
-      <ul>
-        {links.map(link => (
-          <li key={link.name}>
-            <a href={link.href}>{link.name}</a>
-          </li>
-        ))}
-      </ul>
-    </div>
+        <ul>
+          {links.map(link => (
+            <li key={link.name}>
+              <NavLink href={link.href}>{link.name}</NavLink>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </NavBar>
 
     <style jsx>{`
       footer {
-        font-family: var(--ff-mono);
-        width: 100%;
-        pointer-events: none;
-        padding-left: var(--space-16);
-        padding-right: var(--space-16);
         padding-top: var(--space-96);
         padding-bottom: var(--space-8);
+        background-color: white;
       }
 
-      .footer-inner {
+      div {
         border-top: 2px solid var(--color-input-border);
         padding-top: var(--space-8);
         padding-bottom: env(safe-area-inset-bottom);
-      }
-
-      div > * {
-        pointer-events: auto;
       }
 
       li {
@@ -50,32 +46,12 @@ const Footer: React.FunctionComponent = () => (
         margin-left: var(--space-16);
       }
 
-      div a {
-        font-family: var(--ff-mono);
-        text-decoration: none;
-        color: inherit;
-        transition: opacity 400ms;
-        background-color: transparent;
-        border: 0;
-      }
-
-      div a:hover,
-      div a:focus {
-        opacity: 0.5;
-        background-color: transparent;
-      }
-
       @media ${device.tablet} {
-        footer {
-          padding-left: var(--space-24);
-          padding-right: var(--space-24);
-        }
-
         li + li {
           margin-left: var(--space-32);
         }
 
-        .footer-inner {
+        div {
           display: flex;
           justify-content: space-between;
         }

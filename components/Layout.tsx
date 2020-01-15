@@ -31,6 +31,8 @@ const Layout: React.FunctionComponent<Props> = ({ title, ...props }) => (
       main {
         padding-left: var(--space-16);
         padding-right: var(--space-16);
+        min-height: 100vh;
+        background-color: white;
       }
 
       @media ${device.tablet} {

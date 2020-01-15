@@ -1,15 +1,34 @@
-interface Auth {
-  password?: string
-  method: 'EMAIL' | 'GITHUB' | 'GOOGLE' | 'FACEBOOK'
+interface PostBody {
+  text: string
+  component: string
 }
 
-export interface Viewer {
-  email?: string
-  fullName?: string
-  picture?: string
+interface Post {
+  body: [PostBody]
+  component: string
+  featured_image: string
 }
 
-export interface User extends Viewer {
-  id: string
-  auth?: Auth
+interface Page {
+  component: string
+  intro: string
+}
+
+export interface Story {
+  name: string
+  created_at: string
+  published_at: string
+  alternates: []
+  id: number
+  uuid: string
+  content: Page
+  slug: string
+  full_slug: string
+  sort_by_date: boolean
+  position: number
+  tag_list: []
+  is_startpage: boolean
+  parent_id: number
+  group_id: string
+  lang: string
 }
