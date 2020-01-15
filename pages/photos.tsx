@@ -6,14 +6,11 @@ import Layout from '../components/Layout'
 import Intro from '../components/Intro'
 import createMarkup from '../utils/createMarkup'
 
-// https://github.com/wesbos/Syntax/pull/451
-// https://github.com/zeit/next.js/issues/9524
-
 interface Props {
   story: Story
 }
 
-const IndexPage: NextPage<Props> = props => {
+const PhotosPage: NextPage<Props> = props => {
   console.log(props.story)
 
   return (
@@ -30,7 +27,7 @@ const IndexPage: NextPage<Props> = props => {
 export async function unstable_getStaticProps() {
   const token = process.env.STORYBLOK_API_KEY
   const { story } = await fetch(
-    `https://api.storyblok.com/v1/cdn/stories/homepage?version=published&token=${token}&cv=1579120546`
+    `https://api.storyblok.com/v1/cdn/stories/photospage?version=published&token=${token}&cv=1579126444`
   ).then(res => res.json())
 
   return {
@@ -40,4 +37,4 @@ export async function unstable_getStaticProps() {
   }
 }
 
-export default IndexPage
+export default PhotosPage

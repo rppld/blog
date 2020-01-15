@@ -23,7 +23,7 @@ const style = css.global`
     ${generatePalette('green', 159, 100)}
     ${generatePalette('cyan', 173, 96)}
 
-    --color-body: white;
+    --color-body: var(--color-gray-1);
     --color-menubar: var(--color-purple-7);
     --color-text-meta: var(--color-gray-5);
     --color-image-background: var(--color-gray-1);
