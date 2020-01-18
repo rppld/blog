@@ -1,5 +1,6 @@
 import * as React from 'react'
 import device from '../theme/device'
+import useIntersect from '../hooks/useIntersect'
 
 interface Props {
   size?: string
@@ -8,32 +9,57 @@ interface Props {
 export const GridItem: React.FunctionComponent<Props> = ({
   children,
   ...props
-}) => (
-  <div className="item" {...props}>
-    {children}
+}) => {
+  const [onScreen, setOnScreen] = React.useState(false)
+  const [ref, entry] = useIntersect({
+    rootMargin: '-32px',
+  })
 
-    <style jsx>{`
-      div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-      }
-    `}</style>
+  React.useEffect(() => {
+    if (entry?.isIntersecting || entry?.intersectionRatio > 0) {
+      setOnScreen(true)
+    } else {
+      setOnScreen(false)
+    }
+  }, [entry])
 
-    <style jsx>{`
-      @media ${device.tablet} {
+  return (
+    <div className={onScreen ? 'onscreen' : 'offscreen'} ref={ref} {...props}>
+      {children}
+
+      <style jsx>{`
         div {
-          grid-column: ${props.size === 'small'
-            ? 'span 2'
-            : props.size === 'medium'
-            ? 'span 3'
-            : 'span 5'};
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-decoration: none;
+          transition-property: opacity, transform;
+          transition-duration: 400ms;
+          transition-timing-function: var(--ease-out-cubic);
+          opacity: 0;
+          transform: scale(0.9);
         }
-      }
-    `}</style>
-  </div>
-)
+
+        div.onscreen {
+          opacity: 1;
+          transform: scale(1);
+        }
+      `}</style>
+
+      <style jsx>{`
+        @media ${device.tablet} {
+          div {
+            grid-column: ${props.size === 'small'
+              ? 'span 2'
+              : props.size === 'medium'
+              ? 'span 3'
+              : 'span 5'};
+          }
+        }
+      `}</style>
+    </div>
+  )
+}
 
 const Grid: React.FunctionComponent = ({ children }) => (
   <div className="grid">

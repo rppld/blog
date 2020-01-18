@@ -10,7 +10,6 @@ interface Story {
   alternates: []
   id: number
   uuid: string
-  content: Page | Post | Photo
   slug: string
   full_slug: string
   sort_by_date: boolean
@@ -22,9 +21,8 @@ interface Story {
   lang: string
 }
 
-export interface Page extends Story {
+export interface Homepage extends Story {
   content: {
-    component: string
     intro: string
   }
 }
@@ -37,8 +35,14 @@ export interface Post extends Story {
   }
 }
 
-export interface Photo extends Story {
+interface Photo {
+  name: string
+  filename: string
+}
+
+export interface Photospage extends Story {
   content: {
-    image: string
+    intro: string
+    images: [Photo]
   }
 }

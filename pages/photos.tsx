@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { NextPage } from 'next'
-import { Page, Photo } from '../types'
+import { Photospage } from '../types'
 import {
   getResource,
   getImageTransform,
@@ -15,8 +15,7 @@ import Grid, { GridItem } from '../components/Grid'
 import getGridItemSize from '../utils/get-grid-item-size'
 
 interface Props {
-  page: Page
-  photos: [Photo]
+  page: Photospage
 }
 
 const PhotosPage: NextPage<Props> = props => {
@@ -29,23 +28,18 @@ const PhotosPage: NextPage<Props> = props => {
       </Intro>
 
       <Grid>
-        {props.photos.map(photo => {
+        {props.page.content.images.map(({ name, filename: src }) => {
           count < 6 ? count++ : (count = 1)
-          const {
-            id,
-            name,
-            content: { image },
-          } = photo
 
           return (
-            <GridItem key={id} size={getGridItemSize(count)}>
+            <GridItem key={src} size={getGridItemSize(count)}>
               <Image
-                src={getImageTransform(image, '100x0')}
-                aspectRatio={getAspectRatioFromImageUrl(image)}
+                src={getImageTransform(src, '100x0')}
+                aspectRatio={getAspectRatioFromImageUrl(src)}
                 alt={name}
                 caption={name}
                 sizes="(max-width: 768px) 80vw, 100vw"
-                srcSet={getImageSrcSet(image)}
+                srcSet={getImageSrcSet(src)}
               />
             </GridItem>
           )
@@ -56,16 +50,11 @@ const PhotosPage: NextPage<Props> = props => {
 }
 
 export async function unstable_getStaticProps() {
-  const { story } = await getResource({ slug: 'photospage' })
-  const { stories } = await getResource({
-    startsWith: 'photos/',
-    perPage: 99,
-  })
+  const { story } = await getResource({ slug: 'photos' })
 
   return {
     props: {
       page: story,
-      photos: stories,
     },
   }
 }

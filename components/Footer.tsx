@@ -28,14 +28,18 @@ const Footer: React.FunctionComponent = () => (
     <style jsx>{`
       footer {
         padding-top: var(--space-96);
-        padding-bottom: var(--space-8);
+        padding-bottom: var(--space-16);
         background-color: white;
       }
 
       div {
         border-top: 2px solid var(--color-input-border);
-        padding-top: var(--space-8);
+        padding-top: var(--space-16);
         padding-bottom: env(safe-area-inset-bottom);
+      }
+
+      p {
+        color: var(--color-text-meta);
       }
 
       li {
