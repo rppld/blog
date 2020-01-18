@@ -1,21 +1,19 @@
 import * as React from 'react'
 import { NextPage } from 'next'
-import { Story } from '../types'
-import fetch from 'isomorphic-unfetch'
+import { Page } from '../types'
+import { getResource } from '../utils/storyblok'
 import Layout from '../components/Layout'
 import Intro from '../components/Intro'
-import createMarkup from '../utils/createMarkup'
+import createMarkup from '../utils/create-markup'
 
 // https://github.com/wesbos/Syntax/pull/451
 // https://github.com/zeit/next.js/issues/9524
 
 interface Props {
-  story: Story
+  story: Page
 }
 
 const IndexPage: NextPage<Props> = props => {
-  console.log(props.story)
-
   return (
     <Layout>
       <Intro>
@@ -28,10 +26,7 @@ const IndexPage: NextPage<Props> = props => {
 }
 
 export async function unstable_getStaticProps() {
-  const token = process.env.STORYBLOK_API_KEY
-  const { story } = await fetch(
-    `https://api.storyblok.com/v1/cdn/stories/homepage?version=published&token=${token}&cv=1579120546`
-  ).then(res => res.json())
+  const { story } = await getResource({ slug: 'homepage' })
 
   return {
     props: {

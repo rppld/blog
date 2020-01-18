@@ -5,6 +5,7 @@
     "build": "next build"
   },
   "dependencies": {
+    "gatsby-image": "^2.2.39",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^9.1.8-canary.13",
     "react": "^16.12.0",

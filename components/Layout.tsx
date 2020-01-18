@@ -29,17 +29,8 @@ const Layout: React.FunctionComponent<Props> = ({ title, ...props }) => (
 
     <style jsx>{`
       main {
-        padding-left: var(--space-16);
-        padding-right: var(--space-16);
         min-height: 100vh;
         background-color: white;
-      }
-
-      @media ${device.tablet} {
-        main {
-          padding-left: var(--space-24);
-          padding-right: var(--space-24);
-        }
       }
     `}</style>
   </>

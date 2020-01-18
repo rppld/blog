@@ -1,38 +1,71 @@
 import * as React from 'react'
 import { NextPage } from 'next'
-import { Story } from '../types'
-import fetch from 'isomorphic-unfetch'
+import { Page, Photo } from '../types'
+import {
+  getResource,
+  getImageTransform,
+  getAspectRatioFromImageUrl,
+  getImageSrcSet,
+} from '../utils/storyblok'
 import Layout from '../components/Layout'
 import Intro from '../components/Intro'
-import createMarkup from '../utils/createMarkup'
+import Image from '../components/Image'
+import createMarkup from '../utils/create-markup'
+import Grid, { GridItem } from '../components/Grid'
+import getGridItemSize from '../utils/get-grid-item-size'
 
 interface Props {
-  story: Story
+  page: Page
+  photos: [Photo]
 }
 
 const PhotosPage: NextPage<Props> = props => {
-  console.log(props.story)
+  let count = 0
 
   return (
     <Layout>
       <Intro>
-        <div
-          dangerouslySetInnerHTML={createMarkup(props.story.content.intro)}
-        />
+        <div dangerouslySetInnerHTML={createMarkup(props.page.content.intro)} />
       </Intro>
+
+      <Grid>
+        {props.photos.map(photo => {
+          count < 6 ? count++ : (count = 1)
+          const {
+            id,
+            name,
+            content: { image },
+          } = photo
+
+          return (
+            <GridItem key={id} size={getGridItemSize(count)}>
+              <Image
+                src={getImageTransform(image, '100x0')}
+                aspectRatio={getAspectRatioFromImageUrl(image)}
+                alt={name}
+                caption={name}
+                sizes="(max-width: 768px) 80vw, 100vw"
+                srcSet={getImageSrcSet(image)}
+              />
+            </GridItem>
+          )
+        })}
+      </Grid>
     </Layout>
   )
 }
 
 export async function unstable_getStaticProps() {
-  const token = process.env.STORYBLOK_API_KEY
-  const { story } = await fetch(
-    `https://api.storyblok.com/v1/cdn/stories/photospage?version=published&token=${token}&cv=1579126444`
-  ).then(res => res.json())
+  const { story } = await getResource({ slug: 'photospage' })
+  const { stories } = await getResource({
+    startsWith: 'photos/',
+    perPage: 99,
+  })
 
   return {
     props: {
-      story,
+      page: story,
+      photos: stories,
     },
   }
 }
