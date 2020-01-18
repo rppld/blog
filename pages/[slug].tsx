@@ -1,20 +1,15 @@
 import * as React from 'react'
 import { NextPage } from 'next'
 import Link from 'next/link'
-import fetch from 'isomorphic-unfetch'
+import { getResource } from '../utils/storyblok'
 import Layout from '../components/Layout'
-import { Story } from '../types'
-
-// https://github.com/wesbos/Syntax/pull/451
-// https://github.com/zeit/next.js/issues/9524
+import { Post } from '../types'
 
 interface Props {
-  story: Story
+  story: Post
 }
 
 const BlogPostPage: NextPage<Props> = props => {
-  console.log(props.story)
-
   return (
     <Layout>
       <h1>Hello Next.js</h1>
@@ -26,10 +21,7 @@ const BlogPostPage: NextPage<Props> = props => {
 }
 
 export async function unstable_getStaticProps({ params }) {
-  const token = process.env.STORYBLOK_API_KEY
-  const { story } = await fetch(
-    `https://api.storyblok.com/v1/cdn/stories/posts/${params.slug}?version=published&token=${token}`
-  ).then(res => res.json())
+  const { story } = await getResource({ slug: params.slug })
 
   return {
     props: {
