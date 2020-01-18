@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-unfetch'
+import qs from 'querystringify'
 
 interface Options {
   slug?: string
@@ -12,12 +13,15 @@ export const getResource = async ({
   perPage,
 }: Options) => {
   const token = process.env.STORYBLOK_API_KEY
+  const querystring = qs.stringify({
+    version: 'published',
+    token,
+    starts_with: startsWith,
+    per_page: perPage,
+    cv: 6876187263876,
+  })
   const json = await fetch(
-    `https://api.storyblok.com/v1/cdn/stories/${slug}?version=published&token=${token}${
-      startsWith ? `&starts_with=${startsWith}` : ''
-    }${perPage ? `&per_page=${perPage}` : ''}&cv=${Math.floor(
-      Math.random() * 6
-    ) + 1}`
+    `https://api.storyblok.com/v1/cdn/stories/${slug}?${querystring}`
   ).then(res => res.json())
   return json
 }
@@ -32,8 +36,8 @@ export const getAspectRatioFromImageUrl = src => {
 }
 
 export const getImageTransform = (src, option) => {
-  const imageService = 'https://img2.storyblok.com/'
-  const path = src.replace('https://a.storyblok.com', '')
+  const imageService = '//img2.storyblok.com/'
+  const path = src.replace('//a.storyblok.com', '')
   return imageService + option + path
 }
 
@@ -45,5 +49,6 @@ export const getImageSrcSet = src => {
     ${getImageTransform(src, '1200x0')} 1200w,
     ${getImageTransform(src, '1400x0')} 1400w,
     ${getImageTransform(src, '1600x0')} 1600w,
+    ${getImageTransform(src, '2000x0')} 2000w,
   `
 }

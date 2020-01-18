@@ -16,7 +16,7 @@ const Header: React.FunctionComponent = () => (
 
     <style jsx>{`
       header {
-        padding-top: var(--space-8);
+        padding-top: var(--space-16);
         position: absolute;
         top: 0;
         left: 0;

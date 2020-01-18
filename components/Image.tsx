@@ -37,12 +37,6 @@ const Image: React.FunctionComponent<Props> = props => (
         margin-left: auto;
         margin-right: auto;
         width: 100%;
-        transition: 400ms ease;
-      }
-
-      img {
-        vertical-align: middle;
-        width: 100%;
       }
 
       figcaption {
