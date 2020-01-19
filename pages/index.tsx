@@ -26,7 +26,7 @@ const IndexPage: NextPage<Props> = props => {
 }
 
 export async function unstable_getStaticProps() {
-  const { story } = await getResource({ slug: 'homepage' })
+  const { story } = await getResource({ slug: 'home' })
 
   return {
     props: {

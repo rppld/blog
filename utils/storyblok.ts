@@ -18,7 +18,7 @@ export const getResource = async ({
     token,
     starts_with: startsWith,
     per_page: perPage,
-    cv: 6876187263876,
+    cv: 56776568,
   })
   const json = await fetch(
     `https://api.storyblok.com/v1/cdn/stories/${slug}?${querystring}`
