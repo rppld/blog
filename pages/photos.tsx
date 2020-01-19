@@ -34,7 +34,7 @@ const PhotosPage: NextPage<Props> = props => {
           return (
             <GridItem key={src} size={getGridItemSize(count)}>
               <Image
-                src={getImageTransform(src, '100x0')}
+                src={getImageTransform(src, '100x0/filters:quality(50)')}
                 aspectRatio={getAspectRatioFromImageUrl(src)}
                 alt={name}
                 caption={name}

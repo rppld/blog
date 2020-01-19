@@ -19,6 +19,7 @@ const Image: React.FunctionComponent<Props> = props => (
         sizes: props.sizes,
         srcSet: props.srcSet,
         aspectRatio: props.aspectRatio,
+        base64: props.src,
       }}
       alt={props.alt}
       backgroundColor="var(--color-body)"
