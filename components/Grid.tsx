@@ -24,7 +24,7 @@ export const GridItem: React.FunctionComponent<Props> = ({
   }, [entry])
 
   return (
-    <div className={onScreen ? 'onscreen' : 'offscreen'} ref={ref} {...props}>
+    <div className={onScreen ? 'onscreen' : 'offscreen'} ref={ref}>
       {children}
 
       <style jsx>{`

@@ -1,7 +1,11 @@
 import * as React from 'react'
 import device from '../theme/device'
 
-const Intro: React.FunctionComponent = ({ children }) => (
+interface Props {
+  bgColor?: string
+}
+
+const Intro: React.FunctionComponent<Props> = ({ children, ...props }) => (
   <div className="intro">
     {children}
 
@@ -12,8 +16,7 @@ const Intro: React.FunctionComponent = ({ children }) => (
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding-left: var(--space-16);
-        padding-right: var(--space-16);
+        padding: var(--space-16);
         font-size: var(--fs-32);
         font-weight: var(--fw-black);
         line-height: var(--lh-title);
@@ -21,17 +24,21 @@ const Intro: React.FunctionComponent = ({ children }) => (
 
       @media ${device.mobileLg} {
         div {
-          padding-left: var(--space-32);
-          padding-right: var(--space-32);
+          padding: var(--space-32);
         }
       }
 
       @media ${device.tablet} {
         div {
           font-size: 4vw;
-          padding-left: var(--space-64);
-          padding-right: var(--space-64);
+          padding: var(--space-64);
         }
+      }
+    `}</style>
+
+    <style jsx>{`
+      div {
+        background-color: ${props.bgColor};
       }
     `}</style>
   </div>

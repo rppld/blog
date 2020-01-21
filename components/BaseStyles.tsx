@@ -45,7 +45,7 @@ export default () => (
         }
       }
 
-      a {
+      a:not(.default) {
         transition-property: background-color, border-color, opacity;
         transition-duration: 400ms;
         text-decoration: none;
@@ -54,12 +54,17 @@ export default () => (
         background-color: rgba(187, 239, 253, 0.3);
         border-bottom: 1px solid rgba(43, 1, 1, 0.2);
         color: #1a1a1a;
+        cursor: pointer;
       }
 
-      a:hover,
-      a:focus {
+      a:not(.default):hover,
+      a:not(.default):focus {
         background-color: #bbeffd;
         border-bottom-color: #1a1a1a;
+      }
+
+      img {
+        vertical-align: middle;
       }
     `}</style>
   </>

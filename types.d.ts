@@ -1,24 +1,19 @@
-interface PostBody {
-  text: string
-  component: string
+interface Block {
+  _uid: string
+  component: string // The block type
+  text?: string
+  alt?: string
+  file?: string
+  caption?: string
+  padding?: string[]
+  background_color?: string
 }
 
 interface Story {
   name: string
   created_at: string
-  published_at: string
-  alternates: []
   id: number
-  uuid: string
   slug: string
-  full_slug: string
-  sort_by_date: boolean
-  position: number
-  tag_list: []
-  is_startpage: boolean
-  parent_id: number
-  group_id: string
-  lang: string
 }
 
 export interface Homepage extends Story {
@@ -29,20 +24,21 @@ export interface Homepage extends Story {
 
 export interface Post extends Story {
   content: {
-    body: [PostBody]
-    component: string
+    body: [Block]
     featured_image: string
+    background_color: string
   }
 }
 
-interface Photo {
-  name: string
-  filename: string
+interface Image {
+  alt: string
+  caption?: string
+  file: string
 }
 
 export interface Photospage extends Story {
   content: {
     intro: string
-    images: [Photo]
+    images: [Image]
   }
 }

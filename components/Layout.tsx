@@ -3,7 +3,6 @@ import Head from 'next/head'
 import BaseStyles from './BaseStyles'
 import Header from './Header'
 import Footer from './Footer'
-import device from '../theme/device'
 
 interface Props {
   title?: string
@@ -17,7 +16,7 @@ const Layout: React.FunctionComponent<Props> = ({ title, ...props }) => (
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href="/favicon-384x384.png"
+        href="/favicon-384x384.png?v=2"
       />
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
