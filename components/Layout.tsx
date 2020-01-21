@@ -6,12 +6,13 @@ import Footer from './Footer'
 
 interface Props {
   title?: string
+  description?: string
 }
 
-const Layout: React.FunctionComponent<Props> = ({ title, ...props }) => (
+const Layout: React.FunctionComponent<Props> = props => (
   <>
     <Head>
-      <title>{title}</title>
+      <title>{props.title}</title>
       <link
         rel="icon"
         type="image/png"
@@ -20,6 +21,7 @@ const Layout: React.FunctionComponent<Props> = ({ title, ...props }) => (
       />
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta name="description" content={props.description}></meta>
     </Head>
     <BaseStyles />
     <Header />
@@ -37,6 +39,8 @@ const Layout: React.FunctionComponent<Props> = ({ title, ...props }) => (
 
 Layout.defaultProps = {
   title: 'Philipp Rappold, Developer',
+  description:
+    'Philipp Rappold is an information designer and front-end developer in Amsterdam, working at the intersection of design and technology. He takes photos for fun.',
 }
 
 export default Layout
