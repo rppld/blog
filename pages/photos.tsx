@@ -9,6 +9,7 @@ import {
 } from '../utils/storyblok'
 import Layout from '../components/Layout'
 import Intro from '../components/Intro'
+import Figure from '../components/Figure'
 import Image from '../components/Image'
 import createMarkup from '../utils/create-markup'
 import Grid, { GridItem } from '../components/Grid'
@@ -28,19 +29,20 @@ const PhotosPage: NextPage<Props> = props => {
       </Intro>
 
       <Grid>
-        {props.page.content.images.map(({ name, filename: src }) => {
+        {props.page.content.images.map(({ alt, caption, file }) => {
           count < 6 ? count++ : (count = 1)
 
           return (
-            <GridItem key={src} size={getGridItemSize(count)}>
-              <Image
-                src={getImageTransform(src, '100x0/filters:quality(50)')}
-                aspectRatio={getAspectRatioFromImageUrl(src)}
-                alt={name}
-                caption={name}
-                sizes="(max-width: 768px) 80vw, 100vw"
-                srcSet={getImageSrcSet(src)}
-              />
+            <GridItem key={file} size={getGridItemSize(count)}>
+              <Figure caption={alt}>
+                <Image
+                  src={getImageTransform(file, '100x0/filters:quality(50)')}
+                  aspectRatio={getAspectRatioFromImageUrl(file)}
+                  alt={alt || caption}
+                  sizes="(max-width: 768px) 80vw, 100vw"
+                  srcSet={getImageSrcSet(file)}
+                />
+              </Figure>
             </GridItem>
           )
         })}

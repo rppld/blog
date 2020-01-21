@@ -1,51 +1,32 @@
 import * as React from 'react'
 import Img from 'gatsby-image'
-import Text from './Text'
 
 interface Props {
   src: string
   alt: string
-  caption?: string
   sizes?: string
   srcSet?: string
   aspectRatio?: number
 }
 
-const Image: React.FunctionComponent<Props> = props => (
-  <figure>
-    <Img
-      fluid={{
-        src: props.src,
-        sizes: props.sizes,
-        srcSet: props.srcSet,
-        aspectRatio: props.aspectRatio,
-        base64: props.src,
-      }}
-      alt={props.alt}
-      backgroundColor="var(--color-body)"
-    />
-
-    {props.caption && (
-      <figcaption>
-        <Text>{props.caption}</Text>
-      </figcaption>
-    )}
-
-    <style jsx>{`
-      figure {
-        position: relative;
-        max-width: 1080px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-      }
-
-      figcaption {
-        color: var(--color-text-meta);
-        margin-top: 0.5rem;
-      }
-    `}</style>
-  </figure>
+const Image: React.FunctionComponent<Props> = ({
+  src,
+  sizes,
+  srcSet,
+  aspectRatio,
+  alt,
+}) => (
+  <Img
+    fluid={{
+      src: src,
+      sizes: sizes,
+      srcSet: srcSet,
+      aspectRatio: aspectRatio,
+      base64: src,
+    }}
+    alt={alt}
+    backgroundColor="var(--color-body)"
+  />
 )
 
 export default Image
