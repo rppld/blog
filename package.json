@@ -7,16 +7,16 @@
   "dependencies": {
     "gatsby-image": "^2.2.39",
     "isomorphic-unfetch": "^3.0.0",
-    "next": "^9.1.8-canary.13",
+    "next": "^9.2.1-canary.7",
     "querystringify": "^2.1.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "showdown": "^1.9.1"
   },
   "devDependencies": {
-    "@types/node": "^13.1.4",
-    "@types/react": "^16.9.17",
-    "@types/react-dom": "^16.9.4",
+    "@types/node": "^13.1.8",
+    "@types/react": "^16.9.18",
+    "@types/react-dom": "^16.9.5",
     "@typescript-eslint/eslint-plugin": "2.x",
     "@typescript-eslint/parser": "2.x",
     "babel-eslint": "10.x",
@@ -28,6 +28,6 @@
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "2.x",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.5"
   }
 }

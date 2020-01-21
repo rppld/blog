@@ -27,6 +27,20 @@ const BlogPostPage: NextPage<Props> = props => {
   )
 }
 
+export async function unstable_getStaticPaths() {
+  const { stories } = await getResource({ startsWith: 'posts' })
+
+  return [
+    ...stories.map(story => {
+      return {
+        params: {
+          slug: story.slug,
+        },
+      }
+    }),
+  ]
+}
+
 export async function unstable_getStaticProps({ params }) {
   const { story } = await getResource({ slug: `posts/${params.slug}` })
 
