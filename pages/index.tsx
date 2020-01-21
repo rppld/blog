@@ -10,9 +10,6 @@ import createMarkup from '../utils/create-markup'
 import Grid, { GridItem } from '../components/Grid'
 import getGridItemSize from '../utils/get-grid-item-size'
 
-// https://github.com/wesbos/Syntax/pull/451
-// https://github.com/zeit/next.js/issues/9524
-
 interface Props {
   story: Homepage
   stories: [Post]

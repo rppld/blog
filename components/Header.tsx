@@ -6,12 +6,14 @@ import NavLink from './NavLink'
 const Header: React.FunctionComponent = () => (
   <header>
     <NavBar>
-      <span>
-        <Link href="/" passHref>
-          <NavLink>Philipp Rappold</NavLink>
-        </Link>
-        , Developer
-      </span>
+      <div>
+        <span>
+          <Link href="/" passHref>
+            <NavLink>Philipp Rappold</NavLink>
+          </Link>
+        </span>
+        <span>Developer</span>
+      </div>
     </NavBar>
 
     <style jsx>{`
@@ -22,6 +24,11 @@ const Header: React.FunctionComponent = () => (
         left: 0;
         right: 0;
         z-index: 999;
+      }
+
+      div {
+        display: flex;
+        justify-content: space-between;
       }
     `}</style>
   </header>

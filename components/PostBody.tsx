@@ -11,11 +11,14 @@ import {
 } from '../utils/storyblok'
 
 interface Props {
+  name: string
   blocks: [Block]
 }
 
-const PostBody: React.FunctionComponent<Props> = ({ blocks }) => (
+const PostBody: React.FunctionComponent<Props> = ({ name, blocks }) => (
   <article>
+    <h1>{name}</h1>
+
     {blocks.map(block =>
       block.component === 'paragraph' ? (
         <p
@@ -63,6 +66,17 @@ const PostBody: React.FunctionComponent<Props> = ({ blocks }) => (
         margin-right: auto;
       }
 
+      article h1,
+      article h2 {
+        transform: translateX(-1px); /* Optical alignment */
+      }
+
+      article h2,
+      article h3,
+      article h4 {
+        margin-top: var(--space-64);
+      }
+
       article figure {
         margin-top: var(--space-32);
         margin-bottom: var(--space-32);
@@ -90,6 +104,12 @@ const PostBody: React.FunctionComponent<Props> = ({ blocks }) => (
         article > * {
           padding-left: var(--space-32);
           padding-right: var(--space-32);
+        }
+
+        article h2,
+        article h3,
+        article h4 {
+          margin-top: var(--space-64);
         }
 
         article figure {

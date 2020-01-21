@@ -39,12 +39,6 @@ export default () => (
         hyphens: auto;
       }
 
-      @media ${device.tablet} {
-        body {
-          font-size: var(--fs-20);
-        }
-      }
-
       a:not(.default) {
         transition-property: background-color, border-color, opacity;
         transition-duration: 400ms;
@@ -65,6 +59,29 @@ export default () => (
 
       img {
         vertical-align: middle;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: var(--lh-title);
+      }
+
+      h1 {
+        font-size: var(--fs-32);
+      }
+
+      @media ${device.tablet} {
+        body {
+          font-size: var(--fs-20);
+        }
+
+        h1 {
+          font-size: var(--fs-48);
+        }
       }
     `}</style>
   </>
