@@ -33,7 +33,7 @@ const Footer: React.FunctionComponent = () => (
       }
 
       div {
-        border-top: 2px solid var(--color-input-border);
+        border-top: 1px solid var(--color-input-border);
         padding-top: var(--space-16);
         padding-bottom: env(safe-area-inset-bottom);
       }

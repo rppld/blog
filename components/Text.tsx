@@ -13,7 +13,7 @@ const Text: React.FunctionComponent = props => (
         font-size: var(--fs-18);
         padding-left: var(--space-16);
         padding-right: var(--space-16);
-        margin-bottom: var(--space-32);
+        margin: 0;
         max-width: 960px;
         margin-left: auto;
         margin-right: auto;

@@ -22,7 +22,7 @@ const BlogPostPage: NextPage<Props> = props => {
       <Intro bgColor={backgroundColor}>
         <img src={featuredImage} alt={name} />
       </Intro>
-      <PostBody blocks={content.body} />
+      <PostBody name={name} blocks={content.body} />
     </Layout>
   )
 }
