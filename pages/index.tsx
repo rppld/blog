@@ -21,8 +21,10 @@ const IndexPage: NextPage<Props> = props => {
   return (
     <Layout>
       <Intro>
-        <div
-          dangerouslySetInnerHTML={createMarkup(props.story.content.intro)}
+        <h1
+          dangerouslySetInnerHTML={createMarkup(props.story.content.intro, {
+            renderInline: true,
+          })}
         />
       </Intro>
 

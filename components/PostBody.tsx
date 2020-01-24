@@ -67,6 +67,13 @@ const PostBody: React.FunctionComponent<Props> = ({ name, blocks }) => (
       }
 
       article h1,
+      article h2,
+      article h3,
+      article h4 {
+        font-weight: var(--fw-bold);
+      }
+
+      article h1,
       article h2 {
         transform: translateX(-1px); /* Optical alignment */
       }
@@ -74,6 +81,7 @@ const PostBody: React.FunctionComponent<Props> = ({ name, blocks }) => (
       article h2,
       article h3,
       article h4 {
+        font-size: var(--fs-24);
         margin-top: var(--space-64);
       }
 
@@ -109,6 +117,7 @@ const PostBody: React.FunctionComponent<Props> = ({ name, blocks }) => (
         article h2,
         article h3,
         article h4 {
+          font-size: var(--fs-32);
           margin-top: var(--space-64);
         }
 

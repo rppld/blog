@@ -25,7 +25,11 @@ const PhotosPage: NextPage<Props> = props => {
   return (
     <Layout>
       <Intro>
-        <div dangerouslySetInnerHTML={createMarkup(props.page.content.intro)} />
+        <h1
+          dangerouslySetInnerHTML={createMarkup(props.page.content.intro, {
+            renderInline: true,
+          })}
+        />
       </Intro>
 
       <Grid>

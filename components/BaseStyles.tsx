@@ -67,6 +67,8 @@ export default () => (
       h4,
       h5,
       h6 {
+        font-size: inherit;
+        font-weight: inherit;
         line-height: var(--lh-title);
       }
 
