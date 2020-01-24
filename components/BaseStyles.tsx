@@ -72,17 +72,9 @@ export default () => (
         line-height: var(--lh-title);
       }
 
-      h1 {
-        font-size: var(--fs-32);
-      }
-
       @media ${device.tablet} {
         body {
           font-size: var(--fs-20);
-        }
-
-        h1 {
-          font-size: var(--fs-48);
         }
       }
     `}</style>

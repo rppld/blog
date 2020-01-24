@@ -73,6 +73,10 @@ const PostBody: React.FunctionComponent<Props> = ({ name, blocks }) => (
         font-weight: var(--fw-bold);
       }
 
+      article h1 {
+        font-size: var(--fs-32);
+      }
+
       article h1,
       article h2 {
         transform: translateX(-1px); /* Optical alignment */
@@ -112,6 +116,10 @@ const PostBody: React.FunctionComponent<Props> = ({ name, blocks }) => (
         article > * {
           padding-left: var(--space-32);
           padding-right: var(--space-32);
+        }
+
+        article h1 {
+          font-size: var(--fs-48);
         }
 
         article h2,
