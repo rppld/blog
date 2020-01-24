@@ -1,5 +1,5 @@
 {
-  "name": "rppld.com",
+  "name": "blog",
   "scripts": {
     "dev": "next",
     "build": "next build"
@@ -7,11 +7,11 @@
   "dependencies": {
     "gatsby-image": "^2.2.39",
     "isomorphic-unfetch": "^3.0.0",
+    "marked": "^0.8.0",
     "next": "^9.2.1-canary.7",
     "querystringify": "^2.1.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "showdown": "^1.9.1"
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
     "@types/node": "^13.1.8",
