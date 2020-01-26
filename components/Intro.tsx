@@ -24,7 +24,7 @@ const Intro: React.FunctionComponent<Props> = ({ children, ...props }) => {
 
       <style jsx>{`
         div {
-          min-height: 100vh;
+          min-height: 65vh;
           display: flex;
           justify-content: center;
           align-items: center;

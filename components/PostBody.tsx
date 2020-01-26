@@ -12,12 +12,20 @@ import {
 
 interface Props {
   name: string
+  lede: string
   blocks: [Block]
 }
 
-const PostBody: React.FunctionComponent<Props> = ({ name, blocks }) => (
+const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
   <article>
     <h1>{name}</h1>
+
+    {lede && (
+      <p
+        className="lede"
+        dangerouslySetInnerHTML={createMarkup(lede, { renderInline: true })}
+      />
+    )}
 
     {blocks.map(block =>
       block.component === 'paragraph' ? (
@@ -55,7 +63,27 @@ const PostBody: React.FunctionComponent<Props> = ({ name, blocks }) => (
 
     <style jsx global>{`
       article {
-        padding-top: var(--space-64);
+        padding-top: var(--space-48);
+      }
+
+      article .lede {
+        font-size: var(--fs-24);
+        color: var(--color-gray-5);
+        line-height: var(--lh-title);
+      }
+
+      article pre,
+      article code {
+        font-size: 0.875em;
+        font-family: Consolas, monaco, monospace;
+      }
+
+      article code {
+        color: var(--color-gray-9);
+        background-color: var(--color-yellow-2);
+        border-radius: var(--space-4);
+        padding-left: var(--space-4);
+        padding-right: var(--space-4);
       }
 
       article > * {
@@ -74,6 +102,7 @@ const PostBody: React.FunctionComponent<Props> = ({ name, blocks }) => (
       }
 
       article h1 {
+        font-weight: var(--fw-black);
         font-size: var(--fs-32);
       }
 
@@ -86,7 +115,7 @@ const PostBody: React.FunctionComponent<Props> = ({ name, blocks }) => (
       article h3,
       article h4 {
         font-size: var(--fs-24);
-        margin-top: var(--space-64);
+        margin-top: var(--space-48);
       }
 
       article figure {
@@ -100,7 +129,6 @@ const PostBody: React.FunctionComponent<Props> = ({ name, blocks }) => (
       }
 
       article p {
-        hyphens: auto;
         letter-spacing: var(--ls-1);
         font-weight: 400;
         font-size: var(--fs-18);
@@ -113,9 +141,17 @@ const PostBody: React.FunctionComponent<Props> = ({ name, blocks }) => (
       }
 
       @media ${device.tablet} {
+        article {
+          padding-top: var(--space-64);
+        }
+
         article > * {
           padding-left: var(--space-32);
           padding-right: var(--space-32);
+        }
+
+        article .lede {
+          font-size: var(--fs-32);
         }
 
         article h1 {
