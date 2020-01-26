@@ -7,7 +7,6 @@ const Text: React.FunctionComponent = props => (
 
     <style jsx>{`
       p {
-        hyphens: auto;
         letter-spacing: var(--ls-1);
         font-weight: 400;
         font-size: var(--fs-18);

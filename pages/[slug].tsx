@@ -12,6 +12,7 @@ interface Props {
 
 const BlogPostPage: NextPage<Props> = props => {
   const { name, content } = props.story
+
   const {
     featured_image: featuredImage,
     background_color: backgroundColor,
@@ -22,7 +23,13 @@ const BlogPostPage: NextPage<Props> = props => {
       <Intro bgColor={backgroundColor}>
         <img src={featuredImage} alt={name} />
       </Intro>
-      <PostBody name={name} blocks={content.body} />
+      <PostBody name={name} lede={content.lede} blocks={content.body} />
+
+      <style jsx>{`
+        img {
+          max-width: 300px;
+        }
+      `}</style>
     </Layout>
   )
 }
@@ -42,7 +49,10 @@ export async function unstable_getStaticPaths() {
 }
 
 export async function unstable_getStaticProps({ params }) {
-  const { story } = await getResource({ slug: `posts/${params.slug}` })
+  const { story } = await getResource({
+    slug: `posts/${params.slug}`,
+    version: 'draft',
+  })
 
   return {
     props: {

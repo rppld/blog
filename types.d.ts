@@ -24,9 +24,10 @@ export interface Homepage extends Story {
 
 export interface Post extends Story {
   content: {
-    body: [Block]
     featured_image: string
     background_color: string
+    lede: string
+    body: [Block]
   }
 }
 

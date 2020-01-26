@@ -36,7 +36,6 @@ export default () => (
         line-height: var(--lh-copy);
         font-size: var(--fs-18);
         color: var(--dark-1);
-        hyphens: auto;
       }
 
       a:not(.default) {

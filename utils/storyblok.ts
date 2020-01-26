@@ -5,6 +5,7 @@ interface Options {
   slug?: string
   startsWith?: string
   perPage?: number
+  version?: string
 }
 
 // Returns a random integer between min (inclusive) and max
@@ -21,11 +22,12 @@ function getRandomInt(min: number, max: number): number {
 export const getResource = async ({
   slug = '',
   startsWith,
+  version = 'published',
   perPage,
 }: Options) => {
   const token = process.env.STORYBLOK_API_KEY
   const querystring = qs.stringify({
-    version: 'published',
+    version,
     token,
     starts_with: startsWith,
     per_page: perPage,
