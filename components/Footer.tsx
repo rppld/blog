@@ -13,45 +13,61 @@ const Footer: React.FunctionComponent = () => (
   <footer>
     <NavBar>
       <div>
-        <p>&copy; {new Date().getFullYear()} Philipp Rappold</p>
+        <p>&copy; {new Date().getFullYear()} rppld.com</p>
 
-        <ul>
-          {links.map(link => (
-            <li key={link.name}>
-              <NavLink href={link.href}>{link.name}</NavLink>
-            </li>
-          ))}
-        </ul>
+        {links.map(link => (
+          <NavLink key={link.name} href={link.href}>
+            {link.name}
+          </NavLink>
+        ))}
       </div>
     </NavBar>
 
     <style jsx>{`
       footer {
-        padding-top: var(--space-96);
+        margin-top: var(--space-96);
         padding-bottom: var(--space-16);
         background-color: white;
+        border-top: 1px solid var(--color-body);
       }
 
       div {
-        border-top: 1px solid var(--color-input-border);
         padding-top: var(--space-16);
         padding-bottom: env(safe-area-inset-bottom);
+      }
+
+      div {
+        padding-left: var(--space-16);
+        padding-right: var(--space-16);
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      @media ${device.tablet} {
+        div {
+          padding-left: var(--space-32);
+          padding-right: var(--space-32);
+        }
+      }
+
+      @media ${device.laptop} {
+        div {
+          padding-left: var(--space-64);
+          padding-right: var(--space-64);
+        }
       }
 
       p {
         color: var(--color-text-meta);
       }
 
-      li {
-        display: inline;
-      }
-
-      li + li {
+      a + a {
         margin-left: var(--space-16);
       }
 
       @media ${device.tablet} {
-        li + li {
+        a + a {
           margin-left: var(--space-32);
         }
 

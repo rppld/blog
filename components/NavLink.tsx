@@ -11,6 +11,7 @@ const NavLink = React.forwardRef<HTMLAnchorElement, Props>(
 
       <style jsx>{`
         a {
+          font-size: var(--fs-16);
           font-family: var(--ff-mono);
           text-decoration: none;
           color: inherit;

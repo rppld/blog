@@ -19,48 +19,59 @@ const Intro: React.FunctionComponent<Props> = ({ children, ...props }) => {
   }, [isVisible])
 
   return (
-    <div className={isVisible ? 'visible' : 'hidden'}>
-      {children}
+    <div className="banner">
+      <div className={`content ${isVisible ? 'visible' : 'hidden'}`}>
+        {children}
+      </div>
 
       <style jsx>{`
-        div {
-          min-height: 65vh;
+        .content {
+          min-height: 50vh;
           display: flex;
           justify-content: center;
           align-items: center;
-          text-align: center;
           padding: var(--space-16);
           font-size: var(--fs-32);
           font-weight: var(--fw-black);
           line-height: var(--lh-title);
+          letter-spacing: -0.035em;
           opacity: 0;
           transform: scale(0.9);
           transition-property: opacity, transform;
           transition-duration: 250ms;
           transition-timing-function: var(--ease-out-cubic);
+
+          padding-left: var(--space-16);
+          padding-right: var(--space-16);
+          max-width: 960px;
+          margin-left: auto;
+          margin-right: auto;
         }
 
-        div.visible {
+        .content.visible {
           opacity: 1;
           transform: scale(1);
         }
 
-        @media ${device.mobileLg} {
-          div {
-            padding: var(--space-32);
+        @media ${device.tablet} {
+          .content {
+            padding-left: var(--space-32);
+            padding-right: var(--space-32);
+            font-size: 4vw;
           }
         }
 
-        @media ${device.tablet} {
-          div {
-            font-size: 4vw;
-            padding: var(--space-64);
+        @media ${device.laptop} {
+          .content {
+            min-height: 65vh;
+            padding-left: var(--space-64);
+            padding-right: var(--space-64);
           }
         }
       `}</style>
 
       <style jsx>{`
-        div {
+        .banner {
           background-color: ${props.bgColor};
         }
       `}</style>
