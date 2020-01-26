@@ -70,6 +70,7 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
         font-size: var(--fs-24);
         color: var(--color-gray-5);
         line-height: var(--lh-title);
+        letter-spacing: -0.035em;
       }
 
       article pre,
@@ -108,7 +109,8 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
 
       article h1,
       article h2 {
-        transform: translateX(-1px); /* Optical alignment */
+        text-indent: -0.0125em;
+        letter-spacing: -0.035em;
       }
 
       article h2,
