@@ -57,14 +57,17 @@ export const getImageTransform = (src, option) => {
   return imageService + option + path
 }
 
-export const getImageSrcSet = src => {
+export const getImageSrcSet = (src, option?: string) => {
+  // Add leading slash if defined.
+  const filter = typeof option !== 'undefined' && `/${option}`
+
   return `
-    ${getImageTransform(src, '100x0')} 100w,
-    ${getImageTransform(src, '480x0')} 480w,
-    ${getImageTransform(src, '800x0')} 800w,
-    ${getImageTransform(src, '1200x0')} 1200w,
-    ${getImageTransform(src, '1400x0')} 1400w,
-    ${getImageTransform(src, '1600x0')} 1600w,
-    ${getImageTransform(src, '2000x0')} 2000w,
+    ${getImageTransform(src, `100x0${filter}`)} 100w,
+    ${getImageTransform(src, `480x0${filter}`)} 480w,
+    ${getImageTransform(src, `800x0${filter}`)} 800w,
+    ${getImageTransform(src, `1200x0${filter}`)} 1200w,
+    ${getImageTransform(src, `1400x0${filter}`)} 1400w,
+    ${getImageTransform(src, `1600x0${filter}`)} 1600w,
+    ${getImageTransform(src, `2000x0${filter}`)} 2000w,
   `
 }

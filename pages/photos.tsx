@@ -40,11 +40,16 @@ const PhotosPage: NextPage<Props> = props => {
             <GridItem key={file} size={getGridItemSize(count)}>
               <Figure caption={alt}>
                 <Image
-                  src={getImageTransform(file, '100x0/filters:quality(50)')}
-                  aspectRatio={getAspectRatioFromImageUrl(file)}
                   alt={alt || caption}
-                  sizes="(max-width: 768px) 80vw, 100vw"
+                  src={getImageTransform(file, '100x0/filters:quality(50)')}
+                  srcWebp={getImageTransform(
+                    file,
+                    '100x0/filters:quality(50):format(webp)'
+                  )}
                   srcSet={getImageSrcSet(file)}
+                  srcSetWebp={getImageSrcSet(file, 'filters:format(webp)')}
+                  sizes="(max-width: 768px) 80vw, 100vw"
+                  aspectRatio={getAspectRatioFromImageUrl(file)}
                 />
               </Figure>
             </GridItem>
