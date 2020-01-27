@@ -51,7 +51,6 @@ export async function unstable_getStaticPaths() {
 export async function unstable_getStaticProps({ params }) {
   const { story } = await getResource({
     slug: `posts/${params.slug}`,
-    version: 'draft',
   })
 
   return {

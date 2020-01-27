@@ -56,7 +56,6 @@ const IndexPage: NextPage<Props> = props => {
 export async function unstable_getStaticProps() {
   const { story } = await getResource({
     slug: 'home',
-    version: 'draft',
     resolveRelations: 'portfolio',
   })
 
