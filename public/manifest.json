@@ -1,16 +1,16 @@
 {
-  "name": "next-offline",
-  "short_name": "next-offline",
-  "description": "Nextjs using service worker via next-offline",
+  "name": "rppld.com",
+  "short_name": "rppld.com",
+  "description": "The website of Philipp Rappold",
   "icons": [
     {
       "src": "/static/pwa.png",
-      "sizes": "192x192",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#BBEFFD",
+  "background_color": "#BBEFFD",
   "start_url": "/",
   "display": "standalone"
 }
