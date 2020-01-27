@@ -58,8 +58,8 @@ export const getImageTransform = (src, option) => {
 }
 
 export const getImageSrcSet = (src, option?: string) => {
-  // Add leading slash if defined.
-  const filter = typeof option !== 'undefined' && `/${option}`
+  // Add leading slash if option is defined.
+  const filter = typeof option !== 'undefined' ? `/${option}` : ''
 
   return `
     ${getImageTransform(src, `100x0${filter}`)} 100w,
