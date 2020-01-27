@@ -1,7 +1,7 @@
 import css from 'styled-jsx/css'
 
 const num = [0, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-const arr = [16, 24, 32, 40, 48, 64, 72, 80, 88, 96]
+const arr = [16, 24, 32, 40, 46, 64, 72, 80, 88, 96]
 function generatePalette(name: string, h: number, s: number): string {
   let palette = []
   for (let i = 0; i < arr.length; i++) {
