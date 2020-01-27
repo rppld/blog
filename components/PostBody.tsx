@@ -68,7 +68,7 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
 
       article .lede {
         font-size: var(--fs-24);
-        color: var(--color-gray-5);
+        color: var(--color-text-meta);
         line-height: var(--lh-title);
         letter-spacing: -0.035em;
       }
