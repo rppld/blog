@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Text from './Text'
 import device from '../theme/device'
+import createMarkup from '../utils/create-markup'
 
 interface Props {
   caption?: string
@@ -20,7 +21,11 @@ const Figure: React.FunctionComponent<Props> = ({
 
     {caption && (
       <figcaption>
-        <Text>{caption}</Text>
+        <Text
+          dangerouslySetInnerHTML={createMarkup(caption, {
+            renderInline: true,
+          })}
+        />
       </figcaption>
     )}
 

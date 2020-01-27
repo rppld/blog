@@ -24,8 +24,7 @@ const style = css.global`
     ${generatePalette('cyan', 173, 96)}
 
     --color-body: var(--color-gray-2);
-    --color-menubar: var(--color-purple-7);
-    --color-text-meta: var(--color-gray-5);
+    --color-text-meta: var(--color-gray-6);
     --color-image-background: var(--color-gray-1);
     --color-input-border: var(--color-gray-3);
     --color-input-border-focus: var(--color-gray-5);

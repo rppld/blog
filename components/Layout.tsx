@@ -38,7 +38,7 @@ const Layout: React.FunctionComponent<Props> = props => (
 )
 
 Layout.defaultProps = {
-  title: 'Philipp Rappold, Developer',
+  title: 'Philipp Rappold—Developer',
   description:
     'Philipp Rappold is an information designer and front-end developer in Amsterdam, working at the intersection of design and technology. He takes photos for fun.',
 }

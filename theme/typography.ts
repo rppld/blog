@@ -28,7 +28,7 @@ const style = css.global`
     /* Font weights */
     --fw-regular: 400;
     --fw-bold: 700;
-    --fw-black: 900;
+    --fw-black: 800;
   }
 `
 

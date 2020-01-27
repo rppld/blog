@@ -45,7 +45,7 @@ export default () => (
         font-weight: var(--fw-regular);
         line-height: var(--lh-copy);
         font-size: var(--fs-18);
-        color: var(--dark-1);
+        color: var(--gray-0);
       }
 
       a:not(.default) {
