@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Homepage, Post } from '../types'
 import { getResource } from '../utils/storyblok'
 import Layout from '../components/Layout'
-import Intro from '../components/Intro'
+import Banner from '../components/Banner'
 import ProjectThumb from '../components/ProjectThumb'
 import createMarkup from '../utils/create-markup'
 import Grid, { GridItem } from '../components/Grid'
@@ -20,13 +20,13 @@ const IndexPage: NextPage<Props> = props => {
 
   return (
     <Layout>
-      <Intro>
+      <Banner>
         <h1
           dangerouslySetInnerHTML={createMarkup(props.story.content.intro, {
             renderInline: true,
           })}
         />
-      </Intro>
+      </Banner>
 
       <Grid>
         {props.stories.map(({ id, slug, name, content }) => {
