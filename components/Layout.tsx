@@ -13,14 +13,6 @@ const Layout: React.FunctionComponent<Props> = props => (
   <>
     <Head>
       <title>{props.title}</title>
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/favicon-384x384.png?v=2"
-      />
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta name="description" content={props.description}></meta>
     </Head>
     <BaseStyles />

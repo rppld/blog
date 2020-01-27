@@ -16,7 +16,20 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+          <link rel="manifest" href="/manifest.json" />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/static/favicon-384x384.png?v=2"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
