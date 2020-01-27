@@ -29,6 +29,11 @@ export default class MyDocument extends Document {
             sizes="32x32"
             href="/static/favicon-384x384.png?v=2"
           />
+          <link
+            rel="apple-touch-icon"
+            sizes="512x512"
+            href="/static/apple-touch-icon.png"
+          />
           <link rel="preconnect" href="https://storage.googleapis.com" />
         </Head>
         <body>
