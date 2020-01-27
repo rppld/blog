@@ -16,9 +16,9 @@ const Footer: React.FunctionComponent = () => (
         <p>&copy; {new Date().getFullYear()} rppld.com</p>
 
         {links.map(link => (
-          <NavLink key={link.name} href={link.href}>
-            {link.name}
-          </NavLink>
+          <span key={link.name}>
+            <NavLink href={link.href}>{link.name}</NavLink>
+          </span>
         ))}
       </div>
     </NavBar>
@@ -34,9 +34,6 @@ const Footer: React.FunctionComponent = () => (
       div {
         padding-top: var(--space-16);
         padding-bottom: env(safe-area-inset-bottom);
-      }
-
-      div {
         padding-left: var(--space-16);
         padding-right: var(--space-16);
         max-width: 960px;
@@ -44,10 +41,24 @@ const Footer: React.FunctionComponent = () => (
         margin-right: auto;
       }
 
+      p {
+        color: var(--color-text-meta);
+      }
+
+      span + span {
+        margin-left: var(--space-16);
+      }
+
       @media ${device.tablet} {
         div {
           padding-left: var(--space-32);
           padding-right: var(--space-32);
+          display: flex;
+          justify-content: space-between;
+        }
+
+        span {
+          margin-left: 0;
         }
       }
 
@@ -55,25 +66,6 @@ const Footer: React.FunctionComponent = () => (
         div {
           padding-left: var(--space-64);
           padding-right: var(--space-64);
-        }
-      }
-
-      p {
-        color: var(--color-text-meta);
-      }
-
-      a + a {
-        margin-left: var(--space-16);
-      }
-
-      @media ${device.tablet} {
-        a + a {
-          margin-left: var(--space-32);
-        }
-
-        div {
-          display: flex;
-          justify-content: space-between;
         }
       }
     `}</style>

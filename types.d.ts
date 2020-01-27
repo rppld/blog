@@ -16,18 +16,19 @@ interface Story {
   slug: string
 }
 
-export interface Homepage extends Story {
-  content: {
-    intro: string
-  }
-}
-
 export interface Post extends Story {
   content: {
     featured_image: string
     background_color: string
     lede: string
     body: [Block]
+  }
+}
+
+export interface Homepage extends Story {
+  content: {
+    intro: string
+    portfolio: [Post]
   }
 }
 

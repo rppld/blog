@@ -1,13 +1,6 @@
 import fetch from 'isomorphic-unfetch'
 import qs from 'querystringify'
 
-interface Options {
-  slug?: string
-  startsWith?: string
-  perPage?: number
-  version?: string
-}
-
 // Returns a random integer between min (inclusive) and max
 // (inclusive). The value is no lower than min (or the next integer
 // greater than min if min isn't an integer) and no greater than max
@@ -19,11 +12,20 @@ function getRandomInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
+interface Options {
+  slug?: string
+  startsWith?: string
+  perPage?: number
+  version?: string
+  resolveRelations?: string
+}
+
 export const getResource = async ({
   slug = '',
   startsWith,
   version = 'published',
   perPage,
+  resolveRelations,
 }: Options) => {
   const token = process.env.STORYBLOK_API_KEY
   const querystring = qs.stringify({
@@ -31,6 +33,7 @@ export const getResource = async ({
     token,
     starts_with: startsWith,
     per_page: perPage,
+    resolve_relations: resolveRelations,
     cv: getRandomInt(10000, 99999),
   })
   const json = await fetch(
