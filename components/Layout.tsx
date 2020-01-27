@@ -22,7 +22,6 @@ const Layout: React.FunctionComponent<Props> = props => (
 
     <style jsx>{`
       main {
-        min-height: 100vh;
         background-color: white;
       }
     `}</style>
