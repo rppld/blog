@@ -29,6 +29,7 @@ export default class MyDocument extends Document {
             sizes="32x32"
             href="/static/favicon-384x384.png?v=2"
           />
+          <link rel="preconnect" href="https://storage.googleapis.com" />
         </Head>
         <body>
           <Main />
