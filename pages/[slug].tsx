@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { NextPage } from 'next'
-import Intro from '../components/Intro'
+import Banner from '../components/Banner'
 import { getResource } from '../utils/storyblok'
 import Layout from '../components/Layout'
 import PostBody from '../components/PostBody'
@@ -20,9 +20,9 @@ const BlogPostPage: NextPage<Props> = props => {
 
   return (
     <Layout>
-      <Intro bgColor={backgroundColor}>
+      <Banner bgColor={backgroundColor}>
         <img src={featuredImage} alt={name} />
-      </Intro>
+      </Banner>
       <PostBody name={name} lede={content.lede} blocks={content.body} />
 
       <style jsx>{`

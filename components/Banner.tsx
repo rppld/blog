@@ -5,7 +5,7 @@ interface Props {
   bgColor?: string
 }
 
-const Intro: React.FunctionComponent<Props> = ({ children, ...props }) => {
+const Banner: React.FunctionComponent<Props> = ({ children, ...props }) => {
   const [isVisible, setIsVisible] = React.useState(false)
 
   React.useEffect(() => {
@@ -73,10 +73,27 @@ const Intro: React.FunctionComponent<Props> = ({ children, ...props }) => {
       <style jsx>{`
         .banner {
           background-color: ${props.bgColor};
+
+          /* https://css-tricks.com/easing-linear-gradients/ */
+          /* background-image: linear-gradient(
+            hsla(0, 100%, 100%, 1) 0%,
+            hsla(0, 100%, 100%, 0.738) 19%,
+            hsla(0, 100%, 100%, 0.541) 34%,
+            hsla(0, 100%, 100%, 0.382) 47%,
+            hsla(0, 100%, 100%, 0.278) 56.5%,
+            hsla(0, 100%, 100%, 0.194) 65%,
+            hsla(0, 100%, 100%, 0.126) 73%,
+            hsla(0, 100%, 100%, 0.075) 80.2%,
+            hsla(0, 100%, 100%, 0.042) 86.1%,
+            hsla(0, 100%, 100%, 0.021) 91%,
+            hsla(0, 100%, 100%, 0.008) 95.2%,
+            hsla(0, 100%, 100%, 0.002) 98.2%,
+            hsla(0, 100%, 100%, 0) 100%
+          ); */
         }
       `}</style>
     </div>
   )
 }
 
-export default Intro
+export default Banner

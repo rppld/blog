@@ -8,7 +8,7 @@ import {
   getImageSrcSet,
 } from '../utils/storyblok'
 import Layout from '../components/Layout'
-import Intro from '../components/Intro'
+import Banner from '../components/Banner'
 import Figure from '../components/Figure'
 import Image from '../components/Image'
 import createMarkup from '../utils/create-markup'
@@ -24,13 +24,13 @@ const PhotosPage: NextPage<Props> = props => {
 
   return (
     <Layout>
-      <Intro>
+      <Banner>
         <h1
           dangerouslySetInnerHTML={createMarkup(props.page.content.intro, {
             renderInline: true,
           })}
         />
-      </Intro>
+      </Banner>
 
       <Grid>
         {props.page.content.images.map(({ alt, caption, file }) => {

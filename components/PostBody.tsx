@@ -116,18 +116,19 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
       article h2,
       article h3,
       article h4 {
+        font-weight: var(--fw-black);
         font-size: var(--fs-24);
         margin-top: var(--space-48);
       }
 
       article figure {
-        margin-top: var(--space-32);
-        margin-bottom: var(--space-32);
+        margin-top: var(--space-24);
+        margin-bottom: var(--space-24);
         padding: 0;
       }
 
       article > * + * {
-        margin-top: var(--space-32);
+        margin-top: var(--space-24);
       }
 
       article p {
@@ -170,6 +171,10 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
         article figure {
           margin-top: var(--space-64);
           margin-bottom: var(--space-64);
+        }
+
+        article > * + * {
+          margin-top: var(--space-32);
         }
 
         article p {
