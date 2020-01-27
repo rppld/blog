@@ -40,9 +40,6 @@ const Banner: React.FunctionComponent<Props> = ({ children, ...props }) => {
           transition-property: opacity, transform;
           transition-duration: 250ms;
           transition-timing-function: var(--ease-out-cubic);
-
-          padding-left: var(--space-16);
-          padding-right: var(--space-16);
           max-width: 960px;
           margin-left: auto;
           margin-right: auto;
@@ -55,8 +52,7 @@ const Banner: React.FunctionComponent<Props> = ({ children, ...props }) => {
 
         @media ${device.tablet} {
           .content {
-            padding-left: var(--space-32);
-            padding-right: var(--space-32);
+            padding: var(--space-32);
             font-size: 4vw;
           }
         }
@@ -64,8 +60,7 @@ const Banner: React.FunctionComponent<Props> = ({ children, ...props }) => {
         @media ${device.laptop} {
           .content {
             min-height: 65vh;
-            padding-left: var(--space-64);
-            padding-right: var(--space-64);
+            padding: var(--space-64);
           }
         }
       `}</style>
