@@ -51,11 +51,16 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
         >
           <Image
             key={block._uid}
-            src={getImageTransform(block.file, '100x0/filters:quality(50)')}
-            aspectRatio={getAspectRatioFromImageUrl(block.file)}
             alt={block.alt}
-            sizes="(max-width: 768px) 80vw, 100vw"
+            src={getImageTransform(block.file, '100x0/filters:quality(50)')}
+            srcWebp={getImageTransform(
+              block.file,
+              '100x0/filters:quality(50):format(webp)'
+            )}
             srcSet={getImageSrcSet(block.file)}
+            srcSetWebp={getImageSrcSet(block.file, 'filters:format(webp)')}
+            sizes="(max-width: 768px) 80vw, 100vw"
+            aspectRatio={getAspectRatioFromImageUrl(block.file)}
           />
         </Figure>
       ) : null
