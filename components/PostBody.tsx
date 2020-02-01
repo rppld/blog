@@ -71,13 +71,6 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
         padding-top: var(--space-48);
       }
 
-      article .lede {
-        font-size: var(--fs-24);
-        color: var(--color-text-meta);
-        line-height: var(--lh-title);
-        letter-spacing: -0.035em;
-      }
-
       article pre,
       article code {
         font-size: 0.875em;
@@ -107,13 +100,21 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
         font-weight: var(--fw-bold);
       }
 
-      article h1 {
+      article h1,
+      article .lede {
         font-weight: var(--fw-black);
         font-size: var(--fs-32);
       }
 
+      article .lede {
+        margin-top: 0;
+        color: var(--color-text-meta);
+        line-height: var(--lh-title);
+      }
+
       article h1,
-      article h2 {
+      article h2,
+      article .lede {
         text-indent: -0.0125em;
         letter-spacing: -0.035em;
       }
@@ -158,11 +159,8 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
           padding-right: var(--space-32);
         }
 
+        article h1,
         article .lede {
-          font-size: var(--fs-32);
-        }
-
-        article h1 {
           font-size: var(--fs-48);
         }
 
