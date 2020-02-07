@@ -7,7 +7,6 @@ const NavBar: React.FunctionComponent = ({ children }) => (
     <style jsx>{`
       nav {
         font-size: var(--fs-16);
-        font-family: var(--ff-mono);
         width: 100%;
         pointer-events: none;
       }

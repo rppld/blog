@@ -23,7 +23,7 @@ const PhotosPage: NextPage<Props> = props => {
   let count = 0
 
   return (
-    <Layout>
+    <Layout title="Philipp Rappold—Photos">
       <Banner>
         <h1
           dangerouslySetInnerHTML={createMarkup(props.page.content.intro, {
