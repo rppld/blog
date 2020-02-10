@@ -35,13 +35,20 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
             renderInline: true,
           })}
         />
-      ) : block.component === 'heading' ? (
-        <h2
+      ) : block.component === 'list' ? (
+        <figure
+          className="list-container"
           key={block._uid}
           dangerouslySetInnerHTML={createMarkup(block.text, {
             renderInline: true,
           })}
         />
+      ) : block.component === 'heading' && block.level === '2' ? (
+        <h2 key={block._uid}>{block.text}</h2>
+      ) : block.component === 'heading' && block.level === '3' ? (
+        <h3 key={block._uid}>{block.text}</h3>
+      ) : block.component === 'heading' && block.level === '4' ? (
+        <h4 key={block._uid}>{block.text}</h4>
       ) : block.component === 'image' ? (
         <Figure
           caption={block.caption}
@@ -114,6 +121,8 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
 
       article h1,
       article h2,
+      article h3,
+      article h4,
       article .lede {
         text-indent: -0.0125em;
         letter-spacing: -0.035em;
@@ -122,12 +131,23 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
       article h2,
       article h3,
       article h4 {
-        font-weight: var(--fw-black);
         font-size: var(--fs-24);
         margin-top: var(--space-48);
       }
 
-      article figure {
+      article h2 {
+        font-size: var(--fs-24);
+      }
+
+      article h3 {
+        font-size: var(--fs-20);
+      }
+
+      article h4 {
+        font-size: var(--fs-16);
+      }
+
+      article figure:not(.list-container) {
         margin-top: var(--space-24);
         margin-bottom: var(--space-24);
         padding: 0;
@@ -137,14 +157,31 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
         margin-top: var(--space-24);
       }
 
-      article p {
+      article ul {
+        list-style-type: disc;
+      }
+
+      article ol {
+        list-style-type: decimal;
+      }
+
+      article ul,
+      article ol {
+        padding-left: var(--space-32);
+      }
+
+      article p,
+      article ul,
+      article ol {
         letter-spacing: var(--ls-1);
         font-weight: 400;
         font-size: var(--fs-18);
       }
 
       @media ${device.mobileLg} {
-        article p {
+        article p,
+        article ul,
+        article ol {
           font-size: var(--fs-20);
         }
       }
@@ -167,11 +204,22 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
         article h2,
         article h3,
         article h4 {
-          font-size: var(--fs-32);
           margin-top: var(--space-64);
         }
 
-        article figure {
+        article h2 {
+          font-size: var(--fs-32);
+        }
+
+        article h3 {
+          font-size: var(--fs-24);
+        }
+
+        article h4 {
+          font-size: var(--fs-20);
+        }
+
+        article figure:not(.list-container) {
           margin-top: var(--space-64);
           margin-bottom: var(--space-64);
         }
@@ -180,12 +228,19 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
           margin-top: var(--space-32);
         }
 
-        article p {
+        article p,
+        article ul,
+        article ol {
           font-size: var(--fs-24);
         }
       }
 
       @media ${device.laptop} {
+        article ul,
+        article ol {
+          padding: 0;
+        }
+
         article > * {
           padding-left: var(--space-64);
           padding-right: var(--space-64);

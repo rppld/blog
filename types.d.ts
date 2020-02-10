@@ -1,6 +1,7 @@
 interface Block {
   _uid: string
   component: string // The block type
+  level?: string
   text?: string
   alt?: string
   file?: string
