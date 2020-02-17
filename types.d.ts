@@ -29,7 +29,6 @@ export interface Post extends Story {
 export interface Homepage extends Story {
   content: {
     intro: string
-    portfolio: [Post]
   }
 }
 

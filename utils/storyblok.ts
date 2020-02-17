@@ -1,5 +1,7 @@
 import fetch from 'isomorphic-unfetch'
 import qs from 'querystringify'
+import pickBy from 'lodash/pickBy'
+import identity from 'lodash/identity'
 
 // Returns a random integer between min (inclusive) and max
 // (inclusive). The value is no lower than min (or the next integer
@@ -17,6 +19,8 @@ interface Options {
   startsWith?: string
   perPage?: number
   version?: string
+  sortBy?: string
+  withTag?: string
   resolveRelations?: string
 }
 
@@ -26,16 +30,21 @@ export const getResource = async ({
   version = 'published',
   perPage,
   resolveRelations,
+  sortBy,
+  withTag,
 }: Options) => {
   const token = process.env.STORYBLOK_API_KEY
-  const querystring = qs.stringify({
+  const options = {
     version,
     token,
     starts_with: startsWith,
+    sort_by: sortBy,
+    with_tag: withTag,
     per_page: perPage,
     resolve_relations: resolveRelations,
     cv: getRandomInt(10000, 99999),
-  })
+  }
+  const querystring = qs.stringify(pickBy(options, identity))
   const json = await fetch(
     `https://api.storyblok.com/v1/cdn/stories/${slug}?${querystring}`
   ).then(res => res.json())
