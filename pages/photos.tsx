@@ -38,9 +38,9 @@ const PhotosPage: NextPage<Props> = props => {
 
           return (
             <GridItem key={file} size={getGridItemSize(count)}>
-              <Figure caption={alt}>
+              <Figure caption={caption}>
                 <Image
-                  alt={alt || caption}
+                  alt={alt}
                   src={getImageTransform(file, '100x0/filters:quality(50)')}
                   srcWebp={getImageTransform(
                     file,
