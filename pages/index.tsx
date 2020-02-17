@@ -28,19 +28,21 @@ const IndexPage: NextPage<Props> = props => {
       </Banner>
 
       <Grid>
-        {props.story.content.portfolio.map(({ id, slug, name, content }) => {
-          count < 6 ? count++ : (count = 1)
+        {props.story.content.portfolio
+          .reverse()
+          .map(({ id, slug, name, content }) => {
+            count < 6 ? count++ : (count = 1)
 
-          return (
-            <GridItem key={id} size={getGridItemSize(count)}>
-              <Link href="/[slug]" as={`/${slug}`}>
-                <a className="default">
-                  <ProjectThumb name={name} content={content} />
-                </a>
-              </Link>
-            </GridItem>
-          )
-        })}
+            return (
+              <GridItem key={id} size={getGridItemSize(count)}>
+                <Link href="/[slug]" as={`/${slug}`}>
+                  <a className="default">
+                    <ProjectThumb name={name} content={content} />
+                  </a>
+                </Link>
+              </GridItem>
+            )
+          })}
       </Grid>
 
       <style jsx>{`
