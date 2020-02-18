@@ -25,6 +25,7 @@ const ProjectThumb: React.FunctionComponent<Props> = ({ name, content }) => {
           display: flex;
           justify-content: center;
           align-items: center;
+          border-radius: var(--space-32);
         }
 
         @media ${device.mobileLg} {

@@ -25,6 +25,10 @@ const Banner: React.FunctionComponent<Props> = ({ children, ...props }) => {
       </div>
 
       <style jsx>{`
+        .banner {
+          border-radius: var(--space-32);
+        }
+
         .content {
           min-height: 50vh;
           display: flex;

@@ -7,6 +7,9 @@ import Footer from './Footer'
 interface Props {
   title?: string
   description?: string
+  headerProps?: {
+    withBorder?: boolean
+  }
 }
 
 const Layout: React.FunctionComponent<Props> = props => (
@@ -16,7 +19,7 @@ const Layout: React.FunctionComponent<Props> = props => (
       <meta name="description" content={props.description}></meta>
     </Head>
     <BaseStyles />
-    <Header />
+    <Header {...props.headerProps} />
     <main>{props.children}</main>
     <Footer />
 

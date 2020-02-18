@@ -75,7 +75,7 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
 
     <style jsx global>{`
       article {
-        padding-top: var(--space-48);
+        padding-top: var(--space-32);
       }
 
       article pre,
@@ -188,7 +188,7 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
 
       @media ${device.tablet} {
         article {
-          padding-top: var(--space-64);
+          padding-top: var(--space-48);
         }
 
         article > * {

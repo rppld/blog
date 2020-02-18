@@ -4,7 +4,11 @@ import NavBar from './NavBar'
 import NavLink from './NavLink'
 import device from '../theme/device'
 
-const Header: React.FunctionComponent = () => (
+interface Props {
+  withBorder?: boolean
+}
+
+const Header: React.FunctionComponent<Props> = props => (
   <header>
     <NavBar>
       <div>
@@ -20,10 +24,16 @@ const Header: React.FunctionComponent = () => (
 
     <style jsx>{`
       header {
+        border-bottom: 1px solid;
+        border-color: ${props.withBorder ? 'var(--color-body)' : 'transparent'};
+      }
+    `}</style>
+
+    <style jsx>{`
+      header {
         padding-top: var(--space-16);
         padding-bottom: var(--space-16);
         background-color: white;
-        border-bottom: 1px solid var(--color-body);
       }
 
       div {
@@ -50,5 +60,9 @@ const Header: React.FunctionComponent = () => (
     `}</style>
   </header>
 )
+
+Header.defaultProps = {
+  withBorder: true,
+}
 
 export default Header

@@ -19,7 +19,10 @@ const BlogPostPage: NextPage<Props> = props => {
   } = content
 
   return (
-    <Layout title={`Philipp Rappold—${name}`}>
+    <Layout
+      title={`Philipp Rappold—${name}`}
+      headerProps={{ withBorder: !backgroundColor }}
+    >
       <Banner bgColor={backgroundColor}>
         <img src={featuredImage} alt={name} />
       </Banner>
