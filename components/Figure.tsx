@@ -59,6 +59,22 @@ const Figure: React.FunctionComponent<Props> = ({
           padding-right: ${padding.includes('right') ? '2rem' : '0'};
           padding-bottom: ${padding.includes('bottom') ? '2rem' : '0'};
           padding-left: ${padding.includes('left') ? '2rem' : '0'};
+          border-top-left-radius: ${padding.includes('top') &&
+          padding.includes('left')
+            ? 'var(--space-32)'
+            : '0'};
+          border-top-right-radius: ${padding.includes('top') &&
+          padding.includes('right')
+            ? 'var(--space-32)'
+            : '0'};
+          border-bottom-left-radius: ${padding.includes('bottom') &&
+          padding.includes('left')
+            ? 'var(--space-32)'
+            : '0'};
+          border-bottom-right-radius: ${padding.includes('bottom') &&
+          padding.includes('right')
+            ? 'var(--space-32)'
+            : '0'};
         }
       }
 
