@@ -63,7 +63,7 @@ const Banner: React.FunctionComponent<Props> = ({ children, ...props }) => {
 
         @media ${device.laptop} {
           .content {
-            min-height: 65vh;
+            min-height: 68.5vh;
             padding: var(--space-64);
           }
         }
