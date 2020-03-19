@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { NextPage } from 'next'
+import { NextPage, GetStaticProps } from 'next'
 import Link from 'next/link'
 import { Homepage, Post } from '../types'
 import { getResource } from '../utils/storyblok'
@@ -54,7 +54,7 @@ const IndexPage: NextPage<Props> = props => {
   )
 }
 
-export async function unstable_getStaticProps() {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { story } = await getResource({
     slug: 'home',
     resolveRelations: 'portfolio',
