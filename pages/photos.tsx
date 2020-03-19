@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { NextPage } from 'next'
+import { NextPage, GetStaticProps } from 'next'
 import { Photospage } from '../types'
 import {
   getResource,
@@ -60,7 +60,7 @@ const PhotosPage: NextPage<Props> = props => {
   )
 }
 
-export async function unstable_getStaticProps() {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { story } = await getResource({ slug: 'photos' })
 
   return {

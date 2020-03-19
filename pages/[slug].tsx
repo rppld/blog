@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { NextPage } from 'next'
+import { NextPage, GetStaticPaths, GetStaticProps } from 'next'
 import Banner from '../components/Banner'
 import { getResource } from '../utils/storyblok'
 import Layout from '../components/Layout'
@@ -37,21 +37,24 @@ const BlogPostPage: NextPage<Props> = props => {
   )
 }
 
-export async function unstable_getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const { stories } = await getResource({ startsWith: 'posts' })
 
-  return [
-    ...stories.map(story => {
-      return {
-        params: {
-          slug: story.slug,
-        },
-      }
-    }),
-  ]
+  return {
+    paths: [
+      ...stories.map(story => {
+        return {
+          params: {
+            slug: story.slug,
+          },
+        }
+      }),
+    ],
+    fallback: false,
+  }
 }
 
-export async function unstable_getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { story } = await getResource({
     slug: `posts/${params.slug}`,
   })
