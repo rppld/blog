@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next'
-import Banner from '../components/Banner'
 import { getResource } from '../utils/storyblok'
 import Layout from '../components/Layout'
 import PostBody from '../components/PostBody'
@@ -13,19 +12,8 @@ interface Props {
 const BlogPostPage: NextPage<Props> = props => {
   const { name, content } = props.story
 
-  const {
-    featured_image: featuredImage,
-    background_color: backgroundColor,
-  } = content
-
   return (
-    <Layout
-      title={`Philipp Rappold—${name}`}
-      headerProps={{ withBorder: !backgroundColor }}
-    >
-      <Banner bgColor={backgroundColor}>
-        <img src={featuredImage} alt={name} />
-      </Banner>
+    <Layout title={`Philipp Rappold—${name}`}>
       <PostBody name={name} lede={content.lede} blocks={content.body} />
 
       <style jsx>{`
