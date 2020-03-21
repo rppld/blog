@@ -20,16 +20,10 @@ const Header: React.FunctionComponent = props => (
 
     <style jsx>{`
       header {
-        border-bottom: 1px solid;
-        border-color: var(--color-body);
-      }
-    `}</style>
-
-    <style jsx>{`
-      header {
         padding-top: var(--space-16);
         padding-bottom: var(--space-16);
         background-color: white;
+        border-bottom: 2px solid var(--color-body);
       }
 
       div {
