@@ -23,7 +23,7 @@ const Header: React.FunctionComponent = props => (
         padding-top: var(--space-16);
         padding-bottom: var(--space-16);
         background-color: white;
-        border-bottom: 2px solid var(--color-body);
+        border-bottom: 1px solid var(--color-body);
       }
 
       div {
