@@ -2,7 +2,9 @@
   "name": "blog",
   "scripts": {
     "dev": "next",
-    "build": "next build"
+    "build": "next build",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "dependencies": {
     "gatsby-image": "^2.2.45",
@@ -21,9 +23,11 @@
     "@typescript-eslint/eslint-plugin": "2.x",
     "@typescript-eslint/parser": "2.x",
     "babel-eslint": "10.x",
+    "cypress": "^4.3.0",
     "eslint": "6.x",
     "eslint-config-prettier": "^6.10.0",
     "eslint-config-react-app": "^5.2.0",
+    "eslint-plugin-cypress": "^2.10.3",
     "eslint-plugin-flowtype": "3.x",
     "eslint-plugin-import": "2.x",
     "eslint-plugin-jsx-a11y": "6.x",
