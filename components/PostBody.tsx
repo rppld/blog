@@ -18,7 +18,7 @@ interface Props {
 
 const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
   <article>
-    <h1>{name}</h1>
+    <h1 data-cy="post-title">{name}</h1>
 
     {lede && (
       <p

@@ -37,7 +37,7 @@ const PhotosPage: NextPage<Props> = props => {
           count < 6 ? count++ : (count = 1)
 
           return (
-            <GridItem key={file} size={getGridItemSize(count)}>
+            <GridItem key={file} size={getGridItemSize(count)} data-cy="photo">
               <Figure caption={caption}>
                 <Image
                   alt={alt}
