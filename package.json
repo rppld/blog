@@ -11,7 +11,7 @@
     "gatsby-image": "^2.2.45",
     "isomorphic-unfetch": "^3.0.0",
     "marked": "^0.8.1",
-    "next": "^9.3.1",
+    "next": "^9.3.2",
     "next-offline": "^4.0.6",
     "querystringify": "^2.1.1",
     "react": "^16.13.0",
