@@ -25,6 +25,7 @@ const IndexPage: NextPage<Props> = props => {
           dangerouslySetInnerHTML={createMarkup(props.story.content.intro, {
             renderInline: true,
           })}
+          data-cy="tagline"
         />
       </Banner>
 
@@ -33,7 +34,7 @@ const IndexPage: NextPage<Props> = props => {
           count < 6 ? count++ : (count = 1)
 
           return (
-            <GridItem key={id} size={getGridItemSize(count)}>
+            <GridItem key={id} size={getGridItemSize(count)} data-cy="project">
               <Link href="/[slug]" as={`/${slug}`}>
                 <a className="default">
                   <ProjectThumb name={name} content={content} />
