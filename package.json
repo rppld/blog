@@ -29,7 +29,7 @@
     "eslint-config-prettier": "^6.10.1",
     "eslint-config-react-app": "^5.2.1",
     "eslint-plugin-cypress": "^2.10.3",
-    "eslint-plugin-flowtype": "3.x",
+    "eslint-plugin-flowtype": "4.x",
     "eslint-plugin-import": "2.x",
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-react": "7.x",
