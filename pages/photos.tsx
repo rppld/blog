@@ -71,7 +71,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       operation: 'in',
       query: 'photo',
     },
-    perPage: 99,
+    perPage: 100,
   })
 
   return {
