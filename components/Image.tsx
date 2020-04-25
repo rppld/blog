@@ -9,6 +9,7 @@ interface Props {
   srcSetWebp?: string
   sizes?: string
   aspectRatio?: number
+  className?: string
 }
 
 const Image: React.FunctionComponent<Props> = ({
@@ -19,6 +20,7 @@ const Image: React.FunctionComponent<Props> = ({
   srcSetWebp,
   sizes,
   aspectRatio,
+  className,
 }) => (
   <Img
     fluid={{
@@ -31,6 +33,7 @@ const Image: React.FunctionComponent<Props> = ({
       base64: src,
     }}
     alt={alt}
+    className={className}
     backgroundColor="var(--color-body)"
   />
 )
