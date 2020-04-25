@@ -9,11 +9,27 @@ interface Props {
   description?: string
 }
 
-const Layout: React.FunctionComponent<Props> = props => (
+const Layout: React.FunctionComponent<Props> = (props) => (
   <>
     <Head>
       <title>{props.title}</title>
       <meta name="description" content={props.description}></meta>
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta name="theme-color" content="#BBEFFD" />
+      <link rel="manifest" href="/manifest.json" />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/static/favicon-384x384.png?v=2"
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="512x512"
+        href="/static/apple-touch-icon.png"
+      />
+      <link rel="preconnect" href="https://storage.googleapis.com" />
     </Head>
     <BaseStyles />
     <Header />

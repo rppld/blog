@@ -26,6 +26,14 @@ export interface Post extends Story {
   }
 }
 
+export interface Photo extends Story {
+  content: {
+    file: string
+    alt: string
+    caption?: string
+  }
+}
+
 export interface Homepage extends Story {
   content: {
     intro: string

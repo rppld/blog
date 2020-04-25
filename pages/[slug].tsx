@@ -9,7 +9,7 @@ interface Props {
   story: Post
 }
 
-const BlogPostPage: NextPage<Props> = props => {
+const BlogPostPage: NextPage<Props> = (props) => {
   const { name, content } = props.story
 
   return (
@@ -30,7 +30,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: [
-      ...stories.map(story => {
+      ...stories.map((story) => {
         return {
           params: {
             slug: story.slug,

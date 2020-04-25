@@ -11,18 +11,18 @@ import Grid, { GridItem } from '../components/Grid'
 import getGridItemSize from '../utils/get-grid-item-size'
 
 interface Props {
-  story: Homepage
-  portfolio: [Post]
+  page: Homepage
+  projects: [Post]
 }
 
-const IndexPage: NextPage<Props> = props => {
+const IndexPage: NextPage<Props> = (props) => {
   let count = 0
 
   return (
     <Layout>
       <Banner>
         <h1
-          dangerouslySetInnerHTML={createMarkup(props.story.content.intro, {
+          dangerouslySetInnerHTML={createMarkup(props.page.content.intro, {
             renderInline: true,
           })}
           data-cy="tagline"
@@ -30,7 +30,7 @@ const IndexPage: NextPage<Props> = props => {
       </Banner>
 
       <Grid>
-        {props.portfolio.map(({ id, slug, name, content }) => {
+        {props.projects.map(({ id, slug, name, content }) => {
           count < 6 ? count++ : (count = 1)
 
           return (
@@ -58,17 +58,20 @@ const IndexPage: NextPage<Props> = props => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { story } = await getResource({
     slug: 'home',
-    resolveRelations: 'portfolio',
   })
 
   const { stories } = await getResource({
-    withTag: 'portfolio',
+    filterQuery: {
+      attribute: 'component',
+      operation: 'in',
+      query: 'project',
+    },
   })
 
   return {
     props: {
-      story,
-      portfolio: stories,
+      page: story,
+      projects: stories,
     },
   }
 }

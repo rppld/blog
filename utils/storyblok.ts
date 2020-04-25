@@ -14,6 +14,12 @@ function getRandomInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
+type FilterQuery = {
+  attribute: string
+  operation: string
+  query: string
+}
+
 interface Options {
   slug?: string
   startsWith?: string
@@ -22,6 +28,7 @@ interface Options {
   sortBy?: string
   withTag?: string
   resolveRelations?: string
+  filterQuery?: FilterQuery
 }
 
 export const getResource = async ({
@@ -32,8 +39,10 @@ export const getResource = async ({
   resolveRelations,
   sortBy,
   withTag,
+  filterQuery,
 }: Options) => {
   const token = process.env.STORYBLOK_API_KEY
+  const { attribute, operation, query } = filterQuery || {}
   const options = {
     version,
     token,
@@ -41,17 +50,20 @@ export const getResource = async ({
     sort_by: sortBy,
     with_tag: withTag,
     per_page: perPage,
+    ...(filterQuery
+      ? { [`filter_query[${attribute}][${operation}]`]: query }
+      : {}),
     resolve_relations: resolveRelations,
     cv: getRandomInt(10000, 99999),
   }
   const querystring = qs.stringify(pickBy(options, identity))
   const json = await fetch(
     `https://api.storyblok.com/v1/cdn/stories/${slug}?${querystring}`
-  ).then(res => res.json())
+  ).then((res) => res.json())
   return json
 }
 
-export const getAspectRatioFromImageUrl = src => {
+export const getAspectRatioFromImageUrl = (src) => {
   // Example:
   // https://a.storyblok.com/f/73178/6000x4000/ffcd5d6a59/image.jpg
   const dimensions = src.split('/')[5]

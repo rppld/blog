@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { NextPage, GetStaticProps } from 'next'
-import { Photospage } from '../types'
+import { Photospage, Photo } from '../types'
 import {
   getResource,
   getImageTransform,
@@ -17,9 +17,10 @@ import getGridItemSize from '../utils/get-grid-item-size'
 
 interface Props {
   page: Photospage
+  photos: [Photo]
 }
 
-const PhotosPage: NextPage<Props> = props => {
+const PhotosPage: NextPage<Props> = (props) => {
   let count = 0
 
   return (
@@ -33,11 +34,12 @@ const PhotosPage: NextPage<Props> = props => {
       </Banner>
 
       <Grid>
-        {props.page.content.images.map(({ alt, caption, file }) => {
+        {props.photos.map(({ id, slug, name, content }) => {
+          const { alt, caption, file } = content
           count < 6 ? count++ : (count = 1)
 
           return (
-            <GridItem key={file} size={getGridItemSize(count)} data-cy="photo">
+            <GridItem key={id} size={getGridItemSize(count)} data-cy="photo">
               <Figure caption={caption}>
                 <Image
                   alt={alt}
@@ -61,11 +63,21 @@ const PhotosPage: NextPage<Props> = props => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { story } = await getResource({ slug: 'photos' })
+  const { story } = await getResource({ slug: 'photos-index' })
+
+  const { stories } = await getResource({
+    filterQuery: {
+      attribute: 'component',
+      operation: 'in',
+      query: 'photo',
+    },
+    perPage: 99,
+  })
 
   return {
     props: {
       page: story,
+      photos: stories,
     },
   }
 }
