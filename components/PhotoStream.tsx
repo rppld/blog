@@ -5,7 +5,7 @@ import {
   getAspectRatioFromImageUrl,
   getImageSrcSet,
 } from '../utils/storyblok'
-import Image from '../components/Image'
+import Img from '../components/Img'
 import styles from './PhotoStream.module.css'
 
 interface Props {
