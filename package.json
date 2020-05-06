@@ -8,7 +8,7 @@
     "cypress:run": "cypress run"
   },
   "dependencies": {
-    "gatsby-image": "^2.4.0",
+    "gatsby-image": "^2.4.1",
     "isomorphic-unfetch": "^3.0.0",
     "marked": "^1.0.0",
     "next": "^9.3.6",
