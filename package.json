@@ -34,6 +34,6 @@
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "4.x",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.2"
   }
 }
