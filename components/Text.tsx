@@ -6,11 +6,7 @@ interface Props extends React.HTMLProps<HTMLParagraphElement> {}
 const Text: React.FunctionComponent<Props> = ({ children, ...props }) => {
   return (
     <>
-      {typeof props.dangerouslySetInnerHTML !== 'undefined' ? (
-        <p {...props} />
-      ) : (
-        <p {...props}>{children}</p>
-      )}
+      <p {...props} />
 
       <style jsx>{`
         p {
