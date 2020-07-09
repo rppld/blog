@@ -4,8 +4,8 @@ import NavBar from './NavBar'
 import NavLink from './NavLink'
 
 const links = [
-  { name: 'Instagram', href: 'https://www.instagram.com/philipprappold/' },
   { name: 'Twitter', href: 'https://twitter.com/rppld' },
+  { name: 'GitHub', href: 'https://github.com/rppld' },
   { name: 'Email', href: 'mailto:philipprappold@me.com' },
 ]
 
@@ -15,7 +15,7 @@ const Footer: React.FunctionComponent = () => (
       <div>
         <p>&copy; {new Date().getFullYear()} rppld.com</p>
 
-        {links.map(link => (
+        {links.map((link) => (
           <span key={link.name}>
             <NavLink href={link.href}>{link.name}</NavLink>
           </span>
