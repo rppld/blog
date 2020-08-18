@@ -13,7 +13,7 @@
     "marked": "^1.1.1",
     "next": "^9.5.2",
     "next-offline": "^5.0.2",
-    "querystringify": "^2.1.1",
+    "querystringify": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
