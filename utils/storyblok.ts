@@ -1,4 +1,3 @@
-import fetch from 'isomorphic-unfetch'
 import qs from 'querystringify'
 import pickBy from 'lodash/pickBy'
 import identity from 'lodash/identity'
