@@ -10,7 +10,7 @@
   "dependencies": {
     "gatsby-image": "^2.5.0",
     "marked": "^1.2.4",
-    "next": "^9.5.5",
+    "next": "^10.0.2",
     "next-offline": "^5.0.3",
     "querystringify": "^2.2.0",
     "react": "^16.14.0",
