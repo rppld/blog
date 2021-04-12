@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "gatsby-image": "^3.2.0",
-    "marked": "^2.0.1",
+    "marked": "^2.0.3",
     "next": "^10.1.3",
     "next-offline": "^5.0.3",
     "querystringify": "^2.2.0",
