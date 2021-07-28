@@ -7,7 +7,7 @@ import easing from '../theme/easing'
 import shadow from '../theme/shadow'
 import typography from '../theme/typography'
 
-export default () => (
+const BaseStyles = () => (
   <>
     <style jsx global>
       {reset}
@@ -89,3 +89,5 @@ export default () => (
     `}</style>
   </>
 )
+
+export default BaseStyles
