@@ -9,7 +9,7 @@ import {
 import Layout from '../components/Layout'
 import Banner from '../components/Banner'
 import Figure from '../components/Figure'
-import Image from '../components/Image'
+import Image from 'next/image'
 import createMarkup from '../utils/create-markup'
 import Grid, { GridItem } from '../components/Grid'
 import getGridItemSize from '../utils/get-grid-item-size'

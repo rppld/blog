@@ -2,7 +2,7 @@ import * as React from 'react'
 import device from '../theme/device'
 import { Block } from '../types'
 import Figure from './Figure'
-import Image from './Image'
+import Image from 'next/image'
 import createMarkup from '../utils/create-markup'
 import {
   getImageTransform,
