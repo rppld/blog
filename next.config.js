@@ -1,6 +1,6 @@
 const withOffline = require('next-offline')
 
-module.exports = withOffline({
+const nextConfig = {
   env: {
     STORYBLOK_API_KEY: process.env.STORYBLOK_API_KEY,
   },
@@ -21,14 +21,14 @@ module.exports = withOffline({
       },
     ],
   },
-  experimental: {
-    async rewrites() {
-      return [
-        {
-          source: '/service-worker.js',
-          destination: '/_next/static/service-worker.js',
-        },
-      ]
-    },
+  async rewrites() {
+    return [
+      {
+        source: '/service-worker.js',
+        destination: '/_next/static/service-worker.js',
+      },
+    ]
   },
-})
+}
+
+module.exports = withOffline(nextConfig)
