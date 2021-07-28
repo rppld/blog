@@ -6,8 +6,7 @@ import Image from './Image'
 import createMarkup from '../utils/create-markup'
 import {
   getImageTransform,
-  getAspectRatioFromImageUrl,
-  getImageSrcSet,
+  getDimensionsFromImageUrl,
 } from '../utils/storyblok'
 
 interface Props {
@@ -27,7 +26,7 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
       />
     )}
 
-    {blocks.map(block =>
+    {blocks.map((block) =>
       block.component === 'paragraph' ? (
         <p
           key={block._uid}
@@ -59,15 +58,14 @@ const PostBody: React.FunctionComponent<Props> = ({ name, lede, blocks }) => (
           <Image
             key={block._uid}
             alt={block.alt}
-            src={getImageTransform(block.file, '100x0/filters:quality(50)')}
-            srcWebp={getImageTransform(
-              block.file,
-              '100x0/filters:quality(50):format(webp)'
-            )}
-            srcSet={getImageSrcSet(block.file)}
-            srcSetWebp={getImageSrcSet(block.file, 'filters:format(webp)')}
+            src={getImageTransform(block.file, '2000x0/filters:quality(90)')}
             sizes="(max-width: 768px) 80vw, 100vw"
-            aspectRatio={getAspectRatioFromImageUrl(block.file)}
+            {...getDimensionsFromImageUrl(block.file)}
+            blurDataURL={getImageTransform(
+              block.file,
+              '100x0/filters:quality(50)'
+            )}
+            placeholder="blur"
           />
         </Figure>
       ) : null

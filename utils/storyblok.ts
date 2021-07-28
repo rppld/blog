@@ -62,32 +62,16 @@ export const getResource = async ({
   return json
 }
 
-export const getAspectRatioFromImageUrl = (src) => {
+export const getDimensionsFromImageUrl = (src) => {
   // Example:
   // https://a.storyblok.com/f/73178/6000x4000/ffcd5d6a59/image.jpg
   const dimensions = src.split('/')[5]
   const [width, height] = dimensions.split('x')
-  const aspectRatio = (width / height).toFixed(2)
-  return parseFloat(aspectRatio)
+  return { width, height }
 }
 
-export const getImageTransform = (src, option) => {
-  const imageService = '//img2.storyblok.com/'
+export const getImageTransform = (src, option = '') => {
+  const imageService = 'https://img2.storyblok.com/'
   const path = src.replace('//a.storyblok.com', '')
   return imageService + option + path
-}
-
-export const getImageSrcSet = (src, option?: string) => {
-  // Add leading slash if option is defined.
-  const filter = typeof option !== 'undefined' ? `/${option}` : ''
-
-  return `
-    ${getImageTransform(src, `100x0${filter}`)} 100w,
-    ${getImageTransform(src, `480x0${filter}`)} 480w,
-    ${getImageTransform(src, `800x0${filter}`)} 800w,
-    ${getImageTransform(src, `1200x0${filter}`)} 1200w,
-    ${getImageTransform(src, `1400x0${filter}`)} 1400w,
-    ${getImageTransform(src, `1600x0${filter}`)} 1600w,
-    ${getImageTransform(src, `2000x0${filter}`)} 2000w,
-  `
 }

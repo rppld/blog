@@ -4,8 +4,7 @@ import { Photospage, Photo } from '../types'
 import {
   getResource,
   getImageTransform,
-  getAspectRatioFromImageUrl,
-  getImageSrcSet,
+  getDimensionsFromImageUrl,
 } from '../utils/storyblok'
 import Layout from '../components/Layout'
 import Banner from '../components/Banner'
@@ -34,7 +33,7 @@ const PhotosPage: NextPage<Props> = (props) => {
       </Banner>
 
       <Grid>
-        {props.photos.map(({ id, slug, name, content }) => {
+        {props.photos.map(({ id, content }) => {
           const { alt, caption, file } = content
           count < 6 ? count++ : (count = 1)
 
@@ -43,15 +42,14 @@ const PhotosPage: NextPage<Props> = (props) => {
               <Figure caption={caption}>
                 <Image
                   alt={alt}
-                  src={getImageTransform(file, '100x0/filters:quality(50)')}
-                  srcWebp={getImageTransform(
-                    file,
-                    '100x0/filters:quality(50):format(webp)'
-                  )}
-                  srcSet={getImageSrcSet(file)}
-                  srcSetWebp={getImageSrcSet(file, 'filters:format(webp)')}
+                  src={getImageTransform(file, '2000x0/filters:quality(90)')}
                   sizes="(max-width: 768px) 80vw, 100vw"
-                  aspectRatio={getAspectRatioFromImageUrl(file)}
+                  {...getDimensionsFromImageUrl(file)}
+                  blurDataURL={getImageTransform(
+                    file,
+                    '100x0/filters:quality(50)'
+                  )}
+                  placeholder="blur"
                 />
               </Figure>
             </GridItem>

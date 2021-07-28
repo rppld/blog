@@ -21,6 +21,9 @@ const nextConfig = {
       },
     ],
   },
+  images: {
+    domains: ['img2.storyblok.com', 'a.storyblok.com'],
+  },
   async rewrites() {
     return [
       {
