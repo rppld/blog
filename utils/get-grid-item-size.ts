@@ -1,4 +1,4 @@
-export default function getGridItemSize(index: number) {
+function getGridItemSize(index: number) {
   switch (index) {
     case 1:
     case 5:
@@ -12,3 +12,5 @@ export default function getGridItemSize(index: number) {
       return 'large'
   }
 }
+
+export default getGridItemSize

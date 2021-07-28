@@ -1,6 +1,8 @@
 import * as React from 'react'
 import Figure from './Figure'
 import device from '../theme/device'
+import NextImage from 'next/image'
+import { getDimensionsFromImageUrl } from '../utils/storyblok'
 
 interface Props {
   name: string
@@ -16,7 +18,11 @@ const ProjectThumb: React.FunctionComponent<Props> = ({ name, content }) => {
   return (
     <Figure caption={name}>
       <div>
-        <img src={featuredImage} alt={name} />
+        <NextImage
+          src={`https:${featuredImage}`}
+          alt={name}
+          {...getDimensionsFromImageUrl(featuredImage)}
+        />
       </div>
 
       <style jsx>{`
