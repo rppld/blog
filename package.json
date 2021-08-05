@@ -9,7 +9,7 @@
     "cypress:run": "cypress run"
   },
   "dependencies": {
-    "@types/node": "^16.4.5",
+    "@types/node": "^16.4.12",
     "@types/react": "^17.0.15",
     "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "4.x",
