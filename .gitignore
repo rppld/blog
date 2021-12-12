@@ -1,8 +1,9 @@
-.DS_Store
+.DS_STORE
 node_modules
-.next
-yarn-error.log
-.env
-.now
-
-.vercel
+/.mf
+/.cache
+/build
+/dist
+/public/build
+/app/styles/tailwind.css
+/.env
