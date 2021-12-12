@@ -21,6 +21,7 @@ const nextConfig = {
       },
     ],
   },
+  dontAutoRegisterSw: true,
   images: {
     domains: ['img2.storyblok.com', 'a.storyblok.com'],
   },
