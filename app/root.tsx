@@ -101,7 +101,7 @@ function Document({
         <Meta />
         <Links />
       </head>
-      <body className="bg-[#FAFAF7]">
+      <body className="bg-[#FAFAF7] antialiased">
         {children}
         <ScrollRestoration />
         <Scripts />
