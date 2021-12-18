@@ -7,6 +7,7 @@ import {
   Scripts,
   ScrollRestoration,
   useCatch,
+  useMatches,
 } from "remix";
 import Container from "~/components/container";
 import * as Grid from "~/components/grid";
@@ -92,6 +93,10 @@ function Document({
   children: React.ReactNode;
   title?: string;
 }) {
+  const matches = useMatches();
+  // If at least one route wants to hydrate, this will return true.
+  const includeScripts = matches.some((match) => match.handle?.hydrate);
+
   return (
     <html lang="en">
       <head>
@@ -104,7 +109,7 @@ function Document({
       <body className="bg-[#FAFAF7] antialiased">
         {children}
         <ScrollRestoration />
-        <Scripts />
+        {includeScripts ? <Scripts /> : null}
         {process.env.NODE_ENV === "development" && <LiveReload />}
       </body>
     </html>
