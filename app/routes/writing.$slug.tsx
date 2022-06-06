@@ -1,11 +1,11 @@
-import { useLoaderData } from "remix";
-import type { MetaFunction, LoaderFunction } from "remix";
+import { useLoaderData } from "@remix-run/react";
+import type { MetaFunction, LoaderFunction } from "@remix-run/cloudflare";
 import {
   getImageSrcSet,
   getImageTransform,
   getResource,
-  Post,
 } from "~/lib/storyblok";
+import type { Post } from "~/lib/storyblok";
 import Container from "~/components/container";
 import Media from "~/components/media";
 import createMarkup from "~/utils/create-markup";
@@ -41,7 +41,7 @@ export let meta: MetaFunction = () => {
 };
 
 // https://remix.run/guides/routing#index-routes
-export default function Post() {
+export default function Article() {
   let data = useLoaderData<Data>();
 
   return (

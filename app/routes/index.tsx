@@ -1,5 +1,5 @@
-import { useLoaderData } from "remix";
-import type { MetaFunction, LoaderFunction } from "remix";
+import { useLoaderData } from "@remix-run/react";
+import type { MetaFunction, LoaderFunction } from "@remix-run/cloudflare";
 import Container from "~/components/container";
 import * as ResourceList from "~/components/resource-list";
 import * as Grid from "~/components/grid";
@@ -36,6 +36,11 @@ export let loader: LoaderFunction = () => {
         text: "GitHub",
         handle: "github.com/rppld",
         href: "https://github.com/rppld",
+      },
+      {
+        text: "LinkedIn",
+        handle: "linkedin.com/in/rppld",
+        href: "https://www.linkedin.com/in/rppld/",
       },
     ],
     work: [
@@ -91,7 +96,7 @@ export let loader: LoaderFunction = () => {
 // https://remix.run/api/conventions#meta
 export let meta: MetaFunction = () => {
   return {
-    title: "Philipp Rappold—UI Developer",
+    title: "Philipp Rappold – UI Developer",
     description:
       "Philipp Rappold is an information designer and UI developer in Amsterdam, working at the intersection of design and technology. He takes photos for fun.",
   };

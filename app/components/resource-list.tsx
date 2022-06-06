@@ -1,6 +1,6 @@
 import * as React from "react";
-import { LinkProps as ReactRouterLinkProps } from "react-router-dom";
-import { Link } from "remix";
+import type { LinkProps as ReactRouterLinkProps } from "react-router-dom";
+import { Link } from "@remix-run/react";
 
 export function List(
   props: React.HTMLProps<HTMLUListElement>

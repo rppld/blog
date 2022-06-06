@@ -1,9 +1,7 @@
-.DS_STORE
 node_modules
-/.mf
+
 /.cache
-/build
-/dist
+/functions/\[\[path\]\].js
+/functions/\[\[path\]\].js.map
 /public/build
-/app/styles/tailwind.css
-/.env
+.env

@@ -8,10 +8,10 @@ import {
   ScrollRestoration,
   useCatch,
   useMatches,
-} from "remix";
+} from "@remix-run/react";
 import Container from "~/components/container";
 import * as Grid from "~/components/grid";
-import type { LinksFunction } from "remix";
+import type { LinksFunction } from "@remix-run/cloudflare";
 import tailwindStylesUrl from "~/styles/tailwind.css";
 import PageTitle from "./components/page-title";
 import Lede from "./components/lede";

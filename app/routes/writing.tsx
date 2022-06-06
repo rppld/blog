@@ -1,6 +1,7 @@
-import { useLoaderData } from "remix";
-import type { MetaFunction, LoaderFunction } from "remix";
-import { getResource, Post } from "~/lib/storyblok";
+import { useLoaderData } from "@remix-run/react";
+import type { MetaFunction, LoaderFunction } from "@remix-run/cloudflare";
+import type { Post } from "~/lib/storyblok";
+import { getResource } from "~/lib/storyblok";
 import * as ResourceList from "~/components/resource-list";
 import Container from "~/components/container";
 import { format } from "date-fns";
