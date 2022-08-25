@@ -27,9 +27,9 @@ type Data = {
 export let loader: LoaderFunction = () => {
   const data: Data = {
     title:
-      "Hi, I’m Philipp. I’m a UI developer with a background in information design, working at the intersection of design and technology. I’m currently building a marketplace for pre-owned, high-end watches at Montro.",
+      "Hi, I’m Philipp. I’m a UI developer with a background in information design. I’m currently building a science-based, open data platform for nature restoration and conservation.",
     description:
-      "Before Montro I worked at Mollie, one of the fastest growing payment services in Europe.",
+      "I’ve previously worked in design agencies, early-stage startups as well as established scale-ups such as Mollie, one of the fastest growing payment services in Europe.",
     links: [
       { text: "Twitter", handle: "@rppld", href: "https://twitter.com/rppld" },
       {
@@ -45,11 +45,18 @@ export let loader: LoaderFunction = () => {
     ],
     work: [
       {
+        text: "@rppld",
+        role: "Freelance UI developer",
+        href: "https://rppld.com",
+        fromYear: format(new Date("2022"), "yyyy"),
+        toYear: null,
+      },
+      {
         text: "Montro",
         role: "Lead UI developer",
         href: "https://montro.com/en",
         fromYear: format(new Date("2021"), "yyyy"),
-        toYear: null,
+        toYear: format(new Date("2022"), "yy"),
       },
       {
         text: "Mollie",
@@ -74,7 +81,7 @@ export let loader: LoaderFunction = () => {
       },
       {
         text: "Rppld.com",
-        role: "UI designer/developer",
+        role: "Freelance UI designer/developer",
         href: "https://rppld.com/",
         fromYear: format(new Date("2013"), "yyyy"),
         toYear: format(new Date("2016"), "yy"),
