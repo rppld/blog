@@ -1,6 +1,4 @@
 import * as React from "react";
-import type { LinkProps as ReactRouterLinkProps } from "react-router-dom";
-import { Link } from "@remix-run/react";
 
 export function List(
   props: React.HTMLProps<HTMLUListElement>
@@ -14,23 +12,15 @@ export function Item(
   return <li {...props} />;
 }
 
-function isReactRouterLink(
-  props: ReactRouterLinkProps | React.HTMLProps<HTMLAnchorElement>
-): props is ReactRouterLinkProps {
-  return (props as ReactRouterLinkProps).to !== undefined;
-}
-
 export function ItemLink(
-  props: React.HTMLProps<HTMLAnchorElement> | ReactRouterLinkProps
+  props: React.HTMLProps<HTMLAnchorElement>
 ): React.ReactElement {
-  const className =
-    "flex items-center space-x-4 hover:bg-black/5 -ml-2 -mr-2 p-2 rounded-lg";
-
-  if (isReactRouterLink(props)) {
-    return <Link className={className} {...props} />;
-  }
-
-  return <a className={className} {...props} />;
+  return (
+    <a
+      className="flex items-center space-x-4 hover:bg-black/5 -ml-2 -mr-2 p-2 rounded-lg"
+      {...props}
+    />
+  );
 }
 
 export function ItemTitle(

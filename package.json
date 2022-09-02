@@ -1,42 +1,29 @@
 {
+  "name": "blog",
+  "version": "0.1.0",
   "private": true,
-  "sideEffects": false,
   "scripts": {
-    "build": "remix build",
-    "dev:remix": "remix watch",
-    "dev:wrangler": "cross-env NODE_ENV=development wrangler pages dev ./public",
-    "dev": "remix build && run-p dev:*",
-    "start": "cross-env NODE_ENV=production npm run dev:wrangler"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@remix-run/cloudflare": "^1.7.0",
-    "@remix-run/cloudflare-pages": "^1.7.0",
-    "@remix-run/react": "^1.7.0",
+    "autoprefixer": "^10.4.8",
     "clsx": "^1.2.1",
-    "cross-env": "^7.0.3",
     "date-fns": "^2.29.2",
-    "lodash": "^4.17.21",
-    "marked": "^4.0.19",
-    "querystringify": "^2.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "next": "12.2.5",
+    "postcss": "^8.4.16",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "^3.1.8"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^3.14.1",
-    "@remix-run/dev": "^1.7.0",
-    "@remix-run/eslint-config": "^1.7.0",
-    "@types/lodash": "^4.14.184",
-    "@types/marked": "^4.0.6",
-    "@types/querystringify": "^2.0.0",
-    "@types/react": "^18.0.17",
-    "@types/react-dom": "^18.0.6",
-    "eslint": "^8.22.0",
-    "npm-run-all": "^4.1.5",
-    "tailwindcss": "^3.1.8",
-    "typescript": "^4.7.4",
-    "wrangler": "beta"
-  },
-  "engines": {
-    "node": ">=14"
+    "@types/node": "18.7.14",
+    "@types/react": "18.0.18",
+    "@types/react-dom": "18.0.6",
+    "eslint": "8.23.0",
+    "eslint-config-next": "12.2.5",
+    "typescript": "4.8.2"
   }
 }
