@@ -23,7 +23,7 @@ type Data = {
 
 const data: Data = {
   title:
-    "Hi, I’m Philipp. I’m a UI developer with a background in information design. I’m currently building a science-based, open data platform for nature restoration and conservation.",
+    "Hi, I’m Philipp. I’m a JavaScript developer with a background in information design. I’m currently building a science-based, open data platform for nature restoration and conservation.",
   description:
     "I’ve previously worked in design agencies, early-stage startups as well as established scale-ups such as Mollie, one of the fastest growing payment services in Europe.",
   links: [
@@ -41,9 +41,9 @@ const data: Data = {
   ],
   work: [
     {
-      text: "@rppld",
+      text: "Restor",
       role: "Freelance UI developer",
-      href: "https://rppld.com",
+      href: "https://restor.eco/",
       fromYear: format(new Date("2022"), "yyyy"),
       toYear: null,
     },
@@ -96,10 +96,10 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Philipp Rappold – UI Developer</title>
+        <title>Philipp Rappold, JavaScript Engineer</title>
         <meta
           name="description"
-          content="Philipp Rappold is an information designer and UI developer in Amsterdam, working at the intersection of design and technology. He takes photos for fun."
+          content="Philipp Rappold is a software engineer specialising in large-scale JavaScript applications. He takes photos for fun."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
