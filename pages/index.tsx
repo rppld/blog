@@ -76,7 +76,7 @@ const data: Data = {
       toYear: format(new Date("2018"), "yy"),
     },
     {
-      text: "P12D",
+      text: "Rppld.com",
       role: "UI designer and developer",
       href: "https://rppld.com/",
       fromYear: format(new Date("2013"), "yyyy"),
