@@ -42,7 +42,7 @@ const data: Data = {
   work: [
     {
       text: "Restor",
-      role: "Freelance UI developer",
+      role: "UI developer",
       href: "https://restor.eco/",
       fromYear: format(new Date("2022"), "yyyy"),
       toYear: null,
@@ -70,14 +70,14 @@ const data: Data = {
     },
     {
       text: "Bolden",
-      role: "UI designer/developer",
+      role: "UI designer and developer",
       href: "https://www.bolden.nl/",
       fromYear: format(new Date("2016"), "yyyy"),
       toYear: format(new Date("2018"), "yy"),
     },
     {
-      text: "Rppld.com",
-      role: "Freelance UI designer/developer",
+      text: "P12D",
+      role: "UI designer and developer",
       href: "https://rppld.com/",
       fromYear: format(new Date("2013"), "yyyy"),
       toYear: format(new Date("2016"), "yy"),
@@ -187,7 +187,7 @@ const Home: NextPage = () => {
           <Grid.Container>
             <Grid.Main>
               <p className="opacity-30 text-sm md:text-base">
-                &copy; {new Date().getFullYear()} rppld.com
+                &copy; {new Date().getFullYear()} Philipp Rappold
               </p>
             </Grid.Main>
           </Grid.Container>
