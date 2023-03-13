@@ -23,9 +23,9 @@ type Data = {
 
 const data: Data = {
   title:
-    "Hi, I’m Philipp. I’m a JavaScript developer with a background in information design. I’m currently building a science-based, open data platform for nature restoration and conservation.",
+    "Hi, I’m Philipp. I’m a software developer with a background in information design. I specialize in building large-scale JavaScript applications.",
   description:
-    "I’ve previously worked in design agencies, early-stage startups as well as established scale-ups such as Mollie, one of the fastest growing payment services in Europe.",
+    "My current focus is on creating a science-based, open data platform to support nature preservation and restoration efforts.",
   links: [
     { text: "Twitter", handle: "@rppld", href: "https://twitter.com/rppld" },
     {
@@ -70,15 +70,15 @@ const data: Data = {
     },
     {
       text: "Bolden",
-      role: "UI designer and developer",
+      role: "UI designer/developer",
       href: "https://www.bolden.nl/",
       fromYear: format(new Date("2016"), "yyyy"),
       toYear: format(new Date("2018"), "yy"),
     },
     {
-      text: "Rppld.com",
-      role: "UI designer and developer",
-      href: "https://rppld.com/",
+      text: "@rppld",
+      role: "Freelance UI designer/developer",
+      href: "https://www.rppld.com/",
       fromYear: format(new Date("2013"), "yyyy"),
       toYear: format(new Date("2016"), "yy"),
     },
