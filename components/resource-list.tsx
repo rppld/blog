@@ -1,31 +1,33 @@
 import * as React from "react";
+import { cn } from "../lib/utils";
 
-export function List(
-  props: React.HTMLProps<HTMLUListElement>
-): React.ReactElement {
-  return <ul className="flex flex-col -mt-2 -mb-2" {...props} />;
+export function List({
+  className,
+  ...props
+}: React.HTMLProps<HTMLUListElement>) {
+  return <ul className={cn("grid grid-cols-1 gap-8", className)} {...props} />;
 }
 
-export function Item(
-  props: React.HTMLProps<HTMLLIElement>
-): React.ReactElement {
-  return <li {...props} />;
+export function Item(props: React.HTMLProps<HTMLLIElement>) {
+  return <li className="relative group" {...props} />;
 }
 
-export function ItemLink(
-  props: React.HTMLProps<HTMLAnchorElement>
-): React.ReactElement {
+export function ItemLink({
+  children,
+  ...props
+}: React.HTMLProps<HTMLAnchorElement>) {
   return (
-    <a
-      className="flex items-center space-x-4 hover:bg-black/5 -ml-2 -mr-2 p-2 rounded-lg"
-      {...props}
-    />
+    <>
+      <div className="absolute -inset-x-2 lg:-inset-x-4 -inset-y-4 z-0 scale-95 bg-black/5 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 rounded-xl"></div>
+      <a {...props}>
+        <span className="absolute -inset-x-2 lg:-inset-x-4 -inset-y-4 z-20 rounded-xl" />
+        <span className="flex items-center space-x-4">{children}</span>
+      </a>
+    </>
   );
 }
 
-export function ItemTitle(
-  props: React.HTMLProps<HTMLSpanElement>
-): React.ReactElement {
+export function ItemTitle(props: React.HTMLProps<HTMLSpanElement>) {
   return (
     <span
       className="flex-none font-medium text-sm md:text-base lg:text-lg"
@@ -34,9 +36,7 @@ export function ItemTitle(
   );
 }
 
-export function ItemSpacer(
-  props: React.HTMLProps<HTMLSpanElement>
-): React.ReactElement {
+export function ItemSpacer(props: React.HTMLProps<HTMLSpanElement>) {
   return (
     <span
       className="flex-shrink w-full border-t border-dashed border-black/30"
@@ -45,9 +45,7 @@ export function ItemSpacer(
   );
 }
 
-export function ItemText(
-  props: React.HTMLProps<HTMLSpanElement>
-): React.ReactElement {
+export function ItemText(props: React.HTMLProps<HTMLSpanElement>) {
   return (
     <span
       className="flex-none opacity-60 text-sm md:text-base lg:text-lg"
@@ -56,12 +54,10 @@ export function ItemText(
   );
 }
 
-export function ItemData(
-  props: React.HTMLProps<HTMLSpanElement>
-): React.ReactElement {
+export function ItemData(props: React.HTMLProps<HTMLSpanElement>) {
   return (
     <span
-      className="flex-none font-mono opacity-30 text-sm md:text-base lg:text-lg"
+      className="flex-none font-mono opacity-30 text-sm md:text-base"
       {...props}
     />
   );
