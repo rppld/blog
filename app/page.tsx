@@ -12,6 +12,8 @@ import {
 } from "../components/card";
 import Image from "next/image";
 import { pageData } from "../data/page";
+import { TypographyLead } from "../components/typography-lead";
+import { TypographyH2 } from "../components/typography-h2";
 
 export default function Home() {
   return (
@@ -26,36 +28,35 @@ export default function Home() {
         </Container>
       </header>
 
-      <main>
+      <main className="space-y-24">
         <Container>
           <PageGrid.Container>
             <PageGrid.Main className="space-y-4">
-              <TypographyH1>{pageData.description}</TypographyH1>
+              <TypographyH1>Hello, I’m Philipp</TypographyH1>
+              <TypographyLead>{pageData.description}</TypographyLead>
             </PageGrid.Main>
           </PageGrid.Container>
         </Container>
 
-        <Container className="mt-12">
+        <Container>
           <PageGrid.Container>
             <PageGrid.Aside>
-              <h2 className="text-base lg:text-lg font-medium opacity-30">
-                Work
-              </h2>
+              <TypographyH2>Work</TypographyH2>
             </PageGrid.Aside>
             <PageGrid.Main>
-              <ul className="grid gap-[2px] md:grid-cols-2">
+              <ul className="grid md:grid-cols-2 gap-8">
                 {pageData.work.map((item) => (
-                  <li className="flex" key={item.link.href}>
+                  <ResourceList.Item className="flex" key={item.title}>
                     <Card>
                       <CardHeader>
-                        <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 text-zinc-300 -translate-x-[2px] -translate-y-[2px]">
+                        <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 text-zinc-300 -translate-x-[2px] -translate-y-[2px]">
                           {item.imageUrl ? (
                             <Image
                               src={item.imageUrl}
                               alt={item.title}
                               width={200}
                               height={200}
-                              className="h-10 w-10 rounded-full"
+                              className="h-12 w-12 rounded-full"
                             />
                           ) : (
                             <svg
@@ -80,9 +81,13 @@ export default function Home() {
                           )}
                         </div>
                         <CardTitle>
-                          <ResourceList.ItemLink href={item.link.href}>
-                            {item.title}
-                          </ResourceList.ItemLink>
+                          {item.link ? (
+                            <ResourceList.ItemLink href={item.link.href}>
+                              {item.title}
+                            </ResourceList.ItemLink>
+                          ) : (
+                            item.title
+                          )}
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
@@ -94,13 +99,13 @@ export default function Home() {
                         </p>
                       </CardFooter>
                     </Card>
-                  </li>
+                  </ResourceList.Item>
                 ))}
 
                 <li className="flex">
-                  <Card className="bg-black/90 hover:bg-black border-black/20">
+                  <Card>
                     <CardHeader>
-                      <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 text-black -translate-x-[2px] -translate-y-[2px]">
+                      <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 text-black -translate-x-[2px] -translate-y-[2px]">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="24"
@@ -117,7 +122,10 @@ export default function Home() {
                         </svg>
                       </div>
                       <CardTitle className="text-white">
-                        <ResourceList.ItemLink href="mailto:philipp@rppld.com">
+                        <ResourceList.ItemLink
+                          className="bg-black/90 hover:bg-black border-black/20 lg:opacity-1 lg:scale-100"
+                          href="mailto:philipp@rppld.com"
+                        >
                           Get in touch
                         </ResourceList.ItemLink>
                       </CardTitle>
@@ -135,12 +143,10 @@ export default function Home() {
           </PageGrid.Container>
         </Container>
 
-        <Container className="mt-12">
+        <Container>
           <PageGrid.Container>
             <PageGrid.Aside>
-              <h2 className="text-base lg:text-lg font-medium opacity-30">
-                Elsewhere
-              </h2>
+              <TypographyH2>Elsewhere</TypographyH2>
             </PageGrid.Aside>
             <PageGrid.Main>
               <ResourceList.List>
