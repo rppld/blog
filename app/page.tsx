@@ -43,7 +43,7 @@ export default function Home() {
               </h2>
             </PageGrid.Aside>
             <PageGrid.Main>
-              <ul className="grid gap-4 md:grid-cols-2">
+              <ul className="grid gap-[2px] md:grid-cols-2">
                 {pageData.work.map((item) => (
                   <li className="flex" key={item.link.href}>
                     <Card>
