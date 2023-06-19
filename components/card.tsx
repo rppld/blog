@@ -1,5 +1,6 @@
 import * as React from "react";
 import { cn } from "../lib/utils";
+import { TypographyH3 } from "./typography-h3";
 
 const Card = React.forwardRef<
   HTMLDivElement,
@@ -7,10 +8,7 @@ const Card = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn(
-      "rounded-xl bg-white hover:bg-white/50 transition shadow-sm space-y-4 relative p-6 w-full",
-      className
-    )}
+    className={cn("space-y-4 relative w-full", className)}
     {...props}
   />
 ));
@@ -31,13 +29,7 @@ CardHeader.displayName = "CardHeader";
 const CardTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-  <h3
-    ref={ref}
-    className={cn("text-lg font-semibold leading-none", className)}
-    {...props}
-  />
-));
+>((props, ref) => <TypographyH3 ref={ref} {...props} />);
 CardTitle.displayName = "CardTitle";
 
 const CardDescription = React.forwardRef<

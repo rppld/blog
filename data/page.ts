@@ -15,7 +15,7 @@ type PageData = {
     text: string;
     imageUrl: string | null;
     role: string;
-    link: Link;
+    link: Link | null;
     fromYear: string;
     toYear: string | null;
   }[];
@@ -24,7 +24,7 @@ type PageData = {
 export const pageData: PageData = {
   title: "Philipp Rappold, Software Developer",
   description:
-    "Software developer with a background in design, specialized in building large-scale JavaScript applications.",
+    "I’m a software developer with a background in information design and I specialise in building large-scale JavaScript applications.",
   links: [
     { title: "Twitter", text: "@rppld", href: "https://twitter.com/rppld" },
     {
@@ -104,10 +104,7 @@ export const pageData: PageData = {
       text: "Independently consulting clients in music, culture and advertising.",
       imageUrl: null,
       role: "Freelance UI designer/developer",
-      link: {
-        href: "https://www.rppld.com/",
-        text: "rppld.com",
-      },
+      link: null,
       fromYear: format(new Date("2013"), "yyyy"),
       toYear: null,
     },

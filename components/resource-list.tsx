@@ -1,5 +1,6 @@
 import * as React from "react";
 import { cn } from "../lib/utils";
+import { TypographyH3 } from "./typography-h3";
 
 export function List({
   className,
@@ -8,33 +9,42 @@ export function List({
   return <ul className={cn("grid grid-cols-1 gap-8", className)} {...props} />;
 }
 
-export function Item(props: React.HTMLProps<HTMLLIElement>) {
-  return <li className="relative group" {...props} />;
-}
+export const Item = React.forwardRef<
+  HTMLLIElement,
+  React.HTMLAttributes<HTMLLIElement>
+>(({ className, ...props }, ref) => (
+  <li ref={ref} className={cn("group relative", className)} {...props} />
+));
+Item.displayName = "Item";
 
 export function ItemLink({
   children,
+  className,
   ...props
-}: React.HTMLProps<HTMLAnchorElement>) {
+}: React.HTMLProps<HTMLAnchorElement> & { inverted?: boolean }) {
   return (
     <>
-      <div className="absolute -inset-x-2 lg:-inset-x-4 -inset-y-4 z-0 scale-95 bg-black/5 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 rounded-xl"></div>
+      <div
+        className={cn(
+          "absolute -inset-3 lg:-inset-4 z-0 lg:scale-95 bg-white lg:opacity-0 lg:group-hover:scale-100 lg:group-hover:opacity-100 rounded-3xl shadow-sm transition",
+          className
+        )}
+      ></div>
       <a {...props}>
-        <span className="absolute -inset-x-2 lg:-inset-x-4 -inset-y-4 z-20 rounded-xl" />
-        <span className="flex items-center space-x-4">{children}</span>
+        <span className="absolute -inset-3 lg:-inset-4 z-20 rounded-xl" />
+        <span className="flex items-center space-x-4 z-20 relative">
+          {children}
+        </span>
       </a>
     </>
   );
 }
 
-export function ItemTitle(props: React.HTMLProps<HTMLSpanElement>) {
-  return (
-    <span
-      className="flex-none font-medium text-sm md:text-base lg:text-lg"
-      {...props}
-    />
-  );
-}
+export const ItemTitle = React.forwardRef<
+  HTMLHeadingElement,
+  React.HTMLAttributes<HTMLHeadingElement>
+>((props, ref) => <TypographyH3 ref={ref} {...props} />);
+ItemTitle.displayName = "ItemTitle";
 
 export function ItemSpacer(props: React.HTMLProps<HTMLSpanElement>) {
   return (
