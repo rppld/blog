@@ -9,6 +9,7 @@ type Link = {
 type PageData = {
   title: string;
   description: string;
+  smallprint: string;
   links: Link[];
   about: {
     texts: string[];
@@ -31,6 +32,7 @@ export const pageData: PageData = {
   title: "Philipp Rappold, Software Developer",
   description:
     "Design-minded software developer specialized in building large-scale JavaScript applications.",
+  smallprint: `Copyright © ${new Date().getFullYear()} Philipp Rappold. The site is built with Next.js + Tailwind CSS and hosted with Vercel.`,
   links: [
     { title: "Twitter", text: "@rppld", href: "https://twitter.com/rppld" },
     {

@@ -161,9 +161,7 @@ export default function Home() {
         <Container>
           <PageGrid.Container>
             <PageGrid.Main>
-              <p className="text-sm text-black/30">
-                &copy; {new Date().getFullYear()} Philipp Rappold
-              </p>
+              <p className="text-md text-black/30">{pageData.smallprint}</p>
             </PageGrid.Main>
           </PageGrid.Container>
         </Container>
