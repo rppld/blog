@@ -34,7 +34,7 @@ export function ItemLink({
           "absolute -inset-3 lg:-inset-4 -z-10 bg-white rounded-xl shadow-md group-hover:shadow-lg transition",
           className
         )}
-      ></div>
+      />
       <a {...props}>
         <span className="absolute -inset-3 lg:-inset-4 rounded-xl" />
         <span className="flex items-center space-x-4">{children}</span>
