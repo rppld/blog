@@ -56,7 +56,7 @@ export const pageData: PageData = {
       title: "Restor",
       text: "Helped build a science-based, open data platform to support nature preservation and restoration efforts.",
       image: {
-        url: "./restor.jpeg",
+        url: "./restor.jpg",
         padded: true,
       },
       role: "UI developer",
@@ -71,7 +71,7 @@ export const pageData: PageData = {
       title: "Montro",
       text: "Development of a marketplace providing enthusiasts with a platform for buying and selling pre-owned, luxury timepieces.",
       image: {
-        url: "./montro.jpeg",
+        url: "./montro.jpg",
       },
       role: "UI developer",
       link: {
@@ -85,7 +85,7 @@ export const pageData: PageData = {
       title: "Mollie",
       text: "Enabled creative agencies and e-commerce platforms to integrate through Mollie’s partner program and drove the initiative to establish a design system to unify Mollie’s product portfolio.",
       image: {
-        url: "./mollie.jpeg",
+        url: "./mollie.jpg",
         padded: true,
       },
       role: "UI developer",
@@ -100,7 +100,7 @@ export const pageData: PageData = {
       title: "TicketSwap",
       text: "Initiated migration to universal front-end client and helped rebuild the web app from the ground up.",
       image: {
-        url: "./ticketswap.jpeg",
+        url: "./ticketswap.jpg",
         padded: true,
       },
       role: "UI developer",
@@ -115,7 +115,7 @@ export const pageData: PageData = {
       title: "Bolden",
       text: "Worked on medium to large scale e–commerce projects in the Dutch music and fashion landscape.",
       image: {
-        url: "./bolden.jpeg",
+        url: "./bolden.jpg",
         padded: true,
       },
       role: "UI designer/developer",
@@ -130,7 +130,7 @@ export const pageData: PageData = {
       title: "rppld.com",
       text: "Independently consulting clients in music, culture and advertising.",
       image: {
-        url: "./rppld.jpeg",
+        url: "./rppld.jpg",
       },
       role: "Freelance UI designer/developer",
       link: null,
@@ -141,7 +141,7 @@ export const pageData: PageData = {
       title: "MetaLab",
       text: "Designed user interfaces on the consulting-team for well-known clients and internal products.",
       image: {
-        url: "./metalab.jpeg",
+        url: "./metalab.jpg",
         padded: true,
       },
       role: "UI designer",
