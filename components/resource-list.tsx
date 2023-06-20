@@ -26,12 +26,12 @@ export function ItemLink({
   children,
   className,
   ...props
-}: React.HTMLProps<HTMLAnchorElement> & { inverted?: boolean }) {
+}: React.HTMLProps<HTMLAnchorElement>) {
   return (
     <>
       <div
         className={cn(
-          "absolute -inset-3 lg:-inset-4 -z-10 bg-white rounded-xl shadow-sm transition",
+          "absolute -inset-3 lg:-inset-4 -z-10 bg-white rounded-xl shadow-sm group-hover:shadow-lg transition",
           className
         )}
       ></div>

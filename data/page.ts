@@ -10,10 +10,16 @@ type PageData = {
   title: string;
   description: string;
   links: Link[];
+  about: {
+    texts: string[];
+  };
   work: {
     title: string;
     text: string;
-    imageUrl: string | null;
+    image: {
+      url: string;
+      padded?: boolean;
+    };
     role: string;
     link: Link | null;
     fromYear: string;
@@ -24,7 +30,7 @@ type PageData = {
 export const pageData: PageData = {
   title: "Philipp Rappold, Software Developer",
   description:
-    "Design-minded software developer specializing in building large-scale JavaScript applications.",
+    "Design-minded software developer specialized in building large-scale JavaScript applications.",
   links: [
     { title: "Twitter", text: "@rppld", href: "https://twitter.com/rppld" },
     {
@@ -38,11 +44,21 @@ export const pageData: PageData = {
       href: "https://www.linkedin.com/in/rppld/",
     },
   ],
+  about: {
+    texts: [
+      "Hello, I’m Philipp. I’m an Austrian software developer living in the Netherlands. The moniker “rppld” is my online alias and the name of my consulting business.",
+      "I studied design, yet turned to front-end development early on. I’m passionate about building large web applications and I’m a strong advocate for design systems and component-based UI development.",
+      "In my spare time I enjoy playing tennis, gardening, and hanging out with friends or my two cats, Kain and Abel.",
+    ],
+  },
   work: [
     {
       title: "Restor",
       text: "Helped build a science-based, open data platform to support nature preservation and restoration efforts.",
-      imageUrl: "./restor.jpeg",
+      image: {
+        url: "./restor.jpeg",
+        padded: true,
+      },
       role: "UI developer",
       link: {
         text: "restor.eco",
@@ -54,7 +70,9 @@ export const pageData: PageData = {
     {
       title: "Montro",
       text: "Development of a marketplace providing enthusiasts with a platform for buying and selling pre-owned, luxury timepieces.",
-      imageUrl: "./montro.jpeg",
+      image: {
+        url: "./montro.jpeg",
+      },
       role: "UI developer",
       link: {
         href: "https://montro.com/en",
@@ -66,7 +84,10 @@ export const pageData: PageData = {
     {
       title: "Mollie",
       text: "Enabled creative agencies and e-commerce platforms to integrate through Mollie’s partner program and drove the initiative to establish a design system to unify Mollie’s product portfolio.",
-      imageUrl: "./mollie.jpeg",
+      image: {
+        url: "./mollie.jpeg",
+        padded: true,
+      },
       role: "UI developer",
       link: {
         href: "https://www.mollie.com/en",
@@ -78,7 +99,10 @@ export const pageData: PageData = {
     {
       title: "TicketSwap",
       text: "Initiated migration to universal front-end client and helped rebuild the web app from the ground up.",
-      imageUrl: "./ticketswap.jpeg",
+      image: {
+        url: "./ticketswap.jpeg",
+        padded: true,
+      },
       role: "UI developer",
       link: {
         href: "https://www.ticketswap.com/",
@@ -90,7 +114,10 @@ export const pageData: PageData = {
     {
       title: "Bolden",
       text: "Worked on medium to large scale e–commerce projects in the Dutch music and fashion landscape.",
-      imageUrl: "./bolden.jpeg",
+      image: {
+        url: "./bolden.jpeg",
+        padded: true,
+      },
       role: "UI designer/developer",
       link: {
         href: "https://www.bolden.nl/",
@@ -102,7 +129,9 @@ export const pageData: PageData = {
     {
       title: "rppld.com",
       text: "Independently consulting clients in music, culture and advertising.",
-      imageUrl: null,
+      image: {
+        url: "./rppld.jpeg",
+      },
       role: "Freelance UI designer/developer",
       link: null,
       fromYear: format(new Date("2013"), "yyyy"),
@@ -111,7 +140,10 @@ export const pageData: PageData = {
     {
       title: "MetaLab",
       text: "Designed user interfaces on the consulting-team for well-known clients and internal products.",
-      imageUrl: "./metalab.jpeg",
+      image: {
+        url: "./metalab.jpeg",
+        padded: true,
+      },
       role: "UI designer",
       link: {
         href: "https://www.metalab.com/",

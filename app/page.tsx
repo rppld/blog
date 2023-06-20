@@ -14,11 +14,13 @@ import Image from "next/image";
 import { pageData } from "../data/page";
 import { TypographyLead } from "../components/typography-lead";
 import { TypographyH2 } from "../components/typography-h2";
+import { cn } from "../lib/utils";
+import { TypographyP } from "../components/typography-p";
 
 export default function Home() {
   return (
     <div>
-      <main className="space-y-24">
+      <main className="space-y-24 pt-3 md:pt-5 lg:pt-8">
         <Container>
           <PageGrid.Container>
             <PageGrid.Main>
@@ -40,35 +42,16 @@ export default function Home() {
                     <Card>
                       <CardHeader>
                         <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md text-zinc-300 -translate-x-[2px] -translate-y-[2px]">
-                          {item.imageUrl ? (
-                            <Image
-                              src={item.imageUrl}
-                              alt={item.title}
-                              width={200}
-                              height={200}
-                              className="h-12 w-12 rounded-full"
-                            />
-                          ) : (
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            >
-                              <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
-                              <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
-                              <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
-                              <path d="M10 6h4" />
-                              <path d="M10 10h4" />
-                              <path d="M10 14h4" />
-                              <path d="M10 18h4" />
-                            </svg>
-                          )}
+                          <Image
+                            src={item.image.url}
+                            alt={item.title}
+                            width={200}
+                            height={200}
+                            className={cn(
+                              "rounded-full",
+                              item.image.padded ? "h-12 w-12" : "w-full h-full"
+                            )}
+                          />
                         </div>
                       </CardHeader>
                       <CardContent>
@@ -93,7 +76,7 @@ export default function Home() {
                   </ResourceList.Item>
                 ))}
 
-                <li className="flex">
+                <li className="group flex">
                   <Card>
                     <CardHeader>
                       <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 text-black -translate-x-[2px] -translate-y-[2px]">
@@ -107,16 +90,17 @@ export default function Home() {
                           strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
+                          className="w-9 h-9"
                         >
-                          <circle cx="12" cy="12" r="4" />
-                          <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8" />
+                          <polyline points="22 12 16 12 14 15 10 15 8 12 2 12" />
+                          <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
                         </svg>
                       </div>
                     </CardHeader>
                     <CardContent>
                       <CardTitle className="text-white">
                         <ResourceList.ItemLink
-                          className="bg-black/90 hover:bg-black border-black/20 lg:opacity-1 lg:scale-100"
+                          className="bg-black"
                           href="mailto:philipp@rppld.com"
                         >
                           Get in touch
@@ -130,6 +114,21 @@ export default function Home() {
                   </Card>
                 </li>
               </ul>
+            </PageGrid.Main>
+          </PageGrid.Container>
+        </Container>
+
+        <Container>
+          <PageGrid.Container>
+            <PageGrid.Aside>
+              <TypographyH2>About</TypographyH2>
+            </PageGrid.Aside>
+            <PageGrid.Main className="space-y-8">
+              {pageData.about.texts.map((text) => (
+                <TypographyP key={text} className="text-black">
+                  {text}
+                </TypographyP>
+              ))}
             </PageGrid.Main>
           </PageGrid.Container>
         </Container>

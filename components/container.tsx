@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import * as React from "react";
+import { cn } from "../lib/utils";
 
 export default function Container({
   className,
@@ -7,7 +7,7 @@ export default function Container({
 }: React.HTMLProps<HTMLDivElement>) {
   return (
     <div
-      className={clsx("max-w-[100rem] mx-auto px-3 md:px-5 lg:px-8", className)}
+      className={cn("max-w-[100rem] ml-auto px-3 md:px-5 lg:px-8", className)}
       {...props}
     />
   );
