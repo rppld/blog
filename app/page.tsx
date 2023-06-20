@@ -16,6 +16,8 @@ import { TypographyLead } from "../components/typography-lead";
 import { TypographyH2 } from "../components/typography-h2";
 import { cn } from "../lib/utils";
 import { TypographyP } from "../components/typography-p";
+import { TypographyMono } from "../components/typography-mono";
+import { TypographySmall } from "../components/typography-small";
 
 export default function Home() {
   return (
@@ -67,10 +69,12 @@ export default function Home() {
                         <CardDescription>{item.text}</CardDescription>
                       </CardContent>
                       <CardFooter>
-                        <p>
+                        <TypographyMono>
                           {item.fromYear}—{item.toYear || "\u00a0\u00a0"}
-                        </p>
-                        {item.link ? <p>{item.link.text}</p> : null}
+                        </TypographyMono>
+                        <TypographyMono>
+                          {item.link ? <p>{item.link.text}</p> : null}
+                        </TypographyMono>
                       </CardFooter>
                     </Card>
                   </ResourceList.Item>
@@ -98,15 +102,15 @@ export default function Home() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <CardTitle className="text-white">
+                      <CardTitle className="text-white dark:text-black">
                         <ResourceList.ItemLink
-                          className="bg-black"
+                          className="bg-black dark:bg-white"
                           href="mailto:philipp@rppld.com"
                         >
                           Get in touch
                         </ResourceList.ItemLink>
                       </CardTitle>
-                      <CardDescription className="text-white/60">
+                      <CardDescription className="text-white/60 dark:text-black/60">
                         Discuss consulting inquiries or work opportunities? I’d
                         love to hear from you!
                       </CardDescription>
@@ -125,7 +129,7 @@ export default function Home() {
             </PageGrid.Aside>
             <PageGrid.Main className="space-y-8">
               {pageData.about.texts.map((text) => (
-                <TypographyP key={text} className="text-black">
+                <TypographyP key={text} className="text-black dark:text-white">
                   {text}
                 </TypographyP>
               ))}
@@ -161,7 +165,9 @@ export default function Home() {
         <Container>
           <PageGrid.Container>
             <PageGrid.Main>
-              <p className="text-md text-black/30">{pageData.smallprint}</p>
+              <p>
+                <TypographySmall>{pageData.smallprint}</TypographySmall>
+              </p>
             </PageGrid.Main>
           </PageGrid.Container>
         </Container>

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { cn } from "../lib/utils";
 import { TypographyH3 } from "./typography-h3";
+import { TypographyMono } from "./typography-mono";
 
 export function List({
   className,
@@ -35,7 +36,7 @@ export function ItemLink({
     <>
       <div
         className={cn(
-          "absolute -inset-3 lg:-inset-4 -z-10 bg-white rounded-xl shadow-md group-hover:shadow-lg transition",
+          "absolute -inset-3 lg:-inset-4 -z-10 bg-white dark:bg-black rounded-xl shadow-md group-hover:shadow-lg transition",
           className
         )}
       />
@@ -56,7 +57,7 @@ ItemTitle.displayName = "ItemTitle";
 export function ItemSpacer(props: React.HTMLProps<HTMLSpanElement>) {
   return (
     <span
-      className="flex-shrink w-full border-t border-dashed border-black/30"
+      className="flex-shrink w-full border-t border-dashed border-black/30 dark:border-white/30"
       {...props}
     />
   );
@@ -71,11 +72,8 @@ export function ItemText(props: React.HTMLProps<HTMLSpanElement>) {
   );
 }
 
-export function ItemData(props: React.HTMLProps<HTMLSpanElement>) {
-  return (
-    <span
-      className="flex-none font-mono text-black/30 text-sm md:text-base"
-      {...props}
-    />
-  );
-}
+export const ItemData = React.forwardRef<
+  HTMLSpanElement,
+  React.HTMLAttributes<HTMLSpanElement>
+>((props, ref) => <TypographyMono ref={ref} {...props} />);
+ItemData.displayName = "ItemData";
