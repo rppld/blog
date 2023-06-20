@@ -104,7 +104,7 @@ export default function Home() {
                     <CardContent>
                       <CardTitle className="text-white dark:text-black">
                         <ResourceList.ItemLink
-                          className="bg-black dark:bg-white"
+                          className="bg-black dark:bg-white/95 dark:group-hover:bg-white"
                           href="mailto:philipp@rppld.com"
                         >
                           Get in touch
@@ -115,6 +115,11 @@ export default function Home() {
                         love to hear from you!
                       </CardDescription>
                     </CardContent>
+                    <CardFooter>
+                      <TypographyMono className="text-white/60 dark:text-black/60">
+                        philipp[at]rppld.com
+                      </TypographyMono>
+                    </CardFooter>
                   </Card>
                 </li>
               </ul>

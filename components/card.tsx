@@ -9,7 +9,7 @@ const Card = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("space-y-4 relative w-full", className)}
+    className={cn("space-y-4 relative w-full flex flex-col", className)}
     {...props}
   />
 ));
@@ -38,7 +38,7 @@ CardDescription.displayName = "CardDescription";
 const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->((props, ref) => <div ref={ref} {...props} />);
+>((props, ref) => <div ref={ref} className="flex-1" {...props} />);
 CardContent.displayName = "CardContent";
 
 const CardFooter = React.forwardRef<
