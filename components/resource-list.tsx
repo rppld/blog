@@ -6,7 +6,12 @@ export function List({
   className,
   ...props
 }: React.HTMLProps<HTMLUListElement>) {
-  return <ul className={cn("grid grid-cols-1 gap-8", className)} {...props} />;
+  return (
+    <ul
+      className={cn("grid grid-cols-1 gap-8 lg:gap-12", className)}
+      {...props}
+    />
+  );
 }
 
 export const Item = React.forwardRef<
@@ -26,15 +31,13 @@ export function ItemLink({
     <>
       <div
         className={cn(
-          "absolute -inset-3 lg:-inset-4 z-0 lg:scale-95 bg-white lg:opacity-0 lg:group-hover:scale-100 lg:group-hover:opacity-100 rounded-3xl shadow-sm transition",
+          "absolute -inset-3 lg:-inset-4 -z-10 bg-white rounded-xl shadow-sm transition",
           className
         )}
       ></div>
       <a {...props}>
-        <span className="absolute -inset-3 lg:-inset-4 z-20 rounded-xl" />
-        <span className="flex items-center space-x-4 z-20 relative">
-          {children}
-        </span>
+        <span className="absolute -inset-3 lg:-inset-4 rounded-xl" />
+        <span className="flex items-center space-x-4">{children}</span>
       </a>
     </>
   );
@@ -67,7 +70,7 @@ export function ItemText(props: React.HTMLProps<HTMLSpanElement>) {
 export function ItemData(props: React.HTMLProps<HTMLSpanElement>) {
   return (
     <span
-      className="flex-none font-mono opacity-30 text-sm md:text-base"
+      className="flex-none font-mono text-black/30 text-sm md:text-base"
       {...props}
     />
   );

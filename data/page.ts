@@ -24,7 +24,7 @@ type PageData = {
 export const pageData: PageData = {
   title: "Philipp Rappold, Software Developer",
   description:
-    "I’m a software developer with a background in information design and I specialise in building large-scale JavaScript applications.",
+    "Design-minded software developer specializing in building large-scale JavaScript applications.",
   links: [
     { title: "Twitter", text: "@rppld", href: "https://twitter.com/rppld" },
     {
@@ -53,7 +53,7 @@ export const pageData: PageData = {
     },
     {
       title: "Montro",
-      text: "Helped build a marketplace for pre-owned, high-end watches.",
+      text: "Development of a marketplace providing enthusiasts with a platform for buying and selling pre-owned, luxury timepieces.",
       imageUrl: "./montro.jpeg",
       role: "UI developer",
       link: {
@@ -110,7 +110,7 @@ export const pageData: PageData = {
     },
     {
       title: "MetaLab",
-      text: "Designed user interfaces on the consulting-team for clients such as Planned Parenthood and internal products such as Ballpark.",
+      text: "Designed user interfaces on the consulting-team for well-known clients and internal products.",
       imageUrl: "./metalab.jpeg",
       role: "UI designer",
       link: {

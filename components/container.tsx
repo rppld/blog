@@ -7,7 +7,7 @@ export default function Container({
 }: React.HTMLProps<HTMLDivElement>) {
   return (
     <div
-      className={clsx("max-w-5xl mx-auto px-3 md:px-6 lg:px-12", className)}
+      className={clsx("max-w-[100rem] mx-auto px-3 md:px-5 lg:px-8", className)}
       {...props}
     />
   );

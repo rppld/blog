@@ -7,7 +7,7 @@ export const TypographyH3 = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
-    className={cn("text-lg lg:text-xl font-medium", className)}
+    className={cn("text-lg lg:text-2xl font-bold tracking-tight", className)}
     {...props}
   />
 ));

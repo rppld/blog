@@ -18,21 +18,11 @@ import { TypographyH2 } from "../components/typography-h2";
 export default function Home() {
   return (
     <div>
-      <header className="py-12">
-        <Container>
-          <PageGrid.Container>
-            <PageGrid.Main>
-              <p className="font-medium text-sm">Philipp Rappold</p>
-            </PageGrid.Main>
-          </PageGrid.Container>
-        </Container>
-      </header>
-
       <main className="space-y-24">
         <Container>
           <PageGrid.Container>
-            <PageGrid.Main className="space-y-4">
-              <TypographyH1>Hello, I’m Philipp</TypographyH1>
+            <PageGrid.Main>
+              <TypographyH1>Philipp Rappold</TypographyH1>
               <TypographyLead>{pageData.description}</TypographyLead>
             </PageGrid.Main>
           </PageGrid.Container>
@@ -41,15 +31,15 @@ export default function Home() {
         <Container>
           <PageGrid.Container>
             <PageGrid.Aside>
-              <TypographyH2>Work</TypographyH2>
+              <TypographyH2>Work and contributions</TypographyH2>
             </PageGrid.Aside>
             <PageGrid.Main>
-              <ul className="grid md:grid-cols-2 gap-8">
+              <ul className="grid md:grid-cols-2 gap-8 lg:gap-12">
                 {pageData.work.map((item) => (
                   <ResourceList.Item className="flex" key={item.title}>
                     <Card>
                       <CardHeader>
-                        <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 text-zinc-300 -translate-x-[2px] -translate-y-[2px]">
+                        <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md text-zinc-300 -translate-x-[2px] -translate-y-[2px]">
                           {item.imageUrl ? (
                             <Image
                               src={item.imageUrl}
@@ -80,6 +70,8 @@ export default function Home() {
                             </svg>
                           )}
                         </div>
+                      </CardHeader>
+                      <CardContent>
                         <CardTitle>
                           {item.link ? (
                             <ResourceList.ItemLink href={item.link.href}>
@@ -89,14 +81,13 @@ export default function Home() {
                             item.title
                           )}
                         </CardTitle>
-                      </CardHeader>
-                      <CardContent>
                         <CardDescription>{item.text}</CardDescription>
                       </CardContent>
                       <CardFooter>
                         <p>
                           {item.fromYear}—{item.toYear || "\u00a0\u00a0"}
                         </p>
+                        {item.link ? <p>{item.link.text}</p> : null}
                       </CardFooter>
                     </Card>
                   </ResourceList.Item>
@@ -121,6 +112,8 @@ export default function Home() {
                           <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8" />
                         </svg>
                       </div>
+                    </CardHeader>
+                    <CardContent>
                       <CardTitle className="text-white">
                         <ResourceList.ItemLink
                           className="bg-black/90 hover:bg-black border-black/20 lg:opacity-1 lg:scale-100"
@@ -129,9 +122,7 @@ export default function Home() {
                           Get in touch
                         </ResourceList.ItemLink>
                       </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription className="text-white opacity-80 space-y-4">
+                      <CardDescription className="text-white/60">
                         Discuss consulting inquiries or work opportunities? I’d
                         love to hear from you!
                       </CardDescription>
@@ -167,11 +158,11 @@ export default function Home() {
         </Container>
       </main>
 
-      <footer className="py-12">
+      <footer className="py-24">
         <Container>
           <PageGrid.Container>
             <PageGrid.Main>
-              <p className="opacity-30 text-sm">
+              <p className="text-sm text-black/30">
                 &copy; {new Date().getFullYear()} Philipp Rappold
               </p>
             </PageGrid.Main>

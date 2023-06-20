@@ -1,7 +1,7 @@
 export function TypographyLead(props: React.HTMLProps<HTMLParagraphElement>) {
   return (
     <p
-      className="scroll-m-20 text-3xl tracking-tight lg:text-4xl text-black/30"
+      className="text-4xl lg:text-5xl font-extrabold tracking-tight text-black/40"
       {...props}
     />
   );

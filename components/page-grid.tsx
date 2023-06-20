@@ -20,13 +20,13 @@ export function Aside({
   className,
   ...props
 }: React.HTMLProps<HTMLDivElement>) {
-  return <div className={clsx("md:col-span-2", className)} {...props} />;
+  return <div className={clsx("md:col-span-4", className)} {...props} />;
 }
 
 export function Main({ className, ...props }: React.HTMLProps<HTMLDivElement>) {
   return (
     <div
-      className={clsx("md:col-span-10 md:col-start-3", className)}
+      className={clsx("md:col-span-8 md:col-start-5", className)}
       {...props}
     />
   );
