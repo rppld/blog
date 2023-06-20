@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { pageData } from "../data/page";
 import "./globals.css";
 
@@ -14,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-[#f8f8f8] antialiased">{children}</body>
+      <Analytics />
     </html>
   );
 }
