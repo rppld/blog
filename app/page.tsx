@@ -141,14 +141,14 @@ export default function Home() {
             <PageGrid.Main>
               <ResourceList.List>
                 {pageData.links.map((item) => (
-                  <ResourceList.Item key={item.href}>
-                    <ResourceList.ItemLink href={item.href}>
-                      <ResourceList.ItemTitle>
+                  <ResourceList.Item key={item.href} className="items-center">
+                    <ResourceList.ItemTitle>
+                      <ResourceList.ItemLink href={item.href}>
                         {item.title}
-                      </ResourceList.ItemTitle>
-                      <ResourceList.ItemSpacer />
-                      <ResourceList.ItemData>{item.text}</ResourceList.ItemData>
-                    </ResourceList.ItemLink>
+                      </ResourceList.ItemLink>
+                    </ResourceList.ItemTitle>
+                    <ResourceList.ItemSpacer />
+                    <ResourceList.ItemData>{item.text}</ResourceList.ItemData>
                   </ResourceList.Item>
                 ))}
               </ResourceList.List>

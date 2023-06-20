@@ -18,7 +18,11 @@ export const Item = React.forwardRef<
   HTMLLIElement,
   React.HTMLAttributes<HTMLLIElement>
 >(({ className, ...props }, ref) => (
-  <li ref={ref} className={cn("group relative", className)} {...props} />
+  <li
+    ref={ref}
+    className={cn("group relative flex gap-4", className)}
+    {...props}
+  />
 ));
 Item.displayName = "Item";
 
@@ -37,7 +41,7 @@ export function ItemLink({
       />
       <a {...props}>
         <span className="absolute -inset-3 lg:-inset-4 rounded-xl" />
-        <span className="flex items-center space-x-4">{children}</span>
+        {children}
       </a>
     </>
   );
