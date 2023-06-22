@@ -48,7 +48,7 @@ export const pageData: PageData = {
   ],
   about: {
     texts: [
-      "Hello, I’m Philipp. I’m an Austrian software developer living in the Netherlands. I do my best work being part of teams that contribute to large web applications. I’m a strong advocate for design systems and component-based UI development and, having a background in design, I feel most comfortable at the intersection where design meets engineering.",
+      "Hello, I’m Philipp. I’m an Austrian software developer living in the Netherlands. I do my best work being part of teams that contribute to large JavaScript applications. I’m a strong advocate for design systems and component-based UI development and, having a background in design, I feel most comfortable at the intersection where design meets engineering.",
       "In my spare time I enjoy playing tennis, gardening, and hanging out with friends or my two cats, Kain and Abel.",
       "The moniker “rppld” is my online alias and the name of my consulting business.",
     ],
