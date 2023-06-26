@@ -11,13 +11,17 @@ import {
   CardTitle,
 } from "../components/card";
 import Image from "next/image";
-import { pageData } from "../data/page";
+import { data } from "../data";
 import { TypographyLead } from "../components/typography-lead";
 import { TypographyH2 } from "../components/typography-h2";
-import { cn } from "../lib/utils";
+import { cn, markdownToHtml } from "../lib/utils";
 import { TypographyP } from "../components/typography-p";
 import { TypographyMono } from "../components/typography-mono";
 import { TypographySmall } from "../components/typography-small";
+import markdownStyles from "./markdown-styles.module.css";
+
+const linkTextClassName =
+  "group-hover:text-sky-400 dark:group-hover:text-sky-500 transition-colors";
 
 export default function Home() {
   return (
@@ -27,7 +31,7 @@ export default function Home() {
           <PageGrid.Container>
             <PageGrid.Main>
               <TypographyH1>Philipp Rappold</TypographyH1>
-              <TypographyLead>{pageData.description}</TypographyLead>
+              <TypographyLead>{data.page.description}</TypographyLead>
             </PageGrid.Main>
           </PageGrid.Container>
         </Container>
@@ -39,14 +43,22 @@ export default function Home() {
             </PageGrid.Aside>
             <PageGrid.Main>
               <ul className="grid md:grid-cols-2 gap-8 lg:gap-12">
-                {pageData.work.map((item) => (
-                  <ResourceList.Item className="flex" key={item.title}>
+                {data.work.map((item) => (
+                  <ResourceList.Item
+                    className={cn(
+                      "flex",
+                      typeof item.contributions !== "undefined"
+                        ? "md:col-span-2"
+                        : "undefined"
+                    )}
+                    key={item.title}
+                  >
                     <Card>
                       <CardHeader>
                         <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md text-zinc-300 -translate-x-[2px] -translate-y-[2px]">
                           <Image
                             src={item.image.url}
-                            alt={item.title}
+                            alt={`The logo of ${item.title}`}
                             width={200}
                             height={200}
                             className={cn(
@@ -67,12 +79,25 @@ export default function Home() {
                           )}
                         </CardTitle>
                         <CardDescription>{item.text}</CardDescription>
+                        {typeof item.contributions === "undefined" ? null : (
+                          <ul className="list-disc px-8 mt-4 font-bold md:text-lg dark:text-white">
+                            {item.contributions.map(async (contribution) => (
+                              <li
+                                key={contribution}
+                                className={markdownStyles["markdown"]}
+                                dangerouslySetInnerHTML={{
+                                  __html: await markdownToHtml(contribution),
+                                }}
+                              />
+                            ))}
+                          </ul>
+                        )}
                       </CardContent>
                       <CardFooter>
                         <TypographyMono>
                           {item.fromYear}—{item.toYear || "\u00a0\u00a0"}
                         </TypographyMono>
-                        <TypographyMono>
+                        <TypographyMono className={linkTextClassName}>
                           {item.link ? <p>{item.link.text}</p> : null}
                         </TypographyMono>
                       </CardFooter>
@@ -80,7 +105,7 @@ export default function Home() {
                   </ResourceList.Item>
                 ))}
 
-                <li className="group flex">
+                <ResourceList.Item className="flex">
                   <Card>
                     <CardHeader>
                       <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 text-black -translate-x-[2px] -translate-y-[2px]">
@@ -116,12 +141,17 @@ export default function Home() {
                       </CardDescription>
                     </CardContent>
                     <CardFooter>
-                      <TypographyMono className="text-white/60 dark:text-black/60">
+                      <TypographyMono
+                        className={cn(
+                          "text-white/60 dark:text-black/60",
+                          linkTextClassName
+                        )}
+                      >
                         philipp[at]rppld.com
                       </TypographyMono>
                     </CardFooter>
                   </Card>
-                </li>
+                </ResourceList.Item>
               </ul>
             </PageGrid.Main>
           </PageGrid.Container>
@@ -132,12 +162,47 @@ export default function Home() {
             <PageGrid.Aside>
               <TypographyH2>About</TypographyH2>
             </PageGrid.Aside>
-            <PageGrid.Main className="space-y-8">
-              {pageData.about.texts.map((text) => (
-                <TypographyP key={text} className="text-black dark:text-white">
-                  {text}
-                </TypographyP>
-              ))}
+            <PageGrid.Main>
+              <div className="space-y-8">
+                {data.about.texts.map((text) => (
+                  <TypographyP
+                    key={text}
+                    className="text-black dark:text-white"
+                  >
+                    {text}
+                  </TypographyP>
+                ))}
+              </div>
+
+              <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2 lg:gap-4 mt-8 -ml-3 -mr-3 lg:-ml-4 lg:-mr-4 -mb-3 lg:-mb-0">
+                <li className="col-span-2 sm:col-span-1">
+                  <Image
+                    src="/philipp.jpg"
+                    alt="A portrait of myself"
+                    className="rounded-xl max-w-full"
+                    width={1200}
+                    height={1600}
+                  />
+                </li>
+                <li>
+                  <Image
+                    src="/kain.jpg"
+                    alt="My cat Kain"
+                    className="rounded-xl max-w-full"
+                    width={1600}
+                    height={1200}
+                  />
+                </li>
+                <li>
+                  <Image
+                    src="/garden.jpg"
+                    alt="A flower blooming in my garden"
+                    className="rounded-xl max-w-full"
+                    width={1200}
+                    height={1600}
+                  />
+                </li>
+              </ul>
             </PageGrid.Main>
           </PageGrid.Container>
         </Container>
@@ -149,7 +214,7 @@ export default function Home() {
             </PageGrid.Aside>
             <PageGrid.Main>
               <ResourceList.List>
-                {pageData.links.map((item) => (
+                {data.elsewhere.map((item) => (
                   <ResourceList.Item key={item.href} className="items-center">
                     <ResourceList.ItemTitle>
                       <ResourceList.ItemLink href={item.href}>
@@ -157,7 +222,9 @@ export default function Home() {
                       </ResourceList.ItemLink>
                     </ResourceList.ItemTitle>
                     <ResourceList.ItemSpacer />
-                    <ResourceList.ItemData>{item.text}</ResourceList.ItemData>
+                    <ResourceList.ItemData className={linkTextClassName}>
+                      {item.text}
+                    </ResourceList.ItemData>
                   </ResourceList.Item>
                 ))}
               </ResourceList.List>
@@ -171,7 +238,7 @@ export default function Home() {
           <PageGrid.Container>
             <PageGrid.Main>
               <p>
-                <TypographySmall>{pageData.smallprint}</TypographySmall>
+                <TypographySmall>{data.page.smallprint}</TypographySmall>
               </p>
             </PageGrid.Main>
           </PageGrid.Container>
