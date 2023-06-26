@@ -1,10 +1,10 @@
 import { Analytics } from "@vercel/analytics/react";
-import { pageData } from "../data/page";
+import { data } from "../data";
 import "./globals.css";
 
 export const metadata = {
-  title: pageData.title,
-  description: pageData.description,
+  title: data.page.title,
+  description: data.page.description,
 };
 
 export default function RootLayout({

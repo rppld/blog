@@ -1,0 +1,3 @@
+.markdown a {
+  @apply underline relative z-20 hover:text-sky-400 dark:hover:text-sky-500 transition-colors;
+}
