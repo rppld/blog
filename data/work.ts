@@ -47,7 +47,7 @@ export const data: Data["work"] = [
     toYear: format(new Date("2021"), "yy"),
     contributions: [
       "Worked with the design team the establish a company-wide design system and lead the initial technical implementation.",
-      "Added the first commits to what would later be turned into [Mollie’s internal component library](https://blog.mollie.com/creating-scalable-and-manageable-design-system-components-58d3ce682272).",
+      "Added the first commits to what would later become [Mollie’s internal component library](https://blog.mollie.com/creating-scalable-and-manageable-design-system-components-58d3ce682272).",
       "Built tooling to maintain design-tokens within Figma and developed pipelines to consume them in the different front-end clients.",
       "Integrated two-factor authentication within the Mollie dashboard and authentication pages.",
       "Added support for payment links within [Mollie’s mobile app](https://www.mollie.com/products/mobile).",

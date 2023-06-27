@@ -19,9 +19,10 @@ import { TypographyP } from "../components/typography-p";
 import { TypographyMono } from "../components/typography-mono";
 import { TypographySmall } from "../components/typography-small";
 import markdownStyles from "./markdown-styles.module.css";
+import { IconInbox } from "../components/icon-inbox";
 
 const linkTextClassName =
-  "group-hover:text-sky-400 dark:group-hover:text-sky-500 transition-colors";
+  "group-hover:text-sky-400 dark:group-hover:text-sky-500 transition-colors whitespace-nowrap";
 
 export default function Home() {
   return (
@@ -80,7 +81,7 @@ export default function Home() {
                         </CardTitle>
                         <CardDescription>{item.text}</CardDescription>
                         {typeof item.contributions === "undefined" ? null : (
-                          <ul className="list-disc px-8 mt-4 font-bold md:text-lg dark:text-white">
+                          <ul className="list-disc px-8 mt-4 font-bold md:text-lg dark:text-white tracking-tight">
                             {item.contributions.map(async (contribution) => (
                               <li
                                 key={contribution}
@@ -109,21 +110,7 @@ export default function Home() {
                   <Card>
                     <CardHeader>
                       <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 text-black -translate-x-[2px] -translate-y-[2px]">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="w-9 h-9"
-                        >
-                          <polyline points="22 12 16 12 14 15 10 15 8 12 2 12" />
-                          <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
-                        </svg>
+                        <IconInbox className="w-9 h-9" />
                       </div>
                     </CardHeader>
                     <CardContent>
@@ -174,7 +161,7 @@ export default function Home() {
                 ))}
               </div>
 
-              <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2 lg:gap-4 mt-8 -ml-3 -mr-3 lg:-ml-4 lg:-mr-4 -mb-3 lg:-mb-0">
+              <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2 lg:gap-4 mt-8 -ml-3 -mr-3 lg:-ml-4 lg:-mr-4 -mb-3 lg:-mb-4">
                 <li className="col-span-2 sm:col-span-1">
                   <Image
                     src="/philipp.jpg"

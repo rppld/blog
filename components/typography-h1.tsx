@@ -1,7 +1,15 @@
-export function TypographyH1(props: React.HTMLProps<HTMLHeadingElement>) {
+import { cn } from "../lib/utils";
+
+export function TypographyH1({
+  className,
+  ...props
+}: React.HTMLProps<HTMLHeadingElement>) {
   return (
     <h1
-      className="text-4xl lg:text-5xl font-extrabold tracking-tight text-black dark:text-white"
+      className={cn(
+        "text-4xl lg:text-5xl font-extrabold tracking-tight text-black dark:text-white",
+        className
+      )}
       {...props}
     />
   );
