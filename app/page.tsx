@@ -27,10 +27,18 @@ const linkTextClassName =
 export default function Home() {
   return (
     <div>
-      <main className="space-y-24 pt-3 md:pt-5 lg:pt-8">
+      <main className="space-y-24 pt-5 lg:pt-8">
         <Container>
           <PageGrid.Container>
             <PageGrid.Main>
+              <Image
+                src="./rppld.svg"
+                alt="rppld.com logo"
+                width={32}
+                height={32}
+                className="rounded-full h-14 w-14 mb-24 -translate-x-[2px] -translate-y-[2px]"
+              />
+
               <TypographyH1>Philipp Rappold</TypographyH1>
               <TypographyLead>{data.page.description}</TypographyLead>
             </PageGrid.Main>
