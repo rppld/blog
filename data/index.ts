@@ -27,7 +27,6 @@ export type Data = {
     text: string;
     image: {
       url: string;
-      padded?: boolean;
     };
     role: string;
     link: Link | null;

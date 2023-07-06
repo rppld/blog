@@ -7,7 +7,6 @@ export const data: Data["work"] = [
     text: "Helped build a science-based, open data platform to support nature preservation and restoration efforts.",
     image: {
       url: "./restor.jpg",
-      padded: true,
     },
     role: "UI developer",
     link: {
@@ -36,7 +35,6 @@ export const data: Data["work"] = [
     text: "As part of the partnerships team, I worked on enabling creative agencies and e-commerce platforms to integrate through Mollie’s partner program.",
     image: {
       url: "./mollie.jpg",
-      padded: true,
     },
     role: "UI developer",
     link: {
@@ -59,7 +57,6 @@ export const data: Data["work"] = [
     text: "In a team of front-end engineers, I contributed to building a platform for buying and selling second-hand tickets for events worldwide.",
     image: {
       url: "./ticketswap.jpg",
-      padded: true,
     },
     role: "UI developer",
     link: {
@@ -81,7 +78,6 @@ export const data: Data["work"] = [
     text: "Worked on medium to large scale e–commerce projects in the Dutch music and fashion landscape.",
     image: {
       url: "./bolden.jpg",
-      padded: true,
     },
     role: "UI designer/developer",
     link: {
@@ -95,7 +91,7 @@ export const data: Data["work"] = [
     title: "rppld.com",
     text: "Independently consulting clients in music, culture, advertising and technology.",
     image: {
-      url: "./rppld.jpg",
+      url: "./rppld.svg",
     },
     role: "Freelance UI designer/developer",
     link: null,
@@ -107,7 +103,6 @@ export const data: Data["work"] = [
     text: "Designed user interfaces on the consulting-team for well-known industry clients as well as internal products.",
     image: {
       url: "./metalab.jpg",
-      padded: true,
     },
     role: "UI designer",
     link: {

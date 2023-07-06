@@ -36,7 +36,7 @@ export default function Home() {
                 alt="rppld.com logo"
                 width={32}
                 height={32}
-                className="rounded-full h-14 w-14 mb-24 -translate-x-[2px] -translate-y-[2px]"
+                className="rounded-full h-14 w-14 mb-24 -translate-x-2"
               />
 
               <TypographyH1>Philipp Rappold</TypographyH1>
@@ -70,10 +70,7 @@ export default function Home() {
                             alt={`The logo of ${item.title}`}
                             width={200}
                             height={200}
-                            className={cn(
-                              "rounded-full",
-                              item.image.padded ? "h-12 w-12" : "w-full h-full"
-                            )}
+                            className="rounded-full h-12 w-12"
                           />
                         </div>
                       </CardHeader>
