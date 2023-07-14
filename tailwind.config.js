@@ -10,6 +10,12 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["var(--font-mona)"],
+        display: [
+          "var(--font-mona)",
+          {
+            fontVariationSettings: '"wdth" 125',
+          },
+        ],
       },
     },
   },
