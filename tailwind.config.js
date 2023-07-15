@@ -6,4 +6,17 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   plugins: [],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-mona)"],
+        display: [
+          "var(--font-mona)",
+          {
+            fontVariationSettings: '"wdth" 125',
+          },
+        ],
+      },
+    },
+  },
 };
