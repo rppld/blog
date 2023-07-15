@@ -7,7 +7,7 @@ export const TypographySmall = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <span
     ref={ref}
-    className={cn("text-md text-black/30 dark:text-white/30", className)}
+    className={cn("text-sm text-black/30 dark:text-white/30", className)}
     {...props}
   />
 ));
