@@ -7,7 +7,7 @@ export function TypographyH1({
   return (
     <h1
       className={cn(
-        "text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight text-black dark:text-white [text-wrap:balance]",
+        "text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight text-neutral-950 [text-wrap:balance]",
         className
       )}
       {...props}

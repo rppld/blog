@@ -8,7 +8,7 @@ export const TypographyP = React.forwardRef<
   <p
     ref={ref}
     className={cn(
-      "text-lg lg:text-xl font-semibold text-black/40 dark:text-white/40 tracking-tight",
+      "text-lg lg:text-xl text-neutral-400 tracking-tight",
       className
     )}
     {...props}

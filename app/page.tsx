@@ -86,7 +86,7 @@ export default function Home() {
                         </CardTitle>
                         <CardDescription>{item.text}</CardDescription>
                         {typeof item.contributions === "undefined" ? null : (
-                          <ul className="list-disc px-8 mt-4 md:text-lg dark:text-white">
+                          <ul className="list-disc px-8 mt-4 dark:text-white">
                             {item.contributions.map(async (contribution) => (
                               <li
                                 key={contribution}

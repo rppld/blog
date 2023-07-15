@@ -7,7 +7,7 @@ export function TypographyH2({
   return (
     <h2
       className={cn(
-        "text-lg lg:text-xl font-display font-bold text-black/40 dark:text-white/40",
+        "text-lg lg:text-xl font-display font-medium text-neutral-400",
         className
       )}
       {...props}
