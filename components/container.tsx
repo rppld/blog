@@ -7,7 +7,7 @@ export default function Container({
 }: React.HTMLProps<HTMLDivElement>) {
   return (
     <div
-      className={cn("max-w-[100rem] ml-auto px-5 lg:px-8", className)}
+      className={cn("max-w-[100rem] mx-auto px-5 lg:px-8", className)}
       {...props}
     />
   );
