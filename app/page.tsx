@@ -32,7 +32,7 @@ export default function Home() {
           <PageGrid.Container>
             <PageGrid.Main>
               <Image
-                src="./rppld.svg"
+                src="./rppld-responsive.svg"
                 alt="rppld.com logo"
                 width={32}
                 height={32}
