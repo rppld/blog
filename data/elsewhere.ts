@@ -2,9 +2,9 @@ import { Data } from "./index";
 
 export const data: Data["elsewhere"] = [
   {
-    title: "Twitter",
-    text: "twitter.com/rppld",
-    href: "https://twitter.com/rppld",
+    title: "X",
+    text: "x.com/rppld",
+    href: "https://x.com/rppld",
   },
   {
     title: "GitHub",
