@@ -2,6 +2,7 @@ import { Data } from "./index";
 
 export const data: Data["about"] = {
   texts: [
-    "Hello, I’m Philipp. I’m an Austrian software engineer living in the Netherlands. I thrive when collaborating with teams that contribute to large JavaScript applications. I’m a strong advocate for design systems and component-based UI development and, having a background in design, I feel most comfortable at the intersection where design meets engineering.",
+    "I specialize in building applications with a focus on modern front-end architectures and fostering effective collaboration between design and engineering. Having a background in design, I bridge the gap between visual creativity and technical execution, delivering cohesive and engaging digital products. I enjoy working in team environments where we tackle complex challenges in large-scale JavaScript ecosystems.",
+    "When off work, you’ll find me on a tennis court, immersed in a book or tending to my garden. I live and work in Amsterdam, The Netherlands.",
   ],
 };

@@ -168,36 +168,6 @@ export default function Home() {
                   </TypographyP>
                 ))}
               </div>
-
-              <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2 lg:gap-4 mt-8 -ml-3 -mr-3 lg:-ml-4 lg:-mr-4 -mb-3 lg:-mb-4">
-                <li className="col-span-2 sm:col-span-1">
-                  <Image
-                    src="/philipp.jpg"
-                    alt="A portrait of myself"
-                    className="rounded-xl max-w-full"
-                    width={1200}
-                    height={1600}
-                  />
-                </li>
-                <li>
-                  <Image
-                    src="/kain.jpg"
-                    alt="My cat Kain"
-                    className="rounded-xl max-w-full"
-                    width={1600}
-                    height={1200}
-                  />
-                </li>
-                <li>
-                  <Image
-                    src="/garden.jpg"
-                    alt="A flower blooming in my garden"
-                    className="rounded-xl max-w-full"
-                    width={1200}
-                    height={1600}
-                  />
-                </li>
-              </ul>
             </PageGrid.Main>
           </PageGrid.Container>
         </Container>
