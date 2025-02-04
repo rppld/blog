@@ -115,7 +115,7 @@ export const data: Data["work"] = [
   },
   {
     title: "MetaLab",
-    text: "Designed user interfaces on the consulting-team for well-known industry clients as well as internal products.",
+    text: "Designed user interfaces on the consulting-team for industry clients as well as internal products.",
     image: {
       url: "./metalab.jpg",
     },
