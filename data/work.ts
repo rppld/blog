@@ -3,12 +3,26 @@ import { Data } from "./index";
 
 export const data: Data["work"] = [
   {
+    title: "Mollie",
+    text: "Returned in September 2023. More details to follow.",
+    image: {
+      url: "./mollie.jpg",
+    },
+    role: "UI engineer",
+    link: {
+      href: "https://www.mollie.com/en",
+      text: "mollie.com",
+    },
+    fromYear: format(new Date("2023"), "yyyy"),
+    toYear: null,
+  },
+  {
     title: "Restor",
     text: "Helped build a science-based, open data platform to support nature preservation and restoration efforts.",
     image: {
       url: "./restor.jpg",
     },
-    role: "UI developer",
+    role: "UI engineer",
     link: {
       text: "restor.eco",
       href: "https://restor.eco/",
@@ -22,7 +36,7 @@ export const data: Data["work"] = [
     image: {
       url: "./montro.jpg",
     },
-    role: "UI developer",
+    role: "UI engineer",
     link: {
       href: "https://montro.com/en",
       text: "montro.com",
@@ -36,7 +50,7 @@ export const data: Data["work"] = [
     image: {
       url: "./mollie.jpg",
     },
-    role: "UI developer",
+    role: "UI engineer",
     link: {
       href: "https://www.mollie.com/en",
       text: "mollie.com",
@@ -59,7 +73,7 @@ export const data: Data["work"] = [
     image: {
       url: "./ticketswap.jpg",
     },
-    role: "UI developer",
+    role: "UI engineer",
     link: {
       href: "https://www.ticketswap.com/",
       text: "ticketswap.com",
@@ -80,7 +94,7 @@ export const data: Data["work"] = [
     image: {
       url: "./bolden.jpg",
     },
-    role: "UI designer/developer",
+    role: "UI designer/engineer",
     link: {
       href: "https://www.bolden.nl/",
       text: "bolden.nl",

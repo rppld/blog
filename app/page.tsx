@@ -132,8 +132,7 @@ export default function Home() {
                         </ResourceList.ItemLink>
                       </CardTitle>
                       <CardDescription className="text-white/60 dark:text-black/60">
-                        Discuss consulting inquiries or work opportunities? I’d
-                        love to hear from you!
+                        Discuss consulting inquiries or work opportunities?
                       </CardDescription>
                     </CardContent>
                     <CardFooter>
